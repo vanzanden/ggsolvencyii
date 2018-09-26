@@ -7,7 +7,7 @@
 fnSetupdata_connection(data)
 }
 \arguments{
-\item{data}{the data send by the geom_class}
+\item{data}{the data send by the geom_class, due to the simple nature of the desired plot no structure information is needed.}
 }
 \value{
 an adjusted version of input dataframe data

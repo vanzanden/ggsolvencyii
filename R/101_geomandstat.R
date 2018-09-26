@@ -10,7 +10,7 @@
 ##    StatSolvii
 ##    StatSolviioutline
 ##    StatSolviiconnection
-##    Stat_solvii
+##    stat_solvii
 ## small:
 ##
 ## ====================================================================== =====
@@ -36,28 +36,31 @@ GeomSolviiconnection <- ggplot2::ggproto(
                                           )
 
 ## geom_solvii ========================================================== =====
-#' geom_solvii
+#' geom_solvii returns a ggplot2 object with filled, concentric circle(part)s
 #'
-#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
-#' @param data  the dataset in tidyverse format (description as a factor)
+#' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
+#' @param data  the dataset in tidyverse format (column 'description' as a factor)
 #' @param stat  default stat is statSolvii
 #' @param position standard ggplot function
 #' @param na.rm standard ggplot function
 #' @param show.legend standard ggplot function
 #' @param inherit.aes standard ggplot function
 #'
-#' @param levelmax default = 99: a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined
-#' @param structuredf default = structure_sf_eng: a representation of the structure, columns description (chr), level (chr), childlevel (chr). description in dataset needs to match the desripton in this file. see ?structure_sf_eng
-#' @param maxscrvalue default = NULL: the scale of the different plot elements, is (by surfacearea) is by default measured to the largest element, this can be overridden by this parameter
-#' @param levelonedescription default = "SCR": the description of level 1, this name is needed before integration of data and structure.
-#' @param aggregatesuffix default = "_other" When a certain level contains more items than specified by levelmax (an integer or dataframe (level, levelmax)) the smallest items are combined. The description is of the motherlevel with a suffix
-#' @param scalingx default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in x-direction
-#' @param scalingy default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in y-direction
-#' @param fullstructure default = FALSE: an indication if the legend has to show all possible components of the structure, or only those present in the dataset
-#' @param rotationdescription default = NULL: which item determines the rotation of the plot, so that this item is
-#' @param rotationdegrees default = NULL: the fixed amount of degrees of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
-#' @param squared default = FALSE: a boolean to indicate if the plot should return a square (squared is TRUE), or a circle (squared = FALSE)
+#' @param structuredf (dataframe: default = sii_structure_sf16_eng): a representation of the structure, columns are description (chr), level (chr), childlevel (chr). In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. BSCR, operational and Adjustment-LACDT. lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column description in the dataset need to match the desription in this file.  see ?sii_structure_sf16_eng. The package contains also a file sii_structure_sf16_nld with Dutch terms in descripton column.
 #'
+#' @param levelmax (integer or dataframe, default = 99): a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item.
+#' @param aggregatesuffix (string, default = "_other") When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix
+
+#' @param maxscrvalue (optional, double, default = NULL): the scale of the different plot elements is is by default measured to the largest level 1 element (i.e. SCR) in the dataset, this can be overridden by this parameter for example when combining several plots
+#' @param scalingx (optional, positive value ,default = 1): for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in x-direction
+#' @param scalingy (optional, positive value ,default = 1): for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in y-direction
+
+#' @param rotationdescription (optional, string, default = NULL): default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.
+#' @param rotationdegrees (optional, integer, -360 to 360, default = NULL): when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
+
+# ' @param fullstructure (optional, NOT YET IMPLEMENTED, boolean, default = FALSE): an indication if the legend has to show all possible components of the structure, or only those present in the dataset
+#' @param squared (optional, boolean, default = FALSE): when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.
+#' #'
 #' @param ... ellipsis, a standard R parameter
 #'
 #' @import ggplot2
@@ -68,29 +71,30 @@ GeomSolviiconnection <- ggplot2::ggproto(
 #'
 # ' @examples dummy
 
-geom_solvii <- function(mapping = NULL,  data = NULL,
-                          stat = "solvii",
-                          position = "identity",
-                          na.rm = FALSE,
-                          show.legend = NA,
-                          inherit.aes = TRUE,
-                        ## geomspecific parameter
-                          levelmax = 99,
-                          structuredf = sii_structure_sf16_eng,
-                          maxscrvalue = NULL,
-                          levelonedescription = "SCR",
-                          aggregatesuffix = "_other",
-                          scalingx = 1,
-                          scalingy = 1,
-                          fullstructure = FALSE,
-                          rotationdegrees = NULL,
-                          rotationdescription = NULL,
-                          squared = FALSE,
-                        ## internal parameters
-                          ## purpose (attribution in call to ggplot::layer)
-                          ## outlinedf (attribution in call to ggplot::layer)
-                        ## ellipsis
-                          ...
+geom_solvii <- function(data = NULL,
+                        mapping = NULL,
+                        stat = "solvii",
+                      ## geomspecific parameter
+                        structuredf = sii_structure_sf16_eng,
+                        levelmax = 99,
+                        aggregatesuffix = "_other",
+                        maxscrvalue = NULL,
+                        scalingx = 1,
+                        scalingy = 1,
+                        # fullstructure = FALSE, ## not an input yet
+                        rotationdegrees = NULL,
+                        rotationdescription = NULL,
+                        squared = FALSE,
+                      ## other default ggplot2 parameters
+                        position = "identity",
+                        na.rm = FALSE,
+                        show.legend = NA,
+                        inherit.aes = TRUE,
+                      ## internal parameters
+                        ## purpose (attribution in call to ggplot::layer)
+                        ## outlinedf (attribution in call to ggplot::layer)
+                      ## ellipsis
+                        ...
                       ) {
         ggplot2::layer(data = data,
                        stat = stat,
@@ -103,11 +107,10 @@ geom_solvii <- function(mapping = NULL,  data = NULL,
                               levelmax = levelmax,
                               structuredf = structuredf,
                               maxscrvalue = maxscrvalue,
-                              levelonedescription = levelonedescription,
                               aggregatesuffix = aggregatesuffix,
                               scalingx = scalingx,
                               scalingy = scalingy,
-                              fullstructure = fullstructure,
+                              fullstructure = FALSE,
                               rotationdegrees = rotationdegrees,
                               rotationdescription = rotationdescription,
                               squared = squared,
@@ -120,54 +123,58 @@ geom_solvii <- function(mapping = NULL,  data = NULL,
     }
 
 ## geom_solviioutline =================================================== =====
-#' geom_solviioutline
+#' geom_solviioutline returns a ggplot2 object with concentric circle(part)s
 #'
-#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
-#' @param data  the dataset in tidyverse format (description as a factor)
-#' @param stat  default stat is statSolvii
-#' @param position standard ggplot function
-#' @param na.rm standard ggplot function
-#' @param show.legend standard ggplot function
-#' @param inherit.aes standard ggplot function
+#' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
+#' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
 #'
-#' @param levelmax default = 99: a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined
-#' @param levelonedescription default = "SCR": the description of level 1, this name is needed before integration of data and structure.
-#' @param structuredf default = structure_sf_eng: a representation of the structure, columns description (chr), level (chr), childlevel (chr). description in dataset needs to match the desripton in this file. see ?structure_sf_eng
-#' @param outlinedf default = outline_sf: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot
-#' @param maxscrvalue default = NULL: the scale of the different plot elements, is (by surfacearea) is by default measured to the largest element, this can be overridden by this parameter
-#' @param aggregatesuffix default = "_other" When a certain level contains more items than specified by levelmax (an integer or dataframe (level, levelmax)) the smallest items are combined. The description is of the motherlevel with a suffix
-#' @param scalingx default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in x-direction
-#' @param scalingy default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in y-direction
-#' @param fullstructure default = FALSE: an indication if the legend has to show all possible components of the structure, or only those present in the dataset
-#' @param rotationdescription default = NULL: which item determines the rotation of the plot, so that this item is
-#' @param rotationdegrees default = NULL: the fixed amount of degrees of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
-#' @param squared default = FALSE: a boolean to indicate if the plot should return a square (squared is TRUE), or a circle (squared = FALSE)
-#' @param ... ellipsis
+#' @inheritParams geom_solvii
+#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
+# ' @param data  the dataset in tidyverse format (description as a factor)
+# ' @param stat  default stat is statSolvii
+# ' @param position standard ggplot function
+# ' @param na.rm standard ggplot function
+# ' @param show.legend standard ggplot function
+# ' @param inherit.aes standard ggplot function
+#'
+# ' @param levelmax default = 99: a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined
+# ' @param structuredf default = structure_sf_eng: a representation of the structure, columns description (chr), level (chr), childlevel (chr). description in dataset needs to match the desripton in this file. see ?structure_sf_eng
+#' @param outlinedf default = outline_sf: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'
+# ' @param maxscrvalue default = NULL: the scale of the different plot elements, is (by surfacearea) is by default measured to the largest element, this can be overridden by this parameter
+# ' @param aggregatesuffix default = "_other" When a certain level contains more items than specified by levelmax (an integer or dataframe (level, levelmax)) the smallest items are combined. The description is of the motherlevel with a suffix
+# ' @param scalingx default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in x-direction
+# ' @param scalingy default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in y-direction
+#   ' @param fullstructure default = FALSE: an indication if the legend has to show all possible components of the structure, or only those present in the dataset
+# ' @param rotationdescription default = NULL: which item determines the rotation of the plot, so that this item is
+# ' @param rotationdegrees default = NULL: the fixed amount of degrees of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
+# ' @param squared default = FALSE: a boolean to indicate if the plot should return a square (squared is TRUE), or a circle (squared = FALSE)
+# ' @param ... ellipsis
 #'
 #' @return a ggplot object
 #' @export
 #'
 # ' @examples dummy
 
-geom_solviioutline <- function(   mapping = NULL,  data = NULL,
+geom_solviioutline <- function(   data = NULL,
+                                  mapping = NULL,
                                   stat = "solviioutline",
+                                ## geomspecific parameter
+                                  structuredf = sii_structure_sf16_eng,
+                                  outlinedf = sii_outline_sf16_eng,
+                                  levelmax = 99,
+                                  aggregatesuffix = "_other",
+                                  maxscrvalue = NULL,
+                                  scalingx = 1,
+                                  scalingy = 1,
+                                  rotationdegrees = NULL,
+                                  rotationdescription = NULL,
+                                  squared = FALSE,
+                                  # fullstructure = FALSE, ## not an input yet
+                                ## other standard ggplot parameters
                                   position = "identity",
                                   na.rm = FALSE,
                                   show.legend = NA,
                                   inherit.aes = TRUE,
-                                ## geomspecific parameter
-                                  levelmax = 99,
-                                  structuredf = sii_structure_sf16_eng,
-                                  outlinedf = sii_outline_sf16_eng,
-                                  maxscrvalue = NULL,
-                                  levelonedescription = "SCR",
-                                  aggregatesuffix = "_other",
-                                  scalingx = 1,
-                                  scalingy = 1,
-                                  fullstructure = FALSE,
-                                  rotationdegrees = NULL,
-                                  rotationdescription = NULL,
-                                  squared = FALSE,
                                 ## internal parameters
                                   ## purpose (attribution in call to ggplot::layer),
                                 ## ellipsis
@@ -186,11 +193,10 @@ geom_solviioutline <- function(   mapping = NULL,  data = NULL,
                                           structuredf = structuredf,
                                           outlinedf = outlinedf,
                                           maxscrvalue = maxscrvalue,
-                                          levelonedescription = levelonedescription,
                                           aggregatesuffix = aggregatesuffix,
                                           scalingx = scalingx,
                                           scalingy = scalingy,
-                                          fullstructure = fullstructure,
+                                          fullstructure = FALSE,
                                           rotationdegrees = rotationdegrees,
                                           rotationdescription = rotationdescription,
                                           squared = squared,
@@ -218,15 +224,16 @@ geom_solviioutline <- function(   mapping = NULL,  data = NULL,
 #'
 # ' @examples dummy
 
-geom_solviiconnection <- function(  mapping = NULL,  data = NULL,
-                                      stat = "solviiconnection",
-                                      position = "identity",
-                                      na.rm = FALSE,
-                                      show.legend = NA,
-                                      inherit.aes = TRUE,
-                                    ## userparams
-                                    ## ellipsis
-                                      ...
+geom_solviiconnection <- function( data = NULL,
+                                   mapping = NULL,
+                                   stat = "solviiconnection",
+                                   position = "identity",
+                                   na.rm = FALSE,
+                                   show.legend = NA,
+                                   inherit.aes = TRUE,
+                                  ## userparams
+                                  ## ellipsis
+                                    ...
                                   ) {
                         ggplot2::layer(data = data,
                        stat = stat,
@@ -250,9 +257,10 @@ StatSolvii <- ggplot2::ggproto(
     default_aex = ggplot2::aes(color = "black", lwd = 0.05),
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
-            params$maxscrvalue <- fnmaxscrvalue(data = data,
-                                                params = params)
-            return(params)
+        params$levelonedescription <- fnlevelonedescription(params = params)
+        params$maxscrvalue         <- fnmaxscrvalue(data = data,
+                                                    params = params)
+          return(params)
         },
 
   ## setup data ----------------------------------------------- -----
@@ -269,7 +277,6 @@ StatSolvii <- ggplot2::ggproto(
                              structuredf,
                              outlinedf,
                              maxscrvalue,
-                             levelonedescription,
                              aggregatesuffix,
                              scalingx,
                              scalingy,
@@ -284,7 +291,7 @@ StatSolvii <- ggplot2::ggproto(
                                structuredf = structuredf,
                                outlinedf = outlinedf,
                                maxscrvalue = maxscrvalue,
-                               levelonedescription = levelonedescription,
+                               # levelonedescription = levelonedescription,
                                aggregatesuffix = aggregatesuffix,
                                scalingx = scalingx,
                                scalingy = scalingy,
@@ -327,7 +334,8 @@ StatSolviioutline <- ggplot2::ggproto(
 
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
-           params$maxscrvalue <- fnmaxscrvalue(data = data,
+      params$levelonedescription <- fnlevelonedescription(params = params)
+      params$maxscrvalue         <- fnmaxscrvalue(data = data,
                                                params = params)
             return(params)
         },
@@ -346,7 +354,7 @@ StatSolviioutline <- ggplot2::ggproto(
                               structuredf,
                               outlinedf,
                               maxscrvalue,
-                              levelonedescription,
+                              # levelonedescription,
                               aggregatesuffix,
                               scalingx,
                               scalingy,
@@ -361,7 +369,7 @@ StatSolviioutline <- ggplot2::ggproto(
                                structuredf = structuredf,
                                outlinedf = outlinedf,
                                maxscrvalue = maxscrvalue,
-                               levelonedescription = levelonedescription,
+                               # levelonedescription = levelonedescription,
                                aggregatesuffix = aggregatesuffix,
                                scalingx = scalingx,
                                scalingy = scalingy,
@@ -422,8 +430,8 @@ StatSolviiconnection <- ggplot2::ggproto(
       # { ## return results # return(data) # }
 ) ## end of ggproto class statSolviiconnection
 
-## Stat_solvii ========================================================== =====
-#' Stat_solvii
+## stat_solvii ========================================================== =====
+#' stat_solvii
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
 #' @param data  the dataset in tidyverse format (description as a factor)

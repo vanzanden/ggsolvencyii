@@ -1,8 +1,14 @@
 Package: ggsolvencyii
-Title: A Custom ggplot2-plot To Show The Components Of The SCR In SOLVENCY II, Both Standard Formula And Internal Model
+Title: A ggplot2-plot Of Composition Of SOLVENCY II SCR: SF and IM
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Marco", "van Zanden", email = "git@vanzanden.nl", role = c("aut", "cre"))
+Author: drs M. van Zanden AAG FRM
+Maintainer: M. van Zanden <git@vanzanden.nl>
+Description: An implementation of ggplot2 to show the composition of (Solvency II) SCR as a diversificated
+  sum of diversificated components, presented as a series of concentric circles or squares. 
+  A ready made set of Standard Formula structure files is present, but insurers with internal models can adapt these files.
+  options are available for combining smaller components, horizontal and vertical scaling, rotation (fixed and/or based on a component) 
+  With outlines and connectors several SCR-plots can be compared, for example in ORSA scenarios.
 Depends: R (>= 3.5.0)
 License: CC0
 Encoding: UTF-8

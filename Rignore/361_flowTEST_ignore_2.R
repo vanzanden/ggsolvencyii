@@ -96,7 +96,6 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
                             , color = description
               ),
               # maxscrvalue = 53.333,
-              # levelonedescription = "BKR",
               # scalingx =1.25,
               # scalingy = .5,
               # levelmax = 2,
@@ -127,7 +126,6 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
                                 , color = description
                               ),
                   maxscrvalue = 53.333,
-                  # levelonedescription = "BKR",
                   scalingx =1.25,
                   scalingy = .5,
                     # levelmax = 2,
@@ -156,7 +154,6 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
                              fill = description, color = description
                              ),
                               # maxscrvalue = 53.333,
-                             # levelonedescription = "BKR",
                              # levelmax = 4,
                              # levelmax = sii_levelmax_sf16_993,
                              # color = "black",

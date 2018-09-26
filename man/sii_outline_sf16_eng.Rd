@@ -22,6 +22,7 @@ sii_outline_sf16_eng
 }
 \description{
 is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end)
+named outline1 to 4 respectively. With a dataframe with columns 'levelordescription' and 'outline1', ..., 'outline 4' (default is outline_sf16_eng) for each item can be determined which lines to plot.
 }
 \examples{
 sii_outline_sf16_eng

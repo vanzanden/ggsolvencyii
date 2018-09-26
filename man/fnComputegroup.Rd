@@ -7,11 +7,11 @@
 fnComputegroup(data, scales, siiparams)
 }
 \arguments{
-\item{data}{dummy text}
+\item{data}{the data send by the geom_class, the result of the integration of user supplied data and expanded structure .}
 
 \item{scales}{dummy text}
 
-\item{siiparams}{dummy text}
+\item{siiparams}{The (adjusted) geom parameterset, forwarded to lower level functions as siiparams}
 }
 \value{
 a dataframe which containes transformed or enriched data, usable for plotting

@@ -13,8 +13,9 @@
 ## fnSetupdata_surfaces ================================================= =====
 #' fnSetupdata_surfaces
 #'
-#' @param data the data send by the geom_class
-#' @param params the params send by the geom_classs
+#' @inheritParams fnmaxscrvalue
+# ' @param data the data send by the geom_class
+# ' @param params the params send by the geom_classs
 #'
 #' @return an adjusted version of input dataframe data
 # ' @exportnot
@@ -33,9 +34,10 @@ fnSetupdata_surfaces <- function(data, params) {
     }
 
 ## fn_structure_expansion =============================================== =====
-#' fn_structure_expansion
+#' fn_structure_expansion takes the structure dataframe and enriches it with additional lines for accumulation
 #'
-#' @param params dummy text
+#' @inheritParams fnmaxscrvalue
+# ' @param params dummy text
 #'
 #' @return a dataframe
 # ' @ export
@@ -210,10 +212,11 @@ fn_determinelevels <- function (vector_in,  ind_value = FALSE,
 
 
 ## fn_structure_data_integration ======================================== =====
-#' fn_structure_data_integration
+#' fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is nessecary.
 #'
 #' @param expandedstructure result of fn_structure_expansion()
-#' @param data :dataframe in tidyverse format with (minimal) columns id, x, y, description, value and possible columns comparewithid, COLOR, FILLCOLOR, PANEL
+#' @inheritParams fnmaxscrvalue
+# ' @param data :dataframe in tidyverse format with (minimal) columns id, x, y, description, value and possible columns comparewithid, COLOR, FILLCOLOR, PANEL
 #'
 #' @return data
 # ' @ export
@@ -415,9 +418,10 @@ fn_structure_data_integration <- function (expandedstructure,
 }
 
 ## fn_add_ind_show ====================================================== =====
-#' fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement
+#' fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement to fill column ind_show for several items
 #'
-#' @param data an dataframe, consisting of the dataset and the expanded structure
+#' @inheritParams fnmaxscrvalue
+# ' @param data an dataframe, consisting of the dataset and the expanded structure
 #'
 #' @return the dataframe with an added column ind_show
 # ' @export

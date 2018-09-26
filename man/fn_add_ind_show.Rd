@@ -2,16 +2,16 @@
 % Please edit documentation in R/121_setupdata.R
 \name{fn_add_ind_show}
 \alias{fn_add_ind_show}
-\title{fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement}
+\title{fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement to fill column ind_show for several items}
 \usage{
 fn_add_ind_show(data)
 }
 \arguments{
-\item{data}{an dataframe, consisting of the dataset and the expanded structure}
+\item{data}{the data send by the geom_class, the result of the integration of user supplied data and expanded structure .}
 }
 \value{
 the dataframe with an added column ind_show
 }
 \description{
-fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement
+fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement to fill column ind_show for several items
 }

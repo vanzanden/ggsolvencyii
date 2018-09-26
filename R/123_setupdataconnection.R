@@ -10,7 +10,7 @@
 ## fnSetupdata_connection =============================================== =====
 #' fnSetupdata_connection
 #'
-#' @param data the data send by the geom_class
+#' @param data the data send by the geom_class, due to the simple nature of the desired plot no structure information is needed.
 #'
 #' @return an adjusted version of input dataframe data
 # ' @exportnot

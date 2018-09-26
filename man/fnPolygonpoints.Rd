@@ -7,11 +7,11 @@
 fnPolygonpoints(df, siiparams, counter_polyorder)
 }
 \arguments{
-\item{df}{dummy text}
+\item{df}{The dataframe resulted from last step}
 
-\item{siiparams}{dummy text}
+\item{siiparams}{The (adjusted) geom parameterset, forwarded to lower level functions as siiparams}
 
-\item{counter_polyorder}{dummy text}
+\item{counter_polyorder}{a continues counter, needed for sorting polygonpoints}
 }
 \value{
 a list with two items (df (dataframe), counter_polyorder (numeric, updated)

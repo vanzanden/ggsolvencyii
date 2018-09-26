@@ -11,8 +11,9 @@
 ## fnSetupdata_outline ================================================== =====
 #' fnSetupdata_outline
 #'
-#' @param data the data send by the geom_class
-#' @param params the params send by the geom_classs
+#' @inheritParams fnmaxscrvalue
+# ' @param data the data send by the geom_class
+# ' @param params the params send by the geom_classs
 #'
 #' @return an adjusted version of input dataframe data
 # ' @exportnot

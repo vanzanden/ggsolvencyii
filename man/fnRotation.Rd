@@ -7,9 +7,9 @@
 fnRotation(df, siiparams)
 }
 \arguments{
-\item{df}{dummy text}
+\item{df}{The dataframe resulted from last step}
 
-\item{siiparams}{dummy text}
+\item{siiparams}{The (adjusted) geom parameterset, forwarded to lower level functions as siiparams}
 }
 \value{
 a dataframe with adjusted db and de columns

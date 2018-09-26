@@ -7,7 +7,7 @@
 fnCornerpoints(df, siiparams)
 }
 \arguments{
-\item{df}{a dataframe}
+\item{df}{The dataframe resulted from last step}
 
 \item{siiparams}{dummy text}
 }

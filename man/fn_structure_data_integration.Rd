@@ -2,18 +2,18 @@
 % Please edit documentation in R/121_setupdata.R
 \name{fn_structure_data_integration}
 \alias{fn_structure_data_integration}
-\title{fn_structure_data_integration}
+\title{fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is nessecary.}
 \usage{
 fn_structure_data_integration(expandedstructure, data)
 }
 \arguments{
 \item{expandedstructure}{result of fn_structure_expansion()}
 
-\item{data}{:dataframe in tidyverse format with (minimal) columns id, x, y, description, value and possible columns comparewithid, COLOR, FILLCOLOR, PANEL}
+\item{data}{the data send by the geom_class, the result of the integration of user supplied data and expanded structure .}
 }
 \value{
 data
 }
 \description{
-fn_structure_data_integration
+fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is nessecary.
 }

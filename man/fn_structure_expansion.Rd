@@ -2,16 +2,16 @@
 % Please edit documentation in R/121_setupdata.R
 \name{fn_structure_expansion}
 \alias{fn_structure_expansion}
-\title{fn_structure_expansion}
+\title{fn_structure_expansion takes the structure dataframe and enriches it with additional lines for accumulation}
 \usage{
 fn_structure_expansion(params)
 }
 \arguments{
-\item{params}{dummy text}
+\item{params}{the params send by the geom_class, possible adjusted by setup_params.}
 }
 \value{
 a dataframe
 }
 \description{
-fn_structure_expansion
+fn_structure_expansion takes the structure dataframe and enriches it with additional lines for accumulation
 }

@@ -7,9 +7,9 @@
 fnSetupdata_surfaces(data, params)
 }
 \arguments{
-\item{data}{the data send by the geom_class}
+\item{data}{the data send by the geom_class, the result of the integration of user supplied data and expanded structure .}
 
-\item{params}{the params send by the geom_classs}
+\item{params}{the params send by the geom_class, possible adjusted by setup_params.}
 }
 \value{
 an adjusted version of input dataframe data

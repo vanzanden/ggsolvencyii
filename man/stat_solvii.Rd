@@ -2,7 +2,7 @@
 % Please edit documentation in R/101_geomandstat.R
 \name{stat_solvii}
 \alias{stat_solvii}
-\title{Stat_solvii}
+\title{stat_solvii}
 \usage{
 stat_solvii(mapping = NULL, data = NULL, geom = "solvii",
   position = "identity", show.legend = TRUE, inherit.aes = TRUE,
@@ -55,5 +55,5 @@ stat_solvii(mapping = NULL, data = NULL, geom = "solvii",
 a ggplot object
 }
 \description{
-Stat_solvii
+stat_solvii
 }

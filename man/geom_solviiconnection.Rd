@@ -4,14 +4,14 @@
 \alias{geom_solviiconnection}
 \title{geom_solviiconnection}
 \usage{
-geom_solviiconnection(mapping = NULL, data = NULL,
+geom_solviiconnection(data = NULL, mapping = NULL,
   stat = "solviiconnection", position = "identity", na.rm = FALSE,
   show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{mapping}{required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value}
-
 \item{data}{the dataset in tidyverse format (description as a factor)}
+
+\item{mapping}{required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value}
 
 \item{stat}{default stat is statSolvii}
 

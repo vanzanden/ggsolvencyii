@@ -14,7 +14,8 @@
 ## fnCornerpoints ======================================================= =====
 #' fnCornerpoints
 #'
-#' @param df a dataframe
+#' @inheritParams fnComputegroup
+#' @param df The dataframe resulted from last step
 #' @param siiparams dummy text
 #'
 #' @return a dataframe with 5 added columns (ri, ro, db, de, plottype)
@@ -108,9 +109,12 @@ fnCornerpoints <- function(df, siiparams) {
 
 ## fnRotation =========================================================== =====
 #' fnRotation
+#'
+#' @inheritParams fnComputegroup
+#' @param df The dataframe resulted from last step
+# ' @param siiparams   dummy text
 
-#' @param df  dummy text
-#' @param siiparams   dummy text
+
 #' @return a dataframe with adjusted db and de columns
 #'
 # ' @exportnot
@@ -193,9 +197,10 @@ fnsquareddegrees <- function (circledegrees) {
 ## fnPolygonpoints ====================================================== =====
 #' fnPolygonpoints
 #'
-#' @param df  dummy text
-#' @param siiparams   dummy text
-#' @param counter_polyorder dummy text
+#' @inheritParams fnComputegroup
+#' @param df  The dataframe resulted from last step
+# ' @param siiparams   dummy text
+#' @param counter_polyorder a continues counter, needed for sorting polygonpoints
 #'
 #' @return a list with two items (df (dataframe), counter_polyorder (numeric, updated)
 #'

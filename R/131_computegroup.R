@@ -13,9 +13,10 @@
 ## fnComputegroup ======================================================= =====
 #' fnComputegroup
 #'
-#' @param data dummy text
+#' @inheritParams fnmaxscrvalue
+# ' @param data dummy text
 #' @param scales dummy text
-#' @param siiparams dummy text
+#' @param siiparams The (adjusted) geom parameterset, forwarded to lower level functions as siiparams
 #'
 #' @return a dataframe which containes transformed or enriched data, usable for plotting
 # ' @exportnot
