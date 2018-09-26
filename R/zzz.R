@@ -1,0 +1,26 @@
+utils::suppressForeignCheck(c("%>%" ,
+                              "description" , "level", "childlevel",
+                              "sii_structure_sf16_eng" , "sii_structure_sf16_nl" ,
+                              "sii_structure_dh_eng" , "sii_structure_rdm_eng",
+                              "sii_outline_sf16_eng",
+                              "id", "x" , "y",  "value",
+                              "int_level","inputvalue","ind_aggregation", "aggdescription",
+                              "fullstructure" ,"outlinedf", "level_grouping",
+                              "group" , "xpoint", "ypoint",
+                              "n","xend","yend",
+                              "comparewithid","compid","drawoutline", "outline_sf","outlinetype" ,"levelordescription", "squared"
+
+                              ))
+utils::globalVariables(c("%>%",
+                         "description" , "level", "childlevel",
+                         "sii_structure_sf16_eng" , "sii_structure_sf16_nl" ,
+                         "sii_structure_dh_eng" , "sii_structure_rdm_eng",
+                         "sii_outline_sf16_eng",
+                         "id", "x" , "y",  "value",
+                         "int_level","inputvalue","ind_aggregation", "aggdescription",
+                         "fullstructure" ,
+                         "group" , "xpoint", "ypoint","outlinedf", "level_grouping",
+                         "n","xend","yend",
+                         "comparewithid","compid","drawoutline", "outline_sf","outlinetype","levelordescription", "squared"
+
+))
