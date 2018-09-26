@@ -239,7 +239,7 @@ StatSolvii <- ggplot2::ggproto(
                                   '_class' =  "StatSolvii",
                                   '_inherit' = ggplot2::Stat,
                                   required_aes = c("id","x","y","description", "value"),
-                                  default_aex = aes(color="black", lwd = 0.05),
+                                  default_aex = ggplot2::aes(color="black", lwd = 0.05),
                                 ######### setup parameters  ###################
                                   setup_params = function(data,params)
                                       {
@@ -311,7 +311,7 @@ StatSolviioutline <- ggplot2::ggproto(
                                         '_class' =  "StatSolviioutline",
                                         '_inherit' = ggplot2::Stat,
                                         required_aes = c("id","x","y","description", "value","comparewithid"),
-                                        default_aex = aes(color="red", lwd = 0.2),
+                                        default_aex = ggplot2::aes(color="red", lwd = 0.2),
 
                                       ######## setup parameters  ###################
                                         setup_params = function(data,params)
@@ -384,7 +384,7 @@ StatSolviiconnection <- ggplot2::ggproto(
                                             '_class' =  "StatSolviiconnection",
                                             '_inherit' = ggplot2::Stat,
                                             required_aes = c("id","x","y","comparewithid"), #,"description", "value","comparewithid"),
-                                            default_aex = aes(color="red", lwd = 0.2),
+                                            default_aex = ggplot2::aes(color="red", lwd = 0.2),
 
                                           ######## setup parameters  ###################
                                             # setup_params = function(data,params)# { #   params <- fnSetupparams (data=data,params=params) #   return(params)# },
