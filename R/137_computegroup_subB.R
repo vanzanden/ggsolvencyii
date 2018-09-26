@@ -1,4 +1,4 @@
-## functions in this file
+## functions in this file =============================================== =====
 ##
 ## main:
 ##    fnCirclepoints
@@ -7,11 +7,10 @@
 ##    fnsqXP
 ##    fnsqYP
 ##    fnsqDegseq
-## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+## ====================================================================== =====
 
 
-
-## fnCirclepoints #######################################################################################################################
+## fnCirclepoints ======================================================= =====
 #' fnCirclepoints
 #'
 #' @param ri the  inner radius of the circle segment
@@ -116,7 +115,7 @@ fnCirclepoints <- function(ri, ro, db, de, plottype,
 
 
 
-## fnSquarepoints #######################################################################################################################
+## fnSquarepoints ======================================================= =====
 #' fnSquarepoints
 #'
 #' @param ri the (vertical) distance of center of circle to the inner edge of the segment;
@@ -304,7 +303,7 @@ fnSquarepoints <- function(ri, ro, db, de,
         return(polygonpoints_result)
     }
 
-## fnsqXP #######################################################################################################################
+## fnsqXP =============================================================== =====
 #' fnsqXP calculating the horizontal offset of the point, based on a reference value (vertdistance) and compass direction.
 #'
 #' @param vertdistance dummy text
@@ -325,7 +324,7 @@ fnsqXP <- function (vertdistance, degrees, xsign, rounding) {
   }
 
 
-## fnsqYP #######################################################################################################################
+## fnsqYP =============================================================== =====
 #' fnsqYP calculating the vertical offset of the point, based on a reference value (vertdistance) and compass direction.
 #'
 #' @param vertdistance dummy text
@@ -344,7 +343,7 @@ fnsqYP <- function (vertdistance, degrees, ysign, rounding) {
         return(ypoint)
     }
 
-## fnsqDegseq ###################################################################################################################
+## fnsqDegseq =========================================================== =====
 #' fnsqDegseq gives a sequence of degrees based on a starting and end rotation, with al the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
 #'
 #' @param startdegrees a startingpoint of degrees (as used in a compass)

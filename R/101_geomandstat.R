@@ -1,4 +1,4 @@
-## functions in this file ##############
+## functions in this file =============================================== =====
 ##
 ## main:
 ##    GeomSolvii
@@ -13,31 +13,29 @@
 ##    Stat_solvii
 ## small:
 ##
-## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-
+## ====================================================================== =====
 
 ## helpfull link
 ## https://www.rdocumentation.org/packages/ggplot2/versions/2.2.1/topics/ggplot2-ggproto
 
 
-## GeomSolvii  #######################################################################################
+## GeomSolvii =========================================================== =====
 GeomSolvii        <- ggplot2::ggproto(
                                         "_class" = "GeomSolvii",
                                         "_inherit" = ggplot2::GeomPolygon
                                       )
-## GeomSolviioutline ################################################################################
+## GeomSolviioutline ==================================================== =====
 GeomSolviioutline <- ggplot2::ggproto(
                                         "_class" = "GeomSolviioutline",
                                         "_inherit" = ggplot2::GeomPath
                                       )
-## GeomSolviiconnection #############################################################################
+## GeomSolviiconnection ================================================= =====
 GeomSolviiconnection <- ggplot2::ggproto(
                                             "_class" = "GeomSolviiconnection",
                                             "_inherit" = ggplot2::GeomSegment
                                           )
 
-## geom_solvii # # # # #####################################################################################
+## geom_solvii ========================================================== =====
 #' geom_solvii
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
@@ -121,7 +119,7 @@ geom_solvii <- function(mapping = NULL,  data = NULL,
                      )               )
     }
 
-## geom_solviioutline # # # # #####################################################################################
+## geom_solviioutline =================================================== =====
 #' geom_solviioutline
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
@@ -203,7 +201,7 @@ geom_solviioutline <- function(   mapping = NULL,  data = NULL,
                         )              )
     }
 
-## geom_solviiconnection # # # # #####################################################################################
+## geom_solviiconnection ================================================ =====
 #' geom_solviiconnection
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
@@ -244,27 +242,27 @@ geom_solviiconnection <- function(  mapping = NULL,  data = NULL,
                      )               )
     }
 
-## StatSolvii # # # # #####################################################################################
+## StatSolvii =========================================================== =====
 StatSolvii <- ggplot2::ggproto(
     "_class" =  "StatSolvii",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y", "description", "value"),
     default_aex = ggplot2::aes(color = "black", lwd = 0.05),
-  ######### setup parameters  ###################
+  ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
             params$maxscrvalue <- fnmaxscrvalue(data = data,
                                                 params = params)
             return(params)
         },
 
-  ######### setup data #############################
+  ## setup data ----------------------------------------------- -----
     setup_data = function(data, params) {
             data_out <- fnSetupdata_surfaces(data = data,
                                              params = params)
             return(data_out)
         },
 
-  ######### compute group ############################
+  ## compute group -------------------------------------------- -----
     compute_group = function(data,
                              scales,
                              levelmax,
@@ -311,7 +309,7 @@ StatSolvii <- ggplot2::ggproto(
             return(df)
         },
 
-  ######### finish layer #####################################
+  ## finish layer --------------------------------------------- -----
     finish_layer = function(data, scales, params) {
           ## combining x/y and xpoint/ypoint values and several scalings
           ## return results
@@ -319,112 +317,112 @@ StatSolvii <- ggplot2::ggproto(
         }
 ) #END ggproto
 
-## StatSolviioutline # # # # #####################################################################################
+## StatSolviioutline ==================================================== =====
 StatSolviioutline <- ggplot2::ggproto(
-          "_class" =  "StatSolviioutline",
-          "_inherit" = ggplot2::Stat,
-          required_aes = c("id", "x", "y",
-                           "description", "value", "comparewithid"),
-          default_aex = ggplot2::aes(color = "red", lwd = 0.2),
+    "_class" =  "StatSolviioutline",
+    "_inherit" = ggplot2::Stat,
+    required_aes = c("id", "x", "y",
+                     "description", "value", "comparewithid"),
+    default_aex = ggplot2::aes(color = "red", lwd = 0.2),
 
-        ######## setup parameters  ###################
-          setup_params = function(data, params) {
-                 params$maxscrvalue <- fnmaxscrvalue(data = data,
-                                                     params = params)
-                  return(params)
-              },
+  ## setup parameters ----------------------------------------- -----
+    setup_params = function(data, params) {
+           params$maxscrvalue <- fnmaxscrvalue(data = data,
+                                               params = params)
+            return(params)
+        },
 
-        ######### setup data #############################
-          setup_data = function(data, params) {
-                 data_out <- fnSetupdata_outline(data = data,
-                                                 params = params)
-                  return(data_out)
-              },
+  ## setup data ----------------------------------------------- -----
+    setup_data = function(data, params) {
+           data_out <- fnSetupdata_outline(data = data,
+                                           params = params)
+            return(data_out)
+        },
 
-        ######### compute group ############################
-          compute_group = function(data,
-                                    scales,
-                                    levelmax,
-                                    structuredf,
-                                    outlinedf,
-                                    maxscrvalue,
-                                    levelonedescription,
-                                    aggregatesuffix,
-                                    scalingx,
-                                    scalingy,
-                                    fullstructure,
-                                    rotationdegrees,
-                                    rotationdescription,
-                                    squared,
-                                    purpose,
-                                    ...
-                                  ) {
-                    siiparams <- list (levelmax = levelmax,
-                                     structuredf = structuredf,
-                                     outlinedf = outlinedf,
-                                     maxscrvalue = maxscrvalue,
-                                     levelonedescription = levelonedescription,
-                                     aggregatesuffix = aggregatesuffix,
-                                     scalingx = scalingx,
-                                     scalingy = scalingy,
-                                     fullstructure = fullstructure,
-                                     rotationdegrees = rotationdegrees,
-                                     rotationdescription = rotationdescription,
-                                     squared = squared,
-                                     purpose = purpose)
+  ## compute group -------------------------------------------- -----
+    compute_group = function(data,
+                              scales,
+                              levelmax,
+                              structuredf,
+                              outlinedf,
+                              maxscrvalue,
+                              levelonedescription,
+                              aggregatesuffix,
+                              scalingx,
+                              scalingy,
+                              fullstructure,
+                              rotationdegrees,
+                              rotationdescription,
+                              squared,
+                              purpose,
+                              ...
+                            ) {
+              siiparams <- list (levelmax = levelmax,
+                               structuredf = structuredf,
+                               outlinedf = outlinedf,
+                               maxscrvalue = maxscrvalue,
+                               levelonedescription = levelonedescription,
+                               aggregatesuffix = aggregatesuffix,
+                               scalingx = scalingx,
+                               scalingy = scalingy,
+                               fullstructure = fullstructure,
+                               rotationdegrees = rotationdegrees,
+                               rotationdescription = rotationdescription,
+                               squared = squared,
+                               purpose = purpose)
 
-                  df <- fnComputegroup(data = data,
-                                          scales = scales,
-                                          siiparams = siiparams
-                                        )
-                  df <- df$df
-                  df <- dplyr::mutate(df, x_org = x, y_org = y)
-                  df <- dplyr::mutate(df,
-                                      x = x + xpoint * scalingx,
-                                      y = y + ypoint * scalingy)
-                ## return results
-                  return(df)
-              },
+            df <- fnComputegroup(data = data,
+                                    scales = scales,
+                                    siiparams = siiparams
+                                  )
+            df <- df$df
+            df <- dplyr::mutate(df, x_org = x, y_org = y)
+            df <- dplyr::mutate(df,
+                                x = x + xpoint * scalingx,
+                                y = y + ypoint * scalingy)
+          ## return results
+            return(df)
+        },
 
-        ######### finish layer #####################################
-          finish_layer = function(data, scales, params) {
-                ## return results
-                  return(data)
-              }
-      ) ## end of ggproto class statSolviioutline
+  ## finish layer --------------------------------------------- -----
+    finish_layer = function(data, scales, params) {
+          ## return results
+            return(data)
+        }
+) ## end of ggproto class statSolviioutline
 
 
-## StatSolviiconnection # # # # #####################################################################################
+## StatSolviiconnection ================================================= =====
 StatSolviiconnection <- ggplot2::ggproto(
-            "_class" =  "StatSolviiconnection",
-            "_inherit" = ggplot2::Stat,
-            required_aes = c("id", "x", "y", "comparewithid"),
-            default_aex = ggplot2::aes(color = "red", lwd = 0.2),
+    "_class" =  "StatSolviiconnection",
+    "_inherit" = ggplot2::Stat,
+    required_aes = c("id", "x", "y", "comparewithid"),
+    default_aex = ggplot2::aes(color = "red", lwd = 0.2),
 
-          ######## setup parameters  ###################
-            # setup_params = function(data,params)
-            # { params <- fnSetupparams (data=data,params=params)
-            #   return(params) },
+  ## setup parameters ----------------------------------------- -----
+    # setup_params = function(data,params)
+    # { params <- fnSetupparams (data=data,params=params)
+    #   return(params) },
 
-          ######### setup data #############################
-            setup_data = function(data, params) {
-                data <- fnSetupdata_connection(data = data)
-                ## return results
-                  return(data)
-              },
+  ## setup data ----------------------------------------------- -----
+    setup_data = function(data, params) {
+        data <- fnSetupdata_connection(data = data)
+        ## return results
+          return(data)
+      },
 
-          ######### compute group ############################
-            compute_group = function(data, scales, ...) {
-                ## return results
-                  return(data)
-              } # ,
+  ## compute group -------------------------------------------- -----
+    compute_group = function(data, scales, ...) {
+        ## return results
+          return(data)
+      } # ,
 
-          ######### finish layer #####################################
-            # finish_layer = function(data,scales,params)
-              # { ## return results # return(data) # }
-        ) ## end of ggproto class statSolviiconnection
+  ## finish layer --------------------------------------------- -----
+    # finish_layer = function(data,scales,params)
+      # { ## return results # return(data) # }
+) ## end of ggproto class statSolviiconnection
 
-## Stat_solvii ####################################################################################
+## Stat_solvii ========================================================== =====
 #' Stat_solvii
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
@@ -503,4 +501,4 @@ stat_solvii <- function(  mapping = NULL,
                      )             )
     }  ## end of definition stat_solvii
 
-#############################################################################################################
+## ====================================================================== =====

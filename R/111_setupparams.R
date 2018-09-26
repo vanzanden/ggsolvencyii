@@ -1,13 +1,12 @@
-## functions in this file
+## functions in this file =============================================== =====
 ##
 ## main:
 ##
 ## small:
 ##    fnmaxscrvalue
-## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+## ====================================================================== =====
 
-
-## fnmaxscrvalue # # # # ####################################################################################
+## fnmaxscrvalue ======================================================== =====
 #' fnmaxscrvalue
 #' all elements in the resulting dataset are scaled to surface of value of the largest level 1 (SCR) element
 #'  in the set, unless the value to be scaled to is provided as a parameter

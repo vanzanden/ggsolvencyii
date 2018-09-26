@@ -1,4 +1,4 @@
-## functions in this file
+## functions in this file =============================================== =====
 ##
 ## main:
 ##    fnComputegroup (data,siiparams,...)
@@ -6,12 +6,11 @@
 ## small:
 ##    transform_outlinedf (df)
 ##
-## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+## ====================================================================== =====
 
 
 
-
-## fnComputegroup #######################################################################################
+## fnComputegroup ======================================================= =====
 #' fnComputegroup
 #'
 #' @param data dummy text
@@ -37,7 +36,7 @@ fnComputegroup <- function(data, scales, siiparams) {
     }
 
 
-## geomsiidatatopoints ######################################################################################
+## geomsiidatatopoints ================================================== =====
 #' geomsiidatatopoints
 #'
 #' @param df dummy text
@@ -132,7 +131,7 @@ geomsiidatatopoints <- function(df, siiparams) {
 }
 
 
-## transform_outlinedf ################################################################
+## transform_outlinedf ================================================== =====
 #' transform_outlinedf
 #'
 #' @param df a dataframe with column level and some other levels

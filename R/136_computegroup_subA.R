@@ -1,4 +1,4 @@
-## functions in this file
+## functions in this file =============================================== =====
 ##
 ## main:
 ##    fnCornerpoints
@@ -8,11 +8,10 @@
 ##    fnPolygonpoints
 ## small:
 ##
-## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+## ====================================================================== =====
 
 
-
-## fnCornerpoints #############################################################################################
+## fnCornerpoints ======================================================= =====
 #' fnCornerpoints
 #'
 #' @param df a dataframe
@@ -107,7 +106,7 @@ fnCornerpoints <- function(df, siiparams) {
 }
 
 
-## fnRotation #######################################################################################################
+## fnRotation =========================================================== =====
 #' fnRotation
 
 #' @param df  dummy text
@@ -147,7 +146,7 @@ fnRotation <- function(df, siiparams) {
         return(df_out)
     }
 
-## fnSquareconversion ################################################################
+## fnSquareconversion =================================================== =====
 
 #' fnSquareconversion
 #'
@@ -169,7 +168,7 @@ fnSquareconversion <- function(df) {
     }
 
 
-## fnsquareddegrees ################################################################
+## fnsquareddegrees ===================================================== =====
 #' fnsquareddegrees The actual transformation of a part of a circle to the (surfacewise)  equivalent of the part of a square
 #'
 #' @param circledegrees (no default) an amount in degrees
@@ -191,7 +190,7 @@ fnsquareddegrees <- function (circledegrees) {
         return(squaredegrees)
     }
 
-## fnPolygonpoints #######################################################################################################
+## fnPolygonpoints ====================================================== =====
 #' fnPolygonpoints
 #'
 #' @param df  dummy text

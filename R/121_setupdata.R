@@ -1,4 +1,4 @@
-## functions in this file
+## functions in this file =============================================== =====
 ##
 ## main:
 ##    fnSetupdata_surfaces
@@ -8,9 +8,9 @@
 ##    fn_determinelevels
 ##    fn_add_ind_show
 ##
-## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+## ====================================================================== =====
 
-## fnSetupdata_surfaces  ###################################################################################
+## fnSetupdata_surfaces ================================================= =====
 #' fnSetupdata_surfaces
 #'
 #' @param data the data send by the geom_class
@@ -32,7 +32,7 @@ fnSetupdata_surfaces <- function(data, params) {
         return(data_out)
     }
 
-## fn_structure_expansion #########################################################################
+## fn_structure_expansion =============================================== =====
 #' fn_structure_expansion
 #'
 #' @param params dummy text
@@ -134,7 +134,7 @@ fn_structure_expansion <- function (params) {
     }
 
 
-## fn_determinelevels #####################################################################################################################
+## fn_determinelevels =================================================== =====
 #' fn_determinelevels reduces a vector with levels to a list with unique items, possible after further selection or transformation to value
 #'
 #' @param vector_in a vector with levels, this function reduces it to unique values
@@ -209,7 +209,7 @@ fn_determinelevels <- function (vector_in,  ind_value = FALSE,
 
 
 
-## fn_structure_data_integration ######################################################################################################################################################
+## fn_structure_data_integration ======================================== =====
 #' fn_structure_data_integration
 #'
 #' @param expandedstructure result of fn_structure_expansion()
@@ -414,7 +414,7 @@ fn_structure_data_integration <- function (expandedstructure,
     return(d_out2)
 }
 
-## fn_add_ind_show ######################################################################################################################################################
+## fn_add_ind_show ====================================================== =====
 #' fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement
 #'
 #' @param data an dataframe, consisting of the dataset and the expanded structure
