@@ -350,7 +350,7 @@ library(ggmap)
     base_map_nederland2 +
            # ggplot()+
       geom_solvii(data =# testdata2
-                    sii_z_example1_data,
+                    sii_z_example5_data,
                     # exceldf[exceldf$id==1,]
                     #,
                   mapping = aes(x=lat, y=lon , id = id, value = value, description=description,

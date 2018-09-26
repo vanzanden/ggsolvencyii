@@ -1,5 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^Rignore$
+^R_ignore\$
 ^xls$
 ^\.travis\.yml$
