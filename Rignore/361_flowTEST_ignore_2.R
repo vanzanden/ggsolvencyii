@@ -150,9 +150,6 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
     scale_color_manual(name = "Componenten",values = colorcolors_sf_eng  )
 
 
-
-
-
  ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
   geom_solvii(data = sii_z_example2_data,
                mapping = aes(x=time, y=ratio , id = id, value = value, description=description,

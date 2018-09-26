@@ -12,7 +12,7 @@ fnCornerpoints(df, siiparams)
 \item{siiparams}{dummy text}
 }
 \value{
-a dataframe with 5 added columns (ri,ro,db,de,plottype)
+a dataframe with 5 added columns (ri, ro, db, de, plottype)
 }
 \description{
 fnCornerpoints

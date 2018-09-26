@@ -19,27 +19,25 @@
 #'
 # ' @examples
 
-fnSetupdata_outline <- function(data,
-                                  params
-                                )
-    {
-      ## CALL ##
-        expandedstructure <- fn_structure_expansion ( params = params)
+fnSetupdata_outline <- function(data, params) {
+  ## CALL ##
+    expandedstructure <- fn_structure_expansion ( params = params)
 
-        datacopy <- dplyr::select(data, id, x, y, description, compid=comparewithid)
-        dataexclxy <- dplyr::select(data, -x, -y )
-        dataexclxy <- dplyr::rename(dataexclxy, compid=id)
-        data <- merge(x=dataexclxy ,y=datacopy, all.y = TRUE, by=c("compid","description") )
-        data <- data[!is.na(data$value),]
-        data$comparewithid <- 1
-        data <- dplyr::select(data,-compid)
-        data <- as.data.frame(data)
-      ## CALL ##
-        data_out <- fn_structure_data_integration(expandedstructure=expandedstructure,
-                                                  data=data
-                                                  )
-      ## return results
-        return(data_out)
-    }
-
-
+    datacopy <- dplyr::select(data, id, x, y,
+                              description, compid = comparewithid)
+    dataexclxy <- dplyr::select(data, -x, -y )
+    dataexclxy <- dplyr::rename(dataexclxy, compid = id)
+    data <- merge(x = dataexclxy, y = datacopy,
+                  all.y = TRUE,
+                  by = c("compid", "description") )
+    data <- data[!is.na(data$value), ]
+    data$comparewithid <- 1
+    data <- dplyr::select(data, -compid)
+    data <- as.data.frame(data)
+  ## CALL ##
+    data_out <- fn_structure_data_integration(expandedstructure = expandedstructure,
+                                              data = data
+                                              )
+  ## return results
+    return(data_out)
+}

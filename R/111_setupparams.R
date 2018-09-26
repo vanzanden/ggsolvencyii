@@ -20,26 +20,28 @@
 #'
 # ' @examples
 
-fnmaxscrvalue <- function(data,
-                            params
-                          )
-    {
+fnmaxscrvalue <- function(data, params
+                          ) {
       ## afleiden maxscrvalue for scaling
-        if (!is.null(params$maxscrvalue))
-          { value_out <- params$maxscrvalue
-            print(paste0("scaling is based on inputvalue (maxscrvalue) of " ,value_out))}
-        else
-          {
-            value_out <-max(data$value[data$description==params$levelonedescription])
-            if(value_out == -Inf)
-              { value_out <- 50
-                print(paste0("The (default)value of variable 'levelonedescription': ",params$levelonedescription ,", is not found in the dataset. "))
-                print(paste0("  It might be neccesary to include attribution to this parameter in the call to geom_"))
-                print(paste0("  scaling is based on a ARBITRARY max (level= 1) value of " ,value_out ))
-              }
-            else
-              { print(paste0("scaling is based on a max (level= 1) value of " ,value_out ))}
+        if (!is.null(params$maxscrvalue)) {
+          value_out <- params$maxscrvalue
+          print(paste0("scaling is based on inputvalue (maxscrvalue) of ",
+                       value_out))
+        } else {
+          value_out <- max(data$value[data$description == params$levelonedescription])
+          if (value_out == -Inf) {
+            value_out <- 50
+            print(paste0("The (default)value of variable 'levelonedescription': ",
+                         params$levelonedescription,
+                         ", is not found in the dataset. "))
+            print(paste0("  It might be neccesary to include attribution to this parameter in the call to geom_"))
+            print(paste0("  scaling is based on a ARBITRARY max (level= 1) value of ",
+                         value_out ))
+          } else {
+            print(paste0("scaling is based on a max (level= 1) value of ",
+                         value_out ))
           }
+        }
       ## return results
         return(value_out)
     }

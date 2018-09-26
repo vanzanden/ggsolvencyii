@@ -3,3 +3,4 @@
 ^xls$
 ^\.travis\.yml$
 ^Rignore$
+^_binaries$

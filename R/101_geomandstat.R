@@ -16,24 +16,25 @@
 ## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
+
 ## helpfull link
 ## https://www.rdocumentation.org/packages/ggplot2/versions/2.2.1/topics/ggplot2-ggproto
 
 
 ## GeomSolvii  #######################################################################################
 GeomSolvii        <- ggplot2::ggproto(
-                                        '_class' = "GeomSolvii",
-                                        '_inherit' =ggplot2::GeomPolygon
+                                        "_class" = "GeomSolvii",
+                                        "_inherit" = ggplot2::GeomPolygon
                                       )
 ## GeomSolviioutline ################################################################################
 GeomSolviioutline <- ggplot2::ggproto(
-                                        '_class' = "GeomSolviioutline",
-                                        '_inherit' =ggplot2::GeomPath
+                                        "_class" = "GeomSolviioutline",
+                                        "_inherit" = ggplot2::GeomPath
                                       )
 ## GeomSolviiconnection #############################################################################
 GeomSolviiconnection <- ggplot2::ggproto(
-                                            '_class' = "GeomSolviiconnection",
-                                            '_inherit' =ggplot2::GeomSegment
+                                            "_class" = "GeomSolviiconnection",
+                                            "_inherit" = ggplot2::GeomSegment
                                           )
 
 ## geom_solvii # # # # #####################################################################################
@@ -71,7 +72,10 @@ GeomSolviiconnection <- ggplot2::ggproto(
 
 geom_solvii <- function(mapping = NULL,  data = NULL,
                           stat = "solvii",
-                          position = "identity", na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
+                          position = "identity",
+                          na.rm = FALSE,
+                          show.legend = NA,
+                          inherit.aes = TRUE,
                         ## geomspecific parameter
                           levelmax = 99,
                           structuredf = sii_structure_sf16_eng,
@@ -89,31 +93,31 @@ geom_solvii <- function(mapping = NULL,  data = NULL,
                           ## outlinedf (attribution in call to ggplot::layer)
                         ## ellipsis
                           ...
-                      )
-    {
+                      ) {
         ggplot2::layer(data = data,
                        stat = stat,
                        geom = GeomSolvii,
-                       mapping = mapping, position = position, show.legend = show.legend,
+                       mapping = mapping, position = position,
+                       show.legend = show.legend,
                        inherit.aes = inherit.aes,
                        params = list( na.rm = na.rm,
-                                      ## userparams
-                                        levelmax = levelmax,
-                                        structuredf = structuredf,
-                                        maxscrvalue = maxscrvalue,
-                                        levelonedescription = levelonedescription,
-                                        aggregatesuffix = aggregatesuffix ,
-                                        scalingx = scalingx,
-                                        scalingy = scalingy,
-                                        fullstructure = fullstructure,
-                                        rotationdegrees = rotationdegrees,
-                                        rotationdescription = rotationdescription,
-                                        squared=squared,
-                                     ## internal params
-                                        purpose = "surfaces",
-                                        outlinedf = NULL,
-                                     ## ellipsis
-                                        ...
+                            ## userparams
+                              levelmax = levelmax,
+                              structuredf = structuredf,
+                              maxscrvalue = maxscrvalue,
+                              levelonedescription = levelonedescription,
+                              aggregatesuffix = aggregatesuffix,
+                              scalingx = scalingx,
+                              scalingy = scalingy,
+                              fullstructure = fullstructure,
+                              rotationdegrees = rotationdegrees,
+                              rotationdescription = rotationdescription,
+                              squared = squared,
+                           ## internal params
+                              purpose = "surfaces",
+                              outlinedf = NULL,
+                           ## ellipsis
+                              ...
                      )               )
     }
 
@@ -149,30 +153,34 @@ geom_solvii <- function(mapping = NULL,  data = NULL,
 
 geom_solviioutline <- function(   mapping = NULL,  data = NULL,
                                   stat = "solviioutline",
-                                  position = "identity", na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
+                                  position = "identity",
+                                  na.rm = FALSE,
+                                  show.legend = NA,
+                                  inherit.aes = TRUE,
                                 ## geomspecific parameter
                                   levelmax = 99,
                                   structuredf = sii_structure_sf16_eng,
                                   outlinedf = sii_outline_sf16_eng,
                                   maxscrvalue = NULL,
-                                  levelonedescription ="SCR",
+                                  levelonedescription = "SCR",
                                   aggregatesuffix = "_other",
                                   scalingx = 1,
                                   scalingy = 1,
                                   fullstructure = FALSE,
                                   rotationdegrees = NULL,
                                   rotationdescription = NULL,
-                                  squared=FALSE,
+                                  squared = FALSE,
                                 ## internal parameters
                                   ## purpose (attribution in call to ggplot::layer),
                                 ## ellipsis
                                   ...
-                                )
-    {
+                                ) {
         ggplot2::layer( data = data,
                           stat = stat,
                           geom = GeomSolviioutline,
-                          mapping = mapping, position = position, show.legend = show.legend,
+                          mapping = mapping,
+                          position = position,
+                          show.legend = show.legend,
                           inherit.aes = inherit.aes,
                           params = list(  na.rm = na.rm,
                                         ## userparams
@@ -180,14 +188,14 @@ geom_solviioutline <- function(   mapping = NULL,  data = NULL,
                                           structuredf = structuredf,
                                           outlinedf = outlinedf,
                                           maxscrvalue = maxscrvalue,
-                                          levelonedescription =levelonedescription,
-                                          aggregatesuffix = aggregatesuffix ,
+                                          levelonedescription = levelonedescription,
+                                          aggregatesuffix = aggregatesuffix,
                                           scalingx = scalingx,
                                           scalingy = scalingy,
                                           fullstructure = fullstructure,
-                                          rotationdegrees = rotationdegrees ,
-                                          rotationdescription =rotationdescription,
-                                          squared=squared,
+                                          rotationdegrees = rotationdegrees,
+                                          rotationdescription = rotationdescription,
+                                          squared = squared,
                                         ## internal params
                                           purpose = "outline",
                                         ## ellipsis
@@ -214,13 +222,15 @@ geom_solviioutline <- function(   mapping = NULL,  data = NULL,
 
 geom_solviiconnection <- function(  mapping = NULL,  data = NULL,
                                       stat = "solviiconnection",
-                                      position = "identity", na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
+                                      position = "identity",
+                                      na.rm = FALSE,
+                                      show.legend = NA,
+                                      inherit.aes = TRUE,
                                     ## userparams
                                     ## ellipsis
                                       ...
-                                  )
-    {
-        ggplot2::layer(data = data,
+                                  ) {
+                        ggplot2::layer(data = data,
                        stat = stat,
                        geom = GeomSolviiconnection,
                        mapping = mapping,
@@ -236,172 +246,183 @@ geom_solviiconnection <- function(  mapping = NULL,  data = NULL,
 
 ## StatSolvii # # # # #####################################################################################
 StatSolvii <- ggplot2::ggproto(
-                                  '_class' =  "StatSolvii",
-                                  '_inherit' = ggplot2::Stat,
-                                  required_aes = c("id","x","y","description", "value"),
-                                  default_aex = ggplot2::aes(color="black", lwd = 0.05),
-                                ######### setup parameters  ###################
-                                  setup_params = function(data,params)
-                                      {
-                                          params$maxscrvalue<- fnmaxscrvalue(data=data, params=params)
-                                          return(params)
-                                      },
+    "_class" =  "StatSolvii",
+    "_inherit" = ggplot2::Stat,
+    required_aes = c("id", "x", "y", "description", "value"),
+    default_aex = ggplot2::aes(color = "black", lwd = 0.05),
+  ######### setup parameters  ###################
+    setup_params = function(data, params) {
+            params$maxscrvalue <- fnmaxscrvalue(data = data,
+                                                params = params)
+            return(params)
+        },
 
-                                ######### setup data #############################
-                                  setup_data = function(data,params)
-                                      {
-                                          data_out <- fnSetupdata_surfaces(data=data,params=params)
-                                          return(data_out)
-                                      },
+  ######### setup data #############################
+    setup_data = function(data, params) {
+            data_out <- fnSetupdata_surfaces(data = data,
+                                             params = params)
+            return(data_out)
+        },
 
-                                ######### compute group ############################
-                                  compute_group = function(data,
-                                                           scales,
-                                                           levelmax,
-                                                           structuredf,
-                                                           outlinedf,
-                                                           maxscrvalue,
-                                                           levelonedescription,
-                                                           aggregatesuffix,
-                                                           scalingx,
-                                                           scalingy,
-                                                           fullstructure,
-                                                           rotationdegrees,
-                                                           rotationdescription,
-                                                           squared,
-                                                           purpose,
-                                                           ...
-                                                          )
-                                      {
-                                          siiparams <- list (levelmax =levelmax,
-                                                             structuredf=structuredf,
-                                                             outlinedf=outlinedf,
-                                                             maxscrvalue=maxscrvalue,
-                                                             levelonedescription=levelonedescription,
-                                                             aggregatesuffix=aggregatesuffix,
-                                                             scalingx=scalingx  ,
-                                                             scalingy=scalingy,
-                                                             fullstructure=fullstructure,
-                                                             rotationdegrees=rotationdegrees,
-                                                             rotationdescription=rotationdescription,
-                                                             squared=squared,
-                                                             purpose=purpose)
+  ######### compute group ############################
+    compute_group = function(data,
+                             scales,
+                             levelmax,
+                             structuredf,
+                             outlinedf,
+                             maxscrvalue,
+                             levelonedescription,
+                             aggregatesuffix,
+                             scalingx,
+                             scalingy,
+                             fullstructure,
+                             rotationdegrees,
+                             rotationdescription,
+                             squared,
+                             purpose,
+                             ...
+                            ) {
+            siiparams <- list (levelmax = levelmax,
+                               structuredf = structuredf,
+                               outlinedf = outlinedf,
+                               maxscrvalue = maxscrvalue,
+                               levelonedescription = levelonedescription,
+                               aggregatesuffix = aggregatesuffix,
+                               scalingx = scalingx,
+                               scalingy = scalingy,
+                               fullstructure = fullstructure,
+                               rotationdegrees = rotationdegrees,
+                               rotationdescription = rotationdescription,
+                               squared = squared,
+                               purpose = purpose)
 
-                                            df <- fnComputegroup( data = data,
-                                                                  siiparams=siiparams,
-                                                                  ...
-                                                                )
-                                          df <- df$df
-                                          df <- dplyr::mutate(df,x_org=x, y_org=y)
-                                          df <- dplyr::mutate(df,x=x+xpoint*scalingx, y=y+ypoint*scalingy)
-                                        ## return results
-                                          return(df)
-                                      },
+            df <- fnComputegroup( data = data,
+                                    siiparams = siiparams,
+                                    ...
+                                  )
+            df <- df$df
+            df <- dplyr::mutate(df,
+                                x_org = x,
+                                y_org = y)
+            df <- dplyr::mutate(df,
+                                x = x + xpoint * scalingx,
+                                y = y + ypoint * scalingy)
+          ## return results
+            return(df)
+        },
 
-                                ######### finish layer #####################################
-                                  finish_layer = function(data,scales,params)
-                                      {   ## combining x/y and xpoint/ypoint values and several scalings
-                                        ## return results
-                                          return(data)
-                                      }
-                              ) #END ggproto
+  ######### finish layer #####################################
+    finish_layer = function(data, scales, params) {
+          ## combining x/y and xpoint/ypoint values and several scalings
+          ## return results
+            return(data)
+        }
+) #END ggproto
 
 ## StatSolviioutline # # # # #####################################################################################
 StatSolviioutline <- ggplot2::ggproto(
-                                        '_class' =  "StatSolviioutline",
-                                        '_inherit' = ggplot2::Stat,
-                                        required_aes = c("id","x","y","description", "value","comparewithid"),
-                                        default_aex = ggplot2::aes(color="red", lwd = 0.2),
+          "_class" =  "StatSolviioutline",
+          "_inherit" = ggplot2::Stat,
+          required_aes = c("id", "x", "y",
+                           "description", "value", "comparewithid"),
+          default_aex = ggplot2::aes(color = "red", lwd = 0.2),
 
-                                      ######## setup parameters  ###################
-                                        setup_params = function(data,params)
-                                            {   params$maxscrvalue<- fnmaxscrvalue(data=data, params=params)
-                                                return(params)
-                                            },
+        ######## setup parameters  ###################
+          setup_params = function(data, params) {
+                 params$maxscrvalue <- fnmaxscrvalue(data = data,
+                                                     params = params)
+                  return(params)
+              },
 
-                                      ######### setup data #############################
-                                        setup_data = function(data,params)
-                                            {   data_out <- fnSetupdata_outline(data=data, params=params)
-                                                return(data_out)
-                                            },
+        ######### setup data #############################
+          setup_data = function(data, params) {
+                 data_out <- fnSetupdata_outline(data = data,
+                                                 params = params)
+                  return(data_out)
+              },
 
-                                      ######### compute group ############################
-                                        compute_group = function(
-                                                                  data,
-                                                                  scales,
-                                                                  levelmax,
-                                                                  structuredf,
-                                                                  outlinedf,
-                                                                  maxscrvalue,
-                                                                  levelonedescription,
-                                                                  aggregatesuffix,
-                                                                  scalingx,
-                                                                  scalingy,
-                                                                  fullstructure,
-                                                                  rotationdegrees,
-                                                                  rotationdescription,
-                                                                  squared,
-                                                                  purpose,
-                                                                  ...
-                                                                )
-                                            {
-                                                siiparams <- list (levelmax =levelmax,
-                                                                   structuredf=structuredf,
-                                                                   outlinedf=outlinedf,
-                                                                   maxscrvalue=maxscrvalue,
-                                                                   levelonedescription=levelonedescription,
-                                                                   aggregatesuffix=aggregatesuffix,
-                                                                   scalingx=scalingx  ,
-                                                                   scalingy=scalingy,
-                                                                   fullstructure=fullstructure,
-                                                                   rotationdegrees=rotationdegrees,
-                                                                   rotationdescription=rotationdescription,
-                                                                   squared=squared,
-                                                                   purpose=purpose)
+        ######### compute group ############################
+          compute_group = function(data,
+                                    scales,
+                                    levelmax,
+                                    structuredf,
+                                    outlinedf,
+                                    maxscrvalue,
+                                    levelonedescription,
+                                    aggregatesuffix,
+                                    scalingx,
+                                    scalingy,
+                                    fullstructure,
+                                    rotationdegrees,
+                                    rotationdescription,
+                                    squared,
+                                    purpose,
+                                    ...
+                                  ) {
+                    siiparams <- list (levelmax = levelmax,
+                                     structuredf = structuredf,
+                                     outlinedf = outlinedf,
+                                     maxscrvalue = maxscrvalue,
+                                     levelonedescription = levelonedescription,
+                                     aggregatesuffix = aggregatesuffix,
+                                     scalingx = scalingx,
+                                     scalingy = scalingy,
+                                     fullstructure = fullstructure,
+                                     rotationdegrees = rotationdegrees,
+                                     rotationdescription = rotationdescription,
+                                     squared = squared,
+                                     purpose = purpose)
 
-                                                  df <- fnComputegroup(data = data,
-                                                                        scales=scales,
-                                                                        siiparams=siiparams
-                                                                      )
-                                                df <- df$df
-                                                df <- dplyr::mutate(df,x_org=x, y_org=y)
-                                                df <- dplyr::mutate(df,x=x+xpoint*scalingx, y=y+ypoint*scalingy)
-                                              ## return results
-                                                return(df)
-                                            },
+                  df <- fnComputegroup(data = data,
+                                          scales = scales,
+                                          siiparams = siiparams
+                                        )
+                  df <- df$df
+                  df <- dplyr::mutate(df, x_org = x, y_org = y)
+                  df <- dplyr::mutate(df,
+                                      x = x + xpoint * scalingx,
+                                      y = y + ypoint * scalingy)
+                ## return results
+                  return(df)
+              },
 
-                                      ######### finish layer #####################################
-                                        finish_layer = function(data,scales,params)
-                                            {
-                                              ## return results
-                                                return(data)
-                                            }
-                                    ) ## end of ggproto class statSolviioutline
+        ######### finish layer #####################################
+          finish_layer = function(data, scales, params) {
+                ## return results
+                  return(data)
+              }
+      ) ## end of ggproto class statSolviioutline
 
 
 ## StatSolviiconnection # # # # #####################################################################################
 StatSolviiconnection <- ggplot2::ggproto(
-                                            '_class' =  "StatSolviiconnection",
-                                            '_inherit' = ggplot2::Stat,
-                                            required_aes = c("id","x","y","comparewithid"), #,"description", "value","comparewithid"),
-                                            default_aex = ggplot2::aes(color="red", lwd = 0.2),
+            "_class" =  "StatSolviiconnection",
+            "_inherit" = ggplot2::Stat,
+            required_aes = c("id", "x", "y", "comparewithid"),
+            default_aex = ggplot2::aes(color = "red", lwd = 0.2),
 
-                                          ######## setup parameters  ###################
-                                            # setup_params = function(data,params)# { #   params <- fnSetupparams (data=data,params=params) #   return(params)# },
+          ######## setup parameters  ###################
+            # setup_params = function(data,params)
+            # { params <- fnSetupparams (data=data,params=params)
+            #   return(params) },
 
-                                          ######### setup data #############################
-                                            setup_data = function(data,params)
-                                                {   data <- fnSetupdata_connection(data=data)
-                                                    return(data)  },
+          ######### setup data #############################
+            setup_data = function(data, params) {
+                data <- fnSetupdata_connection(data = data)
+                ## return results
+                  return(data)
+              },
 
-                                          ######### compute group ############################
-                                            compute_group = function(data,scales,...)
-                                                {   return(data)  } # ,
+          ######### compute group ############################
+            compute_group = function(data, scales, ...) {
+                ## return results
+                  return(data)
+              } # ,
 
-                                          ######### finish layer #####################################
-                                            # finish_layer = function(data,scales,params)
-                                              # { ## return results # return(data) # }
-                                        ) ## end of ggproto class statSolviiconnection
+          ######### finish layer #####################################
+            # finish_layer = function(data,scales,params)
+              # { ## return results # return(data) # }
+        ) ## end of ggproto class statSolviiconnection
 
 ## Stat_solvii ####################################################################################
 #' Stat_solvii
@@ -435,7 +456,10 @@ StatSolviiconnection <- ggplot2::ggproto(
 stat_solvii <- function(  mapping = NULL,
                           data = NULL,
                           geom = "solvii",
-                          position = "identity", show.legend = TRUE, inherit.aes = TRUE, na.rm = FALSE,
+                          position = "identity",
+                          show.legend = TRUE,
+                          inherit.aes = TRUE,
+                          na.rm = FALSE,
                         ## geomspecific parameter
                           levelmax = 99,
                           structuredf = sii_structure_sf16_eng,
@@ -452,19 +476,20 @@ stat_solvii <- function(  mapping = NULL,
                           ## purpose (attribution in call to ggplot::layer),
                         ## ellipsis
                           ...
-                        )
-    {
-      ggplot2::layer(mapping = mapping, data = data,
+                        ) {
+     ggplot2::layer(mapping = mapping, data = data,
                      stat = "Solvii",
                      geom = geom,
-                     position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+                     position = position,
+                     show.legend = show.legend,
+                     inherit.aes = inherit.aes,
                      params = list(na.rm = na.rm,
                                     ## userparams
                                       levelmax = levelmax,
                                       structuredf = structuredf,
                                       maxscrvalue = maxscrvalue,
-                                      levelonedescription =levelonedescription,
-                                      aggregatesuffix = aggregatesuffix ,
+                                      levelonedescription = levelonedescription,
+                                      aggregatesuffix = aggregatesuffix,
                                       scalingx = scalingx,
                                       scalingy = scalingy,
                                       fullstructure = fullstructure,

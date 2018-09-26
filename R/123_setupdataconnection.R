@@ -18,21 +18,21 @@
 #'
 # ' @examples
 
-fnSetupdata_connection <- function(data)
-    {
+fnSetupdata_connection <- function(data) {
         df <- data
         df2 <- dplyr::select(df, id, x, y, comparewithid)
-        data <- data[!duplicated(df2),]
+        data <- data[!duplicated(df2), ]
         datacopy <- data %>%
-          dplyr::rename(compid=comparewithid) %>%
-          dplyr::rename(xend=x, yend=y) %>%
-          dplyr::select(compid, xend,yend ,id)
+          dplyr::rename(compid = comparewithid) %>%
+          dplyr::rename(xend = x, yend = y) %>%
+          dplyr::select(compid, xend, yend, id)
         dataadj <- data %>%
           dplyr::mutate(compid = id) %>% ## mutate because id is needed later on
           dplyr::select(-id)
-        data <- merge(x=dataadj ,y=datacopy, all.y = TRUE, by=c("compid") )
-        data <- data[!is.na(data$x),]
-        data$group<- data$id
+        data <- merge(x = dataadj, y = datacopy,
+                      all.y = TRUE, by = c("compid") )
+        data <- data[!is.na(data$x), ]
+        data$group <- data$id
         data$comparewithid <- data$id
         data <- as.data.frame(data)
       ## return results
