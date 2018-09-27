@@ -148,6 +148,36 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
     scale_color_manual(name = "Componenten",values = colorcolors_sf_eng  )
 
 
+
+
+ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+  geom_solvii(data = sii_z_example1_data,
+              mapping = aes(x=1, y=5 , id = id, value = value, description=description
+                            ,fill = description
+                            , color = description
+              ),
+              lwd = 0.25,
+              rotationdegrees = 45
+  )+
+  geom_solvii(data = sii_z_example1_data,
+              mapping = aes(x=4, y=5 , id = id, value = value, description=description
+                            ,fill = description
+                            , color = description
+              ),
+              lwd = 0.25,
+              squared=TRUE,
+              rotationdegrees = 45
+  )+
+  theme_bw()+
+  scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng ) +
+  scale_color_manual(name = "Componenten",values = colorcolors_sf_eng  )
+
+
+
+
+
+
+
  ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
   geom_solvii(data = sii_z_example2_data,
                mapping = aes(x=time, y=ratio , id = id, value = value, description=description,
@@ -174,7 +204,7 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
 
 
 ## test outline sec (basis outline table)
-ggplot2::ggplot() +
+ggplot() +
   geom_solviioutline(data = sii_z_example2_data,
                      mapping = aes(x=time, y=ratio , id = id, value = value, description=description, comparewithid = comparewithid),
                      color = "red",
@@ -187,7 +217,7 @@ ggplot2::ggplot() +
 ## test outline sec (basis outline table)
 ggplot2::ggplot() +
   geom_solviioutline(data = sii_z_example2_data,
-                     mapping = aes(x=time, y=ratio , id = id, value = value, description=description, comparewithid = comparewithid),
+                     mapping = ggplot2::aes(x=time, y=ratio , id = id, value = value, description=description, comparewithid = comparewithid),
                      color = "red",
                      # rotationdegrees = -45,
                      # rotationdescription = "life",
@@ -217,9 +247,9 @@ ggplot2::ggplot() +
                      mapping = aes(x=time, y=ratio , id = id, value = value, description=description, comparewithid = comparewithid),
                      color = "red",
                      lwd = .5 ,
-                     # rotationdegrees = -45,
+                     rotationdegrees = -8,
                      squared =  TRUE,
-                     # rotationdescription = "life",
+                     rotationdescription = "life",
                      outlinedf = sii_z_example4_outline_exceptions
   )
 

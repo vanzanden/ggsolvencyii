@@ -1,21 +1,31 @@
 ## sii_structure_sf16_eng ##############
 #' sii_structure_sf16_eng
 #'
-#' a standard formula structure (as of 2016), with descriptions in English
+#' a standard formula structure (as of 2016), with descriptions in English.
 #'
 #' @docType data
 #'
-#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
+#' import from excel is straightforward:\cr
+# ' \dontrun{
+#' \code{
+#'  sii_structure_sf16_eng<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="struct_sf16_eng", col_types=c(rep("text",3),rep("skip",5)))
+#'  }
+# '  }
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'           \item{description}{string: the name of the component, or a diversification}
-#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] } with d indicating diversification
-#'           \item{childlevel}{string of the same format as level, indicating the level of which the components make up this item }
+#'           \item{description}{string: the name of the component}
+#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] \cr with d indicating diversification}
+#'           \item{childlevel}{string, same format as level, indicating the level of which the components combine into this level }
 #'          }
 #'
 #' @examples
 #' sii_structure_sf16_eng
+#'
+
+
+#
 "sii_structure_sf16_eng"
 
 
@@ -74,14 +84,12 @@
 #'            \item{outline2}{logical: the outer line between db and de, for ro }
 #'            \item{outline3}{logical: the radial line between ro and ri, for de }
 #'            \item{outline4}{logical: the inner line between de and db, for ri.}
-#'            \item{outline11}{NOT YET IMPLEMENTED: logical: analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
-#'            \item{outline13}{NOT YET IMPLEMENTED: logical: analogue to outline3, but but only for the LAST plotted component of that level. }
+#'            \item{outline11}{NOT YET IMPLEMENTED: logical: analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: logical: analogue to outline3, but but only for the last plotted component of that level. }
 #'          }
 #'
 #' @examples
-# # ' \ dontrun{
 #' sii_outline_sf16_eng
-# # ' }
 "sii_outline_sf16_eng"
 
 ## sii_z_example4_outline_exceptions ##############
@@ -105,9 +113,7 @@
 #'          }
 #'
 #' @examples
-# # ' \ dontrun{
 #' sii_z_example4_outline_exceptions
-# # ' }
 "sii_z_example4_outline_exceptions"
 
 ## sii_z_example1_data ##############

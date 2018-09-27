@@ -11,8 +11,8 @@
            \item{outline2}{logical: the outer line between db and de, for ro }
            \item{outline3}{logical: the radial line between ro and ri, for de }
            \item{outline4}{logical: the inner line between de and db, for ri.}
-           \item{outline11}{NOT YET IMPLEMENTED: logical: analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
-           \item{outline13}{NOT YET IMPLEMENTED: logical: analogue to outline3, but but only for the LAST plotted component of that level. }
+           \item{outline11}{NOT YET IMPLEMENTED: logical: analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+           \item{outline13}{NOT YET IMPLEMENTED: logical: analogue to outline3, but but only for the last plotted component of that level. }
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure

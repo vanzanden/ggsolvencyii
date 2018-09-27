@@ -6,20 +6,25 @@
 \title{sii_structure_sf16_eng}
 \format{A data frame with columns:
 \describe{
-          \item{description}{string: the name of the component, or a diversification}
-          \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] } with d indicating diversification
-          \item{childlevel}{string of the same format as level, indicating the level of which the components make up this item }
+          \item{description}{string: the name of the component}
+          \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] \cr with d indicating diversification}
+          \item{childlevel}{string, same format as level, indicating the level of which the components combine into this level }
          }}
 \source{
-determined based on specification of EIOPA standard formula Solvency II structure
+determined based on specification of EIOPA standard formula Solvency II structure. \cr
+import from excel is straightforward:\cr
+\code{
+ sii_structure_sf16_eng<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="struct_sf16_eng", col_types=c(rep("text",3),rep("skip",5)))
+ }
 }
 \usage{
 sii_structure_sf16_eng
 }
 \description{
-a standard formula structure (as of 2016), with descriptions in English
+a standard formula structure (as of 2016), with descriptions in English.
 }
 \examples{
 sii_structure_sf16_eng
+
 }
 \keyword{datasets}

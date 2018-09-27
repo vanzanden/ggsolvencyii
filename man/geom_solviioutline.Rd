@@ -2,7 +2,7 @@
 % Please edit documentation in R/101_geomandstat.R
 \name{geom_solviioutline}
 \alias{geom_solviioutline}
-\title{geom_solviioutline returns a ggplot2 object with concentric circle(part)s}
+\title{geom_solviioutline returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values of a hierarchy of levels.}
 \usage{
 geom_solviioutline(data = NULL, mapping = NULL, stat = "solviioutline",
   structuredf = sii_structure_sf16_eng, outlinedf = sii_outline_sf16_eng,
@@ -18,25 +18,26 @@ geom_solviioutline(data = NULL, mapping = NULL, stat = "solviioutline",
 
 \item{stat}{default stat is statSolvii}
 
-\item{structuredf}{(dataframe: default = sii_structure_sf16_eng): a representation of the structure, columns are description (chr), level (chr), childlevel (chr). In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. BSCR, operational and Adjustment-LACDT. lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column description in the dataset need to match the desription in this file.  see ?sii_structure_sf16_eng. The package contains also a file sii_structure_sf16_nld with Dutch terms in descripton column.}
+\item{structuredf}{(dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr a representation of the structure, columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the desription in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in descripton column.}
 
 \item{outlinedf}{default = outline_sf: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'}
 
-\item{levelmax}{(integer or dataframe, default = 99): a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item.}
+\item{levelmax}{(integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item.}
 
-\item{aggregatesuffix}{(string, default = "_other") When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix}
+\item{aggregatesuffix}{(string, default = "_other")\cr When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix}
 
-\item{maxscrvalue}{(optional, double, default = NULL): the scale of the different plot elements is is by default measured to the largest level 1 element (i.e. SCR) in the dataset, this can be overridden by this parameter for example when combining several plots}
+\item{maxscrvalue}{(optional, double, default = NULL)\cr
+the scale of the different plot elements is is by default measured to the largest level 1 element (i.e. SCR) in the dataset, this can be overridden by this parameter for example when combining several plots}
 
-\item{scalingx}{(optional, positive value ,default = 1): for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in x-direction}
+\item{scalingx}{(optional, positive value ,default = 1)\cr for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in x-direction}
 
-\item{scalingy}{(optional, positive value ,default = 1): for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in y-direction}
+\item{scalingy}{(optional, positive value ,default = 1)\cr for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in y-direction}
 
-\item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL): when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
+\item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
 
-\item{rotationdescription}{(optional, string, default = NULL): default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.}
+\item{rotationdescription}{(optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.}
 
-\item{squared}{(optional, boolean, default = FALSE): when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.
+\item{squared}{(optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.
 #'}
 
 \item{position}{standard ggplot function}
@@ -50,9 +51,38 @@ geom_solviioutline(data = NULL, mapping = NULL, stat = "solviioutline",
 \item{...}{ellipsis, a standard R parameter}
 }
 \value{
-a ggplot object
+a ggplot object \code{\link{geom_solvii}}
 }
 \description{
 When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
+}
+\examples{
+\dontrun{
+ggplot2::ggplot() +
+geom_solviioutline(data = sii_z_example2_data,
+  mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
+                         comparewithid = comparewithid),
+   color = "red", lwd = .5 )
+
+
+sii_z_example4_outline_exceptions
+# \\code{\\link{sii_z_example4_outline_exceptions}}
+ggplot2::ggplot() +
+geom_solviioutline(data = sii_z_example2_data,
+  mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
+                         comparewithid = comparewithid),
+  color = "red", lwd = .5 ,
+  rotationdescription = "life",
+  rotationdegrees = -8,
+  squared =  TRUE,
+  outlinedf = sii_z_example4_outline_exceptions)
+}
+
+
+
+
+
+
+
 }

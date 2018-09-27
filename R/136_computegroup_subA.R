@@ -163,8 +163,10 @@ fnRotation <- function(df, siiparams) {
 fnSquareconversion <- function(df) {
         df$ri <- df$ri * (.5 * sqrt(pi))  ## factor .88
         df$ro <- df$ro * (.5 * sqrt(pi))  ## factor .88
+        ## CALL
         df$db <- apply(as.data.frame(df$db), MARGIN = 1, FUN = fnsquareddegrees)
 # print(as.data.frame(df$de))
+        ## CALL
         df$de <- apply(as.data.frame(df$de), MARGIN = 1, FUN = fnsquareddegrees)
 # print(as.data.frame(df$de))
       ## return results
