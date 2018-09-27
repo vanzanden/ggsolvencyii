@@ -1,16 +1,23 @@
-## sii_structure_sf16_eng # # #######################################################
+## sii_structure_sf16_eng =============================================== =====
   sii_structure_sf16_eng<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="struct_sf16_eng", col_types=c(rep("text",3),rep("skip",5)))
   sii_structure_sf16_eng
   devtools::use_data(sii_structure_sf16_eng,overwrite = TRUE)
   rm(sii_structure_sf16_eng)
 
-## sii_dummydata_sf16_eng # # #######################################################
+## sii_structure_sf16_nld =============================================== =====
+  sii_structure_sf16_nld<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="struct_sf16_nld", col_types=c(rep("text",3),rep("skip",5)))
+  sii_structure_sf16_nld
+  devtools::use_data(sii_structure_sf16_nld,overwrite = TRUE)
+  rm(sii_structure_sf16_nld)
+
+
+## sii_dummydata_sf16_eng =============================================== =====
   # sii_dummydata_sf16_eng<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="struct_sf16_eng", col_types=c("text",rep("skip",3),rep("numeric",2),rep("skip",2)))
   # sii_dummydata_sf16_eng
   # devtools::use_data(sii_dummydata_sf16_eng,overwrite = TRUE)
   # rm(sii_dummydata_sf16_eng)
 
-## sii_outline_sf16_eng   # # #######################################################
+## sii_outline_sf16_eng ================================================= =====
   outline_sf16_eng<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="outline_sf16_eng")
     outline_sf16_eng$levelordescription <- as.character(outline_sf16_eng$levelordescription)
     outline_sf16_eng$outline1 <- as.logical(outline_sf16_eng$outline1)
@@ -28,23 +35,23 @@
   rm(outline_sf16_eng)
   rm(sii_outline_sf16_eng)
 
-## sii_outline_sf16_eng_exceptions #########################################################
-## sii_z_example4_outline_exceptions #########################################################
-  outline_sf16_eng_exceptions<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="outline_sf16_eng_exceptions")
-  outline_sf16_eng_exceptions$levelordescription <- as.character(outline_sf16_eng_exceptions$levelordescription)
-  outline_sf16_eng_exceptions$outline1 <- as.logical(outline_sf16_eng_exceptions$outline1)
-  outline_sf16_eng_exceptions$outline2 <- as.logical(outline_sf16_eng_exceptions$outline2)
-  outline_sf16_eng_exceptions$outline3 <- as.logical(outline_sf16_eng_exceptions$outline3)
-  outline_sf16_eng_exceptions$outline4 <- as.logical(outline_sf16_eng_exceptions$outline4)
-  outline_sf16_eng_exceptions$outline11 <- as.logical(outline_sf16_eng_exceptions$outline11)
-  outline_sf16_eng_exceptions$outline13 <- as.logical(outline_sf16_eng_exceptions$outline13)
+## sii_outline_sf16_eng_exceptions ====================================== =====
+## sii_z_example4_outline_exceptions ==================================== =====
+  outline_exceptions<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="outline_exceptions")
+  outline_exceptions$levelordescription <- as.character(outline_exceptions$levelordescription)
+  outline_exceptions$outline1 <- as.logical(outline_exceptions$outline1)
+  outline_exceptions$outline2 <- as.logical(outline_exceptions$outline2)
+  outline_exceptions$outline3 <- as.logical(outline_exceptions$outline3)
+  outline_exceptions$outline4 <- as.logical(outline_exceptions$outline4)
+  outline_exceptions$outline11 <- as.logical(outline_exceptions$outline11)
+  outline_exceptions$outline13 <- as.logical(outline_exceptions$outline13)
   ## to new naming convention
-  sii_z_example4_outline_exceptions <- as.data.frame(outline_sf16_eng_exceptions)
+  sii_z_example4_outline_exceptions <- as.data.frame(outline_exceptions)
   sii_z_example4_outline_exceptions
   devtools::use_data(sii_z_example4_outline_exceptions,overwrite = TRUE)
   ## test for tidyverse transformation
   tidyr::gather(data = sii_z_example4_outline_exceptions, key = outlinetype , value = drawoutline, -levelordescription)
-  rm(outline_sf16_eng_exceptions)
+  rm(outline_exceptions)
   rm(sii_z_example4_outline_exceptions)
 
 
