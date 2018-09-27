@@ -1,4 +1,4 @@
-## sii_structure_sf16_eng ##############
+## === sii_structure_sf16_eng ===================== =====
 #' sii_structure_sf16_eng
 #'
 #' a standard formula structure (as of 2016), with descriptions in English.
@@ -6,12 +6,12 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#' import from excel is straightforward:\cr
-# ' \dontrun{
+#' import from accompanying excel :\cr
+#' \dontrun{
 #' \code{
 #'  sii_structure_sf16_eng<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="struct_sf16_eng", col_types=c(rep("text",3),rep("skip",5)))
 #'  }
-# '  }
+#'  }
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -22,14 +22,37 @@
 #'
 #' @examples
 #' sii_structure_sf16_eng
-#'
-
-
-#
 "sii_structure_sf16_eng"
 
+## === sii_structure_sf16_nld =====================  =====
+#' sii_structure_sf16_nld
+#'
+#' a standard formula structure (as of 2016), with descriptions in English.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
+#' import from accompanying excel :\cr
+#' \dontrun{
+#' \code{
+#'  sii_structure_sf16_eng<- readxl::read_xlsx("xls/preparingtables.xlsx",sheet="struct_sf16_eng", col_types=c(rep("text",3),rep("skip",5)))
+#'  }
+#'  }
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'           \item{description}{string: the name of the component}
+#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] \cr with d indicating diversification}
+#'           \item{childlevel}{string, same format as level, indicating the level of which the components combine into this level }
+#'          }
+#'
+#' @examples
+#' sii_structure_sf16_nld
+"sii_structure_sf16_nld"
 
-## sii_levelmax_sf16_995 ##############
+
+
+## === sii_levelmax_sf16_995 ===================== =====
 #' sii_levelmax_sf16_995
 #'
 #' tekst
@@ -48,7 +71,7 @@
 #' sii_levelmax_sf16_995
 "sii_levelmax_sf16_995"
 
-## sii_levelmax_sf16_993 ##############
+## === sii_levelmax_sf16_993 ===================== =====
 #' sii_levelmax_sf16_993
 #'
 #' tekst
@@ -67,7 +90,7 @@
 #' sii_levelmax_sf16_993
 "sii_levelmax_sf16_993"
 
-## sii_outline_sf16_eng ##############
+## === sii_outline_sf16_eng ===================== =====
 #' sii_outline_sf16_eng
 #'
 #' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end)
@@ -92,31 +115,7 @@
 #' sii_outline_sf16_eng
 "sii_outline_sf16_eng"
 
-## sii_z_example4_outline_exceptions ##############
-#' sii_z_example4_outline_exceptions
-#'
-#' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
-#'
-#' @docType data
-#'
-#' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{levelordescription}{string with format 'level(numeric)' <point> 'sublevel' 'd'  with d indicating diversification}
-#'            \item{outline1}{logical: the radial line between ri and ro, for db }
-#'            \item{outline2}{logical: the outer line between db and de, for ro }
-#'            \item{outline3}{logical: the radial line between ro and ri, for de }
-#'            \item{outline4}{logical: the inner line between de and db, for ri.}
-#'            \item{outline11}{NOT YET IMPLEMENTED: logical: analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
-#'            \item{outline13}{NOT YET IMPLEMENTED: logical: analogue to outline3, but but only for the LAST plotted component of that level. }
-#'          }
-#'
-#' @examples
-#' sii_z_example4_outline_exceptions
-"sii_z_example4_outline_exceptions"
-
-## sii_z_example1_data ##############
+## === sii_z_example1_data ===================== =====
 #' sii_z_example1_data
 #'
 #' example dataset, in tidyverse format, with only one instance of a limited filled sf structure.
@@ -138,7 +137,7 @@
 #' sii_z_example1_data
 "sii_z_example1_data"
 
-## sii_z_example2_data ##############
+## === sii_z_example2_data ===================== =====
 #' sii_z_example2_data
 #'
 #' example dataset, in tidyverse format, with several instances of a completely  filled sf structure,
@@ -161,9 +160,7 @@
 #' sii_z_example2_data
 "sii_z_example2_data"
 
-
-
-## sii_z_example3_structure ##############
+## === sii_z_example3_structure ===================== =====
 #' sii_z_example3_structure
 #'
 #' a standard formula structure (as of 2016), with descriptions in English
@@ -183,8 +180,7 @@
 #' sii_z_example3_structure
 "sii_z_example3_structure"
 
-
-## sii_z_example3_data ##############
+## === sii_z_example3_data ===================== =====
 #' sii_z_example3_data
 #'
 #' example dataset, in tidyverse format, with several instances of a filled sf structure,
@@ -207,9 +203,7 @@
 #' sii_z_example3_data
 "sii_z_example3_data"
 
-
-
-## sii_z_example3_levelmax ##############
+## === sii_z_example3_levelmax ===================== =====
 #' sii_z_example3_levelmax
 #'
 #' tekst
@@ -227,3 +221,28 @@
 #' @examples
 #' sii_z_example3_levelmax
 "sii_z_example3_levelmax"
+
+## === sii_z_example4_outline ===================== =====
+#' sii_z_example4_outline
+#'
+#' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format 'level(numeric)' <point> 'sublevel' 'd'  with d indicating diversification}
+#'            \item{outline1}{logical: the radial line between ri and ro, for db }
+#'            \item{outline2}{logical: the outer line between db and de, for ro }
+#'            \item{outline3}{logical: the radial line between ro and ri, for de }
+#'            \item{outline4}{logical: the inner line between de and db, for ri.}
+#'            \item{outline11}{NOT YET IMPLEMENTED: logical: analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: logical: analogue to outline3, but but only for the LAST plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_z_example4_outline
+"sii_z_example4_outline"
