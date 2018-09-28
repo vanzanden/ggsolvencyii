@@ -13,6 +13,7 @@
 made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 \code{
 dummy
+  sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "levelmax_sf16_993")
  }
 }
 \usage{

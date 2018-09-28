@@ -63,7 +63,7 @@
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 #' \code{
 #' dummy
-# '      sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "levelmax_sf16_995")
+#'      sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "levelmax_sf16_995")
 #' }
 #' @format A data frame with columns:
 #' \describe{
@@ -88,7 +88,7 @@
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 #' \code{
 #' dummy
-# '   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "levelmax_sf16_993")
+#'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "levelmax_sf16_993")
 #'  }
 #'
 #' @format A data frame with columns:
@@ -346,8 +346,8 @@
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
-# '  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "ex3_levelmax");
-# '  sii_z_example3_levelmax <- data.frame(level = as.character(data$level), levelmax = as.numeric(data$levelmax))
+#'  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "ex3_levelmax");
+#'  sii_z_example3_levelmax <- data.frame(level = as.character(data$level), levelmax = as.numeric(data$levelmax))
 #' }
 #'
 #' @format A data frame with columns:
@@ -389,7 +389,7 @@
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d'] i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
 #'            \item{outline1}{boolean (logical): the radial line  }
 #'            \item{outline2}{boolean (logical): the outer line  }
 #'            \item{outline3}{boolean (logical): the radial line  }

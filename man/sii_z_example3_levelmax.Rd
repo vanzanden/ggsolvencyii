@@ -9,6 +9,8 @@
 made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
 dummy
+ data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "ex3_levelmax");
+ sii_z_example3_levelmax <- data.frame(level = as.character(data$level), levelmax = as.numeric(data$levelmax))
 }
 }
 \usage{

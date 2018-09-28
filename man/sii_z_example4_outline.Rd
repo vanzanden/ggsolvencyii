@@ -4,7 +4,16 @@
 \name{sii_z_example4_outline}
 \alias{sii_z_example4_outline}
 \title{sii_z_example4_outline}
-\format{An object of class \code{data.frame} with 18 rows and 7 columns.}
+\format{A data frame with columns:
+\describe{
+           \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+           \item{outline1}{boolean (logical): the radial line  }
+           \item{outline2}{boolean (logical): the outer line  }
+           \item{outline3}{boolean (logical): the radial line  }
+           \item{outline4}{boolean (logical): the inner line }
+           \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
+           \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the LAST plotted component of that level. }
+         }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
