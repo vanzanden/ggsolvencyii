@@ -54,17 +54,13 @@ GeomSolviiconnection <- ggplot2::ggproto(
 #' @param levelmax (integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item. \cr
 #'   For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii_levelmax_sf16_993}} are present in the package where the components of market, life, non-life, health are combined in 5 or 3 items.
 #' @param aggregatesuffix (string, default = "_other")\cr When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix
-
 #' @param maxscrvalue (optional, double, default = NULL)\cr
 #'   the scale of the different plot elements is is by default measured to the largest level 1 element (i.e. SCR) in the dataset, this can be overridden by this parameter for example when combining several plots
 #' @param scalingx (optional, positive value ,default = 1)\cr for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in x-direction
 #' @param scalingy (optional, positive value ,default = 1)\cr for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in y-direction
-
 #' @param rotationdescription (optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.
 #' @param rotationdegrees (optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
-
 #' @param squared (optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.
-#' #'
 #' @param ... ellipsis, a standard R parameter
 #'
 #' @import ggplot2

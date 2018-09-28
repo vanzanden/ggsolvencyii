@@ -10,7 +10,7 @@
           \item{levelmax}{integer \ code indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
          }}
 \source{
-\cr import from accompanying excel:\cr
+made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 \code{
   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                            sheet = "levelmax_sf16_993")

@@ -14,7 +14,7 @@
          }}
 \source{
 loosely based on public SFCR report of a medium sized dutch life insurer
-\cr import from accompanying excel:\cr
+made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 \code{
  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                            sheet = "ex1_data") %>%

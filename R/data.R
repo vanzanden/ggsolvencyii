@@ -6,7 +6,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  sii_structure_sf16_eng <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                                              sheet = "struct_sf16_eng",
@@ -32,7 +32,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #' sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                                              sheet = "struct_sf16_nld",
@@ -60,7 +60,7 @@
 #' @docType data
 #'
 #' @source
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                                            sheet = "levelmax_sf16_995")
@@ -85,7 +85,7 @@
 #' @docType data
 # '
 #' @source
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                                            sheet = "levelmax_sf16_993")
@@ -111,7 +111,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "outline_sf16_eng")
@@ -151,7 +151,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "outline_sf16_nld")
@@ -192,7 +192,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "ex1_data") %>%
@@ -229,7 +229,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "ex2_data") %>%
@@ -271,7 +271,7 @@
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #' @source
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'   sii_z_example3_structure <-   readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                                                sheet = "ex3_struct",
@@ -298,7 +298,7 @@
 #' @docType data
 #'
 #' @source based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "ex3_data") %>%
@@ -340,7 +340,7 @@
 # ' @docType data
 #'
 #' @source
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "ex3_levelmax")
@@ -369,7 +369,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#' \cr import from accompanying excel:\cr
+#' made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "ex4_outline")
