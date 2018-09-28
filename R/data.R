@@ -113,7 +113,7 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#' dummy
+# ' dummy
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "outline_sf16_eng");
 #'  data$levelordescription <- as.character(data$levelordescription);
 #'  data$outline1 <- as.logical(data$outline1);
@@ -152,7 +152,7 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#'dummy
+# 'dummy
 #'    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "outline_sf16_nld");
 #'    data$levelordescription <- as.character(data$levelordescription);
 #'    data$outline1 <- as.logical(data$outline1);
@@ -192,19 +192,15 @@
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#' dummy
-# '    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-# '                            sheet = "ex1_data") %>%
-# '            tidyr::gather(key = description,
-# '                          value = value,
-# '                          -id, -time, -ratio);
-# '  sii_z_example1_data <-  data.frame(
-# '                                      time = as.numeric(data$time),
-# '                                      ratio = as.numeric(data$ratio),
-# '                                      description = data$description,
-# '                                      value = as.numeric(data$value),
-# '                                      id = data$id
-# '                                      ) # description has to be a factor !
+# ' dummy
+#'    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex1_data") %>%
+#'            tidyr::gather(key = description, value = value, -id, -time, -ratio);
+#'  sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
+#'                                      ratio = as.numeric(data$ratio),
+#'                                      description = data$description,
+#'                                      value = as.numeric(data$value),
+#'                                      id = data$id
+#'                                      ) # description has to be a factor !
 #'  }
 #'
 #' @format A data frame with columns:
@@ -366,7 +362,7 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#' dummy
+# ' dummy
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex4_outline");
 #'    data$levelordescription <- as.character(data$levelordescription);
 #'     data$outline1 <- as.logical(data$outline1);

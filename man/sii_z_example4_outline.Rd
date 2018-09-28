@@ -18,7 +18,6 @@
 determined based on specification of EIOPA standard formula Solvency II structure
   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
-dummy
  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex4_outline");
    data$levelordescription <- as.character(data$levelordescription);
     data$outline1 <- as.logical(data$outline1);
