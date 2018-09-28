@@ -50,7 +50,8 @@ GeomSolviiconnection <- ggplot2::ggproto(
 #'
 #' @param structuredf (dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr a representation of the structure, columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the desription in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in descripton column.
 #'
-#' @param levelmax (integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item.
+#' @param levelmax (integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item. \cr
+#'   For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii_levelmax_sf_16_993}} are present in the package where the components of market, life, non-life, health are combined in 5 or 3 items.
 #' @param aggregatesuffix (string, default = "_other")\cr When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix
 
 #' @param maxscrvalue (optional, double, default = NULL)\cr
@@ -125,6 +126,8 @@ geom_solvii <- function(data = NULL,
     }
 
 ## geom_solviioutline =================================================== =====
+#' geom_solviioutline
+#'
 #' geom_solviioutline returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
@@ -141,7 +144,7 @@ geom_solvii <- function(data = NULL,
 #'
 # ' @param levelmax default = 99: a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined
 # ' @param structuredf default = structure_sf_eng: a representation of the structure, columns description (chr), level (chr), childlevel (chr). description in dataset needs to match the desripton in this file. see ?structure_sf_eng
-#' @param outlinedf default = outline_sf: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'
+#' @param outlinedf default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
 # ' @param maxscrvalue default = NULL: the scale of the different plot elements, is (by surfacearea) is by default measured to the largest element, this can be overridden by this parameter
 # ' @param aggregatesuffix default = "_other" When a certain level contains more items than specified by levelmax (an integer or dataframe (level, levelmax)) the smallest items are combined. The description is of the motherlevel with a suffix
 # ' @param scalingx default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in x-direction
