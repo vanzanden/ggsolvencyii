@@ -7,6 +7,7 @@
 \format{An object of class \code{data.frame} with 18 rows and 7 columns.}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
 dummy
 }

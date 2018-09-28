@@ -10,6 +10,7 @@
           \item{levelmax}{positive integer indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
          }}
 \source{
+made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 \code{
 dummy
  }

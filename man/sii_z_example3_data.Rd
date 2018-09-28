@@ -15,6 +15,7 @@
          }}
 \source{
 based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
 dummy
  }

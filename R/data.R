@@ -6,7 +6,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #'dummy
 # '    sii_structure_sf16_eng <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_eng", col_types = c(rep("text", 3),rep("skip", 5)))
@@ -31,7 +31,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '  sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_nld", col_types = c(rep("text", 3), rep("skip", 5)))
@@ -60,7 +60,7 @@
 #' @docType data
 #'
 #' @source
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 #' \code{
 #' dummy
 # '      sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "levelmax_sf16_995")
@@ -85,7 +85,7 @@
 #' @docType data
 # '
 #' @source
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 #' \code{
 #' dummy
 # '   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "levelmax_sf16_993")
@@ -111,7 +111,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -152,7 +152,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #'dummy
 # '    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -194,7 +194,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -232,7 +232,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -274,7 +274,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '   sii_z_example3_structure <-   readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -302,7 +302,7 @@
 #' @docType data
 #'
 #' @source based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -345,7 +345,7 @@
 # ' @docType data
 #'
 #' @source
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "ex3_levelmax");
@@ -372,7 +372,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-# ' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
 # '  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
