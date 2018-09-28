@@ -10,7 +10,8 @@
 ##    StatSolvii
 ##    StatSolviioutline
 ##    StatSolviiconnection
-##    stat_solvii
+##
+stat_solvii
 ## small:
 ##
 ## ====================================================================== =====
@@ -226,27 +227,32 @@ geom_solviioutline <- function(   data = NULL,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' ggplot2::ggplot() +
 #'   geom_solviiconnection(data = sii_z_example2_data,
-#'   mapping = aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
+#'   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
 #'   arrow = arrow (angle=20, type = "closed" ))
 #'
 #'
 #'    ggplot() +
 #'     geom_solvii(data= sii_z_example2_data,
-#'                 mapping = aes(x=time, y=ratio, id = id, value = value, description=description,
+#'                 mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
+#'                               description=description,
 #'                               fill = description,color = description),
 #'                               lwd=.5) +
 #'      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
 #'      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
 #'      geom_solviioutline(data= sii_z_example2_data,
-#'                         mapping = aes(x=time, y=ratio, id = id, value = value, description=description, comparewithid=comparewithid),
+#'                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
+#'                         description=description, comparewithid=comparewithid),
 #'                         color = "red", lwd = 0.7, alpha = 0.99 ) +
 #'      geom_solviiconnection(data = sii_z_example2_data,
-#'                            mapping = aes(x=time, y=ratio, id = id, comparewithid = comparewithid ),
+#'                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
+#'                            comparewithid = comparewithid ),
 #'                            arrow = arrow (angle=20, type = "closed" )
 #'                            ) +
 #'      theme_bw()
+#'}
 
 
 
@@ -480,13 +486,13 @@ stat_solvii <- function(  mapping = NULL,
                         ## geomspecific parameter
                           levelmax = 99,
                           structuredf = sii_structure_sf16_eng,
-                          outlinedf = sii_outline_sf16_eng,
+                          # outlinedf = sii_outline_sf16_eng,
                           maxscrvalue = NULL,
-                          levelonedescription = "SCR",
+                          # levelonedescription = "SCR",
                           aggregatesuffix = "_other",
                           scalingx = 1,
                           scalingy = 1,
-                          fullstructure = FALSE,
+                          # fullstructure = FALSE,
                           rotationdegrees = NULL,
                           rotationdescription = NULL,
                         ## internal parameters
