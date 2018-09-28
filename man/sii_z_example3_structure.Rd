@@ -13,7 +13,7 @@
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
 
-made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
+made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
   sii_z_example3_structure <-   readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                                sheet = "ex3_struct",

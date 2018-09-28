@@ -42,8 +42,9 @@ fnlevelonedescription <- function(params) {
 
 fnmaxscrvalue <- function(data, params
                           ) {
-      structuredf     <- params$structuredf
-      levelonedescription <- structuredf$description[structuredf$level == 1]
+      #structuredf     <- params$structuredf
+      #levelonedescription <- structuredf$description[structuredf$level == 1]
+      levelonedescription <- params$levelonedescription
       ## afleiden maxscrvalue for scaling
         if (!is.null(params$maxscrvalue)) {
           value_out <- params$maxscrvalue
@@ -51,15 +52,6 @@ fnmaxscrvalue <- function(data, params
                        value_out))
         } else {
           value_out <- max(data$value[data$description == levelonedescription])
-          # if (value_out == -Inf) {
-          #   value_out <- 50
-          #   print(paste0("The (default)value of variable 'levelonedescription': ",
-          #                params$levelonedescription,
-          #                ", is not found in the dataset. "))
-          #   print(paste0("  It might be neccesary to include attribution to this parameter in the call to geom_"))
-          #   print(paste0("  scaling is based on a ARBITRARY max (level= 1) value of ",
-          #                value_out ))
-          # } else {
             print(paste0("scaling is based on a max (level= 1) value of ",
                          value_out ))
           # }

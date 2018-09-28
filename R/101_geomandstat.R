@@ -160,54 +160,54 @@ geom_solvii <- function(data = NULL,
 #' }
 #'
 geom_solviioutline <- function(   data = NULL,
-                                  mapping = NULL,
-                                  stat = "solviioutline",
-                                ## geomspecific parameter
-                                  structuredf = sii_structure_sf16_eng,
-                                  outlinedf = sii_outline_sf16_eng,
-                                  levelmax = 99,
-                                  aggregatesuffix = "_other",
-                                  maxscrvalue = NULL,
-                                  scalingx = 1,
-                                  scalingy = 1,
-                                  rotationdegrees = NULL,
-                                  rotationdescription = NULL,
-                                  squared = FALSE,
-                                  # fullstructure = FALSE, ## not an input yet
-                                ## other standard ggplot parameters
-                                  position = "identity",
-                                  na.rm = FALSE,
-                                  show.legend = NA,
-                                  inherit.aes = TRUE,
-                                ## internal parameters
-                                  ## purpose (attribution in call to ggplot::layer),
-                                ## ellipsis
-                                  ...
-                                ) {
+                    mapping = NULL,
+                    stat = "solviioutline",
+                  ## geomspecific parameter
+                    structuredf = sii_structure_sf16_eng,
+                    outlinedf = sii_outline_sf16_eng,
+                    levelmax = 99,
+                    aggregatesuffix = "_other",
+                    maxscrvalue = NULL,
+                    scalingx = 1,
+                    scalingy = 1,
+                    rotationdegrees = NULL,
+                    rotationdescription = NULL,
+                    squared = FALSE,
+                    # fullstructure = FALSE, ## not an input yet
+                  ## other standard ggplot parameters
+                    position = "identity",
+                    na.rm = FALSE,
+                    show.legend = NA,
+                    inherit.aes = TRUE,
+                  ## internal parameters
+                    ## purpose (attribution in call to ggplot::layer),
+                  ## ellipsis
+                    ...
+                  ) {
         ggplot2::layer( data = data,
-                          stat = stat,
-                          geom = GeomSolviioutline,
-                          mapping = mapping,
-                          position = position,
-                          show.legend = show.legend,
-                          inherit.aes = inherit.aes,
-                          params = list(  na.rm = na.rm,
-                                        ## userparams
-                                          levelmax = levelmax,
-                                          structuredf = structuredf,
-                                          outlinedf = outlinedf,
-                                          maxscrvalue = maxscrvalue,
-                                          aggregatesuffix = aggregatesuffix,
-                                          scalingx = scalingx,
-                                          scalingy = scalingy,
-                                          fullstructure = FALSE,
-                                          rotationdegrees = rotationdegrees,
-                                          rotationdescription = rotationdescription,
-                                          squared = squared,
-                                        ## internal params
-                                          purpose = "outline",
-                                        ## ellipsis
-                                          ...
+                stat = stat,
+                geom = GeomSolviioutline,
+                mapping = mapping,
+                position = position,
+                show.legend = show.legend,
+                inherit.aes = inherit.aes,
+                params = list(  na.rm = na.rm,
+                              ## userparams
+                                levelmax = levelmax,
+                                structuredf = structuredf,
+                                outlinedf = outlinedf,
+                                maxscrvalue = maxscrvalue,
+                                aggregatesuffix = aggregatesuffix,
+                                scalingx = scalingx,
+                                scalingy = scalingy,
+                                fullstructure = FALSE,
+                                rotationdegrees = rotationdegrees,
+                                rotationdescription = rotationdescription,
+                                squared = squared,
+                              ## internal params
+                                purpose = "outline",
+                              ## ellipsis
+                                ...
                         )              )
     }
 
@@ -503,23 +503,23 @@ stat_solvii <- function(  mapping = NULL,
                      show.legend = show.legend,
                      inherit.aes = inherit.aes,
                      params = list(na.rm = na.rm,
-                                    ## userparams
-                                      levelmax = levelmax,
-                                      structuredf = structuredf,
-                                      maxscrvalue = maxscrvalue,
-                                      # levelonedescription = levelonedescription,
-                                      aggregatesuffix = aggregatesuffix,
-                                      scalingx = scalingx,
-                                      scalingy = scalingy,
-                                      # fullstructure = fullstructure,
-                                      rotationdegrees = rotationdegrees,
-                                      rotationdescription = rotationdescription,
-                                    ## internal params
-                                      outlinedf = sii_outline_sf16_eng,
-                                      purpose = "surfaces",
-                                    ## ellipsis
-                                      ...
-                     )             )
+                          ## userparams
+                            levelmax = levelmax,
+                            structuredf = structuredf,
+                            maxscrvalue = maxscrvalue,
+                            # levelonedescription = levelonedescription,
+                            aggregatesuffix = aggregatesuffix,
+                            scalingx = scalingx,
+                            scalingy = scalingy,
+                            # fullstructure = fullstructure,
+                            rotationdegrees = rotationdegrees,
+                            rotationdescription = rotationdescription,
+                          ## internal params
+                            outlinedf = sii_outline_sf16_eng,
+                            purpose = "surfaces",
+                          ## ellipsis
+                            ...
+           )             )
     }  ## end of definition stat_solvii
 
 ## ====================================================================== =====

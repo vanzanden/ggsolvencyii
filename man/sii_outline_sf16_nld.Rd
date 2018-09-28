@@ -16,7 +16,7 @@
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
-made from excelfile in https://github.com:vanzanden/ggsolvencyii : \cr
+made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                            sheet = "outline_sf16_nld")
