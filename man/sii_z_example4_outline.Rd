@@ -4,20 +4,19 @@
 \name{sii_z_example4_outline}
 \alias{sii_z_example4_outline}
 \title{sii_z_example4_outline}
-\format{An object of class \code{data.frame} with 18 rows and 7 columns.}
+\format{A data frame with columns:
+\describe{
+           \item{outline1}{boolean (logical): the radial line  }
+           \item{outline2}{boolean (logical): the outer line  }
+           \item{outline3}{boolean (logical): the radial line  }
+           \item{outline4}{boolean (logical): the inner line }
+           \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
+           \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the LAST plotted component of that level. }
+         }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
 \code{
 dummy
-   data$levelordescription <- as.character(data$levelordescription);
-   data$outline1 <- as.logical(data$outline1);
-   data$outline2 <- as.logical(data$outline2);
-   data$outline3 <- as.logical(data$outline3);
-   data$outline4 <- as.logical(data$outline4);
-   data$outline11 <- as.logical(data$outline11);
-   data$outline13 <- as.logical(data$outline13);
-
-   sii_outline_sf16_eng <- as.data.frame(data)
 }
 }
 \usage{
