@@ -250,7 +250,7 @@ ggplot2::ggplot() +
                      rotationdegrees = -8,
                      squared =  TRUE,
                      rotationdescription = "life",
-                     outlinedf = sii_z_example4_outline_exceptions
+                     outlinedf = sii_z_example4_outline
   )
 
 
@@ -265,6 +265,26 @@ ggplot2::ggplot() +
                       # lwd = .5 #,
                      # outlinelevels = "VERWIJZING NAAR EEN TABEL"
   )
+
+
+
+# test alles in een (testdata2)
+    ggplot() +
+     geom_solvii(data= sii_z_example2_data,
+                 mapping = aes(x=time, y=ratio, id = id, value = value, description=description,
+                               fill = description,color = description),
+                               lwd=.5) +
+      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng ) +
+      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng  ) +
+      geom_solviioutline(data= sii_z_example2_data,
+                         mapping = aes(x=time, y=ratio, id = id, value = value, description=description, comparewithid=comparewithid),
+                         color = "red", lwd = 0.7, alpha = 0.99 ) +
+      geom_solviiconnection(data = sii_z_example2_data,
+                            mapping = aes(x=time, y=ratio, id = id, comparewithid = comparewithid ),
+                            arrow = arrow (angle=20, type = "closed" )
+                            ) +
+      theme_bw()
+
 
 
 
@@ -307,6 +327,35 @@ ggplot2::ggplot() +
                             , arrow = arrow (angle=20, type = "closed" )
                             # color = "red",# lwd = .5 #,# outlinedf = "VERWIJZING NAAR EEN TABEL"
                               )    + theme_bw()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

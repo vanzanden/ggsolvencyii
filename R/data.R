@@ -8,9 +8,9 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'  sii_structure_sf16_eng <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                                              sheet = "struct_sf16_eng",\cr
-#'                                              col_types = c(rep("text", 3),rep("skip", 5)))\cr
+#'  sii_structure_sf16_eng <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                                              sheet = "struct_sf16_eng",
+#'                                              col_types = c(rep("text", 3),rep("skip", 5)))
 #'  }
 #'
 #' @format A data frame with columns:
@@ -34,8 +34,8 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
 #' \cr import from accompanying excel:\cr
 #' \code{
-#' sii_structure_sf16_nld <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                                              sheet = "struct_sf16_nld",\cr
+#' sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                                              sheet = "struct_sf16_nld",
 #'                                              col_types = c(rep("text", 3), rep("skip", 5)))
 #'  }
 #'
@@ -62,7 +62,7 @@
 #' @source
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'   sii_levelmax_sf16_995 <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
+#'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                                            sheet = "levelmax_sf16_995")
 #'  }
 #' @format A data frame with columns:
@@ -87,7 +87,7 @@
 #' @source
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'   sii_levelmax_sf16_995 <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
+#'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                                            sheet = "levelmax_sf16_993")
 #'  }
 #'
@@ -113,17 +113,17 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'  data <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                            sheet = "outline_sf16_eng")\cr
-#'    data$levelordescription <- as.character(data$levelordescription)\cr
-#'    data$outline1 <- as.logical(data$outline1)\cr
-#'    data$outline2 <- as.logical(data$outline2)\cr
-#'    data$outline3 <- as.logical(data$outline3)\cr
-#'    data$outline4 <- as.logical(data$outline4)\cr
-#'    data$outline11 <- as.logical(data$outline11)\cr
-#'    data$outline13 <- as.logical(data$outline13)\cr
-#'    \cr
-#'    sii_outline_sf16_eng <- as.data.frame(data)\cr
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                            sheet = "outline_sf16_eng")
+#'    data$levelordescription <- as.character(data$levelordescription)
+#'    data$outline1 <- as.logical(data$outline1)
+#'    data$outline2 <- as.logical(data$outline2)
+#'    data$outline3 <- as.logical(data$outline3)
+#'    data$outline4 <- as.logical(data$outline4)
+#'    data$outline11 <- as.logical(data$outline11)
+#'    data$outline13 <- as.logical(data$outline13)
+#'
+#'    sii_outline_sf16_eng <- as.data.frame(data)
 #' }
 #'
 #' @format A data frame with columns:
@@ -153,17 +153,17 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'  data <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                            sheet = "outline_sf16_nld")\cr
-#'    data$levelordescription <- as.character(data$levelordescription)\cr
-#'    data$outline1 <- as.logical(data$outline1)\cr
-#'    data$outline2 <- as.logical(data$outline2)\cr
-#'    data$outline3 <- as.logical(data$outline3)\cr
-#'    data$outline4 <- as.logical(data$outline4)\cr
-#'    data$outline11 <- as.logical(data$outline11)\cr
-#'    data$outline13 <- as.logical(data$outline13)\cr
-#'    \cr
-#'    sii_outline_sf16_eng <- as.data.frame(data)\cr
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                            sheet = "outline_sf16_nld")
+#'    data$levelordescription <- as.character(data$levelordescription)
+#'    data$outline1 <- as.logical(data$outline1)
+#'    data$outline2 <- as.logical(data$outline2)
+#'    data$outline3 <- as.logical(data$outline3)
+#'    data$outline4 <- as.logical(data$outline4)
+#'    data$outline11 <- as.logical(data$outline11)
+#'    data$outline13 <- as.logical(data$outline13)
+#'
+#'    sii_outline_sf16_eng <- as.data.frame(data)
 #' }
 #'
 #' @format A data frame with columns:
@@ -194,18 +194,18 @@
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'  data <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                            sheet = "ex1_data") %>%\cr
-#'            tidyr::gather(key = description,\cr
-#'                          value = value,\cr
-#'                          -id, -time, -ratio)\cr\cr
-#'  sii_z_example1_data <- \cr data.frame(
-#'                                      time = as.numeric(data$time),\cr
-#'                                      ratio = as.numeric(data$ratio),\cr
-#'                                      description = data$description,   # it has to be a factor !!\cr
-#'                                      value = as.numeric(data$value),\cr
-#'                                      id = data$id \cr
-#'                                      )\cr
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                            sheet = "ex1_data") %>%
+#'            tidyr::gather(key = description,
+#'                          value = value,
+#'                          -id, -time, -ratio)
+#'  sii_z_example1_data <-  data.frame(
+#'                                      time = as.numeric(data$time),
+#'                                      ratio = as.numeric(data$ratio),
+#'                                      description = data$description,   # it has to be a factor !!
+#'                                      value = as.numeric(data$value),
+#'                                      id = data$id
+#'                                      )
 #'  }
 #'
 #' @format A data frame with columns:
@@ -231,19 +231,19 @@
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'  data <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                            sheet = "ex2_data") %>%\cr
-#'            tidyr::gather(key = description,\cr
-#'                          value = value,\cr
-#'                          -id, -time, -ratio)\cr\cr
-#'  sii_z_example1_data <- \cr data.frame(
-#'                                      time = as.numeric(data$time),\cr
-#'                                      ratio = as.numeric(data$ratio),\cr
-#'                                      description = data$description,   # it has to be a factor !!\cr
-#'                                      value = as.numeric(data$value),\cr
-#'                                      id = data$id, \cr
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                            sheet = "ex2_data") %>%
+#'            tidyr::gather(key = description,
+#'                          value = value,
+#'                          -id, -time, -ratio)
+#'  sii_z_example1_data <-  data.frame(
+#'                                      time = as.numeric(data$time),
+#'                                      ratio = as.numeric(data$ratio),
+#'                                      description = data$description,   # it has to be a factor !!
+#'                                      value = as.numeric(data$value),
+#'                                      id = data$id,
 #'                                      comparewithid = data$comparewithid
-#'                                      )\cr
+#'                                      )
 #'  }
 #'
 #' @format A data frame with columns:
@@ -273,8 +273,8 @@
 #' @source
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'   sii_z_example3_structure <- \cr  readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                                                sheet = "ex3_struct",\cr
+#'   sii_z_example3_structure <-   readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                                                sheet = "ex3_struct",
 #'                                                col_types = c(rep("text", 3),rep("skip", 2)))
 #'  }
 #'
@@ -300,19 +300,19 @@
 #' @source based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'  data <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                            sheet = "ex3_data") %>%\cr
-#'            tidyr::gather(key = description,\cr
-#'                          value = value,\cr
-#'                          -id, -time, -ratio)\cr\cr
-#'  sii_z_example1_data <- \cr data.frame(
-#'                                      time = as.numeric(data$time),\cr
-#'                                      ratio = as.numeric(data$ratio),\cr
-#'                                      description = data$description,   # it has to be a factor !!\cr
-#'                                      value = as.numeric(data$value),\cr
-#'                                      id = data$id, \cr
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                            sheet = "ex3_data") %>%
+#'            tidyr::gather(key = description,
+#'                          value = value,
+#'                          -id, -time, -ratio)
+#'  sii_z_example1_data <-  data.frame(
+#'                                      time = as.numeric(data$time),
+#'                                      ratio = as.numeric(data$ratio),
+#'                                      description = data$description,   # it has to be a factor !!
+#'                                      value = as.numeric(data$value),
+#'                                      id = data$id,
 #'                                      comparewithid = data$comparewithid
-#'                                      )\cr
+#'                                      )
 #'  }
 #'
 #' @format A data frame with columns:
@@ -371,17 +371,17 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #' \cr import from accompanying excel:\cr
 #' \code{
-#'  data <- \cr readxl::read_xlsx(path = "xls/preparingtables.xlsx",\cr
-#'                            sheet = "ex4_outline")\cr
-#'    data$levelordescription <- as.character(data$levelordescription)\cr
-#'    data$outline1 <- as.logical(data$outline1)\cr
-#'    data$outline2 <- as.logical(data$outline2)\cr
-#'    data$outline3 <- as.logical(data$outline3)\cr
-#'    data$outline4 <- as.logical(data$outline4)\cr
-#'    data$outline11 <- as.logical(data$outline11)\cr
-#'    data$outline13 <- as.logical(data$outline13)\cr
-#'    \cr
-#'    sii_outline_sf16_eng <- as.data.frame(data)\cr
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+#'                            sheet = "ex4_outline")
+#'    data$levelordescription <- as.character(data$levelordescription)
+#'    data$outline1 <- as.logical(data$outline1)
+#'    data$outline2 <- as.logical(data$outline2)
+#'    data$outline3 <- as.logical(data$outline3)
+#'    data$outline4 <- as.logical(data$outline4)
+#'    data$outline11 <- as.logical(data$outline11)
+#'    data$outline13 <- as.logical(data$outline13)
+#'
+#'    sii_outline_sf16_eng <- as.data.frame(data)
 #' }
 #'
 #'
