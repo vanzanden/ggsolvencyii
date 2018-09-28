@@ -129,7 +129,7 @@
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+# '            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
 #'            \item{outline1}{boolean (logical): the radial line  }
 #'            \item{outline2}{boolean (logical): the outer line  }
 #'            \item{outline3}{boolean (logical): the radial line  }
@@ -170,7 +170,7 @@
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+# '            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
 #'            \item{outline1}{boolean (logical): the radial line }
 #'            \item{outline2}{boolean (logical): the outer line  }
 #'            \item{outline3}{boolean (logical): the radial line  }
@@ -285,7 +285,7 @@
 #' @format A data frame with columns:
 #' \describe{
 #'           \item{description}{string: the name of the component, or a diversification}
-#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
+# '           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
 #'           \item{childlevel}{string of the same format as level, indicating the level of which the components make up this item }
 #'          }
 #'
@@ -391,7 +391,8 @@
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']
+#'            i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
 #'            \item{outline1}{boolean (logical): the radial line  }
 #'            \item{outline2}{boolean (logical): the outer line  }
 #'            \item{outline3}{boolean (logical): the radial line  }
