@@ -51,16 +51,17 @@
 ## sii_levelmax_sf16_995 ======================================================= =====
 #' sii_levelmax_sf16_995
 #'
-#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lowerlevel risk (equity/longevity/...) in a standard formula structure.
+#' maximum number of items in a level, 99 items for levels 1-3
+#' (SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lowerlevel risk
+#' (equity/longevity/...) in a standard formula structure.
 #'
 #' @docType data
 #'
 #' @source
-#' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 #' \code{
-#'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-#'                                            sheet = "levelmax_sf16_995")
-#'  }
+#'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "levelmax_sf16_995")
+#' }
 #' @format A data frame with columns:
 #' \describe{
 #'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
@@ -81,10 +82,9 @@
 #' @docType data
 # '
 #' @source
-#' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+#' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 #' \code{
-#'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-#'                                            sheet = "levelmax_sf16_993")
+#'   sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "levelmax_sf16_993")
 #'  }
 #'
 #' @format A data frame with columns:
@@ -341,8 +341,7 @@
 #'  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
 #'                            sheet = "ex3_levelmax");
 #'  sii_z_example3_levelmax <- data.frame(
-#'                                        level = as.character(data$level),
-#'                                        levelmax = as.numeric(data$levelmax)
+#'                                        level = as.character(data$level), levelmax = as.numeric(data$levelmax)
 #'                                        )
 #' }
 #'

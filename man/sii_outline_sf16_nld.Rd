@@ -7,10 +7,10 @@
 \format{A data frame with columns:
 \describe{
            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
-           \item{outline1}{boolean (logical): the radial line between ri and ro, for db }
-           \item{outline2}{boolean (logical): the outer line between db and de, for ro }
-           \item{outline3}{boolean (logical): the radial line between ro and ri, for de }
-           \item{outline4}{boolean (logical): the inner line between de and db, for ri.}
+           \item{outline1}{boolean (logical): the radial line }
+           \item{outline2}{boolean (logical): the outer line  }
+           \item{outline3}{boolean (logical): the radial line  }
+           \item{outline4}{boolean (logical): the inner line }
            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
          }}

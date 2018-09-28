@@ -2,7 +2,7 @@
 % Please edit documentation in R/121_setupdata.R
 \name{fn_add_ind_show}
 \alias{fn_add_ind_show}
-\title{fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement to fill column ind_show for several items}
+\title{fn_add_ind_show}
 \usage{
 fn_add_ind_show(data)
 }
@@ -13,5 +13,7 @@ fn_add_ind_show(data)
 the dataframe with an added column ind_show
 }
 \description{
-fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement to fill column ind_show for several items
+fn_add_ind_show is a little piece that has to be added to data in either fork
+  after the \cr "if (!is.null(s_t1))" statement to fill column ind_show
+  for several items
 }

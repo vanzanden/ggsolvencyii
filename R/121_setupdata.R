@@ -393,15 +393,16 @@ fn_structure_data_integration <- function (expandedstructure,
 }
 
 ## fn_add_ind_show ====================================================== =====
-#' fn_add_ind_show is a little piece that has to be added to data in either fork after the "if (!is.null(s_t1))" statement to fill column ind_show for several items
+#' fn_add_ind_show
+#'
+#' fn_add_ind_show is a little piece that has to be added to data in either fork
+#'   after the \cr "if (!is.null(s_t1))" statement to fill column ind_show
+#'   for several items
 #'
 #' @inheritParams fnmaxscrvalue
 # ' @param data an dataframe, consisting of the dataset and the expanded structure
 #'
 #' @return the dataframe with an added column ind_show
-# ' @export
-#'
-# ' @examples
 
 fn_add_ind_show <- function (data) {
         data$ind_show <- TRUE

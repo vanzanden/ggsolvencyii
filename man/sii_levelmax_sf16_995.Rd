@@ -10,17 +10,18 @@
           \item{levelmax}{positive integer indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
          }}
 \source{
-made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
+made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
 \code{
-  sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                                           sheet = "levelmax_sf16_995")
- }
+  sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "levelmax_sf16_995")
+}
 }
 \usage{
 sii_levelmax_sf16_995
 }
 \description{
-maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lowerlevel risk (equity/longevity/...) in a standard formula structure.
+maximum number of items in a level, 99 items for levels 1-3
+(SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lowerlevel risk
+(equity/longevity/...) in a standard formula structure.
 }
 \examples{
 sii_levelmax_sf16_995
