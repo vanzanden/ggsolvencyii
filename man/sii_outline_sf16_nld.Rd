@@ -6,7 +6,7 @@
 \title{sii_outline_sf16_nld}
 \format{A data frame with columns:
 \describe{
-           \item{levelordescription}{string with format 'level(numeric)' <point> 'sublevel' 'd'  with d indicating diversification}
+           \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
            \item{outline1}{boolean (logical): the radial line between ri and ro, for db }
            \item{outline2}{boolean (logical): the outer line between db and de, for ro }
            \item{outline3}{boolean (logical): the radial line between ro and ri, for de }
@@ -19,14 +19,14 @@ determined based on specification of EIOPA standard formula Solvency II structur
 made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                           sheet = "outline_sf16_nld")
-   data$levelordescription <- as.character(data$levelordescription)
-   data$outline1 <- as.logical(data$outline1)
-   data$outline2 <- as.logical(data$outline2)
-   data$outline3 <- as.logical(data$outline3)
-   data$outline4 <- as.logical(data$outline4)
-   data$outline11 <- as.logical(data$outline11)
-   data$outline13 <- as.logical(data$outline13)
+                           sheet = "outline_sf16_nld");
+   data$levelordescription <- as.character(data$levelordescription);
+   data$outline1 <- as.logical(data$outline1);
+   data$outline2 <- as.logical(data$outline2);
+   data$outline3 <- as.logical(data$outline3);
+   data$outline4 <- as.logical(data$outline4);
+   data$outline11 <- as.logical(data$outline11);
+   data$outline13 <- as.logical(data$outline13);
 
    sii_outline_sf16_eng <- as.data.frame(data)
 }

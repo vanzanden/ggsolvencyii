@@ -7,7 +7,7 @@
 \format{A data frame with columns:
 \describe{
           \item{description}{string: the name of the component, or a diversification}
-          \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] } with d indicating diversification
+          \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
           \item{childlevel}{string of the same format as level, indicating the level of which the components make up this item }
          }}
 \source{

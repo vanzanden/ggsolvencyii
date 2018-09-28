@@ -7,15 +7,15 @@
 \format{A data frame with columns:
 \describe{
           \item{description}{string: the name of the component}
-          \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] \cr with d indicating diversification}
+          \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
           \item{childlevel}{string, same format as level, indicating the level of which the components combine into this level }
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure. \cr
 made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
-sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",                                      sheet = "struct_sf16_nld",                                            col_types = c(rep("text", 3), rep("skip", 5)))
- }
+sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_nld", col_types = c(rep("text", 3), rep("skip", 5)))
+}
 }
 \usage{
 sii_structure_sf16_nld

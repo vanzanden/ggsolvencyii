@@ -14,7 +14,7 @@
 #' @format A data frame with columns:
 #' \describe{
 #'           \item{description}{string: the name of the component}
-#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] \cr with d indicating diversification}
+#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
 #'           \item{childlevel}{string, same format as level, indicating the level of which the components combine into this level }
 #'          }
 #'
@@ -32,13 +32,13 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
 #' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#' sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",                                      sheet = "struct_sf16_nld",                                            col_types = c(rep("text", 3), rep("skip", 5)))
-#'  }
+#' sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_nld", col_types = c(rep("text", 3), rep("skip", 5)))
+#' }
 #'
 #' @format A data frame with columns:
 #' \describe{
 #'           \item{description}{string: the name of the component}
-#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] \cr with d indicating diversification}
+#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
 #'           \item{childlevel}{string, same format as level, indicating the level of which the components combine into this level }
 #'          }
 #'
@@ -63,8 +63,8 @@
 #'  }
 #' @format A data frame with columns:
 #' \describe{
-#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] } with d indicating diversification
-#'           \item{levelmax}{integer \ code indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
+#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
+#'           \item{levelmax}{positive integer indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
 #'          }
 #'
 #'
@@ -89,8 +89,8 @@
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] } with d indicating diversification
-#'           \item{levelmax}{integer \ code indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
+#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
+#'           \item{levelmax}{positive integer indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
 #'          }
 #'
 #'
@@ -110,25 +110,25 @@
 #' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-#'                            sheet = "outline_sf16_eng")
-#'    data$levelordescription <- as.character(data$levelordescription)
-#'    data$outline1 <- as.logical(data$outline1)
-#'    data$outline2 <- as.logical(data$outline2)
-#'    data$outline3 <- as.logical(data$outline3)
-#'    data$outline4 <- as.logical(data$outline4)
-#'    data$outline11 <- as.logical(data$outline11)
-#'    data$outline13 <- as.logical(data$outline13)
+#'                            sheet = "outline_sf16_eng");
+#'  data$levelordescription <- as.character(data$levelordescription);
+#'  data$outline1 <- as.logical(data$outline1);
+#'  data$outline2 <- as.logical(data$outline2);
+#'  data$outline3 <- as.logical(data$outline3);
+#'  data$outline4 <- as.logical(data$outline4);
+#'  data$outline11 <- as.logical(data$outline11);
+#'  data$outline13 <- as.logical(data$outline13);
 #'
-#'    sii_outline_sf16_eng <- as.data.frame(data)
+#'  sii_outline_sf16_eng <- as.data.frame(data)
 #' }
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{levelordescription}{string with format 'level(numeric)' <point> 'sublevel' 'd'  with d indicating diversification}
-#'            \item{outline1}{boolean (logical): the radial line between ri and ro, for db }
-#'            \item{outline2}{boolean (logical): the outer line between db and de, for ro }
-#'            \item{outline3}{boolean (logical): the radial line between ro and ri, for de }
-#'            \item{outline4}{boolean (logical): the inner line between de and db, for ri.}
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{outline1}{boolean (logical): the radial line  }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line  }
 #'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
 #'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
 #'          }
@@ -150,25 +150,25 @@
 #' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-#'                            sheet = "outline_sf16_nld")
-#'    data$levelordescription <- as.character(data$levelordescription)
-#'    data$outline1 <- as.logical(data$outline1)
-#'    data$outline2 <- as.logical(data$outline2)
-#'    data$outline3 <- as.logical(data$outline3)
-#'    data$outline4 <- as.logical(data$outline4)
-#'    data$outline11 <- as.logical(data$outline11)
-#'    data$outline13 <- as.logical(data$outline13)
+#'                            sheet = "outline_sf16_nld");
+#'    data$levelordescription <- as.character(data$levelordescription);
+#'    data$outline1 <- as.logical(data$outline1);
+#'    data$outline2 <- as.logical(data$outline2);
+#'    data$outline3 <- as.logical(data$outline3);
+#'    data$outline4 <- as.logical(data$outline4);
+#'    data$outline11 <- as.logical(data$outline11);
+#'    data$outline13 <- as.logical(data$outline13);
 #'
 #'    sii_outline_sf16_eng <- as.data.frame(data)
 #' }
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{levelordescription}{string with format 'level(numeric)' <point> 'sublevel' 'd'  with d indicating diversification}
-#'            \item{outline1}{boolean (logical): the radial line between ri and ro, for db }
-#'            \item{outline2}{boolean (logical): the outer line between db and de, for ro }
-#'            \item{outline3}{boolean (logical): the radial line between ro and ri, for de }
-#'            \item{outline4}{boolean (logical): the inner line between de and db, for ri.}
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{outline1}{boolean (logical): the radial line }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line }
 #'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
 #'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
 #'          }
@@ -194,20 +194,20 @@
 #'                            sheet = "ex1_data") %>%
 #'            tidyr::gather(key = description,
 #'                          value = value,
-#'                          -id, -time, -ratio)
+#'                          -id, -time, -ratio);
 #'  sii_z_example1_data <-  data.frame(
 #'                                      time = as.numeric(data$time),
 #'                                      ratio = as.numeric(data$ratio),
-#'                                      description = data$description,   # it has to be a factor !!
+#'                                      description = data$description,
 #'                                      value = as.numeric(data$value),
 #'                                      id = data$id
-#'                                      )
+#'                                      ) # description has to be a factor !
 #'  }
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{time}{numerical: a representation of an x value: x aesthetic could also be a normal numbering, or a longitude}
-#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: y aesthetic could also be a lattitude}
+#'            \item{time}{numerical: a representation of an x value: \cr  The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number}
 #'            \item{value}{numerical }
@@ -231,21 +231,21 @@
 #'                            sheet = "ex2_data") %>%
 #'            tidyr::gather(key = description,
 #'                          value = value,
-#'                          -id, -time, -ratio)
+#'                          -id, -time, -ratio);
 #'  sii_z_example1_data <-  data.frame(
 #'                                      time = as.numeric(data$time),
 #'                                      ratio = as.numeric(data$ratio),
-#'                                      description = data$description,   # it has to be a factor !!
+#'                                      description = data$description,
 #'                                      value = as.numeric(data$value),
 #'                                      id = data$id,
 #'                                      comparewithid = data$comparewithid
-#'                                      )
+#'                                      ) # description has to be a factor !
 #'  }
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{time}{numerical: a representation of an x value: x aesthetic could also be a normal numbering, or a longitude}
-#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: y aesthetic could also be a lattitude}
+#'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: }
 #'            \item{value}{numerical: }
@@ -277,7 +277,7 @@
 #' @format A data frame with columns:
 #' \describe{
 #'           \item{description}{string: the name of the component, or a diversification}
-#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] } with d indicating diversification
+#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
 #'           \item{childlevel}{string of the same format as level, indicating the level of which the components make up this item }
 #'          }
 #'
@@ -300,21 +300,21 @@
 #'                            sheet = "ex3_data") %>%
 #'            tidyr::gather(key = description,
 #'                          value = value,
-#'                          -id, -time, -ratio)
+#'                          -id, -time, -ratio);
 #'  sii_z_example1_data <-  data.frame(
 #'                                      time = as.numeric(data$time),
 #'                                      ratio = as.numeric(data$ratio),
-#'                                      description = data$description,   # it has to be a factor !!
+#'                                      description = data$description,
 #'                                      value = as.numeric(data$value),
 #'                                      id = data$id,
 #'                                      comparewithid = data$comparewithid
-#'                                      )
+#'                                      ) # description has to be a factor !
 #'  }
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{time}{numerical: a representation of an x value: x aesthetic could also be a normal numbering, or a longitude}
-#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: y aesthetic could also be a lattitude}
+#'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: }
 #'            \item{value}{numerical: }
@@ -339,7 +339,7 @@
 #' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #'  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-#'                            sheet = "ex3_levelmax")
+#'                            sheet = "ex3_levelmax");
 #'  sii_z_example3_levelmax <- data.frame(
 #'                                        level = as.character(data$level),
 #'                                        levelmax = as.numeric(data$levelmax)
@@ -348,8 +348,8 @@
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'           \item{level}{string with format 'level(numeric)' [<point> 'sublevel'] ['d'] } with d indicating diversification
-#'           \item{levelmax}{integer \ code indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
+#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
+#'           \item{levelmax}{positive integer indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
 #'          }
 #'
 #'
@@ -362,20 +362,22 @@
 #'
 #' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 #'
+#' This example file highlights the posibilities to override the levelbased outlines for items (i.e. individual risks(accumulations)).
+#'
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #' made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-#'                            sheet = "ex4_outline")
-#'    data$levelordescription <- as.character(data$levelordescription)
-#'    data$outline1 <- as.logical(data$outline1)
-#'    data$outline2 <- as.logical(data$outline2)
-#'    data$outline3 <- as.logical(data$outline3)
-#'    data$outline4 <- as.logical(data$outline4)
-#'    data$outline11 <- as.logical(data$outline11)
-#'    data$outline13 <- as.logical(data$outline13)
+#'                            sheet = "ex4_outline");
+#'    data$levelordescription <- as.character(data$levelordescription);
+#'    data$outline1 <- as.logical(data$outline1);
+#'    data$outline2 <- as.logical(data$outline2);
+#'    data$outline3 <- as.logical(data$outline3);
+#'    data$outline4 <- as.logical(data$outline4);
+#'    data$outline11 <- as.logical(data$outline11);
+#'    data$outline13 <- as.logical(data$outline13);
 #'
 #'    sii_outline_sf16_eng <- as.data.frame(data)
 #' }
@@ -383,11 +385,11 @@
 #'
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{levelordescription}{string with format 'level(numeric)' <point> 'sublevel' 'd'  with d indicating diversification}
-#'            \item{outline1}{boolean (logical): the radial line between ri and ro, for db }
-#'            \item{outline2}{boolean (logical): the outer line between db and de, for ro }
-#'            \item{outline3}{boolean (logical): the radial line between ro and ri, for de }
-#'            \item{outline4}{boolean (logical): the inner line between de and db, for ri.}
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{outline1}{boolean (logical): the radial line  }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line }
 #'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
 #'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the LAST plotted component of that level. }
 #'          }
