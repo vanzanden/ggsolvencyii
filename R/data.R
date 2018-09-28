@@ -192,7 +192,6 @@
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-# ' dummy
 #'    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex1_data") %>%
 #'            tidyr::gather(key = description, value = value, -id, -time, -ratio);
 #'  sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
@@ -227,19 +226,15 @@
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
 #' dummy
-# '  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-# '                            sheet = "ex2_data") %>%
-# '            tidyr::gather(key = description,
-# '                          value = value,
-# '                          -id, -time, -ratio);
-# '  sii_z_example1_data <-  data.frame(
-# '                                      time = as.numeric(data$time),
-# '                                      ratio = as.numeric(data$ratio),
-# '                                      description = data$description,
-# '                                      value = as.numeric(data$value),
-# '                                      id = data$id,
-# '                                      comparewithid = data$comparewithid
-# '                                      ) # description has to be a factor !
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex2_data") %>%
+#'            tidyr::gather(key = description, value = value, -id, -time, -ratio);
+#'  sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
+#'                                      ratio = as.numeric(data$ratio),
+#'                                      description = data$description,
+#'                                      value = as.numeric(data$value),
+#'                                      id = data$id,
+#'                                      comparewithid = data$comparewithid
+#'                                      ) # description has to be a factor !
 #'  }
 #'
 #' @format A data frame with columns:
@@ -294,20 +289,15 @@
 #' @source based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#' dummy
-# '  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-# '                            sheet = "ex3_data") %>%
-# '            tidyr::gather(key = description,
-# '                          value = value,
-# '                          -id, -time, -ratio);
-# '  sii_z_example1_data <-  data.frame(
-# '                                      time = as.numeric(data$time),
-# '                                      ratio = as.numeric(data$ratio),
-# '                                      description = data$description,
-# '                                      value = as.numeric(data$value),
-# '                                      id = data$id,
-# '                                      comparewithid = data$comparewithid
-# '                                      ) # description has to be a factor !
+#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex3_data") %>%
+#'            tidyr::gather(key = description, value = value, -id, -time, -ratio);
+#'  sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
+#'                                      ratio = as.numeric(data$ratio),
+#'                                      description = data$description,
+#'                                      value = as.numeric(data$value),
+#'                                      id = data$id,
+#'                                      comparewithid = data$comparewithid
+#'                                      ) # description has to be a factor !
 #'  }
 #'
 #' @format A data frame with columns:
