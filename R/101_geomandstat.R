@@ -48,9 +48,10 @@ GeomSolviiconnection <- ggplot2::ggproto(
 #' @param show.legend standard ggplot function
 #' @param inherit.aes standard ggplot function
 #'
-#' @param structuredf (dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr a representation of the structure, columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the desription in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in descripton column.
+#' @param structuredf (dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the desription in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in descripton column.
 #'
-#' @param levelmax (integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item.
+#' @param levelmax (integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item. \cr
+#'   For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii_levelmax_sf16_993}} are present in the package where the components of market, life, non-life, health are combined in 5 or 3 items.
 #' @param aggregatesuffix (string, default = "_other")\cr When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix
 
 #' @param maxscrvalue (optional, double, default = NULL)\cr
@@ -125,6 +126,8 @@ geom_solvii <- function(data = NULL,
     }
 
 ## geom_solviioutline =================================================== =====
+#' geom_solviioutline
+#'
 #' geom_solviioutline returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
@@ -132,25 +135,7 @@ geom_solvii <- function(data = NULL,
 #'
 #' @inheritParams geom_solvii
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
-# ' @param data  the dataset in tidyverse format (description as a factor)
-# ' @param stat  default stat is statSolvii
-# ' @param position standard ggplot function
-# ' @param na.rm standard ggplot function
-# ' @param show.legend standard ggplot function
-# ' @param inherit.aes standard ggplot function
-#'
-# ' @param levelmax default = 99: a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined
-# ' @param structuredf default = structure_sf_eng: a representation of the structure, columns description (chr), level (chr), childlevel (chr). description in dataset needs to match the desripton in this file. see ?structure_sf_eng
-#' @param outlinedf default = outline_sf: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'
-# ' @param maxscrvalue default = NULL: the scale of the different plot elements, is (by surfacearea) is by default measured to the largest element, this can be overridden by this parameter
-# ' @param aggregatesuffix default = "_other" When a certain level contains more items than specified by levelmax (an integer or dataframe (level, levelmax)) the smallest items are combined. The description is of the motherlevel with a suffix
-# ' @param scalingx default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in x-direction
-# ' @param scalingy default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in y-direction
-#   ' @param fullstructure default = FALSE: an indication if the legend has to show all possible components of the structure, or only those present in the dataset
-# ' @param rotationdescription default = NULL: which item determines the rotation of the plot, so that this item is
-# ' @param rotationdegrees default = NULL: the fixed amount of degrees of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
-# ' @param squared default = FALSE: a boolean to indicate if the plot should return a square (squared is TRUE), or a circle (squared = FALSE)
-# ' @param ... ellipsis
+#' @param outlinedf default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
 #'
 #' @return a ggplot object \code{\link{geom_solvii}}
 #' @export
@@ -177,15 +162,6 @@ geom_solvii <- function(data = NULL,
 #'   outlinedf = sii_z_example4_outline_exceptions)
 #' }
 #'
-#'
-#'
-#'
-#'
-#'
-#'
-
-
-
 geom_solviioutline <- function(   data = NULL,
                                   mapping = NULL,
                                   stat = "solviioutline",
@@ -241,19 +217,39 @@ geom_solviioutline <- function(   data = NULL,
 ## geom_solviiconnection ================================================ =====
 #' geom_solviiconnection
 #'
-#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
-#' @param data  the dataset in tidyverse format (description as a factor)
-#' @param stat  default stat is statSolvii
-#' @param position standard ggplot function
-#' @param na.rm standard ggplot function
-#' @param show.legend standard ggplot function
-#' @param inherit.aes standard ggplot function
-#' @param ... ellipsis
+#' geom_solviiconnection plots a line between those datapoints which have a value in the column 'comparewithid'. \code{\link{sii_z_example3_data}} Provides an example
+#'
+#' @inheritParams geom_solvii
+#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
 #'
 #' @return a ggplot object
 #' @export
 #'
-# ' @examples dummy
+#' @examples
+#' ggplot2::ggplot() +
+#'   geom_solviiconnection(data = sii_z_example2_data,
+#'   mapping = aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
+#'   arrow = arrow (angle=20, type = "closed" ))
+#'
+#'
+#'    ggplot() +
+#'     geom_solvii(data= sii_z_example2_data,
+#'                 mapping = aes(x=time, y=ratio, id = id, value = value, description=description,
+#'                               fill = description,color = description),
+#'                               lwd=.5) +
+#'      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
+#'      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
+#'      geom_solviioutline(data= sii_z_example2_data,
+#'                         mapping = aes(x=time, y=ratio, id = id, value = value, description=description, comparewithid=comparewithid),
+#'                         color = "red", lwd = 0.7, alpha = 0.99 ) +
+#'      geom_solviiconnection(data = sii_z_example2_data,
+#'                            mapping = aes(x=time, y=ratio, id = id, comparewithid = comparewithid ),
+#'                            arrow = arrow (angle=20, type = "closed" )
+#'                            ) +
+#'      theme_bw()
+
+
+
 
 geom_solviiconnection <- function( data = NULL,
                                    mapping = NULL,
@@ -464,26 +460,10 @@ StatSolviiconnection <- ggplot2::ggproto(
 ## stat_solvii ========================================================== =====
 #' stat_solvii
 #'
-#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value
-#' @param data  the dataset in tidyverse format (description as a factor)
-#' @param geom the default is geom_solvii
-#' @param position standard ggplot function
-#' @param show.legend standard ggplot function
-#' @param inherit.aes standard ggplot function
-#' @param na.rm standard ggplot function
-#' @param levelmax default = 99: a positive integer or a dataframe with columns 'level' and 'levelmax'. The maximum amount of items in a certain level to be plotted. The smallest items are combined
-#' @param levelonedescription default = "SCR": the description of level 1, this name is needed before integration of data and structure.
-#' @param aggregatesuffix default = "_other" When a certain level contains more items than specified by levelmax (an integer or dataframe (level, levelmax)) the smallest items are combined. The description is of the motherlevel with a suffix
-#' @param structuredf default = structure_sf_eng: a representation of the structure, columns description (chr), level (chr), childlevel (chr). description in dataset needs to match the desripton in this file. see ?structure_sf_eng
-#' @param outlinedf default = sii_outlinedf_sf16_eng
-#' @param maxscrvalue default = NULL: the scale of the different plot elements, is (by surfacearea) is by default measured to the largest element, this can be overridden by this parameter
-#' @param scalingx default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in x-direction
-#' @param scalingy default = 1: for plots where units in x and y are different distortion can occur. This parameter scales only in y-direction
-#' @param fullstructure default = FALSE: an indication if the legend has to show all possible components of the structure, or only those present in the dataset
-#' @param rotationdescription default = NULL: which item determines the rotation of the plot, so that this item is
-#' @param rotationdegrees default = NULL: the fixed amount of degrees of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
+#' stat_solvii returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
-#' @param ... ellipsis
+#' @inheritParams geom_solvii
+#' @param geom the default is geom_solvii
 #'
 #' @return a ggplot object
 #' @export
