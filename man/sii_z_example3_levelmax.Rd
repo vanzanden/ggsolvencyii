@@ -4,19 +4,11 @@
 \name{sii_z_example3_levelmax}
 \alias{sii_z_example3_levelmax}
 \title{sii_z_example3_levelmax}
-\format{A data frame with columns:
-\describe{
-          \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
-          \item{levelmax}{positive integer indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
-         }}
+\format{A data frame with columns:}
 \source{
 made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
- data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                           sheet = "ex3_levelmax");
- sii_z_example3_levelmax <- data.frame(
-                                       level = as.character(data$level), levelmax = as.numeric(data$levelmax)
-                                       )
+dummy
 }
 }
 \usage{
