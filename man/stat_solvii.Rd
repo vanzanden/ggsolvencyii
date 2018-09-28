@@ -7,10 +7,8 @@
 stat_solvii(mapping = NULL, data = NULL, geom = "solvii",
   position = "identity", show.legend = TRUE, inherit.aes = TRUE,
   na.rm = FALSE, levelmax = 99, structuredf = sii_structure_sf16_eng,
-  outlinedf = sii_outline_sf16_eng, maxscrvalue = NULL,
-  levelonedescription = "SCR", aggregatesuffix = "_other", scalingx = 1,
-  scalingy = 1, fullstructure = FALSE, rotationdegrees = NULL,
-  rotationdescription = NULL, ...)
+  maxscrvalue = NULL, aggregatesuffix = "_other", scalingx = 1,
+  scalingy = 1, rotationdegrees = NULL, rotationdescription = NULL, ...)
 }
 \arguments{
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value}

@@ -11,7 +11,7 @@
 ##    StatSolviioutline
 ##    StatSolviiconnection
 ##
-stat_solvii
+##    stat_solvii
 ## small:
 ##
 ## ====================================================================== =====
@@ -511,15 +511,15 @@ stat_solvii <- function(  mapping = NULL,
                                       levelmax = levelmax,
                                       structuredf = structuredf,
                                       maxscrvalue = maxscrvalue,
-                                      levelonedescription = levelonedescription,
+                                      # levelonedescription = levelonedescription,
                                       aggregatesuffix = aggregatesuffix,
                                       scalingx = scalingx,
                                       scalingy = scalingy,
-                                      fullstructure = fullstructure,
+                                      # fullstructure = fullstructure,
                                       rotationdegrees = rotationdegrees,
                                       rotationdescription = rotationdescription,
                                     ## internal params
-                                      outlinedf = outlinedf,
+                                      outlinedf = sii_outline_sf16_eng,
                                       purpose = "surfaces",
                                     ## ellipsis
                                       ...

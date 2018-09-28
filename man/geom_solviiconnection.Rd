@@ -32,25 +32,30 @@ a ggplot object
 geom_solviiconnection plots a line between those datapoints which have a value in the column 'comparewithid'. \code{\link{sii_z_example3_data}} Provides an example
 }
 \examples{
+\dontrun{
 ggplot2::ggplot() +
   geom_solviiconnection(data = sii_z_example2_data,
-  mapping = aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
+  mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
   arrow = arrow (angle=20, type = "closed" ))
 
 
    ggplot() +
     geom_solvii(data= sii_z_example2_data,
-                mapping = aes(x=time, y=ratio, id = id, value = value, description=description,
+                mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
+                              description=description,
                               fill = description,color = description),
                               lwd=.5) +
      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
      geom_solviioutline(data= sii_z_example2_data,
-                        mapping = aes(x=time, y=ratio, id = id, value = value, description=description, comparewithid=comparewithid),
+                        mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
+                        description=description, comparewithid=comparewithid),
                         color = "red", lwd = 0.7, alpha = 0.99 ) +
      geom_solviiconnection(data = sii_z_example2_data,
-                           mapping = aes(x=time, y=ratio, id = id, comparewithid = comparewithid ),
+                           mapping = ggplot2::aes(x=time, y=ratio, id = id,
+                           comparewithid = comparewithid ),
                            arrow = arrow (angle=20, type = "closed" )
                            ) +
      theme_bw()
+}
 }
