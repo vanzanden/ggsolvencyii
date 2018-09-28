@@ -8,8 +8,8 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#'dummy
-# '    sii_structure_sf16_eng <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_eng", col_types = c(rep("text", 3),rep("skip", 5)))
+# 'dummy
+#'    sii_structure_sf16_eng <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_eng", col_types = c(rep("text", 3),rep("skip", 5)))
 #'  }
 #'
 #' @format A data frame with columns:
@@ -33,8 +33,8 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#' dummy
-# '  sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_nld", col_types = c(rep("text", 3), rep("skip", 5)))
+# ' dummy
+#'  sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_nld", col_types = c(rep("text", 3), rep("skip", 5)))
 #' }
 #'
 #' @format A data frame with columns:
@@ -276,10 +276,8 @@
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
 #'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 #' \code{
-#' dummy
-# '   sii_z_example3_structure <-   readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-# '                                                sheet = "ex3_struct",
-# '                                                col_types = c(rep("text", 3),rep("skip", 2)))
+# ' dummy
+#'   sii_z_example3_structure <-   readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex3_struct", col_types = c(rep("text", 3),rep("skip", 2)))
 #'  }
 #'
 #' @format A data frame with columns:
