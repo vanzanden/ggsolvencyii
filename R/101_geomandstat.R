@@ -131,8 +131,10 @@ geom_solvii <- function(data = NULL,
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
 #'
 #' @inheritParams geom_solvii
-#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
-#' @param outlinedf default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
+#' @param mapping dummy
+# ' required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
+#' @param outlinedf dummy
+# ' default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
 #'
 #' @return a ggplot object \code{\link{geom_solvii}}
 #' @export
@@ -159,7 +161,7 @@ geom_solvii <- function(data = NULL,
 #'   outlinedf = sii_z_example4_outline_exceptions)
 #' }
 #'
-geom_solviioutline <- function(   data = NULL,
+geom_solviioutline <- function(data = NULL,
                     mapping = NULL,
                     stat = "solviioutline",
                   ## geomspecific parameter
@@ -224,36 +226,35 @@ geom_solviioutline <- function(   data = NULL,
 #'
 #' @examples
 #' \dontrun{
-#' ggplot2::ggplot() +
-#'   geom_solviiconnection(data = sii_z_example2_data,
-#'   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
-#'   arrow = arrow (angle=20, type = "closed" ))
-#'
-#'
-#'    ggplot() +
-#'     geom_solvii(data= sii_z_example2_data,
-#'                 mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
-#'                               description=description,
-#'                               fill = description,color = description),
-#'                               lwd=.5) +
-#'      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
-#'      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
-#'      geom_solviioutline(data= sii_z_example2_data,
-#'                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
-#'                         description=description, comparewithid=comparewithid),
-#'                         color = "red", lwd = 0.7, alpha = 0.99 ) +
-#'      geom_solviiconnection(data = sii_z_example2_data,
-#'                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
-#'                            comparewithid = comparewithid ),
-#'                            arrow = arrow (angle=20, type = "closed" )
-#'                            ) +
-#'      theme_bw()
+#' dummy
+# ' ggplot2::ggplot() +
+# '   geom_solviiconnection(data = sii_z_example2_data,
+# '   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
+# '   arrow = arrow (angle=20, type = "closed" ))
+# '
+# '
+# '    ggplot() +
+# '     geom_solvii(data= sii_z_example2_data,
+# '                 mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
+# '                               description=description,
+# '                               fill = description,color = description),
+# '                               lwd=.5) +
+# '      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
+# '      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
+# '      geom_solviioutline(data= sii_z_example2_data,
+# '                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
+# '                         description=description, comparewithid=comparewithid),
+# '                          color = "red", lwd = 0.7, alpha = 0.99 ) +
+# '      geom_solviiconnection(data = sii_z_example2_data,
+# '                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
+# '                            comparewithid = comparewithid ),
+# '                            arrow = arrow (angle=20, type = "closed" )
+# '                            ) +
+# '      theme_bw()
 #'}
 
 
-
-
-geom_solviiconnection <- function( data = NULL,
+geom_solviiconnection <- function(data = NULL,
                                    mapping = NULL,
                                    stat = "solviiconnection",
                                    position = "identity",
@@ -316,7 +317,7 @@ StatSolvii <- ggplot2::ggproto(
                              purpose,
                              ...
                             ) {
-            siiparams <- list (levelmax = levelmax,
+            siiparams <- list(levelmax = levelmax,
                                structuredf = structuredf,
                                outlinedf = outlinedf,
                                maxscrvalue = maxscrvalue,
@@ -394,7 +395,7 @@ StatSolviioutline <- ggplot2::ggproto(
                               purpose,
                               ...
                             ) {
-              siiparams <- list (levelmax = levelmax,
+              siiparams <- list(levelmax = levelmax,
                                structuredf = structuredf,
                                outlinedf = outlinedf,
                                maxscrvalue = maxscrvalue,
@@ -472,7 +473,7 @@ StatSolviiconnection <- ggplot2::ggproto(
 #'
 # ' @examples dummy
 
-stat_solvii <- function(  mapping = NULL,
+stat_solvii <- function(mapping = NULL,
                           data = NULL,
                           geom = "solvii",
                           position = "identity",
