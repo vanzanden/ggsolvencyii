@@ -16,19 +16,8 @@
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
-made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
- data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                           sheet = "outline_sf16_nld");
-   data$levelordescription <- as.character(data$levelordescription);
-   data$outline1 <- as.logical(data$outline1);
-   data$outline2 <- as.logical(data$outline2);
-   data$outline3 <- as.logical(data$outline3);
-   data$outline4 <- as.logical(data$outline4);
-   data$outline11 <- as.logical(data$outline11);
-   data$outline13 <- as.logical(data$outline13);
-
-   sii_outline_sf16_eng <- as.data.frame(data)
+dummy
 }
 }
 \usage{

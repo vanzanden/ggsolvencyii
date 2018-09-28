@@ -6,7 +6,6 @@
 \title{sii_z_example3_levelmax}
 \format{A data frame with columns:}
 \source{
-made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
 \code{
 dummy
 }
