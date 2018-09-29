@@ -39,12 +39,14 @@ fnSetupdata_surfaces <- function(data, params) {
 #' @inheritParams fnmaxscrvalue
 # ' @param params dummy text
 #'
+#' @importFrom magrittr %>%
+#'
 #' @return a dataframe
 # ' @ export
 #'
 # ' @examples
 
-fn_structure_expansion <- function (params) {
+fn_structure_expansion <- function(params) {
         structuredf     <- params$structuredf
         levelmax        <- params$levelmax
         aggregatesuffix <- params$aggregatesuffix
@@ -82,7 +84,7 @@ fn_structure_expansion <- function (params) {
         groupinglines$ind_o <- TRUE
         ## initial location of "o"-lines is just after last item of level
         groupinglines$ordering_2 <- NULL
-        for ( i in 1:nrow(groupinglines)) {
+        for (i in 1:nrow(groupinglines)) {
           l_tmp <- gsub("o", "", groupinglines$level[i])
           s_tmp <- s_out$ordering_1[s_out$level == l_tmp]
           max_tmp <- max(s_tmp)
@@ -192,6 +194,8 @@ fn_determinelevels <- function (vector_in,  ind_value = FALSE,
 #' @param expandedstructure result of fn_structure_expansion()
 #' @inheritParams fnmaxscrvalue
 # ' @param data :dataframe in tidyverse format with (minimal) columns id, x, y, description, value and possible columns comparewithid, COLOR, FILLCOLOR, PANEL
+#'
+#' @importFrom magrittr %>%
 #'
 #' @return data
 # ' @ export

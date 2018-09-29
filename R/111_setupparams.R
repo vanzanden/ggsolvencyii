@@ -7,7 +7,7 @@
 ##    fnmaxscrvalue
 ## ====================================================================== =====
 
-## fnlevelonedescription ======================================================== =====
+## fnlevelonedescription ================================================ =====
 #' fnlevelonedescription extracts the name of level 1 item from the structure
 #'
 #' @inheritParams fnmaxscrvalue

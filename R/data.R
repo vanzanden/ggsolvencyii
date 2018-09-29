@@ -1,3 +1,66 @@
+## sii_x_fillcolors_sf16_eng ====================================================== =====
+#' sii_x_fillcolors_sf16_eng
+#'
+#' a colorset where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
+#'
+#' @docType data
+#'
+#' @source
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden/ggsolvencyii}
+#'
+#' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
+#' @examples
+#' sii_x_fillcolors_sf16_eng
+"sii_x_fillcolors_sf16_eng"
+
+## sii_x_edgecolors_sf16_eng ====================================================== =====
+#' sii_x_edgecolors_sf16_eng
+#'
+#' a colorset where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#'
+#' @docType data
+#'
+#' @source
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden/ggsolvencyii}
+#'
+#' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
+
+#' @examples
+#' sii_x_edgecolors_sf16_eng
+"sii_x_edgecolors_sf16_eng"
+
+
+## sii_x_fillcolors_sf16_nld ====================================================== =====
+#' sii_x_fillcolors_sf16_nld
+#'
+#' a colorset where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
+#'
+#' @docType data
+#'
+#' @source
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden/ggsolvencyii}
+#'
+#' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
+#' @examples
+#' sii_x_fillcolors_sf16_nld
+"sii_x_fillcolors_sf16_nld"
+
+## sii_x_edgecolors_sf16_nld ====================================================== =====
+#' sii_x_edgecolors_sf16_nld
+#'
+#' a colorset where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#'
+#' @docType data
+#'
+#' @source
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden/ggsolvencyii}
+#'
+#' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
+
+#' @examples
+#' sii_x_edgecolors_sf16_nld
+"sii_x_edgecolors_sf16_nld"
+
 ## sii_structure_sf16_eng ====================================================== =====
 #' sii_structure_sf16_eng
 #'
@@ -6,11 +69,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-# 'dummy
-#'    sii_structure_sf16_eng <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_eng", col_types = c(rep("text", 3),rep("skip", 5)))
-#'  }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -31,11 +90,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-# ' dummy
-#'  sii_structure_sf16_nld <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_nld", col_types = c(rep("text", 3), rep("skip", 5)))
-#' }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -60,11 +115,8 @@
 #' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} :
-#' \code{
-#' dummy
-#'      sii_levelmax_sf16_995 <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "levelmax_sf16_995")
-#' }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
 #' @format A data frame with columns:
 #' \describe{
 #'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
@@ -111,19 +163,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-# ' dummy
-#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "outline_sf16_eng");
-#'  data$levelordescription <- as.character(data$levelordescription);
-#'  data$outline1 <- as.logical(data$outline1);
-#'  data$outline2 <- as.logical(data$outline2);
-#'  data$outline3 <- as.logical(data$outline3);
-#'  data$outline4 <- as.logical(data$outline4);
-#'  data$outline11 <- as.logical(data$outline11);
-#'  data$outline13 <- as.logical(data$outline13);
-#'  sii_outline_sf16_eng <- as.data.frame(data)
-#' }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -150,19 +190,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-# 'dummy
-#'    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "outline_sf16_nld");
-#'    data$levelordescription <- as.character(data$levelordescription);
-#'    data$outline1 <- as.logical(data$outline1);
-#'    data$outline2 <- as.logical(data$outline2);
-#'    data$outline3 <- as.logical(data$outline3);
-#'    data$outline4 <- as.logical(data$outline4);
-#'     data$outline11 <- as.logical(data$outline11);
-#'    data$outline13 <- as.logical(data$outline13);
-#'    sii_outline_sf16_eng <- as.data.frame(data)
-#' }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -190,17 +218,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-#'    data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex1_data") %>%
-#'            tidyr::gather(key = description, value = value, -id, -time, -ratio);
-#'  sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
-#'                                      ratio = as.numeric(data$ratio),
-#'                                      description = data$description,
-#'                                      value = as.numeric(data$value),
-#'                                      id = data$id
-#'                                      ) # description has to be a factor !
-#'  }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -223,20 +241,8 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-#' dummy
-#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex2_data") %>%
-#'            tidyr::gather(key = description, value = value, -id, -time, -ratio);
-#'  sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
-#'                                      ratio = as.numeric(data$ratio),
-#'                                      description = data$description,
-#'                                      value = as.numeric(data$value),
-#'                                      id = data$id,
-#'                                      comparewithid = data$comparewithid
-#'                                      ) # description has to be a factor !
-#'  }
-#'
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+
 #' @format A data frame with columns:
 #' \describe{
 #'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
@@ -261,11 +267,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-# ' dummy
-#'   sii_z_example3_structure <-   readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex3_struct", col_types = c(rep("text", 3),rep("skip", 2)))
-#'  }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -287,18 +289,8 @@
 #' @docType data
 #'
 #' @source based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex3_data") %>%
-#'            tidyr::gather(key = description, value = value, -id, -time, -ratio);
-#'  sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
-#'                                      ratio = as.numeric(data$ratio),
-#'                                      description = data$description,
-#'                                      value = as.numeric(data$value),
-#'                                      id = data$id,
-#'                                      comparewithid = data$comparewithid
-#'                                      ) # description has to be a factor !
-#'  }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -323,12 +315,7 @@
 # ' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-#' dummy
-#'  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "ex3_levelmax");
-#'  sii_z_example3_levelmax <- data.frame(level = as.character(data$level), levelmax = as.numeric(data$levelmax))
-#' }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 # ' \describe{
@@ -350,19 +337,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-#' \code{
-# ' dummy
-#'  data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex4_outline");
-#'    data$levelordescription <- as.character(data$levelordescription);
-#'     data$outline1 <- as.logical(data$outline1);
-#'    data$outline2 <- as.logical(data$outline2);
-#'    data$outline3 <- as.logical(data$outline3);
-#'    data$outline4 <- as.logical(data$outline4);
-#'    data$outline11 <- as.logical(data$outline11);
-#'    data$outline13 <- as.logical(data$outline13);
-#'    sii_outline_sf16_eng <- as.data.frame(data)
-#' }
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #'
 #' @format A data frame with columns:

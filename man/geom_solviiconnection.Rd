@@ -9,11 +9,11 @@ geom_solviiconnection(data = NULL, mapping = NULL,
   show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{data}{the dataset in tidyverse format (column 'description' as a factor)}
+\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}}
 
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid}
 
-\item{stat}{default stat is statSolvii}
+\item{stat}{default stat is statSolviiconnection, combinations with other stat's are not tested}
 
 \item{position}{standard ggplot function}
 
@@ -29,7 +29,7 @@ geom_solviiconnection(data = NULL, mapping = NULL,
 a ggplot object
 }
 \description{
-geom_solviiconnection plots a line between those datapoints which have a value in the column 'comparewithid'. \code{\link{sii_z_example3_data}} Provides an example
+Plots a line between those datapoints which have a value in the column 'comparewithid'.
 }
 \examples{
 \dontrun{

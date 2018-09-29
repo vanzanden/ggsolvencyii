@@ -12,6 +12,8 @@
 #'
 #' @param data the data send by the geom_class, due to the simple nature of the desired plot no structure information is needed.
 #'
+#' @importFrom magrittr %>%
+#'
 #' @return an adjusted version of input dataframe data
 # ' @exportnot
 #'

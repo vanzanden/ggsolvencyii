@@ -13,7 +13,7 @@ stat_solvii(mapping = NULL, data = NULL, geom = "solvii",
 \arguments{
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value}
 
-\item{data}{the dataset in tidyverse format (column 'description' as a factor)}
+\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}}
 
 \item{geom}{the default is geom_solvii}
 

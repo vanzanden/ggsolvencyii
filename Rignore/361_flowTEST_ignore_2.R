@@ -2,7 +2,7 @@
 
 
 
-fillcolors_sf_eng <- c("SCR"                         ="#1f78b4", #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
+fillcolors_sf16_eng <- c("SCR"                         ="#1f78b4", #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
                           "BSCR"                     ="#48b0eb", #scr +282828
                           "operational"              ="#70d8ff", #bscr +282828
                               "market"               ="#d95f02", #http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=7
@@ -44,7 +44,7 @@ fillcolors_sf_eng <- c("SCR"                         ="#1f78b4", #http://colorbr
                                       "non-life_other"   ="#66a61e" #=nonlife
                       )
 
-colorcolors_sf_eng <- c("SCR"                         ="#000000",
+edgecolors_sf16_eng <- c("SCR"                         ="#000000",
                         "BSCR"                     ="#1f78b4",
                         "operational"              ="#1f78b4",
                         "market"               ="#48b0eb",

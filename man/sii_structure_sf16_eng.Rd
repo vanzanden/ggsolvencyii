@@ -12,10 +12,7 @@
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure. \cr
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-\code{
-   sii_structure_sf16_eng <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "struct_sf16_eng", col_types = c(rep("text", 3),rep("skip", 5)))
- }
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_structure_sf16_eng

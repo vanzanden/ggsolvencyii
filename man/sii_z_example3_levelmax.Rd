@@ -6,12 +6,7 @@
 \title{sii_z_example3_levelmax}
 \format{A data frame with columns:}
 \source{
-made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-\code{
-dummy
- data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",sheet = "ex3_levelmax");
- sii_z_example3_levelmax <- data.frame(level = as.character(data$level), levelmax = as.numeric(data$levelmax))
-}
+made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_example3_levelmax

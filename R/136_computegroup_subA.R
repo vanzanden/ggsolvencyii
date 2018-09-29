@@ -21,6 +21,7 @@
 #' @return a dataframe with 5 added columns (ri, ro, db, de, plottype)
 #'
 #' @importFrom dplyr mutate
+#' @importFrom magrittr %>%
 #'
 # ' @exportnot
 #'
@@ -207,6 +208,7 @@ fnsquareddegrees <- function (circledegrees) {
 #' @return a list with two items (df (dataframe), counter_polyorder (numeric, updated)
 #'
 #' @importFrom dplyr mutate
+#' @importFrom magrittr %>%
 #'
 # ' @exportnot
 #'

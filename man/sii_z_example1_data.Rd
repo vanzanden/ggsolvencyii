@@ -14,17 +14,7 @@
          }}
 \source{
 loosely based on public SFCR report of a medium sized dutch life insurer
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden} : \cr
-\code{
-   data <-  readxl::read_xlsx(path = "xls/preparingtables.xlsx", sheet = "ex1_data") %>%
-           tidyr::gather(key = description, value = value, -id, -time, -ratio);
- sii_z_example1_data <-  data.frame(time = as.numeric(data$time),
-                                     ratio = as.numeric(data$ratio),
-                                     description = data$description,
-                                     value = as.numeric(data$value),
-                                     id = data$id
-                                     ) # description has to be a factor !
- }
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_example1_data

@@ -12,11 +12,11 @@ geom_solvii(data = NULL, mapping = NULL, stat = "solvii",
   show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{data}{the dataset in tidyverse format (column 'description' as a factor)}
+\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}}
 
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value}
 
-\item{stat}{default stat is statSolvii}
+\item{stat}{default stat is statSolvii, combinations with other stat's are not tested}
 
 \item{structuredf}{(dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the desription in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in descripton column.}
 
@@ -52,5 +52,5 @@ the scale of the different plot elements is is by default measured to the larges
 a ggplot object
 }
 \description{
-geom_solvii returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
+returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
 }

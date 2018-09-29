@@ -39,11 +39,11 @@ GeomSolviiconnection <- ggplot2::ggproto(
 ## geom_solvii ========================================================== =====
 #' geom_solvii
 #'
-#' geom_solvii returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
+#' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
-#' @param data  the dataset in tidyverse format (column 'description' as a factor)
-#' @param stat  default stat is statSolvii
+#' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}
+#' @param stat  default stat is statSolvii, combinations with other stat's are not tested
 #' @param position standard ggplot function
 #' @param na.rm standard ggplot function
 #' @param show.legend standard ggplot function
@@ -125,14 +125,14 @@ geom_solvii <- function(data = NULL,
 ## geom_solviioutline =================================================== =====
 #' geom_solviioutline
 #'
-#' geom_solviioutline returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values of a hierarchy of levels.
+#'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
 #'
 #' @inheritParams geom_solvii
-#' @param mapping dummy
-# ' required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
+#' @param stat  default stat is statSolviioutline, combinations with other stat's are not tested
+#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid
 #' @param outlinedf dummy
 # ' default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
 #'
@@ -140,26 +140,26 @@ geom_solvii <- function(data = NULL,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+# ' \dontrun{
 #' ggplot2::ggplot() +
 #' geom_solviioutline(data = sii_z_example2_data,
-#'   mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
+#'  mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
 #'                          comparewithid = comparewithid),
 #'    color = "red", lwd = .5 )
-#'
-#'
-#' sii_z_example4_outline_exceptions
-#' # \code{\link{sii_z_example4_outline_exceptions}}
-#' ggplot2::ggplot() +
-#' geom_solviioutline(data = sii_z_example2_data,
-#'   mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
-#'                          comparewithid = comparewithid),
-#'   color = "red", lwd = .5 ,
-#'   rotationdescription = "life",
-#'   rotationdegrees = -8,
-#'   squared =  TRUE,
-#'   outlinedf = sii_z_example4_outline_exceptions)
-#' }
+# '
+# '
+#  sii_z_example4_outline_exceptions
+# '
+# ' ggplot2::ggplot() +
+# ' geom_solviioutline(data = sii_z_example2_data,
+# '   mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
+# '                          comparewithid = comparewithid),
+# '   color = "red", lwd = .5 ,
+# '   rotationdescription = "life",
+# '   rotationdegrees = -8,
+# '   squared =  TRUE,
+# '   outlinedf = sii_z_example4_outline_exceptions)
+# ' }
 #'
 geom_solviioutline <- function(data = NULL,
                     mapping = NULL,
@@ -216,10 +216,11 @@ geom_solviioutline <- function(data = NULL,
 ## geom_solviiconnection ================================================ =====
 #' geom_solviiconnection
 #'
-#' geom_solviiconnection plots a line between those datapoints which have a value in the column 'comparewithid'. \code{\link{sii_z_example3_data}} Provides an example
+#' Plots a line between those datapoints which have a value in the column 'comparewithid'.
 #'
 #' @inheritParams geom_solvii
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
+#' @param stat  default stat is statSolviiconnection, combinations with other stat's are not tested
 #'
 #' @return a ggplot object
 #' @export
