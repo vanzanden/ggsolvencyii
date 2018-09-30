@@ -140,26 +140,24 @@ geom_solvii <- function(data = NULL,
 #' @export
 #'
 #' @examples
-# ' \dontrun{
 #' ggplot2::ggplot() +
 #' geom_solviioutline(data = sii_z_example2_data,
-#'  mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
+#'  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'    color = "red", lwd = .5 )
-# '
-# '
-#  sii_z_example4_outline_exceptions
-# '
-# ' ggplot2::ggplot() +
-# ' geom_solviioutline(data = sii_z_example2_data,
-# '   mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
-# '                          comparewithid = comparewithid),
-# '   color = "red", lwd = .5 ,
-# '   rotationdescription = "life",
-# '   rotationdegrees = -8,
-# '   squared =  TRUE,
-# '   outlinedf = sii_z_example4_outline_exceptions)
-# ' }
+#'
+#'
+#'  sii_z_example4_outline_exceptions
+#'
+#' ggplot2::ggplot() +
+#' geom_solviioutline(data = sii_z_example2_data,
+#'   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
+#'                          comparewithid = comparewithid),
+#'   color = "red", lwd = .5 ,
+#'   rotationdescription = "life",
+#'   rotationdegrees = -8,
+#'   squared =  TRUE,
+#'   outlinedf = sii_z_example4_outline_exceptions)
 #'
 geom_solviioutline <- function(data = NULL,
                     mapping = NULL,

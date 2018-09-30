@@ -63,8 +63,21 @@ by means of the column aes()value comparewithid in the data an overlay can be ma
 \examples{
 ggplot2::ggplot() +
 geom_solviioutline(data = sii_z_example2_data,
- mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value, description=description,
+ mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                          comparewithid = comparewithid),
    color = "red", lwd = .5 )
+
+
+ sii_z_example4_outline_exceptions
+
+ggplot2::ggplot() +
+geom_solviioutline(data = sii_z_example2_data,
+  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
+                         comparewithid = comparewithid),
+  color = "red", lwd = .5 ,
+  rotationdescription = "life",
+  rotationdegrees = -8,
+  squared =  TRUE,
+  outlinedf = sii_z_example4_outline_exceptions)
 
 }

@@ -1,10 +1,10 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "ggsolvencyii README"
+author: "Marco van Zanden"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{ggsolvencyii README}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 ## Travis status
-[![Build Status](https://travis-ci.org/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.org/vanzanden/ggsolvencyii.svg?branch=master)
+[![Build Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)
 
 
 Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
@@ -62,6 +62,15 @@ You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footn
 ```{r, echo=FALSE, results='asis'}
 knitr::kable(head(mtcars, 10))
 ```
+
+```{r, echo=FALSE, results='asis'}
+ggplot2::ggplot() +
+ geom_solviioutline(data = sii_z_example2_data,
+  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
+                          comparewithid = comparewithid),
+    color = "red", lwd = .5 )
+```
+
 
 Also a quote using `>`:
 
