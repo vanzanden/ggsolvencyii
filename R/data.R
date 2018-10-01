@@ -61,7 +61,7 @@
 #' sii_x_edgecolors_sf16_nld
 "sii_x_edgecolors_sf16_nld"
 
-## sii_structure_sf16_eng ====================================================== =====
+## sii_structure_sf16_eng ========================================================= =====
 #' sii_structure_sf16_eng
 #'
 #' a standard formula structure (as of 2016), with descriptions in English.
@@ -82,7 +82,7 @@
 #' sii_structure_sf16_eng
 "sii_structure_sf16_eng"
 
-## sii_structure_sf16_nld ====================================================== =====
+## sii_structure_sf16_nld ========================================================= =====
 #' sii_structure_sf16_nld
 #'
 #' a standard formula structure (as of 2016), with descriptions in Dutch.
@@ -105,7 +105,7 @@
 
 
 
-## sii_levelmax_sf16_995 ======================================================= =====
+## sii_levelmax_sf16_995 ========================================================== =====
 #' sii_levelmax_sf16_995
 #'
 #' maximum number of items in a level, 99 items for levels 1-3
@@ -128,7 +128,7 @@
 #' sii_levelmax_sf16_995
 "sii_levelmax_sf16_995"
 
-## sii_levelmax_sf16_993 ======================================================= =====
+## sii_levelmax_sf16_993 ========================================================== =====
 #' sii_levelmax_sf16_993
 #'
 #' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...) in a standard formula structure.
@@ -154,7 +154,7 @@
 #' sii_levelmax_sf16_993
 "sii_levelmax_sf16_993"
 
-## sii_outline_sf16_eng ======================================================== =====
+## sii_outline_sf16_eng =========================================================== =====
 #' sii_outline_sf16_eng
 #'
 #' A table for \code{\link{geom_solviioutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
@@ -181,7 +181,7 @@
 "sii_outline_sf16_eng"
 
 
-## sii_outline_sf16_nld ======================================================== =====
+## sii_outline_sf16_nld =========================================================== =====
 #' sii_outline_sf16_nld
 #'
 #' A table for \code{\link{geom_solviioutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
@@ -210,7 +210,7 @@
 
 
 
-## sii_z_example1_data ========================================================= =====
+## sii_z_example1_data ============================================================ =====
 #' sii_z_example1_data
 #'
 #' example dataset, in tidyverse format, with only one instance of a limited filled sf structure.
@@ -233,7 +233,7 @@
 #' sii_z_example1_data
 "sii_z_example1_data"
 
-## sii_z_example2_data ========================================================= =====
+## sii_z_example2_data ============================================================ =====
 #' sii_z_example2_data
 #'
 #' example dataset, in tidyverse format, with several instances of a completely  filled sf structure,
@@ -259,7 +259,7 @@
 
 
 
-## sii_z_example3_structure ==================================================== =====
+## sii_z_example3_structure ======================================================= =====
 #' sii_z_example3_structure
 #'
 #' a standard formula structure (as of 2016), with descriptions in English
@@ -281,7 +281,7 @@
 "sii_z_example3_structure"
 
 
-## sii_z_example3_data ========================================================= =====
+## sii_z_example3_data ============================================================ =====
 #' sii_z_example3_data
 #'
 #' example dataset, in tidyverse format, with several instances of a filled sf structure,
@@ -306,7 +306,7 @@
 #' sii_z_example3_data
 "sii_z_example3_data"
 
-## sii_z_example3_levelmax ===================================================== =====
+## sii_z_example3_levelmax ======================================================== =====
 #' sii_z_example3_levelmax
 #'
 #' tekst
@@ -327,7 +327,7 @@
 #' sii_z_example3_levelmax
 "sii_z_example3_levelmax"
 
-## sii_z_example4_outline ====================================================== =====
+## sii_z_example4_outline ========================================================= =====
 #' sii_z_example4_outline
 #'
 #' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
@@ -355,7 +355,7 @@
 #' sii_z_example4_outline
 "sii_z_example4_outline"
 
-## sii_z_example5_data ========================================================= =====
+## sii_z_example5_data ============================================================ =====
 #' sii_z_example5_data
 #'
 #' example dataset, in tidyverse format, with several instances of a completely filled sf structure, with Dutch descriptions,

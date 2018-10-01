@@ -3,14 +3,14 @@
 ## main:
 ##
 ## small:
-##    fnlevelonedescription
-##    fnmaxscrvalue
+##    fn_levelonedescription
+##    fn_maxscrvalue
 ## ====================================================================== =====
 
-## fnlevelonedescription ================================================ =====
-#' fnlevelonedescription extracts the name of level 1 item from the structure
+## fn_levelonedescription ================================================ =====
+#' fn_levelonedescription extracts the name of level 1 item from the structure
 #'
-#' @inheritParams fnmaxscrvalue
+#' @inheritParams fn_maxscrvalue
 # '  @param params the params send by the geom_class, possible adjusted by setup_params.
 #'
 #' @return the value maxscrvalue, whether or not this is provided by the user
@@ -18,7 +18,7 @@
 #'
 # ' @examples
 
-fnlevelonedescription <- function(params) {
+fn_levelonedescription <- function(params) {
     structuredf     <- params$structuredf
     levelonedescription <- structuredf$description[structuredf$level == 1]
   ## return results
@@ -27,8 +27,8 @@ fnlevelonedescription <- function(params) {
 
 
 
-## fnmaxscrvalue ======================================================== =====
-#' fnmaxscrvalue
+## fn_maxscrvalue ======================================================== =====
+#' fn_maxscrvalue
 #' all elements in the resulting dataset are scaled to surface of value of the largest level 1 (SCR) element
 #'  in the set, unless the value to be scaled to is provided as a parameter.
 #'
@@ -40,7 +40,7 @@ fnlevelonedescription <- function(params) {
 #'
 # ' @examples
 
-fnmaxscrvalue <- function(data, params
+fn_maxscrvalue <- function(data, params
                           ) {
       #structuredf     <- params$structuredf
       #levelonedescription <- structuredf$description[structuredf$level == 1]

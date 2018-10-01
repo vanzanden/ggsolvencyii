@@ -1,20 +1,20 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    fnCornerpoints
-##    fnRotation
-##    fnSquareconversion
-##    fnsquareddegrees
-##    fnPolygonpoints
+##    fn_cornerpoints
+##    fn_rotation
+##    fn_squareconversion
+##    fn_squareddegrees
+##    fn_polygonpoints
 ## small:
 ##
 ## ====================================================================== =====
 
 
-## fnCornerpoints ======================================================= =====
-#' fnCornerpoints
+## fn_cornerpoints ======================================================= =====
+#' fn_cornerpoints
 #'
-#' @inheritParams fnComputegroup
+#' @inheritParams fn_computegroup
 #' @param df The dataframe resulted from last step
 #' @param siiparams dummy text
 #'
@@ -27,7 +27,7 @@
 #'
 # ' @examples
 
-fnCornerpoints <- function(df, siiparams) {
+fn_cornerpoints <- function(df, siiparams) {
     maxscrvalue         <- siiparams$maxscrvalue
 
     t1 <- df  %>%
@@ -108,10 +108,10 @@ fnCornerpoints <- function(df, siiparams) {
 }
 
 
-## fnRotation =========================================================== =====
-#' fnRotation
+## fn_rotation =========================================================== =====
+#' fn_rotation
 #'
-#' @inheritParams fnComputegroup
+#' @inheritParams fn_computegroup
 #' @param df The dataframe resulted from last step
 # ' @param siiparams   dummy text
 
@@ -122,7 +122,7 @@ fnCornerpoints <- function(df, siiparams) {
 #'
 # ' @examples
 
-fnRotation <- function(df, siiparams) {
+fn_rotation <- function(df, siiparams) {
       ## parameters in this function
         rotationdescription <- siiparams$rotationdescription
         rotationdegrees <- siiparams$rotationdegrees
@@ -151,9 +151,9 @@ fnRotation <- function(df, siiparams) {
         return(df_out)
     }
 
-## fnSquareconversion =================================================== =====
+## fn_squareconversion =================================================== =====
 
-#' fnSquareconversion
+#' fn_squareconversion
 #'
 #' @param df a dataframe with colums ri, ro, db, de
 #'
@@ -161,22 +161,23 @@ fnRotation <- function(df, siiparams) {
 # ' @export
 #'
 # ' @examples
-fnSquareconversion <- function(df) {
+
+fn_squareconversion <- function(df) {
         df$ri <- df$ri * (.5 * sqrt(pi))  ## factor .88
         df$ro <- df$ro * (.5 * sqrt(pi))  ## factor .88
         ## CALL
-        df$db <- apply(as.data.frame(df$db), MARGIN = 1, FUN = fnsquareddegrees)
+        df$db <- apply(as.data.frame(df$db), MARGIN = 1, FUN = fn_squareddegrees)
 # print(as.data.frame(df$de))
         ## CALL
-        df$de <- apply(as.data.frame(df$de), MARGIN = 1, FUN = fnsquareddegrees)
+        df$de <- apply(as.data.frame(df$de), MARGIN = 1, FUN = fn_squareddegrees)
 # print(as.data.frame(df$de))
       ## return results
         return(df)
     }
 
 
-## fnsquareddegrees ===================================================== =====
-#' fnsquareddegrees The actual transformation of a part of a circle to the (surfacewise)  equivalent of the part of a square
+## fn_squareddegrees ===================================================== =====
+#' fn_squareddegrees The actual transformation of a part of a circle to the (surfacewise)  equivalent of the part of a square
 #'
 #' @param circledegrees (no default) an amount in degrees
 #'
@@ -185,7 +186,7 @@ fnSquareconversion <- function(df) {
 #'
 # ' @examples
 
-fnsquareddegrees <- function (circledegrees) {
+fn_squareddegrees <- function (circledegrees) {
         # squaredegrees <- circledegrees
         rmd <- circledegrees %% 45 ## rmd for remainder in degrees
         pts <- circledegrees %/% 45 ## amount of 8th parts of circle/square
@@ -197,10 +198,10 @@ fnsquareddegrees <- function (circledegrees) {
         return(squaredegrees)
     }
 
-## fnPolygonpoints ====================================================== =====
-#' fnPolygonpoints
+## fn_polygonpoints ====================================================== =====
+#' fn_polygonpoints
 #'
-#' @inheritParams fnComputegroup
+#' @inheritParams fn_computegroup
 #' @param df  The dataframe resulted from last step
 # ' @param siiparams   dummy text
 #' @param counter_polyorder a continues counter, needed for sorting polygonpoints
@@ -215,7 +216,7 @@ fnsquareddegrees <- function (circledegrees) {
 # ' @examples
 
 
-fnPolygonpoints <- function (df, siiparams, counter_polyorder) {
+fn_polygonpoints <- function (df, siiparams, counter_polyorder) {
   ## parameters in this function
     purpose <- siiparams$purpose
     squared <- siiparams$squared
@@ -226,7 +227,7 @@ fnPolygonpoints <- function (df, siiparams, counter_polyorder) {
       line <- df[i, ]
       if (squared == TRUE) {
         ## CALL ##
-        points <- fnSquarepoints(ri = line$ri, ro = line$ro,
+        points <- fn_squarepoints(ri = line$ri, ro = line$ro,
                                   db = line$db, de = line$de,
                                   indication11 = FALSE,
                                   indication13 = FALSE,
@@ -235,7 +236,7 @@ fnPolygonpoints <- function (df, siiparams, counter_polyorder) {
                                   )
       } else {
         ## CALL ##
-        points <- fnCirclepoints(ri = line$ri, ro = line$ro,
+        points <- fn_circlepoints(ri = line$ri, ro = line$ro,
                                  db = line$db, de = line$de,
                                  indication11 = FALSE,
                                  indication13 = FALSE,

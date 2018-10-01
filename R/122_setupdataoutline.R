@@ -1,17 +1,17 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    fnSetupdata_outline
+##    fn_setupdata_outline
 ##
 ## small:
 ##
 ## ====================================================================== =====
 
 
-## fnSetupdata_outline ================================================== =====
-#' fnSetupdata_outline
+## fn_setupdata_outline ================================================== =====
+#' fn_setupdata_outline
 #'
-#' @inheritParams fnmaxscrvalue
+#' @inheritParams fn_maxscrvalue
 # ' @param data the data send by the geom_class
 # ' @param params the params send by the geom_classs
 #'
@@ -20,7 +20,7 @@
 #'
 # ' @examples
 
-fnSetupdata_outline <- function(data, params) {
+fn_setupdata_outline <- function(data, params) {
   ## CALL ##
     expandedstructure <- fn_structure_expansion ( params = params)
 

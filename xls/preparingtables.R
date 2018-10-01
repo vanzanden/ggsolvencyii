@@ -26,7 +26,9 @@ sii_x_fillcolors_sf16_eng <- c("SCR"                     = "#1f78b4", #http://co
                                       "h_s_lapse"        = "#dadaeb",   #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
                                       "h_s_expenses"     = "#efedf5",   #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
                                       "h_s_revision"     = "#fcfbfd",   #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
-                                          "h_s_other"    = "#6a51a3", # = h_slt
+                                          "h_SLT_other"    = "#6a51a3", # = h_slt
+                                          "health_other" = "#6a51a3",
+
                                       "l_mortality"      = "#005a32",
                                       "l_longevity"      = "#238b45",
                                       "l_disability"     = "#41ab5d",
@@ -36,8 +38,8 @@ sii_x_fillcolors_sf16_eng <- c("SCR"                     = "#1f78b4", #http://co
                                       "l_CAT"            = "#edf8e9",
                                           "life_other"   = "#33a02c", #=life
                                       "n_premiumreserve" = "#000000",
-                                      "n_lapse"          = "#000000",
-                                      "n_CAT"            = "#000000",
+                                      "n_lapse"          = "#000088",
+                                      "n_CAT"            = "#0000dd",
                                       "non-life_other"   = "#66a61e" #=nonlife
                           )
 
@@ -73,7 +75,8 @@ sii_x_edgecolors_sf16_eng <- c("SCR"                         = "#000000",
                         "h_s_lapse"        = "#6a51a3",
                         "h_s_expenses"     = "#6a51a3",
                         "h_s_revision"     = "#6a51a3",
-                        "h_s_other"    = "#6a51a3",
+                        "h_SLT_other"    = "#6a51a3",
+                        "health_other" = "#6a51a3",
                         "l_mortality"      = "#33a02c",
                         "l_longevity"      = "#33a02c",
                         "l_disability"     = "#33a02c",

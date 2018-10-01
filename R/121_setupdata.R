@@ -1,7 +1,7 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    fnSetupdata_surfaces
+##    fn_setupdata_surfaces
 ##    fn_structure_expansion
 ##    fn_structure_data_integration
 ## small:
@@ -10,41 +10,34 @@
 ##
 ## ====================================================================== =====
 
-## fnSetupdata_surfaces ================================================= =====
-#' fnSetupdata_surfaces
+## fn_setupdata_surfaces ================================================= =====
+#' fn_setupdata_surfaces
 #'
-#' @inheritParams fnmaxscrvalue
-# ' @param data the data send by the geom_class
-# ' @param params the params send by the geom_classs
+#' @inheritParams fn_maxscrvalue
 #'
 #' @return an adjusted version of input dataframe data
-# ' @exportnot
-#'
-# ' @examples
 
-fnSetupdata_surfaces <- function(data, params) {
-        expandedstructure <- fn_structure_expansion (params = params
+fn_setupdata_surfaces <- function(data, params) {
+        expandedstructure <- fn_structure_expansion(params = params
                                                      )
-        data_out <- fn_structure_data_integration (expandedstructure = expandedstructure,
+        data_out <- fn_structure_data_integration(expandedstructure = expandedstructure,
                                                     data = data)
         ## 2do: possible a last sort action on data, for a good legend
 
-      ## return results
+#tst <<- data_out
+
+        ## return results
         return(data_out)
     }
 
 ## fn_structure_expansion =============================================== =====
 #' fn_structure_expansion takes the structure dataframe and enriches it with additional lines for accumulation
 #'
-#' @inheritParams fnmaxscrvalue
-# ' @param params dummy text
+#' @inheritParams fn_maxscrvalue
 #'
 #' @importFrom magrittr %>%
 #'
 #' @return a dataframe
-# ' @ export
-#'
-# ' @examples
 
 fn_structure_expansion <- function(params) {
         structuredf     <- params$structuredf
@@ -107,16 +100,14 @@ fn_structure_expansion <- function(params) {
                     dplyr::summarise(n = n())
 
         ## maximum of components in each level, determined by dataframe or integer
-# print(paste0("length levelmax:"))
-# print(length(levelmax))
+
         if (length(levelmax) == 1) {
           levelmaxdf <- data.frame(level = t1$level,
                                    levelmax = rep(levelmax, nrow(t1)))
         } else {
           levelmaxdf <- as.data.frame(levelmax)
         }
-# print(paste0("levelmaxdf:"))
-# print(levelmaxdf)
+
       ## if the levelmax of a level is smaller than the amount of lines of that
       ##  level which have a childlevel associated this gives issues. first
       ##  idea was to raise the maxlevel but this might result in a complex
@@ -149,11 +140,8 @@ fn_structure_expansion <- function(params) {
 #' @param ind_onlyspecials default = FALSE: non xxxxd/xxxo levels are NOT included in the result
 #'
 #' @return a vector of levels, in character, numeric or integer format
-# ' @ export
-#'
-# ' @examples
 
-fn_determinelevels <- function (vector_in,  ind_value = FALSE,
+fn_determinelevels <- function(vector_in,  ind_value = FALSE,
                                 ind_integer = FALSE,
                                 ind_d = TRUE,
                                 ind_o = TRUE,
@@ -192,17 +180,14 @@ fn_determinelevels <- function (vector_in,  ind_value = FALSE,
 #' fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is nessecary.
 #'
 #' @param expandedstructure result of fn_structure_expansion()
-#' @inheritParams fnmaxscrvalue
-# ' @param data :dataframe in tidyverse format with (minimal) columns id, x, y, description, value and possible columns comparewithid, COLOR, FILLCOLOR, PANEL
+#' @inheritParams fn_maxscrvalue
 #'
 #' @importFrom magrittr %>%
 #'
 #' @return data
-# ' @ export
-#'
-# ' @examples
 
-fn_structure_data_integration <- function (expandedstructure,
+
+fn_structure_data_integration <- function(expandedstructure,
                                            data) {
     ## columns in expandedstructure:
     ##  description(chr), level(chr), childlevel(chr),
@@ -234,7 +219,7 @@ fn_structure_data_integration <- function (expandedstructure,
       m_t1 <- d_out[order(d_out$id, d_out$level, d_out$value), ]
       m_rows <- nrow(m_t1)
       m_counter <- m_rows
-      while (m_counter >= 2 ){
+      while (m_counter >= 2 ) {
         if (m_t1$id[m_counter - 1] == m_t1$id[m_counter] & m_t1$level[m_counter - 1] == m_t1$level[m_counter] ) {
           m_t1 <- m_t1[-(m_counter - 1), ]
           m_rows <- m_rows - 1
@@ -250,7 +235,7 @@ fn_structure_data_integration <- function (expandedstructure,
         }
       }
       ## and check for line 1
-      if (m_t1$level[1] %in% s_t1$leveltmp == FALSE){
+      if (m_t1$level[1] %in% s_t1$leveltmp == FALSE) {
         m_t1 <- m_t1[-1, ]
       }
 
@@ -336,14 +321,14 @@ fn_structure_data_integration <- function (expandedstructure,
             max_gllines  <- gl_lines$levelmax[1]
             ## geen grouping possible if no of lines without components = 0 or 1,
             ## this check should be replaced to fn_structure_expansion
-            if (count_gllines_nochild <= 1 & ( count_gllines_withchild + count_gllines_nochild > max_gllines)) {
+            if (count_gllines_nochild <= 1 & (count_gllines_withchild + count_gllines_nochild > max_gllines)) {
               print(paste0("for level ", l_counter,
                            " for id=", g_counter,
                            " no accumulation is possible: only one levelcomponent has no childlevels, adjust parameter(dataframe) levelmax"))
               d_out2 <- rbind(d_out2, gl_lines)
             } else {
               ## flag_levelmaxissue
-              if (max_gllines<count_gllines_withchild + 1) {
+              if (max_gllines < count_gllines_withchild + 1) {
                 max_old <- max_gllines
                 max_gllines <- count_gllines_withchild + 1 ## we know count_gllines_nochild is greater or equal to 2
                   print(paste0("for level ", l_counter,
@@ -361,7 +346,8 @@ fn_structure_data_integration <- function (expandedstructure,
                 } else {
                   gl_lines_nochild_keep <- gl_lines_nochild[1:count_gllines_nochild_keep, ]
                 }
-                gl_lines_nochild_tosum <- gl_lines_nochild[count_gllines_nochild_keep + 1:( nrow(gl_lines_nochild) - count_gllines_nochild_keep), ]
+                gl_lines_nochild_tosum <- gl_lines_nochild[count_gllines_nochild_keep +
+                                                        1:(nrow(gl_lines_nochild) - count_gllines_nochild_keep), ]
                 gl_lines_nochild_tosum$ind_show <- FALSE
                 o_line$value <- sum(gl_lines_nochild_tosum$value)
                 o_line$ind_show <- TRUE
@@ -388,7 +374,8 @@ fn_structure_data_integration <- function (expandedstructure,
     }
   ## toevoegen ordering 4 maar opnieuw orderen op basis van ordering 3
     d_out2$ordering_4 <- 1:nrow(d_out2)
-    d_out2 <- d_out2[order(d_out2$ordering_3), ]
+    d_out2b <- d_out2[order(d_out2$ordering_3), ]
+    d_out2.rownames <- 1:nrow(d_out2)
     ## delete obsolete lines
     d_out2 <- d_out2[d_out2$ind_show == TRUE, ]
     d_out2 <- d_out2[d_out2$value != 0, ]
@@ -403,7 +390,7 @@ fn_structure_data_integration <- function (expandedstructure,
 #'   after the \cr "if (!is.null(s_t1))" statement to fill column ind_show
 #'   for several items
 #'
-#' @inheritParams fnmaxscrvalue
+#' @inheritParams fn_maxscrvalue
 # ' @param data an dataframe, consisting of the dataset and the expanded structure
 #'
 #' @return the dataframe with an added column ind_show

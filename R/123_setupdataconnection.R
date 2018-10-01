@@ -1,14 +1,14 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    fnSetupdata_connection
+##    fn_setupdata_connection
 ##
 ## small:
 ##
 ## ====================================================================== =====
 
-## fnSetupdata_connection =============================================== =====
-#' fnSetupdata_connection
+## fn_setupdata_connection =============================================== =====
+#' fn_setupdata_connection
 #'
 #' @param data the data send by the geom_class, due to the simple nature of the desired plot no structure information is needed.
 #'
@@ -19,7 +19,7 @@
 #'
 # ' @examples
 
-fnSetupdata_connection <- function(data) {
+fn_setupdata_connection <- function(data) {
         df <- data
         df2 <- dplyr::select(df, id, x, y, comparewithid)
         data <- data[!duplicated(df2), ]

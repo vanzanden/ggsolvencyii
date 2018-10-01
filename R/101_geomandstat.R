@@ -291,15 +291,15 @@ StatSolvii <- ggplot2::ggproto(
     default_aex = ggplot2::aes(color = "black", lwd = 0.05),
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
-        params$levelonedescription <- fnlevelonedescription(params = params)
-        params$maxscrvalue         <- fnmaxscrvalue(data = data,
+        params$levelonedescription <- fn_levelonedescription(params = params)
+        params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                     params = params)
           return(params)
         },
 
   ## setup data ----------------------------------------------- -----
     setup_data = function(data, params) {
-            data_out <- fnSetupdata_surfaces(data = data,
+            data_out <- fn_setupdata_surfaces(data = data,
                                              params = params)
             return(data_out)
         },
@@ -335,7 +335,7 @@ StatSolvii <- ggplot2::ggproto(
                                squared = squared,
                                purpose = purpose)
 
-            df <- fnComputegroup( data = data,
+            df <- fn_computegroup( data = data,
                                     siiparams = siiparams,
                                     ...
                                   )
@@ -368,15 +368,15 @@ StatSolviioutline <- ggplot2::ggproto(
 
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
-      params$levelonedescription <- fnlevelonedescription(params = params)
-      params$maxscrvalue         <- fnmaxscrvalue(data = data,
+      params$levelonedescription <- fn_levelonedescription(params = params)
+      params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                params = params)
             return(params)
         },
 
   ## setup data ----------------------------------------------- -----
     setup_data = function(data, params) {
-           data_out <- fnSetupdata_outline(data = data,
+           data_out <- fn_setupdata_outline(data = data,
                                            params = params)
             return(data_out)
         },
@@ -413,7 +413,7 @@ StatSolviioutline <- ggplot2::ggproto(
                                squared = squared,
                                purpose = purpose)
 
-            df <- fnComputegroup(data = data,
+            df <- fn_computegroup(data = data,
                                     scales = scales,
                                     siiparams = siiparams
                                   )
@@ -443,12 +443,12 @@ StatSolviiconnection <- ggplot2::ggproto(
 
   ## setup parameters ----------------------------------------- -----
     # setup_params = function(data,params)
-    # { params <- fnSetupparams (data=data,params=params)
+    # { params <- fn_setupparams (data=data,params=params)
     #   return(params) },
 
   ## setup data ----------------------------------------------- -----
     setup_data = function(data, params) {
-        data <- fnSetupdata_connection(data = data)
+        data <- fn_setupdata_connection(data = data)
         ## return results
           return(data)
       },

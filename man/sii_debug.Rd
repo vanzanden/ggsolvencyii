@@ -8,7 +8,8 @@ sii_debug(data_descr, structure = ggesolvencii::sii_structure_sf16_eng,
   levelmax = ggesolvencii::sii_levelmax_995,
   outline = ggesolvencii::sii_outline_sf16_eng,
   fillcolor = ggsolvencyii::sii_x_fillcolors_sf16_eng,
-  edgecolor = ggsolvencyii::sii_x_edgecolors_sf16_eng)
+  edgecolor = ggsolvencyii::sii_x_edgecolors_sf16_eng,
+  aggregatesuffix = "other")
 }
 \arguments{
 \item{data_descr}{(no default) the vector 'description' from the data}
@@ -22,6 +23,8 @@ sii_debug(data_descr, structure = ggesolvencii::sii_structure_sf16_eng,
 \item{fillcolor}{(default = sii_x_fillcolors_sf16_eng): fillcolor parameter}
 
 \item{edgecolor}{(default = sii_x_fillcolors_sf16_eng): edgecolor parameter}
+
+\item{aggregatesuffix}{(default = "_other"):}
 }
 \value{
 prints two comparison tables and puts them in $debug_description and $debug_level

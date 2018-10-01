@@ -1,17 +1,17 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    fnCirclepoints
-##    fnSquarepoints
+##    fn_circlepoints
+##    fn_squarepoints
 ## small:
-##    fnsqXP
-##    fnsqYP
-##    fnsqDegseq
+##    fn_sqXP
+##    fn_sqYP
+##    fn_sqDegseq
 ## ====================================================================== =====
 
 
-## fnCirclepoints ======================================================= =====
-#' fnCirclepoints
+## fn_circlepoints ======================================================= =====
+#' fn_circlepoints
 #'
 #' @param ri the  inner radius of the circle segment
 #' @param ro the outer radius of the circle segment
@@ -33,7 +33,7 @@
 #'
 # ' @examples
 
-fnCirclepoints <- function(ri, ro, db, de, plottype,
+fn_circlepoints <- function(ri, ro, db, de, plottype,
                            indication11, indication13, stepsize = 0.50) {
         if (plottype == "outer") {
           xpoint <- round(ri * cos(.5 * pi - db / 360 * 2 * pi), digits = 7)
@@ -115,8 +115,8 @@ fnCirclepoints <- function(ri, ro, db, de, plottype,
 
 
 
-## fnSquarepoints ======================================================= =====
-#' fnSquarepoints
+## fn_squarepoints ======================================================= =====
+#' fn_squarepoints
 #'
 #' @param ri the (vertical) distance of center of circle to the inner edge of the segment;
 #' @param ro the (vertical) distance of center of circle to the outer edge of the segment;
@@ -137,7 +137,7 @@ fnCirclepoints <- function(ri, ro, db, de, plottype,
 #'
 # ' @examples
 
-fnSquarepoints <- function(ri, ro, db, de,
+fn_squarepoints <- function(ri, ro, db, de,
                            plottype, indication11, indication13 )  {
 
       ## a "radial line"
@@ -175,28 +175,28 @@ fnSquarepoints <- function(ri, ro, db, de,
 # print(paste0(xsignA, xsignB, ysignA, ysignB))
 
         if (plottype == "outer") {
-          xpoint <- fnsqXP(vertdistance = ri, degrees = db,
+          xpoint <- fn_sqXP(vertdistance = ri, degrees = db,
                            xsign = xbsign, rounding = 7)
-          ypoint <- fnsqYP(vertdistance = ri, degrees = db,
+          ypoint <- fn_sqYP(vertdistance = ri, degrees = db,
                            ysign = ybsign, rounding = 7)
           if (indication11 == FALSE) {
             outlinetype <- "1"
           } else {
             outlinetype <- "11"
           }
-          df <- data.frame (degrees = db, afstand = ri,
+          df <- data.frame(degrees = db, afstand = ri,
                            xpoint = xpoint, ypoint = ypoint,
                            outlinetype = outlinetype)
-          xpoint <- fnsqXP(vertdistance = ro, degrees = db,
+          xpoint <- fn_sqXP(vertdistance = ro, degrees = db,
                            xsign = xbsign, rounding = 7)
-          ypoint <- fnsqYP(vertdistance = ro, degrees = db,
+          ypoint <- fn_sqYP(vertdistance = ro, degrees = db,
                            ysign = ybsign, rounding = 7)
           if (indication11 == TRUE) {
             outlinetype <- "11"
           } else {
             outlinetype <- "1"
           }
-          df2 <-  data.frame (degrees = db, afstand = ro,
+          df2 <-  data.frame(degrees = db, afstand = ro,
                               xpoint = xpoint, ypoint = ypoint,
                               outlinetype = outlinetype)
           df <- rbind(df, df2)
@@ -205,18 +205,18 @@ fnSquarepoints <- function(ri, ro, db, de,
           xpoint <- 1 #dummy
           ypoint <- 1 # dummy
           outlinetype <- "dummy"
-          df <- data.frame (degrees = 0, afstand = 0,
+          df <- data.frame(degrees = 0, afstand = 0,
                            xpoint = xpoint, ypoint = ypoint,
                            outlinetype = outlinetype)
           df <- df[0]
         }
 
       ## points along the outer edge
-        degseq <- fnsqDegseq(startdegrees = db, enddegrees = de)
+        degseq <- fn_sqdegseq(startdegrees = db, enddegrees = de)
 # print("degseq 2")
 # print(degseq)
         for (degreesloop in degseq) {
-          octant_loop <- ( (degreesloop + 2 * 360) %/% 45) %% 8
+          octant_loop <- ((degreesloop + 2 * 360) %/% 45) %% 8
           if (octant_loop  == 0) {xloopsign <-  0 ; yloopsign <-  1 }
           if (octant_loop  == 1) {xloopsign <-  1 ; yloopsign <-  0 }
           if (octant_loop  == 2) {xloopsign <-  1 ; yloopsign <-  0 }
@@ -226,22 +226,22 @@ fnSquarepoints <- function(ri, ro, db, de,
           if (octant_loop  == 6) {xloopsign <- -1 ; yloopsign <-  0 }
           if (octant_loop  == 7) {xloopsign <-  0 ; yloopsign <-  1 }
 
-          xpoint <- fnsqXP(vertdistance = ro, degrees = degreesloop,
+          xpoint <- fn_sqXP(vertdistance = ro, degrees = degreesloop,
                            xsign = xloopsign, rounding = 7)
-          ypoint <- fnsqYP(vertdistance = ro, degrees = degreesloop,
+          ypoint <- fn_sqYP(vertdistance = ro, degrees = degreesloop,
                            ysign = yloopsign, rounding = 7)
           outlinetype <- "2"
           tmp <- data.frame(degrees = degreesloop, afstand = ro,
                             xpoint = xpoint, ypoint = ypoint,
                             outlinetype = outlinetype)
-          df <- rbind (df, tmp)
+          df <- rbind(df, tmp)
         }
 
       ## radial line
         if (plottype == "outer") {
-          xpoint <- fnsqXP(vertdistance = ro, degrees = de,
+          xpoint <- fn_sqXP(vertdistance = ro, degrees = de,
                            xsign = xesign, rounding = 7)
-          ypoint <- fnsqYP(vertdistance = ro, degrees = de,
+          ypoint <- fn_sqYP(vertdistance = ro, degrees = de,
                            ysign = yesign, rounding = 7)
           if (indication13 == TRUE) {
             outlinetype <- "13"
@@ -253,9 +253,9 @@ fnSquarepoints <- function(ri, ro, db, de,
                             outlinetype = outlinetype)
           df <- rbind (df, tmp)
 
-          xpoint <- fnsqXP(vertdistance = ri, degrees = de,
+          xpoint <- fn_sqXP(vertdistance = ri, degrees = de,
                            xsign = xesign, rounding = 7)
-          ypoint <- fnsqYP(vertdistance = ri, degrees = de,
+          ypoint <- fn_sqYP(vertdistance = ri, degrees = de,
                            ysign = yesign, rounding = 7)
           if (indication13 == TRUE) {
             outlinetype <- "13"
@@ -264,20 +264,20 @@ fnSquarepoints <- function(ri, ro, db, de,
           }
           tmp <- data.frame(degrees = de, afstand = ri, xpoint = xpoint,
                             ypoint = ypoint, outlinetype = outlinetype)
-          df <- rbind (df, tmp)
+          df <- rbind(df, tmp)
         } else {
           #no points
         }
 
       ## points along the inner edge
         if (plottype == "outer") {
-          degseq <- fnsqDegseq(startdegrees = db,
+          degseq <- fn_sqdegseq(startdegrees = db,
                                enddegrees = de,
                                counterclockwise = TRUE)
 # print("degseq 4")
 # print(degseq)
           for (degreesloop in degseq) {
-            octant_loop <- ( (degreesloop + 2 * 360) %/% 45) %% 8
+            octant_loop <- ((degreesloop + 2 * 360) %/% 45) %% 8
             if (octant_loop  == 0) {xloopsign <-  0 ; yloopsign <-  1 }
             if (octant_loop  == 1) {xloopsign <-  1 ; yloopsign <-  0 }
             if (octant_loop  == 2) {xloopsign <-  1 ; yloopsign <-  0 }
@@ -287,15 +287,15 @@ fnSquarepoints <- function(ri, ro, db, de,
             if (octant_loop  == 6) {xloopsign <- -1 ; yloopsign <-  0 }
             if (octant_loop  == 7) {xloopsign <-  0 ; yloopsign <-  1 }
 
-            xpoint <- fnsqXP(vertdistance = ri, degrees = degreesloop,
+            xpoint <- fn_sqXP(vertdistance = ri, degrees = degreesloop,
                                xsign = xloopsign, rounding = 7)
-              ypoint <- fnsqYP(vertdistance = ri, degrees = degreesloop,
+            ypoint <- fn_sqYP(vertdistance = ri, degrees = degreesloop,
                                ysign = yloopsign, rounding = 7)
-              outlinetype <- "4"
-              tmp <- data.frame(degrees = degreesloop, afstand = ri,
+            outlinetype <- "4"
+            tmp <- data.frame(degrees = degreesloop, afstand = ri,
                                 xpoint = xpoint, ypoint = ypoint,
                                 outlinetype = outlinetype)
-              df <- rbind (df, tmp)
+              df <- rbind(df, tmp)
             }
           }
       ## RESULTS
@@ -303,8 +303,8 @@ fnSquarepoints <- function(ri, ro, db, de,
         return(polygonpoints_result)
     }
 
-## fnsqXP =============================================================== =====
-#' fnsqXP calculating the horizontal offset of the point, based on a reference value (vertdistance) and compass direction.
+## fn_sqXP =============================================================== =====
+#' fn_sqXP calculating the horizontal offset of the point, based on a reference value (vertdistance) and compass direction.
 #'
 #' @param vertdistance dummy text
 #' @param degrees dummy text
@@ -312,11 +312,8 @@ fnSquarepoints <- function(ri, ro, db, de,
 #' @param rounding dummy text
 #'
 #' @return a distance
-# ' @exportnot
-#'
-# ' @examples
 
-fnsqXP <- function (vertdistance, degrees, xsign, rounding) {
+fn_sqXP <- function (vertdistance, degrees, xsign, rounding) {
     xpoint <- round(xsign * vertdistance + (1 - abs(xsign)) * sqrt(2 * vertdistance ^ 2) *
                       cos(.5 * pi - degrees / 360 * 2 * pi), digits = rounding)
    ##return results
@@ -324,8 +321,8 @@ fnsqXP <- function (vertdistance, degrees, xsign, rounding) {
   }
 
 
-## fnsqYP =============================================================== =====
-#' fnsqYP calculating the vertical offset of the point, based on a reference value (vertdistance) and compass direction.
+## fn_sqYP =============================================================== =====
+#' fn_sqYP calculating the vertical offset of the point, based on a reference value (vertdistance) and compass direction.
 #'
 #' @param vertdistance dummy text
 #' @param degrees dummy text
@@ -333,18 +330,16 @@ fnsqXP <- function (vertdistance, degrees, xsign, rounding) {
 #' @param rounding dummy text
 #'
 #' @return a distance
-# ' @exportnot
-#'
-# ' @examples
 
-fnsqYP <- function (vertdistance, degrees, ysign, rounding) {
+
+fn_sqYP <- function (vertdistance, degrees, ysign, rounding) {
        ypoint <- round(ysign * vertdistance + (1 - abs(ysign)) * sqrt(2 * vertdistance ^ 2) * sin(.5 * pi - degrees / 360 * 2 * pi), digits = rounding)
       ##return results
         return(ypoint)
     }
 
-## fnsqDegseq =========================================================== =====
-#' fnsqDegseq gives a sequence of degrees based on a starting and end rotation, with al the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
+## fn_sqdegseq =========================================================== =====
+#' fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with al the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
 #'
 #' @param startdegrees a startingpoint of degrees (as used in a compass)
 #' @param enddegrees the endpoint of degrees (as used in a compass)
@@ -356,7 +351,7 @@ fnsqYP <- function (vertdistance, degrees, ysign, rounding) {
 #'
 # ' @examples
 
-fnsqDegseq <- function(startdegrees, enddegrees,
+fn_sqdegseq <- function(startdegrees, enddegrees,
                        counterclockwise = FALSE, reset= FALSE) {
     if (reset == TRUE)  {
       startdegrees <- startdegrees - 360 * (startdegrees %/% 360)

@@ -9,6 +9,7 @@
 #' @param structure (default = sii_structure_sf16_eng) : the structure dataframe
 #' @param levelmax (default = sii_levelmax_995): the levelmax dataframe
 #' @param outline (default = sii_outline_sf16_eng): the outline dataframe
+#' @param aggregatesuffix (default = "_other"):
 #'
 #' @return prints two comparison tables and puts them in $debug_description and $debug_level
 #' @export
@@ -21,19 +22,28 @@ sii_debug <- function(data_descr,
                           # levelmax_level = ggesolvencii::sii_levelmax_995$level,
                           outline = ggesolvencii::sii_outline_sf16_eng,
                           fillcolor = ggsolvencyii::sii_x_fillcolors_sf16_eng,
-                          edgecolor = ggsolvencyii::sii_x_edgecolors_sf16_eng
-                          )
+                          edgecolor = ggsolvencyii::sii_x_edgecolors_sf16_eng,
+                          aggregatesuffix = "other"
+                      )
 {
+debugparams <- NULL
+debugparams$structuredf <- structure
+debugparams$levelmax <- levelmax
+debugparams$aggregatesuffix <- aggregatesuffix
+struct2 <- fn_structure_expansion(debugparams)
+
 d_d <- levels(data_descr) ; d_d_df <- as.data.frame(d_d) ;d_d_df$data <- "present"
 s_d <- unique(structure$description) ;s_d_df <- as.data.frame(s_d) ; s_d_df$structure <- "present"
+s2_d <- unique(struct2$description) ;s2_d_df <- as.data.frame(s2_d) ; s2_d_df$enrichedstructure <- "present"
 o_d <- unique(outline$levelordescription) ; o_d_df <- as.data.frame(o_d) ; o_d_df$outline <- "present"
 f_d <- names(fillcolor) ; f_d_df <- as.data.frame(f_d) ; f_d_df$fillcolor <- "present"
 e_d <- names(edgecolor) ; e_d_df <- as.data.frame(e_d) ; e_d_df$edgecolor <- "present"
 
-descr <- unique(c(d_d, s_d, o_d, f_d, e_d)) ; descr_df <- as.data.frame(descr)
+descr <- unique(c(d_d, s_d, s2_d, o_d, f_d, e_d)) ; descr_df <- as.data.frame(descr)
 
 m1 <- merge(x = descr_df, y = d_d_df, by.x = c("descr"), by.y = c("d_d"), all.x = TRUE)
 m1 <- merge(x = m1, y = s_d_df, by.x = c("descr"), by.y = c("s_d"), all.x = TRUE)
+m1 <- merge(x = m1, y = s2_d_df, by.x = c("descr"), by.y = c("s2_d"), all.x = TRUE)
 m1 <- merge(x = m1, y = o_d_df, by.x = c("descr"), by.y = c("o_d"), all.x = TRUE)
 m1 <- merge(x = m1, y = f_d_df, by.x = c("descr"), by.y = c("f_d"), all.x = TRUE)
 m1 <- merge(x = m1, y = e_d_df, by.x = c("descr"), by.y = c("e_d"), all.x = TRUE)
@@ -42,7 +52,7 @@ m1 <- merge(x = m1, y = e_d_df, by.x = c("descr"), by.y = c("e_d"), all.x = TRUE
 # print(m1)
 
 
-s_l <- unique(structure$level) ;s_l_df <- as.data.frame(s_l) ; s_l_df$structure <- "present"
+s_l <- unique(struct2$level) ;s_l_df <- as.data.frame(s_l) ; s_l_df$structure <- "present"
 # print(s_l_df)
 l_l <- unique(levelmax$level) ;l_l_df <- as.data.frame(l_l) ; l_l_df$levelmax <- "present"
 # print(l_l_df)

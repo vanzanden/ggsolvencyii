@@ -1,19 +1,19 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    fnComputegroup (data,siiparams,...)
-##    geomsiidatatopoints (df,maxscrvalue,fullstructure,rotationdegrees,rotationdescription,outlinedf,purpose)
+##    fn_computegroup (data,siiparams,...)
+##    fn_geomsiidatatopoints (df,maxscrvalue,fullstructure,rotationdegrees,rotationdescription,outlinedf,purpose)
 ## small:
-##    transform_outlinedf (df)
+##    fn_transform_outlinedf (df)
 ##
 ## ====================================================================== =====
 
 
 
-## fnComputegroup ======================================================= =====
-#' fnComputegroup
+## fn_computegroup ======================================================= =====
+#' fn_computegroup
 #'
-#' @inheritParams fnmaxscrvalue
+#' @inheritParams fn_maxscrvalue
 # ' @param data dummy text
 #' @param scales dummy text
 #' @param siiparams The (adjusted) geom parameterset, forwarded to lower level functions as siiparams
@@ -23,22 +23,22 @@
 #'
 # ' @examples
 
-fnComputegroup <- function(data, scales, siiparams) {
+fn_computegroup <- function(data, scales, siiparams) {
       ## parameters in this function
         ## none
       ## CALL ##
-        d_out <- geomsiidatatopoints( df = data,
+        d_out <- fn_geomsiidatatopoints( df = data,
                                       siiparams = siiparams
                                     )
-      ## geomsiidatatopoints returns a list with
+      ## fn_geomsiidatatopoints returns a list with
       ##  $df (and possible other elements)
       ## return results
         return(d_out)
     }
 
 
-## geomsiidatatopoints ================================================== =====
-#' geomsiidatatopoints
+## fn_geomsiidatatopoints ================================================== =====
+#' fn_geomsiidatatopoints
 #'
 #' @param df dummy text
 #' @param siiparams dummy text
@@ -51,20 +51,20 @@ fnComputegroup <- function(data, scales, siiparams) {
 #'
 # ' @examples
 
-geomsiidatatopoints <- function(df, siiparams) {
+fn_geomsiidatatopoints <- function(df, siiparams) {
   ## parameters in this function
     squared <- siiparams$squared
   ## CALL ##
     ## results in a dataframe
-    cornerpoints_intresult <- fnCornerpoints(df = df,
+    cornerpoints_intresult <- fn_cornerpoints(df = df,
                                              siiparams = siiparams)
     ## ri, ro, db, de are determined
   ## CALL ##
-    rotation_intresult <- fnRotation(df = cornerpoints_intresult,
+    rotation_intresult <- fn_rotation(df = cornerpoints_intresult,
                                      siiparams = siiparams)
     if (squared == TRUE) {
       ## CALL ##
-        circleorsquare_intresult <- fnSquareconversion(df = rotation_intresult)
+        circleorsquare_intresult <- fn_squareconversion(df = rotation_intresult)
     } else {
       circleorsquare_intresult <- rotation_intresult
     }
@@ -72,7 +72,7 @@ geomsiidatatopoints <- function(df, siiparams) {
     counter_polyorder <- 1
   ## CALL ##
     ## results in a list with $df and (updated) $counter_polyorder
-    step5_intresult <- fnPolygonpoints(df = circleorsquare_intresult,
+    step5_intresult <- fn_polygonpoints(df = circleorsquare_intresult,
                                 siiparams = siiparams,
                                 counter_polyorder = counter_polyorder
                                       )
@@ -85,7 +85,7 @@ geomsiidatatopoints <- function(df, siiparams) {
       ## do nothing
     } else {
       ## CALL ##
-          outlinedf_trans <- transform_outlinedf(siiparams$outlinedf)
+          outlinedf_trans <- fn_transform_outlinedf(siiparams$outlinedf)
 
           # transforms table from human format
           # levelordescription outline1 ...2 ... ...4 ...11 outline13
@@ -132,8 +132,8 @@ geomsiidatatopoints <- function(df, siiparams) {
 }
 
 
-## transform_outlinedf ================================================== =====
-#' transform_outlinedf
+## fn_transform_outlinedf ================================================== =====
+#' fn_transform_outlinedf
 #'
 #' @param df a dataframe with column level and some other levels
 #'
@@ -144,7 +144,7 @@ geomsiidatatopoints <- function(df, siiparams) {
 # ' @exportnot
 #'
 # ' @examples
-transform_outlinedf <- function(df) {
+fn_transform_outlinedf <- function(df) {
         result <- tidyr::gather(data = df, key = outlinetype,
                                 value = drawoutline, -levelordescription)
         result$outlinetype <- gsub("[a-zA-Z]", "", result$outlinetype)
