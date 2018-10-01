@@ -5,7 +5,7 @@
 \title{geom_solvii}
 \usage{
 geom_solvii(data = NULL, mapping = NULL, stat = "solvii",
-  structuredf = sii_structure_sf16_eng, levelmax = 99,
+  structuredf = ggsolvencyii::sii_structure_sf16_eng, levelmax = 99,
   aggregatesuffix = "_other", maxscrvalue = NULL, scalingx = 1,
   scalingy = 1, rotationdegrees = NULL, rotationdescription = NULL,
   squared = FALSE, position = "identity", na.rm = FALSE,

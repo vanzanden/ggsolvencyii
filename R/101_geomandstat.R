@@ -75,7 +75,7 @@ geom_solvii <- function(data = NULL,
                         mapping = NULL,
                         stat = "solvii",
                       ## geomspecific parameter
-                        structuredf = sii_structure_sf16_eng,
+                        structuredf = ggsolvencyii::sii_structure_sf16_eng,
                         levelmax = 99,
                         aggregatesuffix = "_other",
                         maxscrvalue = NULL,
@@ -147,7 +147,7 @@ geom_solvii <- function(data = NULL,
 #'    color = "red", lwd = .5 )
 #'
 #'
-#'  sii_z_example4_outline_exceptions
+#'  sii_z_example4_outline
 #'
 #' ggplot2::ggplot() +
 #' geom_solviioutline(data = sii_z_example2_data,
@@ -157,14 +157,14 @@ geom_solvii <- function(data = NULL,
 #'   rotationdescription = "life",
 #'   rotationdegrees = -8,
 #'   squared =  TRUE,
-#'   outlinedf = sii_z_example4_outline_exceptions)
+#'   outlinedf = sii_z_example4_outline)
 #'
 geom_solviioutline <- function(data = NULL,
                     mapping = NULL,
                     stat = "solviioutline",
                   ## geomspecific parameter
-                    structuredf = sii_structure_sf16_eng,
-                    outlinedf = sii_outline_sf16_eng,
+                    structuredf = ggsolvencyii::sii_structure_sf16_eng,
+                    outlinedf = ggsolvencyii::sii_outline_sf16_eng,
                     levelmax = 99,
                     aggregatesuffix = "_other",
                     maxscrvalue = NULL,

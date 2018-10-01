@@ -227,24 +227,24 @@ ggplot2::ggplot() +
 
 
 
- ## test outline sec ( outline table sii_outline_sf16_exceptions)
+ ## test outline sec ( outline table sii_z_example4_outline)
 ggplot2::ggplot() +
   geom_solviioutline(data = sii_z_example2_data,
-                     mapping = aes(x=time, y=ratio , id = id, value = value, description=description, comparewithid = comparewithid),
+                     mapping = aes(x = time, y = ratio , id = id, value = value, description = description, comparewithid = comparewithid),
                      color = "red",
                      lwd = .5 ,
                      # rotationdegrees = -45,
                      # rotationdescription = "life",
-                     outlinedf = sii_z_example4_outline_exceptions
+                     outlinedf = sii_z_example4_outline
   )
 
 
 
 
-## test outline sec ( outline table sii_outline_sf16_exceptions)
+## test outline sec ( outline table sii_z_example4_outline)
 ggplot2::ggplot() +
   geom_solviioutline(data = sii_z_example2_data,
-                     mapping = aes(x=time, y=ratio , id = id, value = value, description=description, comparewithid = comparewithid),
+                     mapping = aes(x = time, y = ratio , id = id, value = value, description = description, comparewithid = comparewithid),
                      color = "red",
                      lwd = .5 ,
                      rotationdegrees = -8,
@@ -259,8 +259,8 @@ ggplot2::ggplot() +
 ## test connection sec
 ggplot2::ggplot() +
   geom_solviiconnection(data = sii_z_example2_data,
-                        mapping = aes(x=time, y=ratio, id = id,  comparewithid = comparewithid )
-                         , arrow = arrow (angle=20, type = "closed" )
+                        mapping = aes(x = time, y = ratio, id = id,  comparewithid = comparewithid )
+                         , arrow = arrow(angle = 20, type = "closed" )
                          # color = "red",
                       # lwd = .5 #,
                      # outlinelevels = "VERWIJZING NAAR EEN TABEL"

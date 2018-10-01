@@ -5,11 +5,12 @@
 \title{geom_solviioutline}
 \usage{
 geom_solviioutline(data = NULL, mapping = NULL, stat = "solviioutline",
-  structuredf = sii_structure_sf16_eng, outlinedf = sii_outline_sf16_eng,
-  levelmax = 99, aggregatesuffix = "_other", maxscrvalue = NULL,
-  scalingx = 1, scalingy = 1, rotationdegrees = NULL,
-  rotationdescription = NULL, squared = FALSE, position = "identity",
-  na.rm = FALSE, show.legend = NA, inherit.aes = TRUE, ...)
+  structuredf = ggsolvencyii::sii_structure_sf16_eng,
+  outlinedf = ggsolvencyii::sii_outline_sf16_eng, levelmax = 99,
+  aggregatesuffix = "_other", maxscrvalue = NULL, scalingx = 1,
+  scalingy = 1, rotationdegrees = NULL, rotationdescription = NULL,
+  squared = FALSE, position = "identity", na.rm = FALSE,
+  show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
 \item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}}
@@ -68,7 +69,7 @@ geom_solviioutline(data = sii_z_example2_data,
    color = "red", lwd = .5 )
 
 
- sii_z_example4_outline_exceptions
+ sii_z_example4_outline
 
 ggplot2::ggplot() +
 geom_solviioutline(data = sii_z_example2_data,
@@ -78,6 +79,6 @@ geom_solviioutline(data = sii_z_example2_data,
   rotationdescription = "life",
   rotationdegrees = -8,
   squared =  TRUE,
-  outlinedf = sii_z_example4_outline_exceptions)
+  outlinedf = sii_z_example4_outline)
 
 }
