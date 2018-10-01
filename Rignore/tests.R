@@ -21,3 +21,46 @@
 # rm(testvector)
 
 
+sii_debug(data_descr = sii_z_example2_data$description,
+          fillcolor = sii_x_fillcolors_sf16_eng,
+          edgecolor = sii_x_edgecolors_sf16_eng,
+          # structure_descr = sii_structure_sf16_eng$description,
+          # structure_level = sii_structure_sf16_eng$level,
+          # levelmax_level =  sii_levelmax_sf16_995$level,
+          # outline_levelordescr = sii_outline_sf16_eng$levelordescription
+          structure = sii_structure_sf16_eng,
+          # structure_level = sii_structure_sf16_eng$level,
+          levelmax =  sii_levelmax_sf16_995,
+          outline = sii_outline_sf16_eng
+          )
+
+sii_debug(data_descr = sii_z_example5_data$description,
+          fillcolor = sii_x_fillcolors_sf16_nld,
+          edgecolor = sii_x_edgecolors_sf16_nld,
+          # structure_descr = sii_structure_sf16_eng$description,
+          # structure_level = sii_structure_sf16_eng$level,
+          # levelmax_level =  sii_levelmax_sf16_995$level,
+          # outline_levelordescr = sii_outline_sf16_eng$levelordescription
+          structure = sii_structure_sf16_nld,
+          # structure_level = sii_structure_sf16_eng$level,
+          levelmax =  sii_levelmax_sf16_995,
+          outline = sii_outline_sf16_nld
+          )
+
+
+
+ ggplot2::ggplot() +
+ geom_solviioutline(data = sii_z_example5_data,
+   mapping = ggplot2::aes(x = tijd, y = ratio, id = id, value = waarde, description = description,
+                          comparewithid = vergelijkmet),
+   structuredf = sii_structure_sf16_nld,
+   outlinedf = sii_outline_sf16_nld,
+   color = "red", lwd = .5 ,
+   rotationdescription = "leven",
+   rotationdegrees = -8
+   # ,
+   # squared =  TRUE,
+
+   )
+
+

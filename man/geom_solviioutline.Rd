@@ -55,7 +55,7 @@ the scale of the different plot elements is is by default measured to the larges
 a ggplot object \code{\link{geom_solvii}}
 }
 \description{
-returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values of a hierarchy of levels.
+returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. Used for a comparison between instances of an SCR with a match between 'id' and 'comparewithid'.
 }
 \details{
 When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
@@ -80,5 +80,10 @@ geom_solviioutline(data = sii_z_example2_data,
   rotationdegrees = -8,
   squared =  TRUE,
   outlinedf = sii_z_example4_outline)
+
+
+
+
+
 
 }

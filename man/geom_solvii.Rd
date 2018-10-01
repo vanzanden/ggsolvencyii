@@ -52,5 +52,5 @@ the scale of the different plot elements is is by default measured to the larges
 a ggplot object
 }
 \description{
-returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
+returns a ggplot2 object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
 }

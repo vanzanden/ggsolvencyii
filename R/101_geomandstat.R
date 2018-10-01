@@ -39,7 +39,7 @@ GeomSolviiconnection <- ggplot2::ggproto(
 ## geom_solvii ========================================================== =====
 #' geom_solvii
 #'
-#' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
+#' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
 #' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}
@@ -125,7 +125,7 @@ geom_solvii <- function(data = NULL,
 ## geom_solviioutline =================================================== =====
 #' geom_solviioutline
 #'
-#'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values of a hierarchy of levels.
+#'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. Used for a comparison between instances of an SCR with a match between 'id' and 'comparewithid'.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
@@ -158,6 +158,11 @@ geom_solvii <- function(data = NULL,
 #'   rotationdegrees = -8,
 #'   squared =  TRUE,
 #'   outlinedf = sii_z_example4_outline)
+#'
+#'
+#'
+#'
+#'
 #'
 geom_solviioutline <- function(data = NULL,
                     mapping = NULL,
@@ -214,7 +219,7 @@ geom_solviioutline <- function(data = NULL,
 ## geom_solviiconnection ================================================ =====
 #' geom_solviiconnection
 #'
-#' Plots a line between those datapoints which have a value in the column 'comparewithid'.
+#' Plots a line between those datapoints which have a matching value in the columns 'id' and 'comparewithid'.
 #'
 #' @inheritParams geom_solvii
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
@@ -481,7 +486,7 @@ stat_solvii <- function(mapping = NULL,
                           na.rm = FALSE,
                         ## geomspecific parameter
                           levelmax = 99,
-                          structuredf = sii_structure_sf16_eng,
+                          structuredf = ggsolvencyii::sii_structure_sf16_eng,
                           # outlinedf = sii_outline_sf16_eng,
                           maxscrvalue = NULL,
                           # levelonedescription = "SCR",

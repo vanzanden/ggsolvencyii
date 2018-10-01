@@ -94,13 +94,13 @@ sii_x_edgecolors_sf16_eng
 
 ## sii_x_fillcolors_sf16_nld =============================================== =====
 sii_x_fillcolors_sf16_nld <- c("SKV"                     = "#1f78b4", #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
-          "KSCV"                     = "#48b0eb", #scr +282828
+          "KSKV"                     = "#48b0eb", #scr +282828
           "operationeel"             = "#70d8ff", #bscr +282828
               "markt"                = "#d95f02", #http://colorbrewer2.org/?type=qualitative&scheme=Dark2&n=7
               "zorg"                 = "#4a1486", #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
               "leven"                = "#33a02c", #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
               "schade"               = "#b2df8a",   #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
-              "tegenpartijkrediet"   "#fb9a99",   #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
+              "tegenpartijkrediet"   = "#fb9a99",   #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
               "intangibles"          = "#fdbf6f",   #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
                   "m_rente"          = "#990000", #http://colorbrewer2.org/?type=sequential&scheme=OrRd&n=7
                   "m_aandelen"       = "#d7301f",   #http://colorbrewer2.org/?type=sequential&scheme=OrRd&n=7
@@ -120,7 +120,7 @@ sii_x_fillcolors_sf16_nld <- c("SKV"                     = "#1f78b4", #http://co
                   "z_a_verval"       = "#dadaeb",   #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
                   "z_a_kosten"       = "#efedf5",   #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
                   "z_a_revisie"      = "#fcfbfd",   #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
-                      "z_a_other"    = "#6a51a3",# = h_slt
+                      "z_alsleven_other"    = "#6a51a3",# = h_slt
                   "l_kortleven"      = "#005a32",
                   "l_langleven"      = "#238b45",
                   "l_ao"             = "#41ab5d",
@@ -367,3 +367,24 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   tidyr::gather(data = sii_z_example4_outline, key = outlinetype, value = drawoutline, -levelordescription)
   rm(data)
   rm(sii_z_example4_outline)
+
+##  e x a m p l e  5 ==================================================== =====
+## sii_z_example5_data ================================================== =====
+  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                            sheet = "ex5_data")  %>%
+                   tidyr::gather(key = description,
+                                 value = value,
+                                 -id, -tijd, -ratio, -vergelijkmet)
+  sii_z_example5_data <- data.frame(
+                                      tijd = as.numeric(data$tijd),
+                                      ratio = as.numeric(data$ratio),
+                                      description = data$description,   # it has to be a factor !!
+                                      waarde = as.numeric(data$value),
+                                      id = data$id,
+                                      vergelijkmet = data$vergelijkmet
+                                    )
+  sii_z_example5_data
+  devtools::use_data(sii_z_example5_data, overwrite = TRUE)
+  rm(data)
+  rm(sii_z_example5_data)
+

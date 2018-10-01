@@ -3,6 +3,7 @@
 export(geom_solvii)
 export(geom_solviiconnection)
 export(geom_solviioutline)
+export(sii_debug)
 export(stat_solvii)
 import(ggplot2)
 importFrom(dplyr,mutate)

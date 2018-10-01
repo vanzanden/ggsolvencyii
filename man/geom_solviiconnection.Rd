@@ -29,7 +29,7 @@ geom_solviiconnection(data = NULL, mapping = NULL,
 a ggplot object
 }
 \description{
-Plots a line between those datapoints which have a value in the column 'comparewithid'.
+Plots a line between those datapoints which have a matching value in the columns 'id' and 'comparewithid'.
 }
 \examples{
 \dontrun{
