@@ -135,8 +135,8 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
                       rotationdegrees = -10,
                      rotationdescription = "l_lapse",
                      squared = TRUE,
-                color = "green",
-                lwd = 1.25
+                # color = "green",
+                lwd = 0.75
                  ) +
     theme_bw() +
   scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
@@ -176,5 +176,6 @@ ggplot2::ggplot() +
               lwd = .5,
               squared = TRUE,
               # rotationdegrees = 45,
-              alpha = .1
+              alpha = .4
    )
+

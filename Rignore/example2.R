@@ -17,7 +17,23 @@
   scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
-## groeperen van resultaten
+## basistest, tonen resultaten alleen id = 4
+ ggplot2::ggplot() +
+  geom_solvii(data = sii_z_example2_data[sii_z_example2_data$id == 4,],
+               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                             description = description,
+                             fill = description, color = description
+                             ),
+                             lwd = 0.05
+               ) +
+  theme_bw() +
+  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+
+
+
+## groeperen van resultaten, levelmax = 3
 
 
  ggplot2::ggplot() +
@@ -27,7 +43,7 @@
                              fill = description, color = description
                              ),
                               # maxscrvalue = 53.333,
-                              levelmax = 3,
+                               levelmax = 3,
                              # levelmax = sii_levelmax_sf16_993,
                              # color = "black",
                               # scalingx = .2,

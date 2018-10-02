@@ -20,13 +20,27 @@
 fn_setupdata_surfaces <- function(data, params) {
         expandedstructure <- fn_structure_expansion(params = params
                                                      )
-        data_out <- fn_structure_data_integration(expandedstructure = expandedstructure,
+
+        structureanddata <- fn_structure_data_integration(expandedstructure = expandedstructure,
                                                     data = data)
-        ## 2do: possible a last sort action on data, for a good legend
+      ## tbv ordering of legenda
+        levelordering <- as.list(expandedstructure$description)
+        structureanddata$description <- factor(structureanddata$description, levels = levelordering)
+        if ('fill' %in% colnames(structureanddata)) {
+            if (structureanddata$description[1] == structureanddata$fill[1]) {
+              structureanddata$fill <- factor(structureanddata$fill, levels = levelordering)
+          }
+        }
+        if ('colour' %in% colnames(structureanddata)) {
+          if (structureanddata$description[1] == structureanddata$colour[1]) {
+            structureanddata$colour <- factor(structureanddata$colour, levels = levelordering)
+          }
+        }
 
-#tst <<- data_out
 
-        ## return results
+
+        data_out <- structureanddata
+      ## return results
         return(data_out)
     }
 

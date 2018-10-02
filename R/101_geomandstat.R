@@ -301,6 +301,7 @@ StatSolvii <- ggplot2::ggproto(
     setup_data = function(data, params) {
             data_out <- fn_setupdata_surfaces(data = data,
                                              params = params)
+dataout1 <<- data_out
             return(data_out)
         },
 
@@ -346,6 +347,7 @@ StatSolvii <- ggplot2::ggproto(
             df <- dplyr::mutate(df,
                                 x = x + xpoint * scalingx,
                                 y = y + ypoint * scalingy)
+dataout2 <<- df
           ## return results
             return(df)
         },
@@ -353,8 +355,10 @@ StatSolvii <- ggplot2::ggproto(
   ## finish layer --------------------------------------------- -----
     finish_layer = function(data, scales, params) {
           ## combining x/y and xpoint/ypoint values and several scalings
+dataout3 <<- data
           ## return results
             return(data)
+
         }
 ) #END ggproto
 
