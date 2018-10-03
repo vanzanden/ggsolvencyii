@@ -65,7 +65,13 @@ if (!is.null(edgecolors)) {
 
 ## retreiving levels from inputted parameters
 s_l <- unique(struct2$level) ;s_l_df <- as.data.frame(s_l) ; s_l_df$structure <- "present"; lvl <- s_l
-l_l <- unique(as.character(levelmax$level)) ;l_l_df <- as.data.frame(l_l) ; l_l_df$levelmax <- "present"; lvl <- c(lvl, l_l)
+blnlevel <- FALSE
+if (!is.null(levelmax)) {
+  if (length(levelmax) > 1) {
+    blnlevel <- TRUE
+    l_l <- unique(as.character(levelmax$level)) ;l_l_df <- as.data.frame(l_l) ; l_l_df$levelmax <- "present"; lvl <- c(lvl, l_l)
+  } else {}
+}
 if (!is.null(outline)) {
   o_l <- unique(outline$levelordescription) ; o_l_df <- as.data.frame(o_l) ; o_l_df$outline <- "present"; lvl <- c(lvl, o_l)
 }
@@ -73,7 +79,9 @@ lvl <- unique(lvl) ; lvl_df <- as.data.frame(lvl)
 
 ## merging into a result table
 m2 <- merge(x = lvl_df, y = s_l_df, by.x = c("lvl"), by.y = c("s_l"), all.x = TRUE)
-m2 <- merge(x = m2, y = l_l_df, by.x = c("lvl"), by.y = c("l_l"), all.x = TRUE)
+if (blnlevel == TRUE) {
+  m2 <- merge(x = m2, y = l_l_df, by.x = c("lvl"), by.y = c("l_l"), all.x = TRUE)
+}
 if (!is.null(outline)) {
   m2 <- merge(x = m2, y = o_l_df, by.x = c("lvl"), by.y = c("o_l"), all.x = TRUE)
 }

@@ -435,3 +435,104 @@
 #' @examples
 #' sii_z_example6_outline
 "sii_z_example6_outline"
+
+
+
+
+## sii_z_example7_structure ========================================================= =====
+#' sii_z_example7_structure
+#'
+#' a standard formula structure (as of 2016), with descriptions in English.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'           \item{description}{string: the name of the component}
+#'           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
+#'           \item{childlevel}{string, same format as level, indicating the level of which the components combine into this level }
+#'          }
+#'
+#' @examples
+#' sii_z_example7_structure
+"sii_z_example7_structure"
+
+
+## sii_z_example7_data ============================================================ =====
+#' sii_z_example7_data
+#'
+#' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
+#'
+#' @docType data
+#'
+#' @source loosely based on public SFCR report of a medium sized dutch life insurer
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
+#'            \item{description}{character: component of the structure}
+#'            \item{id}{ number: }
+#'            \item{value}{numerical: }
+#'            \item{comparewithid}{numerical: }
+#'          }
+#'
+#' @examples
+#' sii_z_example7_data
+"sii_z_example7_data"
+
+
+## sii_z_example7_levelmax ======================================================== =====
+#' sii_z_example7_levelmax
+#'
+#' tekst
+# ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+#'
+# ' @docType data
+#'
+#' @source
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+# ' \describe{
+# '           \item{level}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component}
+# '           \item{levelmax}{positive integer indicating the total number of components to be shown in a level, consisting of the x-1 largest components and the remaining components combined in one other}
+# '          }
+#'
+#' @examples
+#' sii_z_example7_levelmax
+"sii_z_example7_levelmax"
+
+
+
+## sii_z_example7_outline ========================================================= =====
+#' sii_z_example7_outline
+#'
+#' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
+#'
+#' This example file highlights the posibilities to override the levelbased outlines for items (i.e. individual risks(accumulations)).
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{outline1}{boolean (logical): the radial line  }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line }
+#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the FIRST plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the LAST plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_z_example7_outline
+"sii_z_example7_outline"

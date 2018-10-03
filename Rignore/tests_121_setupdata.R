@@ -61,3 +61,26 @@ test_result
 rm(testparams) ; rm(testdata) ;rm(test_result)
 ## rm(test1levelordering)
 
+
+# tests =======nationale nederlanden structure ==================================================
+testparams <- NULL
+
+testparams$structuredf <- sii_z_example7_structure
+testparams$levelmax <- 99
+testdata <- sii_z_example7_data
+
+testparams$aggregatesuffix <- "_other"
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
+test_result
+## testlevelordering <- as.list(test1_result$description)
+
+
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata)
+test_result
+## test_result$description <-  factor(test_result$description, levels = test1levelordering )
+
+rm(testparams) ; rm(testdata) ;rm(test_result)
+## rm(test1levelordering)
+
+
+

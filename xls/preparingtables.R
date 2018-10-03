@@ -431,3 +431,68 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   rm(data)
   rm(sii_z_example6_outline)
 
+
+
+##  e x a m p l e  7 ==================================================== =====
+## sii_z_example7_structure ============================================= =====
+  sii_z_example7_structure <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                                                sheet = "ex7_struct",
+                                                col_types = c(rep("text", 3))
+                                                )
+  sii_z_example7_structure
+  devtools::use_data(sii_z_example7_structure, overwrite = TRUE)
+  rm(sii_z_example7_structure)
+
+
+## sii_z_example7_data ================================================== =====
+  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                            sheet = "ex7_data")  %>%
+                   tidyr::gather(key = description,
+                                 value = value,
+                                 -id, -time, -ratio, -comparewithid)
+  sii_z_example7_data <- data.frame(
+                                      time = as.numeric(data$time),
+                                      ratio = as.numeric(data$ratio),
+                                      description = data$description,   # it has to be a factor !!
+                                      value = as.numeric(data$value),
+                                      id = data$id,
+                                      comparewithid = data$comparewithid
+                                    )
+  sii_z_example7_data
+  devtools::use_data(sii_z_example7_data, overwrite = TRUE)
+  rm(data)
+  rm(sii_z_example7_data)
+
+## sii_z_example7_levelmax ============================================== =====
+  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                            sheet = "ex7_levelmax")
+  sii_z_example7_levelmax <- data.frame(
+                                        level = as.character(data$level),
+                                        levelmax = as.numeric(data$levelmax)
+                                        )
+  sii_z_example7_levelmax
+  devtools::use_data(sii_z_example7_levelmax, overwrite = TRUE)
+  rm(data)
+  rm(sii_z_example7_levelmax)
+
+
+
+## sii_z_example7_outline =============================================== =====
+  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                            sheet = "ex7_outline")
+  data$levelordescription <- as.character(data$levelordescription)
+  data$outline1 <- as.logical(data$outline1)
+  data$outline2 <- as.logical(data$outline2)
+  data$outline3 <- as.logical(data$outline3)
+  data$outline4 <- as.logical(data$outline4)
+  data$outline11 <- as.logical(data$outline11)
+  data$outline13 <- as.logical(data$outline13)
+
+  sii_z_example7_outline <- as.data.frame(data)
+  sii_z_example7_outline
+  devtools::use_data(sii_z_example7_outline, overwrite = TRUE)
+  ## test for tidyverse transformation
+  tidyr::gather(data = sii_z_example7_outline, key = outlinetype, value = drawoutline, -levelordescription)
+  rm(data)
+  rm(sii_z_example7_outline)
+
