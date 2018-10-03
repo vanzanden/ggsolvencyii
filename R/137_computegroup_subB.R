@@ -6,7 +6,7 @@
 ## small:
 ##    fn_sqXP
 ##    fn_sqYP
-##    fn_sqDegseq
+##    fn_sqdegseq
 ## ====================================================================== =====
 
 
@@ -15,7 +15,7 @@
 #'
 #' @param ri the  inner radius of the circle segment
 #' @param ro the outer radius of the circle segment
-#' @param db degrees beginning of section (compaswise: 0 degrees is north, 90 degrees is east)
+#' @param db degrees beginning of section (compasswise: 0 degrees is north, 90 degrees is east)
 #' @param de degrees end of section
 #' @param plottype "circle" of "outer", the former only requiring a ro
 #' @param indication11 dummy text
@@ -43,7 +43,7 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
           } else {
             outlinetype <- "11"
           }
-          df <- data.frame (xpoint = xpoint, ypoint = ypoint,
+          df <- data.frame(xpoint = xpoint, ypoint = ypoint,
                            outlinetype = outlinetype)
           xpoint <- round(ro * cos(.5 * pi - db / 360 * 2 * pi), digits = 7)
           ypoint <- round(ro * sin(.5 * pi - db / 360 * 2 * pi), digits = 7)
@@ -52,7 +52,7 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
           } else {
             outlinetype <- "1"
           }
-          df2 <- data.frame (xpoint = xpoint, ypoint = ypoint,
+          df2 <- data.frame(xpoint = xpoint, ypoint = ypoint,
                             outlinetype = outlinetype)
           df <- rbind(df, df2)
         } else {
@@ -60,19 +60,19 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
           xpoint <- 1 #dummy
           ypoint <- 1 # dummy
           outlinetype <- "dummy"
-          df <- data.frame (xpoint = xpoint, ypoint = ypoint,
+          df <- data.frame(xpoint = xpoint, ypoint = ypoint,
                            outlinetype = outlinetype)
           df <- df[0]
         }
 
       ## points along the outer edge
-        degseq <- c(seq (db, de, by = stepsize), de) #
+        degseq <- c(seq(db, de, by = stepsize), de) #
         xpoint <- round(ro * cos(.5 * pi - degseq / 360 * 2 * pi), digits = 7)
         ypoint <- round(ro * sin(.5 * pi - degseq / 360 * 2 * pi), digits = 7)
         outlinetype <- "2"
         tmp <- data.frame(xpoint = xpoint, ypoint = ypoint,
                           outlinetype = outlinetype)
-        df <- rbind (df, tmp)
+        df <- rbind(df, tmp)
 
       ## radial line
         if (plottype == "outer") {
@@ -83,7 +83,7 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
           } else {
             outlinetype <- "3"
           }
-          df <- rbind (df, cbind(xpoint, ypoint, outlinetype))
+          df <- rbind(df, cbind(xpoint, ypoint, outlinetype))
           xpoint <- round(ri * cos(.5 * pi - de / 360 * 2 * pi), digits = 7)
           ypoint <- round(ri * sin(.5 * pi - de / 360 * 2 * pi), digits = 7)
           if (indication13 == TRUE) {
@@ -91,20 +91,20 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
           } else {
             outlinetype <- "3"
           }
-          df <- rbind (df, cbind(xpoint, ypoint, outlinetype))
+          df <- rbind(df, cbind(xpoint, ypoint, outlinetype))
         } else {
           #no points
         }
 
     ## points along the inner edge
       if (plottype == "outer") {
-        degseq <- c(seq (de, db, by = -stepsize), db) #
+        degseq <- c(seq(de, db, by = -stepsize), db) #
         xpoint <- round(ri * cos(.5 * pi - degseq / 360 * 2 * pi), digits = 7)
         ypoint <- round(ri * sin(.5 * pi - degseq / 360 * 2 * pi), digits = 7)
         outlinetype <- "4"
         tmp <- data.frame(xpoint = xpoint, ypoint = ypoint,
                           outlinetype = outlinetype)
-        df <- rbind (df, tmp)
+        df <- rbind(df, tmp)
       } else {
         #no points
       }
@@ -143,8 +143,8 @@ fn_squarepoints <- function(ri, ro, db, de,
       ## a "radial line"
         ## determination of octants 0 to 7
         ##     (compas bearing 0-45: octant 0, 45-90: octant 1 etc )
-          octant_b <- ( (db + 2 * 360) %/% 45) %% 8
-          octant_e <- ( (de + 2 * 360) %/% 45) %% 8
+          octant_b <- ((db + 2 * 360) %/% 45) %% 8
+          octant_e <- ((de + 2 * 360) %/% 45) %% 8
 # print(paste0("db de" , db, ", ", de))
 # print(paste0("octants" , octant_b, ", ", octant_e))
         ## (beginning xpoint is calculated as :
@@ -153,23 +153,23 @@ fn_squarepoints <- function(ri, ro, db, de,
         ##       xbsign is -1/0/1, xsignB = 0 or 1,
         ##       negative values are introduced by sin/cosine function
         ## analog for xpoint/ro and ypoint/ri and ypoint/ro
-          if (octant_b  == 0){xbsign <-  0 ; ybsign <-  1 }
-          if (octant_b  == 1){xbsign <-  1 ; ybsign <-  0 }
-          if (octant_b  == 2){xbsign <-  1 ; ybsign <-  0 }
-          if (octant_b  == 3){xbsign <-  0 ; ybsign <- -1 }
-          if (octant_b  == 4){xbsign <-  0 ; ybsign <- -1 }
-          if (octant_b  == 5){xbsign <- -1 ; ybsign <-  0 }
-          if (octant_b  == 6){xbsign <- -1 ; ybsign <-  0 }
-          if (octant_b  == 7){xbsign <-  0 ; ybsign <-  1 }
+          if (octant_b  == 0) {xbsign <-  0 ; ybsign <-  1 }
+          if (octant_b  == 1) {xbsign <-  1 ; ybsign <-  0 }
+          if (octant_b  == 2) {xbsign <-  1 ; ybsign <-  0 }
+          if (octant_b  == 3) {xbsign <-  0 ; ybsign <- -1 }
+          if (octant_b  == 4) {xbsign <-  0 ; ybsign <- -1 }
+          if (octant_b  == 5) {xbsign <- -1 ; ybsign <-  0 }
+          if (octant_b  == 6) {xbsign <- -1 ; ybsign <-  0 }
+          if (octant_b  == 7) {xbsign <-  0 ; ybsign <-  1 }
 
-          if (octant_e  == 0){xesign <-  0 ; yesign <-  1 }
-          if (octant_e  == 1){xesign <-  1 ; yesign <-  0 }
-          if (octant_e  == 2){xesign <-  1 ; yesign <-  0 }
-          if (octant_e  == 3){xesign <-  0 ; yesign <- -1 }
-          if (octant_e  == 4){xesign <-  0 ; yesign <- -1 }
-          if (octant_e  == 5){xesign <- -1 ; yesign <-  0 }
-          if (octant_e  == 6){xesign <- -1 ; yesign <-  0 }
-          if (octant_e  == 7){xesign <-  0 ; yesign <-  1 }
+          if (octant_e  == 0) {xesign <-  0 ; yesign <-  1 }
+          if (octant_e  == 1) {xesign <-  1 ; yesign <-  0 }
+          if (octant_e  == 2) {xesign <-  1 ; yesign <-  0 }
+          if (octant_e  == 3) {xesign <-  0 ; yesign <- -1 }
+          if (octant_e  == 4) {xesign <-  0 ; yesign <- -1 }
+          if (octant_e  == 5) {xesign <- -1 ; yesign <-  0 }
+          if (octant_e  == 6) {xesign <- -1 ; yesign <-  0 }
+          if (octant_e  == 7) {xesign <-  0 ; yesign <-  1 }
 
 
 # print(paste0(xsignA, xsignB, ysignA, ysignB))
@@ -251,7 +251,7 @@ fn_squarepoints <- function(ri, ro, db, de,
           tmp <- data.frame(degrees = de, afstand = ro,
                             xpoint = xpoint, ypoint = ypoint,
                             outlinetype = outlinetype)
-          df <- rbind (df, tmp)
+          df <- rbind(df, tmp)
 
           xpoint <- fn_sqXP(vertdistance = ri, degrees = de,
                            xsign = xesign, rounding = 7)
@@ -313,7 +313,7 @@ fn_squarepoints <- function(ri, ro, db, de,
 #'
 #' @return a distance
 
-fn_sqXP <- function (vertdistance, degrees, xsign, rounding) {
+fn_sqXP <- function(vertdistance, degrees, xsign, rounding) {
     xpoint <- round(xsign * vertdistance + (1 - abs(xsign)) * sqrt(2 * vertdistance ^ 2) *
                       cos(.5 * pi - degrees / 360 * 2 * pi), digits = rounding)
    ##return results
@@ -332,7 +332,7 @@ fn_sqXP <- function (vertdistance, degrees, xsign, rounding) {
 #' @return a distance
 
 
-fn_sqYP <- function (vertdistance, degrees, ysign, rounding) {
+fn_sqYP <- function(vertdistance, degrees, ysign, rounding) {
        ypoint <- round(ysign * vertdistance + (1 - abs(ysign)) * sqrt(2 * vertdistance ^ 2) * sin(.5 * pi - degrees / 360 * 2 * pi), digits = rounding)
       ##return results
         return(ypoint)
@@ -357,7 +357,7 @@ fn_sqdegseq <- function(startdegrees, enddegrees,
       startdegrees <- startdegrees - 360 * (startdegrees %/% 360)
     }
     if (enddegrees < startdegrees) {
-      enddegrees <- enddegrees + 360 * ( (startdegrees - enddegrees) %/% 360)
+      enddegrees <- enddegrees + 360 * ((startdegrees - enddegrees) %/% 360)
     }
     if (enddegrees < startdegrees) { enddegrees <- enddegrees + 360 }
     firstmultiple <- 45 * (startdegrees %/% 45 + 1)

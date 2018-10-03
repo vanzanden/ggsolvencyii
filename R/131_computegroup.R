@@ -18,7 +18,7 @@
 #' @param scales dummy text
 #' @param siiparams The (adjusted) geom parameterset, forwarded to lower level functions as siiparams
 #'
-#' @return a dataframe which containes transformed or enriched data, usable for plotting
+#' @return a dataframe which contains transformed or enriched data, usable for plotting
 # ' @exportnot
 #'
 # ' @examples

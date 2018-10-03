@@ -14,7 +14,7 @@ fn_computegroup(data, scales, siiparams)
 \item{siiparams}{The (adjusted) geom parameterset, forwarded to lower level functions as siiparams}
 }
 \value{
-a dataframe which containes transformed or enriched data, usable for plotting
+a dataframe which contains transformed or enriched data, usable for plotting
 }
 \description{
 fn_computegroup

@@ -12,7 +12,7 @@ fn_circlepoints(ri, ro, db, de, plottype, indication11, indication13,
 
 \item{ro}{the outer radius of the circle segment}
 
-\item{db}{degrees beginning of section (compaswise: 0 degrees is north, 90 degrees is east)}
+\item{db}{degrees beginning of section (compasswise: 0 degrees is north, 90 degrees is east)}
 
 \item{de}{degrees end of section}
 

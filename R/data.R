@@ -355,32 +355,6 @@
 #' sii_z_example4_outline
 "sii_z_example4_outline"
 
-## sii_z_example5_data ============================================================ =====
-#' sii_z_example5_data
-#'
-#' example dataset, in tidyverse format, with several instances of a completely filled sf structure, with Dutch descriptions,
-#'
-#' @docType data
-#'
-#' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{tijd}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
-#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
-#'            \item{description}{character: component of the structure}
-#'            \item{id}{ number: }
-#'            \item{waarde}{numerical: }
-#'            \item{vergelijkmet}{numerical: }
-#'          }
-#'
-#' @examples
-#' sii_z_example5_data
-"sii_z_example5_data"
-
-
-
 
 ## sii_z_example5_data ============================================================ =====
 #' sii_z_example5_data
@@ -407,4 +381,57 @@
 "sii_z_example5_data"
 
 
+## sii_z_example6_data ============================================================ =====
+#' sii_z_example6_data
+#'
+#' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
+#'
+#' @docType data
+#'
+#' @source loosely based on public SFCR report of a medium sized dutch life insurer
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
+#'            \item{description}{character: component of the structure}
+#'            \item{id}{ number: }
+#'            \item{value}{numerical: }
+#'            \item{comparewithid}{numerical: }
+#'          }
+#'
+#' @examples
+#' sii_z_example6_data
+"sii_z_example6_data"
+
+
+
+
+
+
+## sii_z_example6_outline========================================================== =====
+#' sii_z_example6_outline
+#'
+#' A table for \code{\link{geom_solviioutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{outline1}{boolean (logical): the radial line  }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line  }
+#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_z_example6_outline
+"sii_z_example6_outline"

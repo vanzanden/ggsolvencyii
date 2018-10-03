@@ -6,7 +6,7 @@
 \usage{
 sii_debug(data_descr, structure = ggesolvencii::sii_structure_sf16_eng,
   aggregatesuffix = "other", levelmax = NULL, outline = NULL,
-  fillcolor = NULL, edgecolor = NULL)
+  fillcolors = NULL, edgecolors = NULL)
 }
 \arguments{
 \item{data_descr}{(no default) the vector 'description' from the data}
@@ -19,9 +19,9 @@ sii_debug(data_descr, structure = ggesolvencii::sii_structure_sf16_eng,
 
 \item{outline}{(optional, no default): the outline dataframe}
 
-\item{fillcolor}{(optional, no default): fillcolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )}
+\item{fillcolors}{(optional, no default): fillcolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )}
 
-\item{edgecolor}{(optional, no default): edgecolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )}
+\item{edgecolors}{(optional, no default): edgecolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )}
 }
 \value{
 prints two comparison tables and puts them in $debug_description and $debug_level

@@ -7,8 +7,8 @@
 #' @param structure (no default) the structure dataframe
 #' @param levelmax (optional, no default): the levelmax dataframe, when not filled the expanded structure assumes levelmax was set to 99 for all levels.
 #' @param outline (optional, no default): the outline dataframe
-#' @param fillcolor (optional, no default): fillcolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )
-#' @param edgecolor (optional, no default): edgecolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )
+#' @param fillcolors (optional, no default): fillcolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )
+#' @param edgecolors (optional, no default): edgecolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )
 #' @param aggregatesuffix (optional, default = "_other"):
 #'
 #' @return prints two comparison tables and puts them in $debug_description and $debug_level
@@ -20,8 +20,8 @@ sii_debug <- function(data_descr,
                           aggregatesuffix = "other",
                           levelmax = NULL,
                           outline = NULL,
-                          fillcolor = NULL,
-                          edgecolor = NULL
+                          fillcolors = NULL,
+                          edgecolors = NULL
                       )
 {
 ## preparation to make parameter(list) to call fn_structure_expansion
@@ -40,11 +40,11 @@ s2_d <- unique(struct2$description) ;s2_d_df <- as.data.frame(s2_d) ; s2_d_df$en
 if (!is.null(outline)) {
   o_d <- unique(outline$levelordescription) ; o_d_df <- as.data.frame(o_d) ; o_d_df$outline <- "present"; descr <- c(descr, o_d)
 }
-if (!is.null(fillcolor)) {
-  f_d <- names(fillcolor) ; f_d_df <- as.data.frame(f_d) ; f_d_df$fillcolor <- "present"; descr <- c(descr, f_d)
+if (!is.null(fillcolors)) {
+  f_d <- names(fillcolors) ; f_d_df <- as.data.frame(f_d) ; f_d_df$fillcolor <- "present"; descr <- c(descr, f_d)
 }
-if (!is.null(edgecolor)) {
-  e_d <- names(edgecolor) ; e_d_df <- as.data.frame(e_d) ; e_d_df$edgecolor <- "present"; descr <- c(descr, e_d)
+if (!is.null(edgecolors)) {
+  e_d <- names(edgecolors) ; e_d_df <- as.data.frame(e_d) ; e_d_df$edgecolor <- "present"; descr <- c(descr, e_d)
 }
 
 descr <- unique(descr) ; descr_df <- as.data.frame(descr)
@@ -56,10 +56,10 @@ m1 <- merge(x = m1, y = s2_d_df, by.x = c("descr"), by.y = c("s2_d"), all.x = TR
 if (!is.null(outline)) {
   m1 <- merge(x = m1, y = o_d_df, by.x = c("descr"), by.y = c("o_d"), all.x = TRUE)
 }
-if (!is.null(fillcolor)) {
+if (!is.null(fillcolors)) {
   m1 <- merge(x = m1, y = f_d_df, by.x = c("descr"), by.y = c("f_d"), all.x = TRUE)
 }
-if (!is.null(edgecolor)) {
+if (!is.null(edgecolors)) {
   m1 <- merge(x = m1, y = e_d_df, by.x = c("descr"), by.y = c("e_d"), all.x = TRUE)
 }
 

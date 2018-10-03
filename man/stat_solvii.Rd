@@ -26,10 +26,10 @@ stat_solvii(mapping = NULL, data = NULL, geom = "solvii",
 
 \item{na.rm}{standard ggplot function}
 
-\item{levelmax}{(integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 seperate items and one grouped item. \cr
+\item{levelmax}{(integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 separate items and one grouped item. \cr
 For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii_levelmax_sf16_993}} are present in the package where the components of market, life, non-life, health are combined in 5 or 3 items.}
 
-\item{structuredf}{(dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataseet with a suffix "d" behind the levelnumber are diversifacation items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the desription in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in descripton column.}
+\item{structuredf}{(dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataset with a suffix "d" behind the levelnumber are diversification items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the description in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in description column.}
 
 \item{maxscrvalue}{(optional, double, default = NULL)\cr
 the scale of the different plot elements is is by default measured to the largest level 1 element (i.e. SCR) in the dataset, this can be overridden by this parameter for example when combining several plots}
@@ -40,7 +40,7 @@ the scale of the different plot elements is is by default measured to the larges
 
 \item{scalingy}{(optional, positive value ,default = 1)\cr for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in y-direction}
 
-\item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compas, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
+\item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
 
 \item{rotationdescription}{(optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.}
 
