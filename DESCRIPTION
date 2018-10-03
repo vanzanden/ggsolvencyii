@@ -21,3 +21,5 @@ Imports: dplyr,
 Suggests: knitr,
           rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/vanzanden/ggsolvencyii
+BugReports: https://github.com/vanzanden/ggsolvencyii/issues
