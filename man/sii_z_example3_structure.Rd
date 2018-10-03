@@ -18,7 +18,7 @@ determined based on specification of EIOPA standard formula Solvency II structur
 sii_z_example3_structure
 }
 \description{
-a standard formula structure (as of 2016), with descriptions in English
+a adapted (compact) structure with no division of market, life, .. risks in subrisks (i.e. equity, longevity,... ). Descriptions are in English
 }
 \examples{
 sii_z_example3_structure

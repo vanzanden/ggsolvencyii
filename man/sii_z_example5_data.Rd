@@ -3,6 +3,7 @@
 \docType{data}
 \name{sii_z_example5_data}
 \alias{sii_z_example5_data}
+\alias{sii_z_example5_data}
 \title{sii_z_example5_data}
 \format{A data frame with columns:
 \describe{
@@ -16,14 +17,22 @@
 \source{
 loosely based on public SFCR report of a medium sized dutch life insurer
   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+
+loosely based on public SFCR report of a medium sized dutch life insurer
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
+sii_z_example5_data
+
 sii_z_example5_data
 }
 \description{
 example dataset, in tidyverse format, with several instances of a completely filled sf structure, with Dutch descriptions,
+
+example dataset, in tidyverse format, with one of a completely filled sf structure where all individual risks are equally divided. The purpose is to assert a correct division.
 }
 \examples{
+sii_z_example5_data
 sii_z_example5_data
 }
 \keyword{datasets}

@@ -42,8 +42,6 @@ fn_levelonedescription <- function(params) {
 
 fn_maxscrvalue <- function(data, params
                           ) {
-      #structuredf     <- params$structuredf
-      #levelonedescription <- structuredf$description[structuredf$level == 1]
       levelonedescription <- params$levelonedescription
       ## afleiden maxscrvalue for scaling
         if (!is.null(params$maxscrvalue)) {

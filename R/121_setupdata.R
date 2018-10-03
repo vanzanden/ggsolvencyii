@@ -119,7 +119,21 @@ fn_structure_expansion <- function(params) {
           levelmaxdf <- data.frame(level = t1$level,
                                    levelmax = rep(levelmax, nrow(t1)))
         } else {
-          levelmaxdf <- as.data.frame(levelmax)
+# print(as.data.frame(levelmax))
+# print(" ")
+# print(data.frame(level = t1$level,levelmax = rep(99, nrow(t1))))
+          levelmaxdf <- rbind(as.data.frame(levelmax),
+                              data.frame(level = t1$level,
+                                   levelmax = rep(99, nrow(t1))))
+# print("pre deduplicate")
+# print(levelmaxdf)
+          levelmaxdf <- levelmaxdf[ !duplicated(levelmaxdf$level),]
+# print("post deduplicate")
+# print(levelmaxdf)
+          # if(nrow(levelmaxdf) > levelmax) {
+          #   print(paste0("parameter levelmax is expanded met levelmax = 99 for one or more levels present in the structure: ",
+          #                "see 'sii_debug(data_descr = <data>$description,structure = <structure>,levelmax = <levelmax>' for a comparison"
+          #               ))
         }
 
       ## if the levelmax of a level is smaller than the amount of lines of that

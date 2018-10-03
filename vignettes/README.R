@@ -4,6 +4,9 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
+## ---- out.width='35%', fig.align='right', echo=FALSE, border = FALSE-----
+knitr::include_graphics('images/logo_engels.png')
+
 ## ---- fig.show='hold'----------------------------------------------------
 plot(1:10)
 plot(10:1)

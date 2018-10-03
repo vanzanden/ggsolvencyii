@@ -4,6 +4,19 @@
 ## de derde regel ook nonlife en health
 ##
 ##
+
+
+
+sii_debug(data_descr = sii_z_example2_data$description, structure = sii_structure_sf16_eng,levelmax = sii_levelmax_sf16_995,outline = sii_outline_sf16_eng,fillcolor = sii_x_fillcolors_sf16_eng
+        ,edgecolor = sii_x_edgecolors_sf16_eng, aggregatesuffix = "_test"  )
+
+sii_debug(data_descr = sii_z_example2_data$description, structure = sii_structure_sf16_eng,levelmax = sii_levelmax_sf16_995,outline = sii_outline_sf16_eng,fillcolor = sii_x_fillcolors_sf16_eng
+        ,edgecolor = sii_x_edgecolors_sf16_eng, aggregatesuffix = "_other"  )
+
+
+
+
+
 ## basistest, tonen resultaten
  ggplot2::ggplot() +
   geom_solvii(data = sii_z_example2_data,
@@ -16,21 +29,6 @@
   theme_bw() +
   scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
-
-## basistest, tonen resultaten alleen id = 4
- ggplot2::ggplot() +
-  geom_solvii(data = sii_z_example2_data[sii_z_example2_data$id == 4,],
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                             lwd = 0.05
-               ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
-
-
 
 
 ## groeperen van resultaten, levelmax = 3
@@ -59,6 +57,7 @@
   scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
+## groeperen van resultaten, levelmax = 993
 
  ggplot2::ggplot() +
   geom_solvii(data = sii_z_example2_data,
@@ -81,19 +80,6 @@
   theme_bw() +
   scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
-
-
-
-sii_debug(data_descr = sii_z_example2_data$description, structure = sii_structure_sf16_eng,levelmax = sii_levelmax_sf16_995,outline = sii_outline_sf16_eng,fillcolor = sii_x_fillcolors_sf16_eng
-        ,edgecolor = sii_x_edgecolors_sf16_eng, aggregatesuffix = "_test"  )
-
-sii_debug(data_descr = sii_z_example2_data$description, structure = sii_structure_sf16_eng,levelmax = sii_levelmax_sf16_995,outline = sii_outline_sf16_eng,fillcolor = sii_x_fillcolors_sf16_eng
-        ,edgecolor = sii_x_edgecolors_sf16_eng, aggregatesuffix = "_other"  )
-
-
-
-
-##  !!!  WAAR IS MARKET_OTHER gebleven ?
 
 
 ## test outline sec (basis outline table)
@@ -149,5 +135,26 @@ ggplot2::ggplot() +
                      rotationdescription = "life",
                      outlinedf = sii_z_example4_outline
   )
+
+
+
+
+# test alles in een
+    ggplot() +
+     geom_solvii(data = sii_z_example2_data,
+                 mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
+                               fill = description,color = description),
+                               lwd = 0.5) +
+                scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+                scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+      geom_solviioutline(data = sii_z_example2_data,
+                         mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value,
+                                       description = description, comparewithid = comparewithid),
+                         color = "red", lwd = 0.7, alpha = 0.99 ) +
+      geom_solviiconnection(data = sii_z_example2_data,
+                            mapping = ggplot2::aes(x = time, y = ratio, id = id, comparewithid = comparewithid ),
+                            arrow = arrow(angle = 20, type = "closed" )
+                            ) +
+      theme_bw()
 
 

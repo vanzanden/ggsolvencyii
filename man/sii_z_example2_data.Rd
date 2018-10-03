@@ -21,7 +21,7 @@ loosely based on public SFCR report of a medium sized dutch life insurer
 sii_z_example2_data
 }
 \description{
-example dataset, in tidyverse format, with several instances of a completely  filled sf structure,
+example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
 }
 \examples{
 sii_z_example2_data

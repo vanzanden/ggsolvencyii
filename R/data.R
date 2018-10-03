@@ -236,7 +236,7 @@
 ## sii_z_example2_data ============================================================ =====
 #' sii_z_example2_data
 #'
-#' example dataset, in tidyverse format, with several instances of a completely  filled sf structure,
+#' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
 #'
 #' @docType data
 #'
@@ -262,7 +262,7 @@
 ## sii_z_example3_structure ======================================================= =====
 #' sii_z_example3_structure
 #'
-#' a standard formula structure (as of 2016), with descriptions in English
+#' a adapted (compact) structure with no division of market, life, .. risks in subrisks (i.e. equity, longevity,... ). Descriptions are in English
 #'
 #' @docType data
 #'
@@ -359,6 +359,33 @@
 #' sii_z_example5_data
 #'
 #' example dataset, in tidyverse format, with several instances of a completely filled sf structure, with Dutch descriptions,
+#'
+#' @docType data
+#'
+#' @source loosely based on public SFCR report of a medium sized dutch life insurer
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{tijd}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
+#'            \item{description}{character: component of the structure}
+#'            \item{id}{ number: }
+#'            \item{waarde}{numerical: }
+#'            \item{vergelijkmet}{numerical: }
+#'          }
+#'
+#' @examples
+#' sii_z_example5_data
+"sii_z_example5_data"
+
+
+
+
+## sii_z_example5_data ============================================================ =====
+#' sii_z_example5_data
+#'
+#' example dataset, in tidyverse format, with one of a completely filled sf structure where all individual risks are equally divided. The purpose is to assert a correct division.
 #'
 #' @docType data
 #'

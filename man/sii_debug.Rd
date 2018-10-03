@@ -5,26 +5,23 @@
 \title{sii_debug}
 \usage{
 sii_debug(data_descr, structure = ggesolvencii::sii_structure_sf16_eng,
-  levelmax = ggesolvencii::sii_levelmax_995,
-  outline = ggesolvencii::sii_outline_sf16_eng,
-  fillcolor = ggsolvencyii::sii_x_fillcolors_sf16_eng,
-  edgecolor = ggsolvencyii::sii_x_edgecolors_sf16_eng,
-  aggregatesuffix = "other")
+  aggregatesuffix = "other", levelmax = NULL, outline = NULL,
+  fillcolor = NULL, edgecolor = NULL)
 }
 \arguments{
 \item{data_descr}{(no default) the vector 'description' from the data}
 
-\item{structure}{(default = sii_structure_sf16_eng) : the structure dataframe}
+\item{structure}{(no default) the structure dataframe}
 
-\item{levelmax}{(default = sii_levelmax_995): the levelmax dataframe}
+\item{aggregatesuffix}{(optional, default = "_other"):}
 
-\item{outline}{(default = sii_outline_sf16_eng): the outline dataframe}
+\item{levelmax}{(optional, no default): the levelmax dataframe, when not filled the expanded structure assumes levelmax was set to 99 for all levels.}
 
-\item{fillcolor}{(default = sii_x_fillcolors_sf16_eng): fillcolor parameter}
+\item{outline}{(optional, no default): the outline dataframe}
 
-\item{edgecolor}{(default = sii_x_fillcolors_sf16_eng): edgecolor parameter}
+\item{fillcolor}{(optional, no default): fillcolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )}
 
-\item{aggregatesuffix}{(default = "_other"):}
+\item{edgecolor}{(optional, no default): edgecolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )}
 }
 \value{
 prints two comparison tables and puts them in $debug_description and $debug_level
