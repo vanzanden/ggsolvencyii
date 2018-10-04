@@ -14,7 +14,7 @@
            \item{comparewithid}{numerical: }
          }}
 \source{
-the structure is based on public SFCR 2016 report of a medium sized dutch life insurer,
+the structure is based on public SFCR 2017 report of NN group,
   with a possible wrong interpretation of diversification effects towards 'market basis and CPD risk'\cr
   #' See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
   www.nn-group.com /nn-group /file?uuid=e3e89829 -e7bd -495a -9fed

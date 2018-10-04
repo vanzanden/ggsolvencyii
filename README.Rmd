@@ -1,0 +1,44 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+
+# ggsolvencyii
+
+The goal of ggsolvencyii is to ...
+
+## Travis status
+[![Build Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)
+
+
+```{r, out.width='25%', fig.align='right', echo=FALSE, border = FALSE}
+knitr::include_graphics('vignettes/images/logo_engels.png')
+```
+
+
+## Installation
+
+You can install ggsolvencyii from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("vanzanden/ggsolvencyii")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+## basic example code
+```

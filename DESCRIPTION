@@ -10,7 +10,7 @@ Description: An implementation of ggplot2 to show the composition of (Solvency I
   options are available for combining smaller components, horizontal and vertical scaling, rotation (fixed and/or based on a component) 
   With outlines and connectors several SCR-plots can be compared, for example in ORSA scenarios.
 Depends: R (>= 3.5.0)
-License: GPL-3
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
