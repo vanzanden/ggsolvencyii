@@ -19,45 +19,45 @@
 ##
 ## basistest regel 1, tonen resultaten
  ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex6_data[sii_z_ex6_data$id == 1,],
+  geom_siiscrbuildup(data = sii_z_ex6_data[sii_z_ex6_data$id == 1,],
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              fill = description, color = description
                              ),
                              lwd = 0.05
                ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
  ## basistest, tonen resultaten
  ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_ex6_data,
+  geom_siiscroutline(data = sii_z_ex6_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              comparewithid = comparewithid
                              ),
                              lwd = 0.05
                ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
  ## alles, default outline
  ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex6_data,
+  geom_siiscrbuildup(data = sii_z_ex6_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              fill = description, color = description
                              ),
                              lwd = 0.05
                ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-  geom_solviioutline(data = sii_z_ex6_data,
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+  geom_siiscroutline(data = sii_z_ex6_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              comparewithid = comparewithid
@@ -71,7 +71,7 @@
  ## alles, custom outline
 
  ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex6_data,
+  geom_siiscrbuildup(data = sii_z_ex6_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              fill = description, color = description
@@ -79,10 +79,10 @@
                              lwd = 0.05
                              ,color = "red"
                ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-  geom_solviioutline(data = sii_z_ex6_data,
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+  geom_siiscroutline(data = sii_z_ex6_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              comparewithid = comparewithid

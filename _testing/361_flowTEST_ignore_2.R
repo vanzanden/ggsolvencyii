@@ -2,8 +2,8 @@
 
 
 ## test outline sec (basis outline table)
-ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+ggplot2::ggplot() +
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -15,7 +15,7 @@ ggplot() +
 
 ## test outline sec (basis outline table)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                             description = description, comparewithid = comparewithid),
                      color = "red",
@@ -29,7 +29,7 @@ ggplot2::ggplot() +
 
  ## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -44,7 +44,7 @@ ggplot2::ggplot() +
 
 ## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -60,7 +60,7 @@ ggplot2::ggplot() +
 
 ## test connection sec
 ggplot2::ggplot() +
-  geom_solviiconnection(data = sii_z_ex3_data,
+  geom_siiconnection(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time, y = ratio, id = id,  comparewithid = comparewithid )
                          , arrow = arrow(angle = 20, type = "closed" )
                          # color = "red",
@@ -71,29 +71,29 @@ ggplot2::ggplot() +
 
 
 # test alles in een (testdata2)
-    ggplot() +
-     geom_solvii(data = sii_z_ex2_data,
+ggplot2::ggplot() +
+     geom_siiscrbuildup(data = sii_z_ex2_data,
                  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                                fill = description,color = description),
                                lwd = 0.5) +
-                scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-                scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_solviioutline(data = sii_z_ex2_data,
+                ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+                ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+      geom_siiscroutline(data = sii_z_ex2_data,
                          mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value,
                                        description = description, comparewithid = comparewithid),
                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-      geom_solviiconnection(data = sii_z_ex2_data,
+      geom_siiconnection(data = sii_z_ex2_data,
                             mapping = ggplot2::aes(x = time, y = ratio, id = id, comparewithid = comparewithid ),
                             arrow = arrow(angle = 20, type = "closed" )
                             ) +
-      theme_bw()
+      ggplot2::theme_bw()
 
 
 
 
     # test alles in een (sii_z_ex3_data)
     ggplot2::ggplot() +
-      geom_solvii(data = sii_z_ex3_data,
+      geom_siiscrbuildup(data = sii_z_ex3_data,
                   mapping = ggplot2::aes(x = time,
                                 y = ratio ,
                                 id = id,
@@ -107,9 +107,9 @@ ggplot2::ggplot() +
                   # rotationdescription = "life",
                   scalingx = 0.5,scalingy = 0.5,
                   lwd = 0.5)    +
-                scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-                scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_solviioutline(data = sii_z_ex3_data,
+                ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+                ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+      geom_siiscroutline(data = sii_z_ex3_data,
                          mapping = aes(x = time,
                                        y = ratio ,
                                        id = id,
@@ -126,8 +126,8 @@ ggplot2::ggplot() +
                          scalingx = 0.5,scalingy = 0.5
                          # outlinedf = "VERWIJZING NAAR EEN TABEL"
       ) +
-      theme_bw()    +
-      geom_solviiconnection(data = sii_z_ex3_data,
+      ggplot2::theme_bw()    +
+      geom_siiconnection(data = sii_z_ex3_data,
                             mapping = aes(x = time,
                                           y = ratio,
                                           id = id,
@@ -144,7 +144,7 @@ ggplot2::ggplot() +
 
 # test alles in een (testdata2)
     ggplot2::ggplot() +
-     geom_solvii(data = sii_z_ex2_data,
+     geom_siiscrbuildup(data = sii_z_ex2_data,
                  mapping = ggplot2::aes(x = time,
                                y = ratio ,
                                id = id,
@@ -156,9 +156,9 @@ ggplot2::ggplot() +
                                 # rotationdescription = "life",
                                squared = TRUE,
                                lwd = 0.5)    +
-                scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-                scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_solviioutline(data = sii_z_ex2_data,
+                ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+                ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+      geom_siiscroutline(data = sii_z_ex2_data,
                          mapping = aes(x = time,
                                        y = ratio ,
                                        id = id,
@@ -173,7 +173,7 @@ ggplot2::ggplot() +
                          alpha = .99 # ,
                          # scalingx = 1.5# outlinedf = "VERWIJZING NAAR EEN TABEL"
                           ) +
-      geom_solviiconnection(data = sii_z_ex2_data,
+      geom_siiconnection(data = sii_z_ex2_data,
                             mapping = aes(x = time,
                                           y = ratio,
                                           id = id,
@@ -181,7 +181,7 @@ ggplot2::ggplot() +
                             , arrow = arrow(angle = 20, type = "closed" )
                             # color = "red",# lwd = 0.5 #,# outlinedf = "VERWIJZING NAAR EEN TABEL"
                               )    +
-      theme_bw()
+      ggplot2::theme_bw()
 
 
 
@@ -196,8 +196,7 @@ library(ggmap)
 
 
     base_map_nederland2 +
-           # ggplot()+
-      geom_solvii(data =# testdata2
+      geom_siiscrbuildup(data =# testdata2
                     sii_z_ex6_data,
                     # exceldf[exceldf$id==1,]
                     #,
@@ -214,7 +213,7 @@ library(ggmap)
                   ,scalingx = 0.45
                   , scalingy = 0.40
       )    +
-      geom_solvii(
+      geom_siiscrbuildup(
                   data = exceldf[exceldf$id != 1,],
                   mapping = aes(x = x, y = y , id = id, value = value, description=description,
                                 fill = description, color = description
@@ -230,7 +229,7 @@ library(ggmap)
                   ,scalingx = 0.45
                   , scalingy = 0.40
       ) +
-      geom_solviioutline(data = exceldf
+      geom_siiscroutline(data = exceldf
                          ,mapping = aes(x = x, y = y , id = id, value = value, description = description, comparewithid = comparewithid)
                          ,color = "red"
                          ,lwd = 0.2
@@ -239,6 +238,6 @@ library(ggmap)
                          , scalingy = 0.40
                          # outlinelevels = "VERWIJZING NAAR EEN TABEL"
       ) +
-      theme_bw() +
-      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
-      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng)
+      ggplot2::theme_bw() +
+      ggplot2::scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
+      ggplot2::scale_color_manual(name = "Componenten",values = colorcolors_sf_eng)

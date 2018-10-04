@@ -20,17 +20,17 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    GeomSolvii
-##    GeomSolviioutline
-##    GeomSsolviiconnection
-##    geom_solvii
-##    geom_solviioutline
-##    geom_solviiconnection
-##    StatSolvii
-##    StatSolviioutline
-##    StatSolviiconnection
+##    GeomSiiscrbuildup
+##    GeomSiiscroutline
+##    GeomSiiconnection
+##    geom_siiscrbuildup
+##    geom_siiscroutline
+##    geom_siiconnection
+##    StatSiiscrbuildup
+##    StatSiiscroutline
+##    StatSiiconnection
 ##
-##    stat_solvii
+##    stat_siiscrbuildup
 ## small:
 ##
 ## ====================================================================== =====
@@ -39,30 +39,30 @@
 ## https://www.rdocumentation.org/packages/ggplot2/versions/2.2.1/topics/ggplot2-ggproto
 
 
-## GeomSolvii =========================================================== =====
-GeomSolvii        <- ggplot2::ggproto(
-                                        "_class" = "GeomSolvii",
+## GeomSiiscrbuildup ==================================================== =====
+GeomSiiscrbuildup        <- ggplot2::ggproto(
+                                        "_class" = "GeomSiiscrbuildup",
                                         "_inherit" = ggplot2::GeomPolygon
                                       )
-## GeomSolviioutline ==================================================== =====
-GeomSolviioutline <- ggplot2::ggproto(
-                                        "_class" = "GeomSolviioutline",
+## GeomSiiscroutline ==================================================== =====
+GeomSiiscroutline <- ggplot2::ggproto(
+                                        "_class" = "GeomSiiscroutline",
                                         "_inherit" = ggplot2::GeomPath
                                       )
-## GeomSolviiconnection ================================================= =====
-GeomSolviiconnection <- ggplot2::ggproto(
-                                            "_class" = "GeomSolviiconnection",
+## GeomSiiconnection ==================================================== =====
+GeomSiiconnection <- ggplot2::ggproto(
+                                            "_class" = "GeomSiiconnection",
                                             "_inherit" = ggplot2::GeomSegment
                                           )
 
-## geom_solvii ========================================================== =====
-#' geom_solvii
+## geom_siiscrbuildup =================================================== =====
+#' geom_siiscrbuildup
 #'
 #' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
 #' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}
-#' @param stat  default stat is statSolvii, combinations with other stat's are not tested
+#' @param stat  default stat is statSii, combinations with other stat's are not tested
 #' @param position standard ggplot function
 #' @param na.rm standard ggplot function
 #' @param show.legend standard ggplot function
@@ -90,9 +90,9 @@ GeomSolviiconnection <- ggplot2::ggproto(
 #'
 # ' @examples dummy
 
-geom_solvii <- function(data = NULL,
+geom_siiscrbuildup <- function(data = NULL,
                         mapping = NULL,
-                        stat = "solvii",
+                        stat = "siiscrbuildup",
                       ## geomspecific parameter
                         structuredf = ggsolvencyii::sii_structure_sf16_eng,
                         levelmax = 99,
@@ -117,7 +117,7 @@ geom_solvii <- function(data = NULL,
                       ) {
         ggplot2::layer(data = data,
                        stat = stat,
-                       geom = GeomSolvii,
+                       geom = GeomSiiscrbuildup,
                        mapping = mapping, position = position,
                        show.legend = show.legend,
                        inherit.aes = inherit.aes,
@@ -141,26 +141,26 @@ geom_solvii <- function(data = NULL,
                      )               )
     }
 
-## geom_solviioutline =================================================== =====
-#' geom_solviioutline
+## geom_siiscroutline =================================================== =====
+#' geom_siiscroutline
 #'
 #'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. Used for a comparison between instances of an SCR with a match between 'id' and 'comparewithid'.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
 #'
-#' @inheritParams geom_solvii
-#' @param stat  default stat is statSolviioutline, combinations with other stat's are not tested
+#' @inheritParams geom_siiscrbuildup
+#' @param stat  default stat is statSiiscroutline, combinations with other stat's are not tested
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid
 #' @param outlinedf dummy
 # ' default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
 #'
-#' @return a ggplot object \code{\link{geom_solvii}}
+#' @return a ggplot object \code{\link{geom_siiscrbuildup}}
 #' @export
 #'
 #' @examples
 #' ggplot2::ggplot() +
-#' geom_solviioutline(data = sii_z_ex2_data,
+#' geom_siiscroutline(data = sii_z_ex2_data,
 #'  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'    color = "red", lwd = .5 )
@@ -169,7 +169,7 @@ geom_solvii <- function(data = NULL,
 #'  sii_z_ex4_outline
 #'
 #' ggplot2::ggplot() +
-#' geom_solviioutline(data = sii_z_ex2_data,
+#' geom_siiscroutline(data = sii_z_ex2_data,
 #'   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'   color = "red", lwd = .5 ,
@@ -183,9 +183,9 @@ geom_solvii <- function(data = NULL,
 #'
 #'
 #'
-geom_solviioutline <- function(data = NULL,
+geom_siiscroutline <- function(data = NULL,
                     mapping = NULL,
-                    stat = "solviioutline",
+                    stat = "solviiscroutline",
                   ## geomspecific parameter
                     structuredf = ggsolvencyii::sii_structure_sf16_eng,
                     outlinedf = ggsolvencyii::sii_outline_sf16_eng,
@@ -210,7 +210,7 @@ geom_solviioutline <- function(data = NULL,
                   ) {
         ggplot2::layer( data = data,
                 stat = stat,
-                geom = GeomSolviioutline,
+                geom = GeomSiiscroutline,
                 mapping = mapping,
                 position = position,
                 show.legend = show.legend,
@@ -235,14 +235,14 @@ geom_solviioutline <- function(data = NULL,
                         )              )
     }
 
-## geom_solviiconnection ================================================ =====
-#' geom_solviiconnection
+## geom_siiconnection =================================================== =====
+#' geom_siiconnection
 #'
 #' Plots a line between those datapoints which have a matching value in the columns 'id' and 'comparewithid'.
 #'
-#' @inheritParams geom_solvii
+#' @inheritParams geom_siiscrbuildup
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
-#' @param stat  default stat is statSolviiconnection, combinations with other stat's are not tested
+#' @param stat  default stat is statSiiconnection, combinations with other stat's are not tested
 #'
 #' @return a ggplot object
 #' @export
@@ -251,33 +251,33 @@ geom_solviioutline <- function(data = NULL,
 #' \dontrun{
 #' dummy
 # ' ggplot2::ggplot() +
-# '   geom_solviiconnection(data = sii_z_ex2_data,
+# '   geom_siiconnection(data = sii_z_ex2_data,
 # '   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
 # '   arrow = arrow (angle=20, type = "closed" ))
 # '
 # '
 # '    ggplot() +
-# '     geom_solvii(data= sii_z_ex2_data,
+# '     geom_siiscrbuild(data= sii_z_ex2_data,
 # '                 mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
 # '                               description=description,
 # '                               fill = description,color = description),
 # '                               lwd=.5) +
-# '      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
-# '      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
-# '      geom_solviioutline(data= sii_z_ex2_data,
+# '      ggplot2::scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
+# '      ggplot2::scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
+# '      geom_siiscroutline(data= sii_z_ex2_data,
 # '                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
 # '                         description=description, comparewithid=comparewithid),
 # '                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-# '      geom_solviiconnection(data = sii_z_ex2_data,
+# '      geom_siiconnection(data = sii_z_ex2_data,
 # '                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
 # '                            comparewithid = comparewithid ),
 # '                            arrow = arrow (angle=20, type = "closed" )
 # '                            ) +
-# '      theme_bw()
+# '      ggplot2::theme_bw()
 #'}
 
 
-geom_solviiconnection <- function(data = NULL,
+geom_siiconnection <- function(data = NULL,
                                    mapping = NULL,
                                    stat = "solviiconnection",
                                    position = "identity",
@@ -290,7 +290,7 @@ geom_solviiconnection <- function(data = NULL,
                                   ) {
                         ggplot2::layer(data = data,
                        stat = stat,
-                       geom = GeomSolviiconnection,
+                       geom = GeomSiiconnection,
                        mapping = mapping,
                        position = position,
                        show.legend = FALSE,
@@ -302,9 +302,9 @@ geom_solviiconnection <- function(data = NULL,
                      )               )
     }
 
-## StatSolvii =========================================================== =====
-StatSolvii <- ggplot2::ggproto(
-    "_class" =  "StatSolvii",
+## StatSiiscrbuildup ==================================================== =====
+StatSiiscrbuildup <- ggplot2::ggproto(
+    "_class" =  "StatSiiscrbuildup",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y", "description", "value"),
     default_aex = ggplot2::aes(color = "black", lwd = 0.05),
@@ -378,9 +378,9 @@ StatSolvii <- ggplot2::ggproto(
         }
 ) #END ggproto
 
-## StatSolviioutline ==================================================== =====
-StatSolviioutline <- ggplot2::ggproto(
-    "_class" =  "StatSolviioutline",
+## StatSiiscroutline ==================================================== =====
+StatSiiscroutline <- ggplot2::ggproto(
+    "_class" =  "StatSiiscroutline",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y",
                      "description", "value", "comparewithid"),
@@ -451,12 +451,12 @@ StatSolviioutline <- ggplot2::ggproto(
           ## return results
             return(data)
         }
-) ## end of ggproto class statSolviioutline
+) ## end of ggproto class statSiiscroutline
 
 
-## StatSolviiconnection ================================================= =====
-StatSolviiconnection <- ggplot2::ggproto(
-    "_class" =  "StatSolviiconnection",
+## StatSiiconnection ==================================================== =====
+StatSiiconnection <- ggplot2::ggproto(
+    "_class" =  "StatSiiconnection",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y", "comparewithid"),
     default_aex = ggplot2::aes(color = "red", lwd = 0.2),
@@ -482,24 +482,24 @@ StatSolviiconnection <- ggplot2::ggproto(
   ## finish layer --------------------------------------------- -----
     # finish_layer = function(data,scales,params)
       # { ## return results # return(data) # }
-) ## end of ggproto class statSolviiconnection
+) ## end of ggproto class statSiiconnection
 
-## stat_solvii ========================================================== =====
-#' stat_solvii
+## stat_siiscrbuildup =================================================== =====
+#' stat_siiscrbuildup
 #'
-#' stat_solvii returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
+#' stat_siiscrbuildup returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
-#' @inheritParams geom_solvii
-#' @param geom the default is geom_solvii
+#' @inheritParams geom_siiscrbuildup
+#' @param geom the default is geom_siiscrbuildup
 #'
 #' @return a ggplot object
 #' @export
 #'
 # ' @examples dummy
 
-stat_solvii <- function(mapping = NULL,
+stat_siiscrbuildup <- function(mapping = NULL,
                           data = NULL,
-                          geom = "solvii",
+                          geom = "siiscrbuildup",
                           position = "identity",
                           show.legend = TRUE,
                           inherit.aes = TRUE,
@@ -522,7 +522,7 @@ stat_solvii <- function(mapping = NULL,
                           ...
                         ) {
      ggplot2::layer(mapping = mapping, data = data,
-                     stat = "Solvii",
+                     stat = "Siiscrbuildup",
                      geom = geom,
                      position = position,
                      show.legend = show.legend,

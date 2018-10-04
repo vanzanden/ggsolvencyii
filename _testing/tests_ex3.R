@@ -35,7 +35,7 @@ sii_debug(data_descr = sii_z_ex3_data$description,
 
 ## test of a compact dataset in a compact structure
 ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex3_data,
+  geom_siiscrbuildup(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,
@@ -47,15 +47,15 @@ ggplot2::ggplot() +
                         , levelmax = sii_z_ex3_levelmax
 
               ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 
 ## test of a compact dataset in a full structure, geen levelmax meegegeven
 ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex3_data,
+  geom_siiscrbuildup(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,
@@ -67,14 +67,14 @@ ggplot2::ggplot() +
                         # , geen levelmax meegegeven
 
               ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 ## test of a compact dataset in a full structure (levelmax = 95)
 ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex3_data,
+  geom_siiscrbuildup(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,
@@ -86,9 +86,9 @@ ggplot2::ggplot() +
                         , levelmax = 95
 
               ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 
@@ -97,7 +97,7 @@ ggplot2::ggplot() +
 
 ## test of a compact dataset in a full structure
 ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex3_data,
+  geom_siiscrbuildup(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,
@@ -109,7 +109,7 @@ ggplot2::ggplot() +
                         , levelmax = sii_z_ex3_levelmax
 
               ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 

@@ -44,23 +44,23 @@ sii_debug(data_descr = sii_z_ex2_data$description,
 
 ## basistest data, tonen resultaten
  ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex2_data,
+  geom_siiscrbuildup(data = sii_z_ex2_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              fill = description, color = description
                              ),
                              lwd = 0.05
                ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 ## groeperen van resultaten, levelmax = 3
 
 
  ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex2_data,
+  geom_siiscrbuildup(data = sii_z_ex2_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              fill = description, color = description
@@ -77,15 +77,15 @@ sii_debug(data_descr = sii_z_ex2_data$description,
                              # rotationdescription = "l_longevity",
                              lwd = 0.05
                ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 ## groeperen van resultaten, levelmax = 993
 
  ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex2_data,
+  geom_siiscrbuildup(data = sii_z_ex2_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
                              fill = description, color = description
@@ -102,14 +102,14 @@ sii_debug(data_descr = sii_z_ex2_data$description,
                              # rotationdescription = "l_longevity",
                              lwd = 0.05
                ) +
-  theme_bw() +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 ## test outline sec (basis outline table)
-ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+ggplot2::ggplot() +
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -121,7 +121,7 @@ ggplot() +
 
 ## test outline sec (basis outline table)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                             description = description, comparewithid = comparewithid),
                      color = "red",
@@ -135,7 +135,7 @@ ggplot2::ggplot() +
 
  ## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -150,7 +150,7 @@ ggplot2::ggplot() +
 
 ## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_ex2_data,
+  geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -166,20 +166,20 @@ ggplot2::ggplot() +
 
 # test alles in een
     ggplot() +
-     geom_solvii(data = sii_z_ex2_data,
+     geom_siiscrbuildup(data = sii_z_ex2_data,
                  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                                fill = description,color = description),
                                lwd = 0.5) +
-                scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-                scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_solviioutline(data = sii_z_ex2_data,
+                ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+                ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+      geom_siiscroutline(data = sii_z_ex2_data,
                          mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value,
                                        description = description, comparewithid = comparewithid),
                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-      geom_solviiconnection(data = sii_z_ex2_data,
+      geom_siiconnection(data = sii_z_ex2_data,
                             mapping = ggplot2::aes(x = time, y = ratio, id = id, comparewithid = comparewithid ),
                             arrow = arrow(angle = 20, type = "closed" )
                             ) +
-      theme_bw()
+      ggplot2::theme_bw()
 
 

@@ -27,7 +27,7 @@ sii_debug(data_descr = sii_z_ex7_data$description,
 
 
 ggplot2::ggplot() +
-  geom_solvii(data = sii_z_ex7_data,
+  geom_siiscrbuildup(data = sii_z_ex7_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -35,10 +35,10 @@ ggplot2::ggplot() +
               structuredf =  sii_z_ex7_structure,
               levelmax = 99
               ) +
-  theme_bw()
+  ggplot2::theme_bw()
 +
-  scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 exampledata <- sii_z_ex7_data
@@ -48,7 +48,7 @@ exampledata$time <- 5
 exampledata <- rbind(exampledata,sii_z_ex7_data)
 
 ggplot2::ggplot() +
-  geom_solvii(data = exampledata,
+  geom_siiscrbuildup(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -56,8 +56,8 @@ ggplot2::ggplot() +
               structuredf =  sii_z_ex7_structure,
               levelmax = 99
               ) +
-  theme_bw() +
-  geom_solviioutline(data = exampledata,
+  ggplot2::theme_bw() +
+  geom_siiscroutline(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,comparewithid = comparewithid
               ),
@@ -66,12 +66,12 @@ ggplot2::ggplot() +
               color = "red",
               lwd = 1
               ) +
-  theme_bw()
+  ggplot2::theme_bw()
 
 
 
 ggplot2::ggplot() +
-  geom_solvii(data = exampledata,
+  geom_siiscrbuildup(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,color = description
               ),
@@ -79,10 +79,10 @@ ggplot2::ggplot() +
               structuredf =  sii_z_ex7_structure,
               levelmax = sii_z_ex7_levelmax
               ) +
-  theme_bw()
+  ggplot2::theme_bw()
 
 +
-  geom_solviioutline(data = exampledata,
+  geom_siiscroutline(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,comparewithid = comparewithid
               ),
@@ -91,7 +91,7 @@ ggplot2::ggplot() +
               color = "red",
               lwd = 2
               ) +
-  theme_bw()
+  ggplot2::theme_bw()
 
 rm(exampledata)
 

@@ -68,13 +68,13 @@ You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footn
 knitr::kable(head(mtcars, 10))
 ```
 
-```{r, echo=FALSE, results='asis'}
+` ``{r, echo=FALSE, results='asis'}
 ggplot2::ggplot() +
- ggsolvencyii::geom_solviioutline(data = ggsolvencyii::sii_z_ex2_data,
+ ggsolvencyii::geom_siiscroutline(data = ggsolvencyii::sii_z_ex2_data,
   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                           comparewithid = comparewithid),
     color = "red", lwd = .5 )
-```
+` ``
 
 
 Also a quote using `>`:

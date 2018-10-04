@@ -176,7 +176,7 @@
 ## sii_outline_sf16_eng =========================================================== =====
 #' sii_outline_sf16_eng
 #'
-#' A table for \code{\link{geom_solviioutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
 #' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
@@ -203,7 +203,7 @@
 ## sii_outline_sf16_nld =========================================================== =====
 #' sii_outline_sf16_nld
 #'
-#' A table for \code{\link{geom_solviioutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
 #' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
@@ -349,7 +349,7 @@
 ## sii_z_ex4_outline ========================================================= =====
 #' sii_z_ex4_outline
 #'
-#' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
+#' is a table for geom_siiscroutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 #'
 #' This example file highlights the posibilities to override the levelbased outlines for items (i.e. individual risks(accumulations)).
 #'
@@ -432,7 +432,7 @@
 ## sii_z_ex6_outline========================================================== =====
 #' sii_z_ex6_outline
 #'
-#' A table for \code{\link{geom_solviioutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
 #' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
@@ -571,7 +571,7 @@
 ## sii_z_ex7_outline ========================================================= =====
 #' sii_z_ex7_outline
 #'
-#' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
+#' is a table for geom_siiscroutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 #'
 #' This example file highlights the posibilities to override the levelbased outlines for items (i.e. individual risks(accumulations)).
 #'

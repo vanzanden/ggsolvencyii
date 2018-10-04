@@ -22,7 +22,7 @@ determined based on specification of EIOPA standard formula Solvency II structur
 sii_z_ex4_outline
 }
 \description{
-is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
+is a table for geom_siiscroutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 }
 \details{
 This example file highlights the posibilities to override the levelbased outlines for items (i.e. individual risks(accumulations)).
