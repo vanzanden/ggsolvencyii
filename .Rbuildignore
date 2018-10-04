@@ -1,8 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^xls$
 ^\.travis\.yml$
-^Rignore$
-^_binaries$
 ^__prive$
-
+^_binaries$
+^_testing$
+^xls$
