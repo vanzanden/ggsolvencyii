@@ -13,7 +13,7 @@ geom_solviioutline(data = NULL, mapping = NULL, stat = "solviioutline",
   show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}}
+\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}}
 
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid}
 
@@ -63,23 +63,23 @@ by means of the column aes()value comparewithid in the data an overlay can be ma
 }
 \examples{
 ggplot2::ggplot() +
-geom_solviioutline(data = sii_z_example2_data,
+geom_solviioutline(data = sii_z_ex2_data,
  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                          comparewithid = comparewithid),
    color = "red", lwd = .5 )
 
 
- sii_z_example4_outline
+ sii_z_ex4_outline
 
 ggplot2::ggplot() +
-geom_solviioutline(data = sii_z_example2_data,
+geom_solviioutline(data = sii_z_ex2_data,
   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                          comparewithid = comparewithid),
   color = "red", lwd = .5 ,
   rotationdescription = "life",
   rotationdegrees = -8,
   squared =  TRUE,
-  outlinedf = sii_z_example4_outline)
+  outlinedf = sii_z_ex4_outline)
 
 
 

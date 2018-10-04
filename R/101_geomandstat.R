@@ -1,3 +1,22 @@
+## GNU General Public License version 3 , see file LICENCE ============== = = =
+##
+##    sourcefile of package 'ggsolvencyii'
+##    Copyright (C) <2018>  < Marco van Zanden , git@vanzanden.nl >
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+##
+##
 ## functions in this file =============================================== =====
 ##
 ## main:
@@ -42,7 +61,7 @@ GeomSolviiconnection <- ggplot2::ggproto(
 #' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
-#' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}
+#' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}
 #' @param stat  default stat is statSolvii, combinations with other stat's are not tested
 #' @param position standard ggplot function
 #' @param na.rm standard ggplot function
@@ -141,23 +160,23 @@ geom_solvii <- function(data = NULL,
 #'
 #' @examples
 #' ggplot2::ggplot() +
-#' geom_solviioutline(data = sii_z_example2_data,
+#' geom_solviioutline(data = sii_z_ex2_data,
 #'  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'    color = "red", lwd = .5 )
 #'
 #'
-#'  sii_z_example4_outline
+#'  sii_z_ex4_outline
 #'
 #' ggplot2::ggplot() +
-#' geom_solviioutline(data = sii_z_example2_data,
+#' geom_solviioutline(data = sii_z_ex2_data,
 #'   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'   color = "red", lwd = .5 ,
 #'   rotationdescription = "life",
 #'   rotationdegrees = -8,
 #'   squared =  TRUE,
-#'   outlinedf = sii_z_example4_outline)
+#'   outlinedf = sii_z_ex4_outline)
 #'
 #'
 #'
@@ -232,24 +251,24 @@ geom_solviioutline <- function(data = NULL,
 #' \dontrun{
 #' dummy
 # ' ggplot2::ggplot() +
-# '   geom_solviiconnection(data = sii_z_example2_data,
+# '   geom_solviiconnection(data = sii_z_ex2_data,
 # '   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
 # '   arrow = arrow (angle=20, type = "closed" ))
 # '
 # '
 # '    ggplot() +
-# '     geom_solvii(data= sii_z_example2_data,
+# '     geom_solvii(data= sii_z_ex2_data,
 # '                 mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
 # '                               description=description,
 # '                               fill = description,color = description),
 # '                               lwd=.5) +
 # '      scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
 # '      scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
-# '      geom_solviioutline(data= sii_z_example2_data,
+# '      geom_solviioutline(data= sii_z_ex2_data,
 # '                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
 # '                         description=description, comparewithid=comparewithid),
 # '                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-# '      geom_solviiconnection(data = sii_z_example2_data,
+# '      geom_solviiconnection(data = sii_z_ex2_data,
 # '                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
 # '                            comparewithid = comparewithid ),
 # '                            arrow = arrow (angle=20, type = "closed" )

@@ -1,3 +1,22 @@
+## GNU General Public License version 3 , see file LICENCE ============== =====
+##
+##    sourcefile of package 'ggsolvencyii'
+##    Copyright (C) <2018>  < Marco van Zanden , git@vanzanden.nl >
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+##
+##
 ## sii_x_fillcolors_sf16_eng ====================================================== =====
 #' sii_x_fillcolors_sf16_eng
 #'
@@ -210,8 +229,8 @@
 
 
 
-## sii_z_example1_data ============================================================ =====
-#' sii_z_example1_data
+## sii_z_ex1_data ============================================================ =====
+#' sii_z_ex1_data
 #'
 #' example dataset, in tidyverse format, with only one instance of a limited filled sf structure.
 #'
@@ -230,11 +249,11 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example1_data
-"sii_z_example1_data"
+#' sii_z_ex1_data
+"sii_z_ex1_data"
 
-## sii_z_example2_data ============================================================ =====
-#' sii_z_example2_data
+## sii_z_ex2_data ============================================================ =====
+#' sii_z_ex2_data
 #'
 #' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
 #'
@@ -254,13 +273,13 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example2_data
-"sii_z_example2_data"
+#' sii_z_ex2_data
+"sii_z_ex2_data"
 
 
 
-## sii_z_example3_structure ======================================================= =====
-#' sii_z_example3_structure
+## sii_z_ex3_structure ======================================================= =====
+#' sii_z_ex3_structure
 #'
 #' a adapted (compact) structure with no division of market, life, .. risks in subrisks (i.e. equity, longevity,... ). Descriptions are in English
 #'
@@ -277,12 +296,12 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example3_structure
-"sii_z_example3_structure"
+#' sii_z_ex3_structure
+"sii_z_ex3_structure"
 
 
-## sii_z_example3_data ============================================================ =====
-#' sii_z_example3_data
+## sii_z_ex3_data ============================================================ =====
+#' sii_z_ex3_data
 #'
 #' example dataset, in tidyverse format, with several instances of a filled sf structure,
 #'
@@ -303,11 +322,11 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example3_data
-"sii_z_example3_data"
+#' sii_z_ex3_data
+"sii_z_ex3_data"
 
-## sii_z_example3_levelmax ======================================================== =====
-#' sii_z_example3_levelmax
+## sii_z_ex3_levelmax ======================================================== =====
+#' sii_z_ex3_levelmax
 #'
 #' tekst
 # ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
@@ -324,11 +343,11 @@
 # '          }
 #'
 #' @examples
-#' sii_z_example3_levelmax
-"sii_z_example3_levelmax"
+#' sii_z_ex3_levelmax
+"sii_z_ex3_levelmax"
 
-## sii_z_example4_outline ========================================================= =====
-#' sii_z_example4_outline
+## sii_z_ex4_outline ========================================================= =====
+#' sii_z_ex4_outline
 #'
 #' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 #'
@@ -352,12 +371,12 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example4_outline
-"sii_z_example4_outline"
+#' sii_z_ex4_outline
+"sii_z_ex4_outline"
 
 
-## sii_z_example5_data ============================================================ =====
-#' sii_z_example5_data
+## sii_z_ex5_data ============================================================ =====
+#' sii_z_ex5_data
 #'
 #' example dataset, in tidyverse format, with one of a completely filled sf structure where all individual risks are equally divided. The purpose is to assert a correct division.
 #'
@@ -377,12 +396,12 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example5_data
-"sii_z_example5_data"
+#' sii_z_ex5_data
+"sii_z_ex5_data"
 
 
-## sii_z_example6_data ============================================================ =====
-#' sii_z_example6_data
+## sii_z_ex6_data ============================================================ =====
+#' sii_z_ex6_data
 #'
 #' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
 #'
@@ -402,16 +421,16 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example6_data
-"sii_z_example6_data"
+#' sii_z_ex6_data
+"sii_z_ex6_data"
 
 
 
 
 
 
-## sii_z_example6_outline========================================================== =====
-#' sii_z_example6_outline
+## sii_z_ex6_outline========================================================== =====
+#' sii_z_ex6_outline
 #'
 #' A table for \code{\link{geom_solviioutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
 #' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
@@ -433,14 +452,14 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example6_outline
-"sii_z_example6_outline"
+#' sii_z_ex6_outline
+"sii_z_ex6_outline"
 
 
 
 
-## sii_z_example7_structure ========================================================= =====
-#' sii_z_example7_structure
+## sii_z_ex7_structure ========================================================= =====
+#' sii_z_ex7_structure
 #'
 #' a standard formula structure (as of 2016), with descriptions in English.
 #'
@@ -457,20 +476,21 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example7_structure
-"sii_z_example7_structure"
+#' sii_z_ex7_structure
+"sii_z_ex7_structure"
 
 
-## sii_z_example7_data ============================================================ =====
-#' sii_z_example7_data
+## sii_z_ex7_data ============================================================ =====
+#' sii_z_ex7_data
 #'
-#' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
+#' example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious
 #'
 #' @docType data
 #'
-#' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-
+#' @source the structure is based on public SFCR report of a medium sized dutch life insurer, with a possible wrong interpretation of diversification effects towards 'market basis and CPD risk'
+#' \href{https://www.nn-group.com/nn-group/file?uuid=e3e89829-e7bd-495a-9fed-4bc54a9349eb&owner=c5df72fd-8a65-4f75-956d-5e37307aa50c&contentid=2311}
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
+#'
 #' @format A data frame with columns:
 #' \describe{
 #'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
@@ -482,12 +502,38 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example7_data
-"sii_z_example7_data"
+#' sii_z_ex7_data
+"sii_z_ex7_data"
 
+## sii_z_ex7_data2 ============================================================ =====
+#' sii_z_ex7_data2
+#'
+#' example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious. To show 'Counterparty default risk (CPD)' separate
+#' from the two components 'type 1' and 'type 2' the following assumption is made: The (fictious) diversification towards the higher level from CPD risk is transferred to a position between CPD and its two components.
+#' A similar approach is used to show 'business risk', 'life risk', 'morbidity risk' and 'non-life risk' and their 7,4,4 and 4 components
+#'
+#' @docType data
+#'
+#' @source the structure is based on public SFCR report of a medium sized dutch life insurer, with a possible wrong interpretation of diversification effects towards 'market basis and CPD risk'
+#' \href{https://www.nn-group.com/nn-group/file?uuid=e3e89829-e7bd-495a-9fed-4bc54a9349eb&owner=c5df72fd-8a65-4f75-956d-5e37307aa50c&contentid=2311}
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
+#'            \item{description}{character: component of the structure}
+#'            \item{id}{ number: }
+#'            \item{value}{numerical: }
+#'            \item{comparewithid}{numerical: }
+#'          }
+#'
+#' @examples
+#' sii_z_ex7_data2
+"sii_z_ex7_data2"
 
-## sii_z_example7_levelmax ======================================================== =====
-#' sii_z_example7_levelmax
+## sii_z_ex7_levelmax ======================================================== =====
+#' sii_z_ex7_levelmax
 #'
 #' tekst
 # ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
@@ -504,13 +550,13 @@
 # '          }
 #'
 #' @examples
-#' sii_z_example7_levelmax
-"sii_z_example7_levelmax"
+#' sii_z_ex7_levelmax
+"sii_z_ex7_levelmax"
 
 
 
-## sii_z_example7_outline ========================================================= =====
-#' sii_z_example7_outline
+## sii_z_ex7_outline ========================================================= =====
+#' sii_z_ex7_outline
 #'
 #' is a table for geom_solviioutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 #'
@@ -534,5 +580,5 @@
 #'          }
 #'
 #' @examples
-#' sii_z_example7_outline
-"sii_z_example7_outline"
+#' sii_z_ex7_outline
+"sii_z_ex7_outline"

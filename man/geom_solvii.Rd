@@ -12,7 +12,7 @@ geom_solvii(data = NULL, mapping = NULL, stat = "solvii",
   show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_example2_data}} or \code{\link{sii_z_example1_data}}}
+\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}}
 
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value}
 

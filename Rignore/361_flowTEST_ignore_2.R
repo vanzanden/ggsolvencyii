@@ -3,7 +3,7 @@
 
 ## test outline sec (basis outline table)
 ggplot() +
-  geom_solviioutline(data = sii_z_example2_data,
+  geom_solviioutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -15,7 +15,7 @@ ggplot() +
 
 ## test outline sec (basis outline table)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_example2_data,
+  geom_solviioutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                             description = description, comparewithid = comparewithid),
                      color = "red",
@@ -27,24 +27,24 @@ ggplot2::ggplot() +
 
 
 
- ## test outline sec ( outline table sii_z_example4_outline)
+ ## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_example2_data,
+  geom_solviioutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
                      lwd = .5 ,
                      # rotationdegrees = -45,
                      # rotationdescription = "life",
-                     outlinedf = sii_z_example4_outline
+                     outlinedf = sii_z_ex4_outline
   )
 
 
 
 
-## test outline sec ( outline table sii_z_example4_outline)
+## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_solviioutline(data = sii_z_example2_data,
+  geom_solviioutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -52,7 +52,7 @@ ggplot2::ggplot() +
                      rotationdegrees = -8,
                      squared =  TRUE,
                      rotationdescription = "life",
-                     outlinedf = sii_z_example4_outline
+                     outlinedf = sii_z_ex4_outline
   )
 
 
@@ -60,7 +60,7 @@ ggplot2::ggplot() +
 
 ## test connection sec
 ggplot2::ggplot() +
-  geom_solviiconnection(data = sii_z_example3_data,
+  geom_solviiconnection(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time, y = ratio, id = id,  comparewithid = comparewithid )
                          , arrow = arrow(angle = 20, type = "closed" )
                          # color = "red",
@@ -72,17 +72,17 @@ ggplot2::ggplot() +
 
 # test alles in een (testdata2)
     ggplot() +
-     geom_solvii(data = sii_z_example2_data,
+     geom_solvii(data = sii_z_ex2_data,
                  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                                fill = description,color = description),
                                lwd = 0.5) +
                 scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
                 scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_solviioutline(data = sii_z_example2_data,
+      geom_solviioutline(data = sii_z_ex2_data,
                          mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value,
                                        description = description, comparewithid = comparewithid),
                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-      geom_solviiconnection(data = sii_z_example2_data,
+      geom_solviiconnection(data = sii_z_ex2_data,
                             mapping = ggplot2::aes(x = time, y = ratio, id = id, comparewithid = comparewithid ),
                             arrow = arrow(angle = 20, type = "closed" )
                             ) +
@@ -91,9 +91,9 @@ ggplot2::ggplot() +
 
 
 
-    # test alles in een (sii_z_example3_data)
+    # test alles in een (sii_z_ex3_data)
     ggplot2::ggplot() +
-      geom_solvii(data = sii_z_example3_data,
+      geom_solvii(data = sii_z_ex3_data,
                   mapping = ggplot2::aes(x = time,
                                 y = ratio ,
                                 id = id,
@@ -101,23 +101,23 @@ ggplot2::ggplot() +
                                 description = description,
                                 fill = description,
                                 color = description),
-                  # structuredf = sii_z_example3_structure,
-                  # levelmax = sii_z_example3_levelmax,
+                  # structuredf = sii_z_ex3_structure,
+                  # levelmax = sii_z_ex3_levelmax,
                   # rotationdegrees = -45,
                   # rotationdescription = "life",
                   scalingx = 0.5,scalingy = 0.5,
                   lwd = 0.5)    +
                 scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
                 scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_solviioutline(data = sii_z_example3_data,
+      geom_solviioutline(data = sii_z_ex3_data,
                          mapping = aes(x = time,
                                        y = ratio ,
                                        id = id,
                                        value = value,
                                        description = description,
                                        comparewithid = comparewithid),
-                         # structuredf = sii_z_example3_structure,
-                         # levelmax = sii_z_example3_levelmax,
+                         # structuredf = sii_z_ex3_structure,
+                         # levelmax = sii_z_ex3_levelmax,
                          color = "red",
                          lwd = 1 ,
                          # rotationdegrees = -45,
@@ -127,7 +127,7 @@ ggplot2::ggplot() +
                          # outlinedf = "VERWIJZING NAAR EEN TABEL"
       ) +
       theme_bw()    +
-      geom_solviiconnection(data = sii_z_example3_data,
+      geom_solviiconnection(data = sii_z_ex3_data,
                             mapping = aes(x = time,
                                           y = ratio,
                                           id = id,
@@ -144,28 +144,28 @@ ggplot2::ggplot() +
 
 # test alles in een (testdata2)
     ggplot2::ggplot() +
-     geom_solvii(data = sii_z_example2_data,
+     geom_solvii(data = sii_z_ex2_data,
                  mapping = ggplot2::aes(x = time,
                                y = ratio ,
                                id = id,
                                value = value,
                                description = description,
                                fill = description,color = description),
-                               # structuredf = sii_z_example2_structure,
+                               # structuredf = sii_z_ex2_structure,
                                 # rotationdegrees = -45,
                                 # rotationdescription = "life",
                                squared = TRUE,
                                lwd = 0.5)    +
                 scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
                 scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_solviioutline(data = sii_z_example2_data,
+      geom_solviioutline(data = sii_z_ex2_data,
                          mapping = aes(x = time,
                                        y = ratio ,
                                        id = id,
                                        value = value,
                                        description = description,
                                        comparewithid = comparewithid),
-                         # structuredf = sii_z_example2_structure,
+                         # structuredf = sii_z_ex2_structure,
                          color = "red",
                          lwd = 0.7 ,
                          # rotationdegrees = -45,# rotationdescription = "life",
@@ -173,7 +173,7 @@ ggplot2::ggplot() +
                          alpha = .99 # ,
                          # scalingx = 1.5# outlinedf = "VERWIJZING NAAR EEN TABEL"
                           ) +
-      geom_solviiconnection(data = sii_z_example2_data,
+      geom_solviiconnection(data = sii_z_ex2_data,
                             mapping = aes(x = time,
                                           y = ratio,
                                           id = id,
@@ -198,7 +198,7 @@ library(ggmap)
     base_map_nederland2 +
            # ggplot()+
       geom_solvii(data =# testdata2
-                    sii_z_example6_data,
+                    sii_z_ex6_data,
                     # exceldf[exceldf$id==1,]
                     #,
                   mapping = aes(x = lat, y = lon , id = id, value = value, description = description,

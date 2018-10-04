@@ -3,7 +3,7 @@ testparams <- NULL
 
 testparams$structuredf <- sii_structure_sf16_eng
 testparams$levelmax <- sii_levelmax_sf16_993
-testdata <- sii_z_example2_data
+testdata <- sii_z_ex2_data
 
 testparams$aggregatesuffix <- "_other"
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
@@ -23,9 +23,9 @@ rm(test_result)
 # tests ================================================================
 testparams <- NULL
 
-testparams$structuredf <- sii_z_example3_structure
-testparams$levelmax <- sii_z_example3_levelmax
-testdata <- sii_z_example3_data
+testparams$structuredf <- sii_z_ex3_structure
+testparams$levelmax <- sii_z_ex3_levelmax
+testdata <- sii_z_ex3_data
 
 testparams$aggregatesuffix <- "_other"
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
@@ -45,8 +45,8 @@ rm(testparams) ; rm(testdata) ;rm(test_result)
 testparams <- NULL
 
 testparams$structuredf <- sii_structure_sf16_eng
-testparams$levelmax <- sii_z_example3_levelmax
-testdata <- sii_z_example3_data
+testparams$levelmax <- sii_z_ex3_levelmax
+testdata <- sii_z_ex3_data
 
 testparams$aggregatesuffix <- "_other"
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
@@ -65,9 +65,9 @@ rm(testparams) ; rm(testdata) ;rm(test_result)
 # tests =======nationale nederlanden structure ==================================================
 testparams <- NULL
 
-testparams$structuredf <- sii_z_example7_structure
+testparams$structuredf <- sii_z_ex7_structure
 testparams$levelmax <- 99
-testdata <- sii_z_example7_data
+testdata <- sii_z_ex7_data
 
 testparams$aggregatesuffix <- "_other"
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
