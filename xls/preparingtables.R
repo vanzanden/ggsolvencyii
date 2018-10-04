@@ -1,3 +1,22 @@
+## GNU General Public License version 3 , see file LICENCE ============== =====
+##
+##    sourcefile of package 'ggsolvencyii'
+##    Copyright (C) <2018>  < Marco van Zanden , git@vanzanden.nl >
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+##
+##
 ## sii_x_fillcolors_sf16_eng =============================================== =====
 sii_x_fillcolors_sf16_eng <- c("SCR"                     = "#1f78b4", #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
                               "BSCR"                     = "#48b0eb", #scr +282828
@@ -114,7 +133,7 @@ sii_x_fillcolors_sf16_nld <- c("SKV"                     = "#1f78b4", #http://co
                   "m_illiquiditeit"  = "#fef0d9",   #http://colorbrewer2.org/?type=sequential&scheme=OrRd&n=7
                       "markt_other"  = "#d95f02", #= market
                   "z_CAT"            = "#cb181d", #http://colorbrewer2.org/?type=sequential&scheme=Reds&n=8
-                  "z_s_premiereserve"= "#fc9272",    #http://colorbrewer2.org/?type=sequential&scheme=Reds&n=8
+                  "z_s_premiereserve" = "#fc9272",    #http://colorbrewer2.org/?type=sequential&scheme=Reds&n=8
                   "z_s_verval"       = "#fee0d2",    #http://colorbrewer2.org/?type=sequential&scheme=Reds&n=8
                   "z_alsleven"       = "#6a51a3", #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
                   "z_a_kortleven"    = "#dadaeb",   #http://colorbrewer2.org/?type=sequential&scheme=Purples&n=8
@@ -214,14 +233,14 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
 
 
 ## sii_levelmax_sf16_995 ================================================ =====
-  sii_levelmax_sf16_995<- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+  sii_levelmax_sf16_995 <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                             sheet = "levelmax_sf16_995")
   sii_levelmax_sf16_995
   devtools::use_data(sii_levelmax_sf16_995, overwrite = TRUE)
   rm(sii_levelmax_sf16_995)
 
 ## sii_levelmax_sf16_993 ================================================ =====
-  sii_levelmax_sf16_993<- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+  sii_levelmax_sf16_993 <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                             sheet = "levelmax_sf16_993")
   sii_levelmax_sf16_993
   devtools::use_data(sii_levelmax_sf16_993, overwrite = TRUE)
@@ -271,13 +290,13 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
 
 
 ##  e x a m p l e  1 ==================================================== =====
-## sii_z_example1_data ================================================== =====
+## sii_z_ex1_data ================================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex1_data") %>%
             tidyr::gather(key = description,
                           value = value,
                           -id, -time, -ratio)
-  sii_z_example1_data <- data.frame(
+  sii_z_ex1_data <- data.frame(
                                       time = as.numeric(data$time),
                                       ratio = as.numeric(data$ratio),
                                       description = data$description,   # it has to be a factor !!
@@ -285,19 +304,19 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
                                       id = data$id #,
                                       # comparewithid = data$comparewithid
                                       )
-  sii_z_example1_data
-  devtools::use_data(sii_z_example1_data, overwrite = TRUE)
+  sii_z_ex1_data
+  devtools::use_data(sii_z_ex1_data, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example1_data)
+  rm(sii_z_ex1_data)
 
 ##  e x a m p l e  2 ==================================================== =====
-## sii_z_example2_data ================================================== =====
+## sii_z_ex2_data ================================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex2_data")  %>%
                    tidyr::gather(key = description,
                                  value = value,
                                  -id, -time, -ratio, -comparewithid)
-  sii_z_example2_data <- data.frame(
+  sii_z_ex2_data <- data.frame(
                                       time = as.numeric(data$time),
                                       ratio = as.numeric(data$ratio),
                                       description = data$description,   # it has to be a factor !!
@@ -305,28 +324,28 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
                                       id = data$id,
                                       comparewithid = data$comparewithid
                                     )
-  sii_z_example2_data
-  devtools::use_data(sii_z_example2_data, overwrite = TRUE)
+  sii_z_ex2_data
+  devtools::use_data(sii_z_ex2_data, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example2_data)
+  rm(sii_z_ex2_data)
 
 ##  e x a m p l e  3 ==================================================== =====
-## sii_z_example3_structure ============================================= =====
-  sii_z_example3_structure <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+## sii_z_ex3_structure ============================================= =====
+  sii_z_ex3_structure <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                                 sheet = "ex3_struct",
                                                 col_types = c(rep("text", 3),
                                                               rep("skip", 2)))
-  sii_z_example3_structure
-  devtools::use_data(sii_z_example3_structure, overwrite = TRUE)
-  rm(sii_z_example3_structure)
+  sii_z_ex3_structure
+  devtools::use_data(sii_z_ex3_structure, overwrite = TRUE)
+  rm(sii_z_ex3_structure)
 
-## sii_z_example3_data ================================================== =====
+## sii_z_ex3_data ================================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex3_data")  %>%
                   tidyr::gather(key = description,
                                 value = value,
                                 -id, -time, -ratio, -comparewithid)
-  sii_z_example3_data <- data.frame(
+  sii_z_ex3_data <- data.frame(
                                     time = as.numeric(data$time),
                                     ratio = as.numeric(data$ratio),
                                     description = data$description,   # it has to be a factor !!
@@ -334,25 +353,25 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
                                     id = data$id,
                                     comparewithid = data$comparewithid
                                     )
-  sii_z_example3_data
-  devtools::use_data(sii_z_example3_data, overwrite = TRUE)
+  sii_z_ex3_data
+  devtools::use_data(sii_z_ex3_data, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example3_data)
+  rm(sii_z_ex3_data)
 
-## sii_z_example3_levelmax ============================================== =====
+## sii_z_ex3_levelmax ============================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex3_levelmax")
-  sii_z_example3_levelmax <- data.frame(
+  sii_z_ex3_levelmax <- data.frame(
                                         level = as.character(data$level),
                                         levelmax = as.numeric(data$levelmax)
                                         )
-  sii_z_example3_levelmax
-  devtools::use_data(sii_z_example3_levelmax, overwrite = TRUE)
+  sii_z_ex3_levelmax
+  devtools::use_data(sii_z_ex3_levelmax, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example3_levelmax)
+  rm(sii_z_ex3_levelmax)
 
 ##  e x a m p l e  4 ==================================================== =====
-## sii_z_example4_outline =============================================== =====
+## sii_z_ex4_outline =============================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex4_outline")
   data$levelordescription <- as.character(data$levelordescription)
@@ -363,22 +382,22 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   data$outline11 <- as.logical(data$outline11)
   data$outline13 <- as.logical(data$outline13)
 
-  sii_z_example4_outline <- as.data.frame(data)
-  sii_z_example4_outline
-  devtools::use_data(sii_z_example4_outline, overwrite = TRUE)
+  sii_z_ex4_outline <- as.data.frame(data)
+  sii_z_ex4_outline
+  devtools::use_data(sii_z_ex4_outline, overwrite = TRUE)
   ## test for tidyverse transformation
-  tidyr::gather(data = sii_z_example4_outline, key = outlinetype, value = drawoutline, -levelordescription)
+  tidyr::gather(data = sii_z_ex4_outline, key = outlinetype, value = drawoutline, -levelordescription)
   rm(data)
-  rm(sii_z_example4_outline)
+  rm(sii_z_ex4_outline)
 
 ##  e x a m p l e  5 ==================================================== =====
-## sii_z_example5_data ================================================== =====
+## sii_z_ex5_data ================================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex5_data")  %>%
                    tidyr::gather(key = description,
                                  value = value,
                                  -id, -tijd, -ratio, -vergelijkmet)
-  sii_z_example5_data <- data.frame(
+  sii_z_ex5_data <- data.frame(
                                       tijd = as.numeric(data$tijd),
                                       ratio = as.numeric(data$ratio),
                                       description = data$description,   # it has to be a factor !!
@@ -386,20 +405,20 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
                                       id = data$id,
                                       vergelijkmet = data$vergelijkmet
                                     )
-  sii_z_example5_data
-  devtools::use_data(sii_z_example5_data, overwrite = TRUE)
+  sii_z_ex5_data
+  devtools::use_data(sii_z_ex5_data, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example5_data)
+  rm(sii_z_ex5_data)
 
 
 ##  e x a m p l e  6 ==================================================== =====
-## sii_z_example6_data ================================================== =====
+## sii_z_ex6_data ================================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex6_data")  %>%
                    tidyr::gather(key = description,
                                  value = value,
                                  -id, -time, -ratio, -comparewithid)
-  sii_z_example6_data <- data.frame(
+  sii_z_ex6_data <- data.frame(
                                       time = as.numeric(data$time),
                                       ratio = as.numeric(data$ratio),
                                       description = data$description,   # it has to be a factor !!
@@ -407,12 +426,12 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
                                       id = data$id,
                                       comparewithid = data$comparewithid
                                     )
-  sii_z_example6_data
-  devtools::use_data(sii_z_example6_data, overwrite = TRUE)
+  sii_z_ex6_data
+  devtools::use_data(sii_z_ex6_data, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example6_data)
+  rm(sii_z_ex6_data)
 
-## sii_z_example6_outline =============================================== =====
+## sii_z_ex6_outline =============================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex6_outline")
   data$levelordescription <- as.character(data$levelordescription)
@@ -423,34 +442,34 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   data$outline11 <- as.logical(data$outline11)
   data$outline13 <- as.logical(data$outline13)
 
-  sii_z_example6_outline <- as.data.frame(data)
-  sii_z_example6_outline
-  devtools::use_data(sii_z_example6_outline, overwrite = TRUE)
+  sii_z_ex6_outline <- as.data.frame(data)
+  sii_z_ex6_outline
+  devtools::use_data(sii_z_ex6_outline, overwrite = TRUE)
   ## test for tidyverse transformation
-  tidyr::gather(data = sii_z_example6_outline, key = outlinetype, value = drawoutline, -levelordescription)
+  tidyr::gather(data = sii_z_ex6_outline, key = outlinetype, value = drawoutline, -levelordescription)
   rm(data)
-  rm(sii_z_example6_outline)
+  rm(sii_z_ex6_outline)
 
 
 
 ##  e x a m p l e  7 ==================================================== =====
-## sii_z_example7_structure ============================================= =====
-  sii_z_example7_structure <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+## sii_z_ex7_structure ============================================= =====
+  sii_z_ex7_structure <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                                 sheet = "ex7_struct",
                                                 col_types = c(rep("text", 3))
                                                 )
-  sii_z_example7_structure
-  devtools::use_data(sii_z_example7_structure, overwrite = TRUE)
-  rm(sii_z_example7_structure)
+  sii_z_ex7_structure
+  devtools::use_data(sii_z_ex7_structure, overwrite = TRUE)
+  rm(sii_z_ex7_structure)
 
 
-## sii_z_example7_data ================================================== =====
+## sii_z_ex7_data ================================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex7_data")  %>%
                    tidyr::gather(key = description,
                                  value = value,
                                  -id, -time, -ratio, -comparewithid)
-  sii_z_example7_data <- data.frame(
+  sii_z_ex7_data <- data.frame(
                                       time = as.numeric(data$time),
                                       ratio = as.numeric(data$ratio),
                                       description = data$description,   # it has to be a factor !!
@@ -458,26 +477,46 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
                                       id = data$id,
                                       comparewithid = data$comparewithid
                                     )
-  sii_z_example7_data
-  devtools::use_data(sii_z_example7_data, overwrite = TRUE)
+  sii_z_ex7_data
+  devtools::use_data(sii_z_ex7_data, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example7_data)
+  rm(sii_z_ex7_data)
 
-## sii_z_example7_levelmax ============================================== =====
+## sii_z_ex7_data2 ================================================== =====
+  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                            sheet = "ex7_data_adapted")  %>%
+                   tidyr::gather(key = description,
+                                 value = value,
+                                 -id, -time, -ratio, -comparewithid)
+  sii_z_ex7_data2 <- data.frame(
+                                      time = as.numeric(data$time),
+                                      ratio = as.numeric(data$ratio),
+                                      description = data$description,   # it has to be a factor !!
+                                      value = as.numeric(data$value),
+                                      id = data$id,
+                                      comparewithid = data$comparewithid
+                                    )
+  sii_z_ex7_data2
+  devtools::use_data(sii_z_ex7_data2, overwrite = TRUE)
+  rm(data)
+  rm(sii_z_ex7_data2)
+
+
+## sii_z_ex7_levelmax ============================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex7_levelmax")
-  sii_z_example7_levelmax <- data.frame(
+  sii_z_ex7_levelmax <- data.frame(
                                         level = as.character(data$level),
                                         levelmax = as.numeric(data$levelmax)
                                         )
-  sii_z_example7_levelmax
-  devtools::use_data(sii_z_example7_levelmax, overwrite = TRUE)
+  sii_z_ex7_levelmax
+  devtools::use_data(sii_z_ex7_levelmax, overwrite = TRUE)
   rm(data)
-  rm(sii_z_example7_levelmax)
+  rm(sii_z_ex7_levelmax)
 
 
 
-## sii_z_example7_outline =============================================== =====
+## sii_z_ex7_outline =============================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex7_outline")
   data$levelordescription <- as.character(data$levelordescription)
@@ -488,11 +527,11 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   data$outline11 <- as.logical(data$outline11)
   data$outline13 <- as.logical(data$outline13)
 
-  sii_z_example7_outline <- as.data.frame(data)
-  sii_z_example7_outline
-  devtools::use_data(sii_z_example7_outline, overwrite = TRUE)
+  sii_z_ex7_outline <- as.data.frame(data)
+  sii_z_ex7_outline
+  devtools::use_data(sii_z_ex7_outline, overwrite = TRUE)
   ## test for tidyverse transformation
-  tidyr::gather(data = sii_z_example7_outline, key = outlinetype, value = drawoutline, -levelordescription)
+  tidyr::gather(data = sii_z_ex7_outline, key = outlinetype, value = drawoutline, -levelordescription)
   rm(data)
-  rm(sii_z_example7_outline)
+  rm(sii_z_ex7_outline)
 
