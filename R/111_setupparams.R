@@ -81,7 +81,7 @@ fn_maxscrvalue <- function(data, params
 #'
 #' When no plotdetails table is given then a default table is constructed based on the current structure.
 #'
-#' @param structuredf
+#' @param structure the structure dataframe
 #'
 #' @return a dataframe columns levelordescription, surface, outline1 .. 11, with TRUE for all fields
 

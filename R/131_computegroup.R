@@ -195,6 +195,8 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
 #' fn_transform_plotdetails
 #'
 #' @param df a dataframe with column level and some other levels
+#' @param outline boolean, TRUE if calling geom is geom_sii_riskoutline , only one boolean can be set to TRUE
+#' @param surface boolean, TRUE if calling geom is geom_sii_risksurface , only one boolean can be set to TRUE
 #'
 #' @return a tidyverse dataframe
 #'

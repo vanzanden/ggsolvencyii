@@ -8,6 +8,10 @@ fn_transform_plotdetails(df, outline = FALSE, surface = FALSE)
 }
 \arguments{
 \item{df}{a dataframe with column level and some other levels}
+
+\item{outline}{boolean, TRUE if calling geom is geom_sii_riskoutline , only one boolean can be set to TRUE}
+
+\item{surface}{boolean, TRUE if calling geom is geom_sii_risksurface , only one boolean can be set to TRUE}
 }
 \value{
 a tidyverse dataframe

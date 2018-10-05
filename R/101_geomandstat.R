@@ -319,7 +319,7 @@ StatSiiRisksurface <- ggplot2::ggproto(
 
         if (is.null(params$plotdetails) ) {
           params$plotdetails <- fn_constructionplotdetails(params$structure)
-        } else {print("not missing")}
+        }
 # print("params_post")
 # print( params)
         return(params)

@@ -7,7 +7,7 @@
 fn_constructionplotdetails(structure)
 }
 \arguments{
-\item{structuredf}{}
+\item{structure}{the structure dataframe}
 }
 \value{
 a dataframe columns levelordescription, surface, outline1 .. 11, with TRUE for all fields
