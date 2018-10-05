@@ -35,7 +35,7 @@ sii_debug(data_descr = sii_z_ex3_data$description,
 
 ## test of a compact dataset in a compact structure
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex3_data,
+  geom_sii_risksurface(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,
@@ -55,7 +55,7 @@ ggplot2::ggplot() +
 
 ## test of a compact dataset in a full structure, geen levelmax meegegeven
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex3_data,
+  geom_sii_risksurface(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,
@@ -74,7 +74,7 @@ ggplot2::ggplot() +
 
 ## test of a compact dataset in a full structure (levelmax = 95)
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex3_data,
+  geom_sii_risksurface(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,
@@ -92,12 +92,9 @@ ggplot2::ggplot() +
 
 
 
-
-
-
-## test of a compact dataset in a full structure
+## test of a compact dataset in a full structure, levelmax = sii_z_ex3_levelmax (98,97,96 for level 1, 2.01, 3)
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex3_data,
+  geom_sii_risksurface(data = sii_z_ex3_data,
                         mapping = ggplot2::aes(x = time,
                                                y = ratio,
                                                id = id,

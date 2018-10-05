@@ -20,49 +20,54 @@
 ## functions in this file =============================================== =====
 ##
 ## main:
-##    GeomSiiscrbuildup
-##    GeomSiiscroutline
-##    GeomSiiconnection
-##    geom_siiscrbuildup
-##    geom_siiscroutline
-##    geom_siiconnection
-##    StatSiiscrbuildup
-##    StatSiiscroutline
-##    StatSiiconnection
+##    GeomSiiRisksurface
+##    GeomSiiRiskoutline
+##    GeomSiiRiskconnection
+##    geom_sii_risksurface
+##    geom_sii_riskoutline
+##    geom_sii_riskconnection
+##    StatSiiRisksurface
+##    StatSiiRiskoutline
+##    StatSiiRiskconnection
 ##
-##    stat_siiscrbuildup
+##    stat_sii_risksurface
 ## small:
 ##
+## ====================================================================== =====
+## tip:
+## casing of names of geoms and stats is important:
+## exported geom_xxx_yy_zzzz requires a GeomXxxYyZzzz
+##  see ggplot2:::camelize
 ## ====================================================================== =====
 
 ## helpfull link
 ## https://www.rdocumentation.org/packages/ggplot2/versions/2.2.1/topics/ggplot2-ggproto
 
 
-## GeomSiiscrbuildup ==================================================== =====
-GeomSiiscrbuildup        <- ggplot2::ggproto(
-                                        "_class" = "GeomSiiscrbuildup",
+## GeomSiiRisksurface ==================================================== =====
+GeomSiiRisksurface        <- ggplot2::ggproto(
+                                        "_class" = "GeomSiiRisksurface",
                                         "_inherit" = ggplot2::GeomPolygon
                                       )
-## GeomSiiscroutline ==================================================== =====
-GeomSiiscroutline <- ggplot2::ggproto(
-                                        "_class" = "GeomSiiscroutline",
+## GeomSiiRiskoutline ==================================================== =====
+GeomSiiRiskoutline <- ggplot2::ggproto(
+                                        "_class" = "GeomSiiRiskoutline",
                                         "_inherit" = ggplot2::GeomPath
                                       )
-## GeomSiiconnection ==================================================== =====
-GeomSiiconnection <- ggplot2::ggproto(
-                                            "_class" = "GeomSiiconnection",
+## GeomSiiRiskconnection ==================================================== =====
+GeomSiiRiskconnection <- ggplot2::ggproto(
+                                            "_class" = "GeomSiiRiskconnection",
                                             "_inherit" = ggplot2::GeomSegment
                                           )
 
-## geom_siiscrbuildup =================================================== =====
-#' geom_siiscrbuildup
+## geom_sii_risksurface =================================================== =====
+#' geom_sii_risksurface
 #'
 #' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
 #' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}
-#' @param stat  default stat is statSii, combinations with other stat's are not tested
+#' @param stat  default stat is statsii_risksurface, combinations with other stat's are not tested
 #' @param position standard ggplot function
 #' @param na.rm standard ggplot function
 #' @param show.legend standard ggplot function
@@ -90,9 +95,9 @@ GeomSiiconnection <- ggplot2::ggproto(
 #'
 # ' @examples dummy
 
-geom_siiscrbuildup <- function(data = NULL,
+geom_sii_risksurface <- function(data = NULL,
                         mapping = NULL,
-                        stat = "siiscrbuildup",
+                        stat = "sii_risksurface",
                       ## geomspecific parameter
                         structuredf = ggsolvencyii::sii_structure_sf16_eng,
                         levelmax = 99,
@@ -117,7 +122,7 @@ geom_siiscrbuildup <- function(data = NULL,
                       ) {
         ggplot2::layer(data = data,
                        stat = stat,
-                       geom = GeomSiiscrbuildup,
+                       geom = GeomSiiRisksurface,
                        mapping = mapping, position = position,
                        show.legend = show.legend,
                        inherit.aes = inherit.aes,
@@ -141,25 +146,25 @@ geom_siiscrbuildup <- function(data = NULL,
                      )               )
     }
 
-## geom_siiscroutline =================================================== =====
-#' geom_siiscroutline
+## geom_sii_riskoutline =================================================== =====
+#' geom_sii_riskoutline
 #'
 #'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. Used for a comparison between instances of an SCR with a match between 'id' and 'comparewithid'.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
 #'
-#' @inheritParams geom_siiscrbuildup
-#' @param stat  default stat is statSiiscroutline, combinations with other stat's are not tested
+#' @inheritParams geom_sii_risksurface
+#' @param stat  default stat is statsii_riskoutline, combinations with other stat's are not tested
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid
 #' @param outlinedf default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
 #'
-#' @return a ggplot object \code{\link{geom_siiscrbuildup}}
+#' @return a ggplot object \code{\link{geom_sii_risksurface}}
 #' @export
 #'
 #' @examples
 #' ggplot2::ggplot() +
-#' geom_siiscroutline(data = sii_z_ex2_data,
+#' geom_sii_riskoutline(data = sii_z_ex2_data,
 #'  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'    color = "red", lwd = .5 )
@@ -168,7 +173,7 @@ geom_siiscrbuildup <- function(data = NULL,
 #'  sii_z_ex4_outline
 #'
 #' ggplot2::ggplot() +
-#' geom_siiscroutline(data = sii_z_ex2_data,
+#' geom_sii_riskoutline(data = sii_z_ex2_data,
 #'   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'   color = "red", lwd = .5 ,
@@ -179,12 +184,12 @@ geom_siiscrbuildup <- function(data = NULL,
 #'
 #'
 #'
-geom_siiscroutline <- function(data = NULL,
+geom_sii_riskoutline <- function(data = NULL,
                     mapping = NULL,
-                    stat = "siiscroutline",
+                    stat = "sii_riskoutline",
                   ## geomspecific parameter
                     structuredf = ggsolvencyii::sii_structure_sf16_eng,
-                    outlinedf = ggsolvencyii::sii_outline_sf16_eng,
+                    outlinedf = ggsolvencyii::sii_outline_sf16,
                     levelmax = 99,
                     aggregatesuffix = "_other",
                     maxscrvalue = NULL,
@@ -206,7 +211,7 @@ geom_siiscroutline <- function(data = NULL,
                   ) {
         ggplot2::layer( data = data,
                 stat = stat,
-                geom = GeomSiiscroutline,
+                geom = GeomSiiRiskoutline,
                 mapping = mapping,
                 position = position,
                 show.legend = show.legend,
@@ -231,14 +236,14 @@ geom_siiscroutline <- function(data = NULL,
                         )              )
     }
 
-## geom_siiconnection =================================================== =====
-#' geom_siiconnection
+## geom_sii_riskconnection =================================================== =====
+#' geom_sii_riskconnection
 #'
 #' Plots a line between those datapoints which have a matching value in the columns 'id' and 'comparewithid'.
 #'
-#' @inheritParams geom_siiscrbuildup
+#' @inheritParams geom_sii_risksurface
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
-#' @param stat  default stat is statSiiconnection, combinations with other stat's are not tested
+#' @param stat  default stat is statsii_riskconnection, combinations with other stat's are not tested
 #'
 #' @return a ggplot object
 #' @export
@@ -247,7 +252,7 @@ geom_siiscroutline <- function(data = NULL,
 #' \dontrun{
 #' dummy
 # ' ggplot2::ggplot() +
-# '   geom_siiconnection(data = sii_z_ex2_data,
+# '   geom_sii_riskconnection(data = sii_z_ex2_data,
 # '   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
 # '   arrow = arrow (angle=20, type = "closed" ))
 # '
@@ -260,11 +265,11 @@ geom_siiscroutline <- function(data = NULL,
 # '                               lwd=.5) +
 # '      ggplot2::scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
 # '      ggplot2::scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
-# '      geom_siiscroutline(data= sii_z_ex2_data,
+# '      geom_sii_riskoutline(data= sii_z_ex2_data,
 # '                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
 # '                         description=description, comparewithid=comparewithid),
 # '                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-# '      geom_siiconnection(data = sii_z_ex2_data,
+# '      geom_sii_riskconnection(data = sii_z_ex2_data,
 # '                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
 # '                            comparewithid = comparewithid ),
 # '                            arrow = arrow (angle=20, type = "closed" )
@@ -273,9 +278,9 @@ geom_siiscroutline <- function(data = NULL,
 #'}
 
 
-geom_siiconnection <- function(data = NULL,
+geom_sii_riskconnection <- function(data = NULL,
                                    mapping = NULL,
-                                   stat = "siiconnection",
+                                   stat = "sii_riskconnection",
                                    position = "identity",
                                    na.rm = FALSE,
                                    show.legend = NA,
@@ -286,7 +291,7 @@ geom_siiconnection <- function(data = NULL,
                                   ) {
                         ggplot2::layer(data = data,
                        stat = stat,
-                       geom = GeomSiiconnection,
+                       geom = GeomSiiRiskconnection,
                        mapping = mapping,
                        position = position,
                        show.legend = FALSE,
@@ -298,9 +303,9 @@ geom_siiconnection <- function(data = NULL,
                      )               )
     }
 
-## StatSiiscrbuildup ==================================================== =====
-StatSiiscrbuildup <- ggplot2::ggproto(
-    "_class" =  "StatSiiscrbuildup",
+## StatSiiRisksurface ==================================================== =====
+StatSiiRisksurface <- ggplot2::ggproto(
+    "_class" =  "StatSiiRisksurface",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y", "description", "value"),
     default_aex = ggplot2::aes(color = "black", lwd = 0.05),
@@ -374,9 +379,9 @@ StatSiiscrbuildup <- ggplot2::ggproto(
         }
 ) #END ggproto
 
-## StatSiiscroutline ==================================================== =====
-StatSiiscroutline <- ggplot2::ggproto(
-    "_class" =  "StatSiiscroutline",
+## StatSiiRiskoutline ==================================================== =====
+StatSiiRiskoutline <- ggplot2::ggproto(
+    "_class" =  "StatSiiRiskoutline",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y",
                      "description", "value", "comparewithid"),
@@ -447,12 +452,12 @@ StatSiiscroutline <- ggplot2::ggproto(
           ## return results
             return(data)
         }
-) ## end of ggproto class statSiiscroutline
+) ## end of ggproto class StatSii_riskoutline
 
 
-## StatSiiconnection ==================================================== =====
-StatSiiconnection <- ggplot2::ggproto(
-    "_class" =  "StatSiiconnection",
+## StatSiiRiskconnection ==================================================== =====
+StatSiiRiskconnection <- ggplot2::ggproto(
+    "_class" =  "StatSiiRiskconnection",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y", "comparewithid"),
     default_aex = ggplot2::aes(color = "red", lwd = 0.2),
@@ -478,24 +483,24 @@ StatSiiconnection <- ggplot2::ggproto(
   ## finish layer --------------------------------------------- -----
     # finish_layer = function(data,scales,params)
       # { ## return results # return(data) # }
-) ## end of ggproto class statSiiconnection
+) ## end of ggproto class StatSiiRiskconnection
 
-## stat_siiscrbuildup =================================================== =====
-#' stat_siiscrbuildup
+## stat_sii_risksurface =================================================== =====
+#' stat_sii_risksurface
 #'
-#' stat_siiscrbuildup returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
+#' stat_sii_risksurface returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
-#' @inheritParams geom_siiscrbuildup
-#' @param geom the default is geom_siiscrbuildup
+#' @inheritParams geom_sii_risksurface
+#' @param geom the default is geom_sii_risksurface
 #'
 #' @return a ggplot object
 #' @export
 #'
 # ' @examples dummy
 
-stat_siiscrbuildup <- function(mapping = NULL,
+stat_sii_risksurface <- function(mapping = NULL,
                           data = NULL,
-                          geom = "siiscrbuildup",
+                          geom = "sii_risksurface",
                           position = "identity",
                           show.legend = TRUE,
                           inherit.aes = TRUE,
@@ -503,7 +508,7 @@ stat_siiscrbuildup <- function(mapping = NULL,
                         ## geomspecific parameter
                           levelmax = 99,
                           structuredf = ggsolvencyii::sii_structure_sf16_eng,
-                          # outlinedf = sii_outline_sf16_eng,
+                          # outlinedf = sii_outline_sf16,
                           maxscrvalue = NULL,
                           # levelonedescription = "SCR",
                           aggregatesuffix = "_other",
@@ -518,7 +523,7 @@ stat_siiscrbuildup <- function(mapping = NULL,
                           ...
                         ) {
      ggplot2::layer(mapping = mapping, data = data,
-                     stat = "Siiscrbuildup",
+                     stat = sii_risksurface,
                      geom = geom,
                      position = position,
                      show.legend = show.legend,
@@ -536,7 +541,7 @@ stat_siiscrbuildup <- function(mapping = NULL,
                             rotationdegrees = rotationdegrees,
                             rotationdescription = rotationdescription,
                           ## internal params
-                            outlinedf = sii_outline_sf16_eng,
+                            outlinedf = sii_outline_sf16,
                             purpose = "surfaces",
                           ## ellipsis
                             ...

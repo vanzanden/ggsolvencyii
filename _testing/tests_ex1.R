@@ -5,7 +5,7 @@
 ##
 ## basistest circle====================================================== =====
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -16,7 +16,7 @@ ggplot2::ggplot() +
 
 ##  =max scr===================================================== =====
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -30,7 +30,7 @@ ggplot2::ggplot() +
 
 ##  =schaling hor===================================================== =====
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -45,7 +45,7 @@ ggplot2::ggplot() +
 
 ##  ==levelmax =2==================================================== =====
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -57,7 +57,7 @@ ggplot2::ggplot() +
 
 ##  ==levelmax = 3 =color is part of aes=================================================== =====
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             # ,color = description
@@ -71,7 +71,7 @@ ggplot2::ggplot() +
 
 ##  ===levelmax = tabel =================================================== =====
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -85,7 +85,7 @@ ggplot2::ggplot() +
 ## test square en vaste rotatie en description rotatie ================== =====
 
 ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
-    geom_siiscrbuildup(data = sii_z_ex1_data,
+    geom_sii_risksurface(data = sii_z_ex1_data,
                   mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                                  ,fill = description
                                 ,color = description
@@ -103,7 +103,7 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
 ## test square en vaste rotatie en description rotatie ================== =====
 
 ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
-    geom_siiscrbuildup(data = sii_z_ex1_data,
+    geom_sii_risksurface(data = sii_z_ex1_data,
                   mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                                  ,fill = description
                                 ,color = description
@@ -123,7 +123,7 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
 ## test alles ================== =====
 
 ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
-    geom_siiscrbuildup(data = sii_z_ex1_data,
+    geom_sii_risksurface(data = sii_z_ex1_data,
                   mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                                  ,fill = description
                                 ,color = description
@@ -145,7 +145,7 @@ ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
 ## vergelijk grootte van rond en square in een figuur =================== =====
 
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = 10, y = 5 , id = id, value = value
                                      ,description = description
                                     ,fill = description
@@ -158,16 +158,7 @@ ggplot2::ggplot() +
   ggplot2::theme_bw()  +
   ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
-              mapping = ggplot2::aes(x = 10, y = 5 , id = id, value = value
-                                    ,description = description
-                                    ,color = description
-                                    ),
-              fill = NA
-              ,lwd = 0.7
-              ,alpha = 1.0
-  ) +
-  geom_siiscrbuildup(data = sii_z_ex1_data,
+  geom_sii_risksurface(data = sii_z_ex1_data,
               mapping = ggplot2::aes(x = 10, y = 5 , id = id, value = value,
                             description = description
                             ,fill = description
@@ -176,6 +167,6 @@ ggplot2::ggplot() +
               lwd = .5,
               squared = TRUE,
               # rotationdegrees = 45,
-              alpha = .4
+              alpha = .2
    )
 

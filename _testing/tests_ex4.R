@@ -45,7 +45,7 @@ testsquared = FALSE # TRUE
                           test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;
 
                           ggplot2::ggplot() +
-                          ggsolvencyii::geom_siiscrbuildup(data = testdata,
+                          ggsolvencyii::geom_sii_risksurface(data = testdata,
                                                     mapping = ggplot2::aes(
 x = time,
 y = ratio,
@@ -58,12 +58,12 @@ lwd = 0.5,
                               rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,
                               squared = testsquared
                           ) +
-                          ggplot2::ggplot2::theme_bw() +
-                          ggplot2::ggplot2::scale_fill_manual(name = "Componenten", values = ggsolvencyii::sii_x_fillcolors_sf16_eng
+                          ggplot2::theme_bw() +
+                          ggplot2::scale_fill_manual(name = "Componenten", values = ggsolvencyii::sii_x_fillcolors_sf16_eng
                           ) +
-                          ggplot2::ggplot2::scale_color_manual(name = "Componenten", values = ggsolvencyii::sii_x_edgecolors_sf16_eng
+                          ggplot2::scale_color_manual(name = "Componenten", values = ggsolvencyii::sii_x_edgecolors_sf16_eng
                           ) +
-                          ggsolvencyii::geom_siiscroutline(data = testdata,
+                          ggsolvencyii::geom_sii_riskoutline(data = testdata,
                                                             mapping = ggplot2::aes(
 x = time,
 y = ratio,
@@ -78,7 +78,7 @@ alpha = 0.99,
                               rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,
                               squared = testsquared
                           ) +
-                          ggsolvencyii::geom_siiconnection(data = testdata,
+                          ggsolvencyii::geom_sii_riskconnection(data = testdata,
                                                               mapping = ggplot2::aes(
 x = time,
 y = ratio,

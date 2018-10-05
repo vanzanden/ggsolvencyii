@@ -22,11 +22,11 @@ determined based on specification of EIOPA standard formula Solvency II structur
 sii_z_ex2_outline
 }
 \description{
-A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+A table for \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
 when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 }
 \details{
-for testing of siiscrbuildup a outline where all fields are TRUE might be helpfull.
+for testing of sii_risksurface a outline where all fields are TRUE might be helpfull.
 }
 \examples{
 sii_z_ex2_outline

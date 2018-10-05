@@ -17,7 +17,7 @@
 ##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 ##
-## sii_x_fillcolors_sf16_eng =============================================== =====
+## sii_x_fillcolors_sf16_eng ============================================ =====
 sii_x_fillcolors_sf16_eng <- c("SCR"                     = "#1f78b4", #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
                               "BSCR"                     = "#48b0eb", #scr +282828
                               "operational"              = "#70d8ff", #bscr +282828
@@ -66,7 +66,7 @@ sii_x_fillcolors_sf16_eng
   devtools::use_data(sii_x_fillcolors_sf16_eng, overwrite = TRUE)
   rm(sii_x_fillcolors_sf16_eng)
 
-## sii_x_edgecolors_sf16_eng =============================================== =====
+## sii_x_edgecolors_sf16_eng ============================================ =====
 sii_x_edgecolors_sf16_eng <- c("SCR"                         = "#000000",
                         "BSCR"                     = "#1f78b4",
                         "operational"              = "#1f78b4",
@@ -114,7 +114,7 @@ sii_x_edgecolors_sf16_eng
   devtools::use_data(sii_x_edgecolors_sf16_eng, overwrite = TRUE)
   rm(sii_x_edgecolors_sf16_eng)
 
-## sii_x_fillcolors_sf16_nld =============================================== =====
+## sii_x_fillcolors_sf16_nld ============================================ =====
 sii_x_fillcolors_sf16_nld <- c("SKV"                     = "#1f78b4", #http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=7
           "KSKV"                     = "#48b0eb", #scr +282828
           "operationeel"             = "#70d8ff", #bscr +282828
@@ -160,7 +160,7 @@ sii_x_fillcolors_sf16_nld
   devtools::use_data(sii_x_fillcolors_sf16_nld, overwrite = TRUE)
   rm(sii_x_fillcolors_sf16_nld)
 
-## sii_x_edgecolors_sf16_nld =============================================== =====
+## sii_x_edgecolors_sf16_nld ============================================ =====
 sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
                         "KSKV"                     = "#1f78b4",
                         "operationeel"             = "#1f78b4",
@@ -246,9 +246,9 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   devtools::use_data(sii_levelmax_sf16_993, overwrite = TRUE)
   rm(sii_levelmax_sf16_993)
 
-## sii_outline_sf16_eng ================================================= =====
+## sii_outline_sf16 ================================================= =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                            sheet = "outline_sf16_eng")
+                            sheet = "outline_sf16")
     data$levelordescription <- as.character(data$levelordescription)
     data$outline1 <- as.logical(data$outline1)
     data$outline2 <- as.logical(data$outline2)
@@ -257,17 +257,17 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
     data$outline11 <- as.logical(data$outline11)
     data$outline13 <- as.logical(data$outline13)
 
-  sii_outline_sf16_eng <- as.data.frame(data)
-  sii_outline_sf16_eng
-  devtools::use_data(sii_outline_sf16_eng, overwrite = TRUE)
+  sii_outline_sf16 <- as.data.frame(data)
+  sii_outline_sf16
+  devtools::use_data(sii_outline_sf16, overwrite = TRUE)
       ## test for tidyverse transformation
-      tidyr::gather(data = sii_outline_sf16_eng, key = outlinetype, value = drawoutline, -levelordescription)
+      tidyr::gather(data = sii_outline_sf16, key = outlinetype, value = drawoutline, -levelordescription)
   rm(data)
-  rm(sii_outline_sf16_eng)
+  rm(sii_outline_sf16)
 
-## sii_outline_sf16_nld ================================================= =====
+## sii_outline2_sf16_eng ================================================= =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                            sheet = "outline_sf16_nld")
+                            sheet = "outline2_sf16_eng")
     data$levelordescription <- as.character(data$levelordescription)
     data$outline1 <- as.logical(data$outline1)
     data$outline2 <- as.logical(data$outline2)
@@ -276,16 +276,35 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
     data$outline11 <- as.logical(data$outline11)
     data$outline13 <- as.logical(data$outline13)
 
-  sii_outline_sf16_nld <- as.data.frame(data)
-  sii_outline_sf16_nld
-  devtools::use_data(sii_outline_sf16_nld, overwrite = TRUE)
+  sii_outline2_sf16_eng <- as.data.frame(data)
+  sii_outline2_sf16_eng
+  devtools::use_data(sii_outline2_sf16_eng, overwrite = TRUE)
       ## test for tidyverse transformation
-      tidyr::gather(data = sii_outline_sf16_nld,
+      tidyr::gather(data = sii_outline2_sf16_eng, key = outlinetype, value = drawoutline, -levelordescription)
+  rm(data)
+  rm(sii_outline2_sf16_eng)
+
+## sii_outline2_sf16_nld ================================================= =====
+  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                            sheet = "outline2_sf16_nld")
+    data$levelordescription <- as.character(data$levelordescription)
+    data$outline1 <- as.logical(data$outline1)
+    data$outline2 <- as.logical(data$outline2)
+    data$outline3 <- as.logical(data$outline3)
+    data$outline4 <- as.logical(data$outline4)
+    data$outline11 <- as.logical(data$outline11)
+    data$outline13 <- as.logical(data$outline13)
+
+  sii_outline2_sf16_nld <- as.data.frame(data)
+  sii_outline2_sf16_nld
+  devtools::use_data(sii_outline2_sf16_nld, overwrite = TRUE)
+      ## test for tidyverse transformation
+      tidyr::gather(data = sii_outline2_sf16_nld,
                     key = outlinetype,
                     value = drawoutline,
                     -levelordescription)
   rm(data)
-  rm(sii_outline_sf16_nld)
+  rm(sii_outline2_sf16_nld)
 
 
 
@@ -450,27 +469,6 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   rm(data)
   rm(sii_z_ex6_data)
 
-## sii_z_ex6_outline =============================================== =====
-  data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                            sheet = "ex6_outline")
-  data$levelordescription <- as.character(data$levelordescription)
-  data$outline1 <- as.logical(data$outline1)
-  data$outline2 <- as.logical(data$outline2)
-  data$outline3 <- as.logical(data$outline3)
-  data$outline4 <- as.logical(data$outline4)
-  data$outline11 <- as.logical(data$outline11)
-  data$outline13 <- as.logical(data$outline13)
-
-  sii_z_ex6_outline <- as.data.frame(data)
-  sii_z_ex6_outline
-  devtools::use_data(sii_z_ex6_outline, overwrite = TRUE)
-  ## test for tidyverse transformation
-  tidyr::gather(data = sii_z_ex6_outline, key = outlinetype, value = drawoutline, -levelordescription)
-  rm(data)
-  rm(sii_z_ex6_outline)
-
-
-
 ##  e x a m p l e  7 ==================================================== =====
 ## sii_z_ex7_structure ============================================= =====
   sii_z_ex7_structure <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -501,7 +499,7 @@ sii_x_edgecolors_sf16_nld <- c("SKV"               = "#000000",
   rm(data)
   rm(sii_z_ex7_data)
 
-## sii_z_ex7_data2 ================================================== =====
+## sii_z_ex7_data2 ================================================= =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                             sheet = "ex7_data_adapted")  %>%
                    tidyr::gather(key = description,

@@ -419,13 +419,18 @@ fn_structure_data_integration <- function(expandedstructure,
       d_out2 <- d_out2[order(d_out2$ordering_2), ]
       d_out2$ordering_3 <- 1:nrow(d_out2)
     }
-  ## toevoegen ordering 4 maar opnieuw orderen op basis van ordering 3
+
+  ## adding ordering4 but actual ordering based on ordering3
     d_out2$ordering_4 <- 1:nrow(d_out2)
-    d_out2b <- d_out2[order(d_out2$ordering_3), ]
-    d_out2.rownames <- 1:nrow(d_out2)
+    # d_out2b <- d_out2[order(d_out2$ordering_3), ]   # 5 okt 2018, d_out2b is never used (apparantly: syntax highlighting)
+    # d_out2.rownames <- 1:nrow(d_out2)               # 5 okt 2018, d_out2b.rownames is never used (ditto)
     ## delete obsolete lines
     d_out2 <- d_out2[d_out2$ind_show == TRUE, ]
     d_out2 <- d_out2[d_out2$value != 0, ]
+
+  ## when dataset has (value != 0) descriptions that does not exist in expanded structure
+  ##   then a NA line is introduced when merging data and expanded structure. This will be removed here
+    d_out2 <- d_out2[!is.na(d_out2$description),]
   ## return results
     return(d_out2)
 }

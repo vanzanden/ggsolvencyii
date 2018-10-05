@@ -27,7 +27,7 @@ sii_debug(data_descr = sii_z_ex7_data$description,
 
 
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = sii_z_ex7_data,
+  geom_sii_risksurface(data = sii_z_ex7_data,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -48,7 +48,7 @@ exampledata$time <- 5
 exampledata <- rbind(exampledata,sii_z_ex7_data)
 
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = exampledata,
+  geom_sii_risksurface(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
@@ -57,7 +57,7 @@ ggplot2::ggplot() +
               levelmax = 99
               ) +
   ggplot2::theme_bw() +
-  geom_siiscroutline(data = exampledata,
+  geom_sii_riskoutline(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,comparewithid = comparewithid
               ),
@@ -71,7 +71,7 @@ ggplot2::ggplot() +
 
 
 ggplot2::ggplot() +
-  geom_siiscrbuildup(data = exampledata,
+  geom_sii_risksurface(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,color = description
               ),
@@ -82,7 +82,7 @@ ggplot2::ggplot() +
   ggplot2::theme_bw()
 
 +
-  geom_siiscroutline(data = exampledata,
+  geom_sii_riskoutline(data = exampledata,
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,comparewithid = comparewithid
               ),

@@ -58,3 +58,4 @@ testparams <- NULL
 testparams$levelonedescription <- test_result
 test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
 rm(testparams) ; rm(testdata); rm(test_result)
+

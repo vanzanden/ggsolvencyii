@@ -173,37 +173,11 @@
 #' sii_levelmax_sf16_993
 "sii_levelmax_sf16_993"
 
-## sii_outline_sf16_eng =========================================================== =====
-#' sii_outline_sf16_eng
-#'
-#' A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
-#'
-#' @docType data
-#'
-#' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-#'
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
-#'            \item{outline1}{boolean (logical): the radial line  }
-#'            \item{outline2}{boolean (logical): the outer line  }
-#'            \item{outline3}{boolean (logical): the radial line  }
-#'            \item{outline4}{boolean (logical): the inner line  }
-#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
-#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
-#'          }
-#'
-#' @examples
-#' sii_outline_sf16_eng
-"sii_outline_sf16_eng"
 
-
-## sii_outline_sf16_nld =========================================================== =====
-#' sii_outline_sf16_nld
+## sii_outline2_sf16 ========================================================== =====
+#' sii_outline2_sf16
 #'
-#' A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' A table for \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
 #' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
@@ -223,8 +197,64 @@
 #'          }
 #'
 #' @examples
-#' sii_outline_sf16_nld
-"sii_outline_sf16_nld"
+#' sii_outline_sf16
+"sii_outline_sf16"
+
+
+
+
+## sii_outline2_sf16_eng ========================================================== =====
+#' sii_outline2_sf16_eng
+#'
+#' A table for \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{outline1}{boolean (logical): the radial line  }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line  }
+#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_outline2_sf16_eng
+"sii_outline2_sf16_eng"
+
+
+## sii_outline2_sf16_nld ========================================================== =====
+#' sii_outline2_sf16_nld
+#'
+#' A table for \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{outline1}{boolean (logical): the radial line }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line }
+#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_outline2_sf16_nld
+"sii_outline2_sf16_nld"
 
 
 
@@ -280,10 +310,10 @@
 ## sii_z_ex2_outline =========================================================== =====
 #' sii_z_ex2_outline
 #'
-#' A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' A table for \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
 #' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
-#' for testing of siiscrbuildup a outline where all fields are TRUE might be helpfull.
+#' for testing of sii_risksurface a outline where all fields are TRUE might be helpfull.
 #'
 #' @docType data
 #'
@@ -378,7 +408,7 @@
 ## sii_z_ex4_outline ========================================================= =====
 #' sii_z_ex4_outline
 #'
-#' is a table for geom_siiscroutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
+#' is a table for geom_sii_riskoutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 #'
 #' This example file highlights the posibilities to override the levelbased outlines for items (i.e. individual risks(accumulations)).
 #'
@@ -454,35 +484,6 @@
 "sii_z_ex6_data"
 
 
-
-
-
-
-## sii_z_ex6_outline========================================================== =====
-#' sii_z_ex6_outline
-#'
-#' A table for \code{\link{geom_siiscroutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
-#'
-#' @docType data
-#'
-#' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-#'
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
-#'            \item{outline1}{boolean (logical): the radial line  }
-#'            \item{outline2}{boolean (logical): the outer line  }
-#'            \item{outline3}{boolean (logical): the radial line  }
-#'            \item{outline4}{boolean (logical): the inner line  }
-#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
-#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
-#'          }
-#'
-#' @examples
-#' sii_z_ex6_outline
-"sii_z_ex6_outline"
 
 
 
@@ -600,7 +601,7 @@
 ## sii_z_ex7_outline ========================================================= =====
 #' sii_z_ex7_outline
 #'
-#' is a table for geom_siiscroutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
+#' is a table for geom_sii_riskoutline indicating which outlines of each circle segment should be shown, specified per level, as defined in the structure. A circle segment is defined by ri (radius inner), ro (radius outer), db (degrees beginning, based on a compas, with 0 degrees pointing up from the center) and de (degrees end). In this example file the components m_equity and l_lapse are individual described, overruling their standard level outline description
 #'
 #' This example file highlights the posibilities to override the levelbased outlines for items (i.e. individual risks(accumulations)).
 #'
