@@ -4,7 +4,7 @@
 \alias{geom_siiscroutline}
 \title{geom_siiscroutline}
 \usage{
-geom_siiscroutline(data = NULL, mapping = NULL, stat = "solviiscroutline",
+geom_siiscroutline(data = NULL, mapping = NULL, stat = "siiscroutline",
   structuredf = ggsolvencyii::sii_structure_sf16_eng,
   outlinedf = ggsolvencyii::sii_outline_sf16_eng, levelmax = 99,
   aggregatesuffix = "_other", maxscrvalue = NULL, scalingx = 1,
@@ -21,7 +21,7 @@ geom_siiscroutline(data = NULL, mapping = NULL, stat = "solviiscroutline",
 
 \item{structuredf}{(dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataset with a suffix "d" behind the levelnumber are diversification items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the description in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in description column.}
 
-\item{outlinedf}{dummy}
+\item{outlinedf}{default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.}
 
 \item{levelmax}{(integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 separate items and one grouped item. \cr
 For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii_levelmax_sf16_993}} are present in the package where the components of market, life, non-life, health are combined in 5 or 3 items.}
@@ -80,9 +80,6 @@ geom_siiscroutline(data = sii_z_ex2_data,
   rotationdegrees = -8,
   squared =  TRUE,
   outlinedf = sii_z_ex4_outline)
-
-
-
 
 
 

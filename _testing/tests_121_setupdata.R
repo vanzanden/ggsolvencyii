@@ -28,17 +28,11 @@ testparams$levelmax <- sii_z_ex3_levelmax
 testdata <- sii_z_ex3_data
 
 testparams$aggregatesuffix <- "_other"
-test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
-test_result
-## testlevelordering <- as.list(test1_result$description)
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ;test_result
 
-
-test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata)
-test_result
-## test_result$description <-  factor(test_result$description, levels = test1levelordering )
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ; test_result
 
 rm(testparams) ; rm(testdata) ;rm(test_result)
-## rm(test1levelordering)
 
 
 # tests =======volledige structure, met beperkte levelmax ==================================================
@@ -56,21 +50,11 @@ sii_debug(data_descr = testdata$description,
           levelmax = testparams$levelmax
           )
 
-test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
-test_result
-## testlevelordering <- as.list(test1_result$description)
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
 
-
-test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata)
-test_result
-## test_result$description <-  factor(test_result$description, levels = test1levelordering )
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata); test_result
 
 rm(testparams) ; rm(testdata) ;rm(test_result)
-## rm(test1levelordering)
-
-
-
-
 
 
 # tests =======nationale nederlanden structure ==================================================
@@ -88,15 +72,10 @@ sii_debug(data_descr = testdata$description,
           levelmax = testparams$levelmax
           )
 
-test_result <- ggsolvencyii:::fn_structure_expansion(testparams)
-test_result
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
 
 
-test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata)
-test_result
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata); test_result
 
 rm(testparams) ; rm(testdata) ;rm(test_result)
-
-
-
 

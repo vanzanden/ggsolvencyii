@@ -152,8 +152,7 @@ geom_siiscrbuildup <- function(data = NULL,
 #' @inheritParams geom_siiscrbuildup
 #' @param stat  default stat is statSiiscroutline, combinations with other stat's are not tested
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid
-#' @param outlinedf dummy
-# ' default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
+#' @param outlinedf default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
 #'
 #' @return a ggplot object \code{\link{geom_siiscrbuildup}}
 #' @export
@@ -180,12 +179,9 @@ geom_siiscrbuildup <- function(data = NULL,
 #'
 #'
 #'
-#'
-#'
-#'
 geom_siiscroutline <- function(data = NULL,
                     mapping = NULL,
-                    stat = "solviiscroutline",
+                    stat = "siiscroutline",
                   ## geomspecific parameter
                     structuredf = ggsolvencyii::sii_structure_sf16_eng,
                     outlinedf = ggsolvencyii::sii_outline_sf16_eng,
@@ -279,7 +275,7 @@ geom_siiscroutline <- function(data = NULL,
 
 geom_siiconnection <- function(data = NULL,
                                    mapping = NULL,
-                                   stat = "solviiconnection",
+                                   stat = "siiconnection",
                                    position = "identity",
                                    na.rm = FALSE,
                                    show.legend = NA,
@@ -313,7 +309,7 @@ StatSiiscrbuildup <- ggplot2::ggproto(
         params$levelonedescription <- fn_levelonedescription(params = params)
         params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                     params = params)
-          return(params)
+        return(params)
         },
 
   ## setup data ----------------------------------------------- -----

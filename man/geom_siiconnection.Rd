@@ -4,7 +4,7 @@
 \alias{geom_siiconnection}
 \title{geom_siiconnection}
 \usage{
-geom_siiconnection(data = NULL, mapping = NULL, stat = "solviiconnection",
+geom_siiconnection(data = NULL, mapping = NULL, stat = "siiconnection",
   position = "identity", na.rm = FALSE, show.legend = NA,
   inherit.aes = TRUE, ...)
 }

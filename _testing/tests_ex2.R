@@ -57,8 +57,6 @@ sii_debug(data_descr = sii_z_ex2_data$description,
 
 
 ## groeperen van resultaten, levelmax = 3
-
-
  ggplot2::ggplot() +
   geom_siiscrbuildup(data = sii_z_ex2_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
@@ -83,8 +81,7 @@ sii_debug(data_descr = sii_z_ex2_data$description,
 
 
 ## groeperen van resultaten, levelmax = 993
-
- ggplot2::ggplot() +
+  ggplot2::ggplot() +
   geom_siiscrbuildup(data = sii_z_ex2_data,
                mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                              description = description,
@@ -107,29 +104,49 @@ sii_debug(data_descr = sii_z_ex2_data$description,
   ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
-## test outline sec (basis outline table)
+
+
+ ## voorbereiding op outline  sec
+unique(paste0(sii_z_ex2_data$id,"-",sii_z_ex2_data$comparewithid))
+
 ggplot2::ggplot() +
-  geom_siiscroutline(data = sii_z_ex2_data,
+  geom_siiscrbuildup(data = sii_z_ex2_data[sii_z_ex2_data$id == 2,],
+                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                                   description = description,color = description, fill = description ),
+                     lwd = .5
+  )
+
+
+testparams <- NULL
+
+testparams$structuredf <- sii_structure_sf16_eng
+testparams$levelmax <- 99
+testdata <- sii_z_ex2_data[sii_z_ex2_data$id == 2,]
+
+testparams$aggregatesuffix <- "_other"
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ;test_result
+
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ; test_result
+
+rm(testparams) ; rm(testdata) ;rm(test_result)
+
+
+
+
+
+## test outline sec (basis outline table)
+  ggplot2::ggplot() +
+  geom_siiscroutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
+                     outlinedf = sii_z_ex2_outline,
                      color = "red",
-                     # rotationdegrees = -45,
-                     # rotationdescription = "life",
                      lwd = .5 #,
+
   )
 
 
-## test outline sec (basis outline table)
-ggplot2::ggplot() +
-  geom_siiscroutline(data = sii_z_ex2_data,
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                            description = description, comparewithid = comparewithid),
-                     color = "red",
-                     # rotationdegrees = -45,
-                     # rotationdescription = "life",
-                     squared =  TRUE,
-                     lwd = .5 #,
-  )
+
 
 
 
@@ -140,15 +157,13 @@ ggplot2::ggplot() +
                                    description = description, comparewithid = comparewithid),
                      color = "red",
                      lwd = .5 ,
-                     # rotationdegrees = -45,
-                     # rotationdescription = "life",
                      outlinedf = sii_z_ex4_outline
   )
 
 
 
 
-## test outline sec ( outline table sii_z_ex4_outline)
+## test outline plus rotation ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
   geom_siiscroutline(data = sii_z_ex2_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
