@@ -29,7 +29,7 @@
 ## ====================================================================== =====
 
 
-## fn_circlepoints ======================================================= =====
+## fn_circlepoints ====================================================== =====
 #' fn_circlepoints
 #'
 #' @param ri the  inner radius of the circle segment
@@ -134,7 +134,7 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
 
 
 
-## fn_squarepoints ======================================================= =====
+## fn_squarepoints ====================================================== =====
 #' fn_squarepoints
 #'
 #' @param ri the (vertical) distance of center of circle to the inner edge of the segment;
@@ -322,7 +322,7 @@ fn_squarepoints <- function(ri, ro, db, de,
         return(polygonpoints_result)
     }
 
-## fn_sqXP =============================================================== =====
+## fn_sqXP ============================================================== =====
 #' fn_sqXP calculating the horizontal offset of the point, based on a reference value (vertdistance) and compass direction.
 #'
 #' @param vertdistance dummy text
@@ -340,7 +340,7 @@ fn_sqXP <- function(vertdistance, degrees, xsign, rounding) {
   }
 
 
-## fn_sqYP =============================================================== =====
+## fn_sqYP ============================================================== =====
 #' fn_sqYP calculating the vertical offset of the point, based on a reference value (vertdistance) and compass direction.
 #'
 #' @param vertdistance dummy text
@@ -357,7 +357,7 @@ fn_sqYP <- function(vertdistance, degrees, ysign, rounding) {
         return(ypoint)
     }
 
-## fn_sqdegseq =========================================================== =====
+## fn_sqdegseq ========================================================== =====
 #' fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with al the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
 #'
 #' @param startdegrees a startingpoint of degrees (as used in a compass)
@@ -401,3 +401,5 @@ fn_sqdegseq <- function(startdegrees, enddegrees,
   ##return results
     return(degseq)
 }
+
+## ====================================================================== =====

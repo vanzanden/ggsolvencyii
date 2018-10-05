@@ -9,7 +9,8 @@ stat_sii_risksurface(mapping = NULL, data = NULL,
   inherit.aes = TRUE, na.rm = FALSE, levelmax = 99,
   structuredf = ggsolvencyii::sii_structure_sf16_eng, maxscrvalue = NULL,
   aggregatesuffix = "_other", scalingx = 1, scalingy = 1,
-  rotationdegrees = NULL, rotationdescription = NULL, ...)
+  rotationdegrees = NULL, rotationdescription = NULL, squared = FALSE,
+  plotdetails = NULL, ...)
 }
 \arguments{
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value}
@@ -43,6 +44,10 @@ the scale of the different plot elements is is by default measured to the larges
 \item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
 
 \item{rotationdescription}{(optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.}
+
+\item{squared}{(optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.}
+
+\item{plotdetails}{a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 4 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex4_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
 
 \item{...}{ellipsis, a standard R parameter}
 }

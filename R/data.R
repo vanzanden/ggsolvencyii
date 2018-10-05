@@ -17,7 +17,7 @@
 ##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 ##
-## sii_x_fillcolors_sf16_eng ====================================================== =====
+## sii_x_fillcolors_sf16_eng ============================================ =====
 #' sii_x_fillcolors_sf16_eng
 #'
 #' a colorset where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
@@ -32,7 +32,7 @@
 #' sii_x_fillcolors_sf16_eng
 "sii_x_fillcolors_sf16_eng"
 
-## sii_x_edgecolors_sf16_eng ====================================================== =====
+## sii_x_edgecolors_sf16_eng ============================================ =====
 #' sii_x_edgecolors_sf16_eng
 #'
 #' a colorset where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
@@ -49,7 +49,7 @@
 "sii_x_edgecolors_sf16_eng"
 
 
-## sii_x_fillcolors_sf16_nld ====================================================== =====
+## sii_x_fillcolors_sf16_nld ============================================ =====
 #' sii_x_fillcolors_sf16_nld
 #'
 #' a colorset where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
@@ -64,7 +64,7 @@
 #' sii_x_fillcolors_sf16_nld
 "sii_x_fillcolors_sf16_nld"
 
-## sii_x_edgecolors_sf16_nld ====================================================== =====
+## sii_x_edgecolors_sf16_nld ============================================ =====
 #' sii_x_edgecolors_sf16_nld
 #'
 #' a colorset where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
@@ -80,7 +80,7 @@
 #' sii_x_edgecolors_sf16_nld
 "sii_x_edgecolors_sf16_nld"
 
-## sii_structure_sf16_eng ========================================================= =====
+## sii_structure_sf16_eng =============================================== =====
 #' sii_structure_sf16_eng
 #'
 #' a standard formula structure (as of 2016), with descriptions in English.
@@ -101,7 +101,7 @@
 #' sii_structure_sf16_eng
 "sii_structure_sf16_eng"
 
-## sii_structure_sf16_nld ========================================================= =====
+## sii_structure_sf16_nld =============================================== =====
 #' sii_structure_sf16_nld
 #'
 #' a standard formula structure (as of 2016), with descriptions in Dutch.
@@ -124,7 +124,7 @@
 
 
 
-## sii_levelmax_sf16_995 ========================================================== =====
+## sii_levelmax_sf16_995 ================================================ =====
 #' sii_levelmax_sf16_995
 #'
 #' maximum number of items in a level, 99 items for levels 1-3
@@ -147,7 +147,7 @@
 #' sii_levelmax_sf16_995
 "sii_levelmax_sf16_995"
 
-## sii_levelmax_sf16_993 ========================================================== =====
+## sii_levelmax_sf16_993 ================================================ =====
 #' sii_levelmax_sf16_993
 #'
 #' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...) in a standard formula structure.
@@ -174,7 +174,7 @@
 "sii_levelmax_sf16_993"
 
 
-## sii_plotdetails_sf16 =========================================================== =====
+## sii_plotdetails_sf16 ================================================= =====
 #' sii_plotdetails_sf16
 #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
@@ -206,7 +206,7 @@
 
 
 
-## sii_z_ex1_data ============================================================ =====
+## sii_z_ex1_data ======================================================= =====
 #' sii_z_ex1_data
 #'
 #' example dataset, in tidyverse format, with only one instance of a limited filled sf structure.
@@ -229,7 +229,7 @@
 #' sii_z_ex1_data
 "sii_z_ex1_data"
 
-## sii_z_ex2_data ============================================================ =====
+## sii_z_ex2_data ======================================================= =====
 #' sii_z_ex2_data
 #'
 #' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
@@ -254,9 +254,7 @@
 "sii_z_ex2_data"
 
 
-
-
-## sii_z_ex3_structure ======================================================= =====
+## sii_z_ex3_structure ================================================== =====
 #' sii_z_ex3_structure
 #'
 #' a adapted (compact) structure with no division of market, life, .. risks in subrisks (i.e. equity, longevity,... ). Descriptions are in English
@@ -278,7 +276,7 @@
 "sii_z_ex3_structure"
 
 
-## sii_z_ex3_data ============================================================ =====
+## sii_z_ex3_data ======================================================= =====
 #' sii_z_ex3_data
 #'
 #' example dataset, in tidyverse format, with several instances of a filled sf structure,
@@ -303,7 +301,7 @@
 #' sii_z_ex3_data
 "sii_z_ex3_data"
 
-## sii_z_ex3_levelmax ======================================================== =====
+## sii_z_ex3_levelmax =================================================== =====
 #' sii_z_ex3_levelmax
 #'
 #' tekst
@@ -326,7 +324,7 @@
 
 
 
-## sii_z_ex4_plotdetails ======================================================= =====
+## sii_z_ex4_plotdetails ================================================ =====
 #' sii_z_ex4_plotdetails
 #' #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
@@ -354,7 +352,7 @@
 "sii_z_ex4_plotdetails"
 
 
-## sii_z_ex5_data ============================================================ =====
+## sii_z_ex5_data ======================================================= =====
 #' sii_z_ex5_data
 #'
 #' example dataset, in tidyverse format, with one of a completely filled sf structure where all individual risks are equally divided. The purpose is to assert a correct division.
@@ -379,7 +377,7 @@
 "sii_z_ex5_data"
 
 
-## sii_z_ex5_plotdetails ======================================================= =====
+## sii_z_ex5_plotdetails ================================================ =====
 #' sii_z_ex5_plotdetails
 #' #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
@@ -406,7 +404,7 @@
 #' sii_z_ex5_plotdetails
 "sii_z_ex5_plotdetails"
 
-## sii_z_ex6_data ============================================================ =====
+## sii_z_ex6_data ======================================================= =====
 #' sii_z_ex6_data
 #'
 #' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
@@ -435,7 +433,7 @@
 
 
 
-## sii_z_ex7_structure ======================================================= =====
+## sii_z_ex7_structure ================================================== =====
 #' sii_z_ex7_structure
 #'
 #' a standard formula structure (as of 2016), with descriptions in English.
@@ -457,7 +455,7 @@
 "sii_z_ex7_structure"
 
 
-## sii_z_ex7_data ============================================================ =====
+## sii_z_ex7_data ======================================================= =====
 #' sii_z_ex7_data
 #'
 #' example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious
@@ -486,7 +484,7 @@
 #' sii_z_ex7_data
 "sii_z_ex7_data"
 
-## sii_z_ex7_data2 =========================================================== =====
+## sii_z_ex7_data2 ====================================================== =====
 #' sii_z_ex7_data2
 #'
 #' example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious. \cr
@@ -522,7 +520,7 @@
 #' sii_z_ex7_data2
 "sii_z_ex7_data2"
 
-## sii_z_ex7_levelmax ======================================================== =====
+## sii_z_ex7_levelmax =================================================== =====
 #' sii_z_ex7_levelmax
 #'
 #' tekst
@@ -545,3 +543,5 @@
 
 
 
+
+## ====================================================================== =====

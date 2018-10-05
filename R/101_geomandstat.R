@@ -44,23 +44,23 @@
 ## https://www.rdocumentation.org/packages/ggplot2/versions/2.2.1/topics/ggplot2-ggproto
 
 
-## GeomSiiRisksurface ==================================================== =====
+## GeomSiiRisksurface =================================================== =====
 GeomSiiRisksurface        <- ggplot2::ggproto(
                                         "_class" = "GeomSiiRisksurface",
                                         "_inherit" = ggplot2::GeomPolygon
                                       )
-## GeomSiiRiskoutline ==================================================== =====
+## GeomSiiRiskoutline =================================================== =====
 GeomSiiRiskoutline <- ggplot2::ggproto(
                                         "_class" = "GeomSiiRiskoutline",
                                         "_inherit" = ggplot2::GeomPath
                                       )
-## GeomSiiRiskconnection ==================================================== =====
+## GeomSiiRiskconnection ================================================ =====
 GeomSiiRiskconnection <- ggplot2::ggproto(
                                             "_class" = "GeomSiiRiskconnection",
                                             "_inherit" = ggplot2::GeomSegment
                                           )
 
-## geom_sii_risksurface =================================================== =====
+## geom_sii_risksurface ================================================= =====
 #' geom_sii_risksurface
 #'
 #' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
@@ -147,7 +147,7 @@ geom_sii_risksurface <- function(data = NULL,
                      )               )
     }
 
-## geom_sii_riskoutline =================================================== =====
+## geom_sii_riskoutline ================================================= =====
 #' geom_sii_riskoutline
 #'
 #'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. Used for a comparison between instances of an SCR with a match between 'id' and 'comparewithid'.
@@ -237,7 +237,7 @@ geom_sii_riskoutline <- function(data = NULL,
                         )              )
     }
 
-## geom_sii_riskconnection =================================================== =====
+## geom_sii_riskconnection ============================================== =====
 #' geom_sii_riskconnection
 #'
 #' Plots a line between those datapoints which have a matching value in the columns 'id' and 'comparewithid'.
@@ -304,7 +304,7 @@ geom_sii_riskconnection <- function(data = NULL,
                      )               )
     }
 
-## StatSiiRisksurface ==================================================== =====
+## StatSiiRisksurface =================================================== =====
 StatSiiRisksurface <- ggplot2::ggproto(
     "_class" =  "StatSiiRisksurface",
     "_inherit" = ggplot2::Stat,
@@ -386,7 +386,7 @@ StatSiiRisksurface <- ggplot2::ggproto(
         }
 ) #END ggproto
 
-## StatSiiRiskoutline ==================================================== =====
+## StatSiiRiskoutline =================================================== =====
 StatSiiRiskoutline <- ggplot2::ggproto(
     "_class" =  "StatSiiRiskoutline",
     "_inherit" = ggplot2::Stat,
@@ -463,7 +463,7 @@ StatSiiRiskoutline <- ggplot2::ggproto(
 ) ## end of ggproto class StatSii_riskoutline
 
 
-## StatSiiRiskconnection ==================================================== =====
+## StatSiiRiskconnection ================================================ =====
 StatSiiRiskconnection <- ggplot2::ggproto(
     "_class" =  "StatSiiRiskconnection",
     "_inherit" = ggplot2::Stat,
@@ -493,7 +493,7 @@ StatSiiRiskconnection <- ggplot2::ggproto(
       # { ## return results # return(data) # }
 ) ## end of ggproto class StatSiiRiskconnection
 
-## stat_sii_risksurface =================================================== =====
+## stat_sii_risksurface ================================================= =====
 #' stat_sii_risksurface
 #'
 #' stat_sii_risksurface returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
@@ -516,22 +516,21 @@ stat_sii_risksurface <- function(mapping = NULL,
                         ## geomspecific parameter
                           levelmax = 99,
                           structuredf = ggsolvencyii::sii_structure_sf16_eng,
-                          # plotdetails = sii_plotdetails_sf16,
                           maxscrvalue = NULL,
-                          # levelonedescription = "SCR",
                           aggregatesuffix = "_other",
                           scalingx = 1,
                           scalingy = 1,
-                          # fullstructure = FALSE,
                           rotationdegrees = NULL,
                           rotationdescription = NULL,
+                          squared = FALSE,
+                          plotdetails = NULL,
                         ## internal parameters
                           ## purpose (attribution in call to ggplot::layer),
                         ## ellipsis
                           ...
                         ) {
      ggplot2::layer(mapping = mapping, data = data,
-                     stat = sii_risksurface,
+                     stat = "sii_risksurface",
                      geom = geom,
                      position = position,
                      show.legend = show.legend,
@@ -549,7 +548,7 @@ stat_sii_risksurface <- function(mapping = NULL,
                             rotationdegrees = rotationdegrees,
                             rotationdescription = rotationdescription,
                           ## internal params
-                            plotdetails = sii_plotdetails_sf16,
+                            plotdetails = plotdetails,
                             purpose = "surfaces",
                           ## ellipsis
                             ...

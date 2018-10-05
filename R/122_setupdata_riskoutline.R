@@ -25,9 +25,9 @@
 ## small:
 ##
 ## ====================================================================== =====
-
-
-## fn_setupdata_outline ================================================== =====
+##
+##
+## fn_setupdata_outline ================================================= =====
 #' fn_setupdata_outline
 #'
 #' @inheritParams fn_maxscrvalue
@@ -61,3 +61,4 @@ fn_setupdata_outline <- function(data, params) {
   ## return results
     return(data_out)
 }
+## ====================================================================== =====

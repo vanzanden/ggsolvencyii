@@ -30,7 +30,7 @@
 ## ====================================================================== =====
 
 
-## fn_cornerpoints ======================================================= =====
+## fn_cornerpoints ====================================================== =====
 #' fn_cornerpoints
 #'
 #' @inheritParams fn_computegroup
@@ -127,7 +127,7 @@ fn_cornerpoints <- function(df, siiparams) {
 }
 
 
-## fn_rotation =========================================================== =====
+## fn_rotation ========================================================== =====
 #' fn_rotation
 #'
 #' @inheritParams fn_computegroup
@@ -170,7 +170,7 @@ fn_rotation <- function(df, siiparams) {
         return(df_out)
     }
 
-## fn_squareconversion =================================================== =====
+## fn_squareconversion ================================================== =====
 
 #' fn_squareconversion
 #'
@@ -195,7 +195,7 @@ fn_squareconversion <- function(df) {
     }
 
 
-## fn_squareddegrees ===================================================== =====
+## fn_squareddegrees ==================================================== =====
 #' fn_squareddegrees The actual transformation of a part of a circle to the (surfacewise)  equivalent of the part of a square
 #'
 #' @param circledegrees (no default) an amount in degrees
@@ -217,7 +217,7 @@ fn_squareddegrees <- function (circledegrees) {
         return(squaredegrees)
     }
 
-## fn_polygonpoints ====================================================== =====
+## fn_polygonpoints ===================================================== =====
 #' fn_polygonpoints
 #'
 #' @inheritParams fn_computegroup
@@ -288,3 +288,5 @@ fn_polygonpoints <- function (df, siiparams, counter_polyorder) {
   ## result
     return(result)
 }
+
+## ====================================================================== =====

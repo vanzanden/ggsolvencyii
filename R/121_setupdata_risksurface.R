@@ -29,7 +29,7 @@
 ##
 ## ====================================================================== =====
 
-## fn_setupdata_surfaces ================================================= =====
+## fn_setupdata_surfaces ================================================ =====
 #' fn_setupdata_surfaces
 #'
 #' @inheritParams fn_maxscrvalue
@@ -41,7 +41,7 @@ fn_setupdata_surfaces <- function(data, params) {
                                                      )
 
         structureanddata <- fn_structure_data_integration(expandedstructure = expandedstructure,
-                                                    data = data)
+                                                          data = data)
       ## tbv ordering of legenda
         levelordering <- as.list(expandedstructure$description)
         structureanddata$description <- factor(structureanddata$description, levels = levelordering)
@@ -55,9 +55,6 @@ fn_setupdata_surfaces <- function(data, params) {
             structureanddata$colour <- factor(structureanddata$colour, levels = levelordering)
           }
         }
-
-
-
         data_out <- structureanddata
       ## return results
         return(data_out)
@@ -99,7 +96,8 @@ fn_structure_expansion <- function(params) {
                                by.y = "childlevel")
         ## populating columns
         ### can next three lines be combined ?
-        groupinglines <- dplyr::select(groupinglines, description,
+        groupinglines <- dplyr::select(groupinglines,
+                                       description,
                                        level = level_grouping )
         groupinglines$description <- paste0(groupinglines$description,
                                             aggregatesuffix)
@@ -166,7 +164,7 @@ fn_structure_expansion <- function(params) {
         ## t1 columns: level, n   ;  t2 columns: level, levelmax
         t2 <- merge(x = t1, y = levelmaxdf, all.x = TRUE, by = "level" )
         t2 <- t2 %>%
-                  dplyr::mutate(ind_neveraggregate = (n <= levelmax))
+                   dplyr::mutate(ind_neveraggregate = (n <= levelmax))
         todelete <- paste0(t2[t2$ind_neveraggregate == TRUE, ]$level, "o")
         s_out <- s_out[!(s_out$level %in% todelete), ]
         s_out$levelmax <- levelmaxdf$levelmax[match(s_out$level, levelmaxdf$level)]
@@ -454,3 +452,5 @@ fn_add_ind_show <- function (data) {
       ## return results
         return(data)
     }
+
+## ====================================================================== =====

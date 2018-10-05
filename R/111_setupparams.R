@@ -96,7 +96,8 @@ fn_constructionplotdetails <- function(structure) {
       plotdetails <- plotdetails[!duplicated(plotdetails), ]
     ## removal of lines with double lettercodes (i.e. 'do', 'dd')
       ## 2do ##
-print("plotdetails is aangemaakt")
     ## return results
       return(plotdetails)
     }
+
+## ====================================================================== =====
