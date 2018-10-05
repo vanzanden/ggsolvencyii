@@ -21,9 +21,9 @@
 ##
 ## main:
 ##    fn_computegroup (data,siiparams,...)
-##    fn_geomsiidatatopoints (df,maxscrvalue,fullstructure,rotationdegrees,rotationdescription,outlinedf,purpose)
+##    fn_geomsiidatatopoints (df,maxscrvalue,fullstructure,rotationdegrees,rotationdescription,plotdetails,purpose)
 ## small:
-##    fn_transform_outlinedf (df)
+##    fn_transform_plotdetails (df)
 ##
 ## ====================================================================== =====
 
@@ -73,6 +73,8 @@ fn_computegroup <- function(data, scales, siiparams) {
 fn_geomsiidatatopoints <- function(df, siiparams) {
   ## parameters in this function
     squared <- siiparams$squared
+    plotdetails <- siiparams$plotdetails
+    purpose <- siiparams$purpose
   ## CALL ##
     ## results in a dataframe
     cornerpoints_intresult <- fn_cornerpoints(df = df,
@@ -98,52 +100,90 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
 
     counter_polyorder  <- step5_intresult$counter_polyorder
         step5_result <- step5_intresult$df
-# z_step5_intresult <<- step5_intresult
-
-    if (siiparams$purpose == "surfaces" ){
-      ## do nothing
-    } else {
-      ## CALL ##
-          outlinedf_trans <- fn_transform_outlinedf(siiparams$outlinedf)
-
-          # transforms table from human format
-          # levelordescription outline1 ...2 ... ...4 ...11 outline13
-          # 1                   NA       TRUE     NA       ...
-          #
-          # into
-          # levelordescription outlinetype  drawoutline
-          # 1                   1             NA
-          # 1                   2             TRUE
-          # 1                   3             NA
 
 
-        ## first: drawoutline is TRUE or FALSE where
-        ## explicitly set to T or F for a certain description.
-          outlinedf_trans_description <- dplyr::rename(outlinedf_trans,
-                                            description = levelordescription)
-          t1 <- merge(x = step5_result,
-                      y = outlinedf_trans_description,
-                      by = c("description", "outlinetype"),
-                      all.x = TRUE)
-          step5_defined1 <- t1[!is.na(t1$drawoutline), ]
-          step5_undefined <- t1[is.na(t1$drawoutline), ]
-          step5_undefined <- dplyr::select(step5_undefined, -drawoutline)
-          ## for the undefined fraction a second step is to see
-          ## if a T or F is set for a certain level
-          outlinedf_trans_level <- dplyr::rename(outlinedf_trans,
-                                            level = levelordescription )
-          #, drawoutline_level = drawoutline)
-          t1 <- merge(x = step5_undefined, y = outlinedf_trans_level,
-                      by = c("level", "outlinetype"), all.x = TRUE)
-          step5_result <- rbind(step5_defined1, t1)
-          step5_result <- step5_result[step5_result$drawoutline == TRUE, ]
-          step5_result <- step5_result[!is.na(step5_result$drawoutline), ]
-      }
+## ***************************************************************************************************************************
+    if (purpose == "surfaces" ) {
+       ## CALL ##
+      plotdetails_trans <- fn_transform_plotdetails(plotdetails, outline = FALSE, surface = TRUE)
+    }
+    if (purpose == "outline" ) {
+       ## CALL ##
+      plotdetails_trans <- fn_transform_plotdetails(plotdetails, outline = TRUE, surface = FALSE)
+    }
+
+  ## first: draw is TRUE or FALSE where
+  ## explicitly set to T or F for a certain description.
+      plotdetails_trans_description <- dplyr::rename(plotdetails_trans,
+                                        description = levelordescription)
+
+    if (purpose == "surfaces" ) {
+      t1 <- merge(x = step5_result, y = plotdetails_trans_description, by = c("description"), all.x = TRUE)
+    }
+    if (purpose == "outline" ) {
+      t1 <- merge(x = step5_result, y = plotdetails_trans_description, by = c("description", "outlinetype"), all.x = TRUE)
+    }
+    step5_defined1 <- t1[!is.na(t1$draw), ]
+        step5_undefined <- t1[is.na(t1$draw), ]
+    step5_undefined <- dplyr::select(step5_undefined, -draw)
+
+    ## for the undefined fraction (contents of step5_undefined) a second step is to see
+    ## if a T or F is set for a certain level
+    plotdetails_trans_level <- dplyr::rename(plotdetails_trans,
+                                      level = levelordescription )
+    if (purpose == "surfaces" ) {
+      t1 <- merge(x = step5_undefined, y = plotdetails_trans_level, by = c("level"), all.x = TRUE)
+    }
+    if (purpose == "outline" ) {
+      t1 <- merge(x = step5_undefined, y = plotdetails_trans_level, by = c("level", "outlinetype"), all.x = TRUE)
+    }
+    step5_result <- rbind(step5_defined1, t1)
+    step5_result <- step5_result[step5_result$draw == TRUE, ]
+    step5_result <- step5_result[!is.na(step5_result$draw), ]
+## ***************************************************************************************************************************
+
+    # if (siiparams$purpose == "surfaces" ) {
+    #   ## do nothing
+    # } else {
+    #   ## CALL ##
+    #       plotdetails_trans <- fn_transform_plotdetails(siiparams$plotdetails, outline = TRUE, surface = FALSE)
+    #
+    #
+    #
+    #
+    #
+    #     ## first: draw is TRUE or FALSE where
+    #     ## explicitly set to T or F for a certain description.
+    #       plotdetails_trans_description <- dplyr::rename(plotdetails_trans,
+    #                                         description = levelordescription)
+    #       t1 <- merge(x = step5_result,
+    #                   y = plotdetails_trans_description,
+    #                   by = c("description", "outlinetype"),
+    #                   all.x = TRUE)
+    #       step5_defined1 <- t1[!is.na(t1$draw), ]
+    #       step5_undefined <- t1[is.na(t1$draw), ]
+    #       step5_undefined <- dplyr::select(step5_undefined, -draw)
+    #       ## for the undefined fraction a second step is to see
+    #       ## if a T or F is set for a certain level
+    #       plotdetails_trans_level <- dplyr::rename(plotdetails_trans,
+    #                                         level = levelordescription )
+    #       t1 <- merge(x = step5_undefined, y = plotdetails_trans_level,
+    #                   by = c("level", "outlinetype"), all.x = TRUE)
+    #       step5_result <- rbind(step5_defined1, t1)
+    #       step5_result <- step5_result[step5_result$draw == TRUE, ]
+    #       step5_result <- step5_result[!is.na(step5_result$draw), ]
+    #   }
+
+## ***************************************************************************************************************************
+
     step5_result <- as.data.frame(step5_result[with(step5_result,
                                   order(id,
                                         -ordering_3,
                                         -group,
                                         polyorder)), ])
+
+
+
 
   ## RESULTS
     solviipolygon <- list(df = step5_result)
@@ -151,8 +191,8 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
 }
 
 
-## fn_transform_outlinedf ================================================== =====
-#' fn_transform_outlinedf
+## fn_transform_plotdetails ================================================== =====
+#' fn_transform_plotdetails
 #'
 #' @param df a dataframe with column level and some other levels
 #'
@@ -163,12 +203,38 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
 # ' @exportnot
 #'
 # ' @examples
-fn_transform_outlinedf <- function(df) {
-        result <- tidyr::gather(data = df, key = outlinetype,
-                                value = drawoutline, -levelordescription)
+
+          # transforms table from human format
+          # levelordescription surface outline1 ...2 ... ...4 ...11 outline13
+          # 1                   TRUE     NA       TRUE     NA       ...
+          #
+          # into (outline == TRUE, other(s) is/are false
+          # draw column is based on column 'outline'  of respective outlinetype
+          # levelordescription outlinetype  draw
+          # 1                   1             NA
+          # 1                   2             TRUE
+          # 1                   3             NA
+          # into (surface == TRUE, other(s) is/are false
+          # draw column is based on column 'surface'
+          # levelordescription   draw
+          # 1                        NA
+          # 2                       TRUE
+          # ..                       NA
+
+fn_transform_plotdetails <- function(df, outline = FALSE, surface = FALSE) {
+      if (outline == TRUE) {
+		df <- dplyr::select(df, levelordescription, outline1, outline2, outline3, outline4, outline11, outline13)
+		result <- tidyr::gather(data = df, key = outlinetype,
+                                value = draw, -levelordescription)
         result$outlinetype <- gsub("[a-zA-Z]", "", result$outlinetype)
         result$outlinetype <- factor(result$outlinetype)
       ## 2do: if 11 = TRUE, THEN 1 MUST BE TRUE
       ## return results
         return(result)
+	  }
+	  if (surface == TRUE) {
+	    df <- dplyr::select(df, levelordescription, draw = surface)
+	  ## return results
+	    return(df)
+	  }
     }

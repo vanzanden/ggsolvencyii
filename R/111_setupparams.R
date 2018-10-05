@@ -26,7 +26,7 @@
 ##    fn_maxscrvalue
 ## ====================================================================== =====
 
-## fn_levelonedescription ================================================ =====
+## fn_levelonedescription =============================================== =====
 #' fn_levelonedescription extracts the name of level 1 item from the structure
 #'
 #' @inheritParams fn_maxscrvalue
@@ -46,7 +46,7 @@ fn_levelonedescription <- function(params) {
 
 
 
-## fn_maxscrvalue ======================================================== =====
+## fn_maxscrvalue ======================================================= =====
 #' fn_maxscrvalue
 #' all elements in the resulting dataset are scaled to surface of value of the largest level 1 (SCR) element
 #'  in the set, unless the value to be scaled to is provided as a parameter.
@@ -75,4 +75,28 @@ fn_maxscrvalue <- function(data, params
         }
       ## return results
         return(value_out)
+    }
+## fn_constructionplotdetails============================================ =====
+#' fn_constructionplotdetails
+#'
+#' When no plotdetails table is given then a default table is constructed based on the current structure.
+#'
+#' @param structuredf
+#'
+#' @return a dataframe columns levelordescription, surface, outline1 .. 11, with TRUE for all fields
+
+fn_constructionplotdetails <- function(structure) {
+
+      lvl <- c(structure$level, paste0(structure$level, "o"), paste0(structure$level, "d"))
+      plotdetails <- data.frame(levelordescription = lvl,
+                               surface = TRUE,
+                               outline1 = TRUE, outline2 = TRUE, outline3 = TRUE, outline4 = TRUE,
+                               outline11 = TRUE, outline13 = TRUE)
+    ## deduplicate
+      plotdetails <- plotdetails[!duplicated(plotdetails), ]
+    ## removal of lines with double lettercodes (i.e. 'do', 'dd')
+      ## 2do ##
+print("plotdetails is aangemaakt")
+    ## return results
+      return(plotdetails)
     }

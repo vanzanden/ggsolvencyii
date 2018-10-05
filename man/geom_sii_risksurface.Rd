@@ -9,8 +9,8 @@ geom_sii_risksurface(data = NULL, mapping = NULL,
   structuredf = ggsolvencyii::sii_structure_sf16_eng, levelmax = 99,
   aggregatesuffix = "_other", maxscrvalue = NULL, scalingx = 1,
   scalingy = 1, rotationdegrees = NULL, rotationdescription = NULL,
-  squared = FALSE, position = "identity", na.rm = FALSE,
-  show.legend = NA, inherit.aes = TRUE, ...)
+  squared = FALSE, plotdetails = NULL, position = "identity",
+  na.rm = FALSE, show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
 \item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}}
@@ -38,6 +38,8 @@ the scale of the different plot elements is is by default measured to the larges
 \item{rotationdescription}{(optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.}
 
 \item{squared}{(optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.}
+
+\item{plotdetails}{a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 4 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex4_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
 
 \item{position}{standard ggplot function}
 

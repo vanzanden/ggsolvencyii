@@ -23,7 +23,7 @@ testparams <- NULL
 testparams$structuredf <- sii_structure_sf16_eng # sii_z_ex_structure
 testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
 testparams$aggregatesuffix <- "_other"
-testparams$outline <-  sii_z_ex4_outline
+testparams$plotdetails <-  sii_z_ex4_plotdetails
 
 testdata <- sii_z_ex2_data
 
@@ -56,7 +56,8 @@ lwd = 0.5,
                               levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                               maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,
                               rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,
-                              squared = testsquared
+                              squared = testsquared,
+                              plotdetails = NULL
                           ) +
                           ggplot2::theme_bw() +
                           ggplot2::scale_fill_manual(name = "Componenten", values = ggsolvencyii::sii_x_fillcolors_sf16_eng
@@ -71,7 +72,7 @@ y = ratio,
 color = "red",
 lwd = 0.7,
 alpha = 0.99,
-                              outlinedf = testparams$outline,
+                              plotdetails = testparams$plotdetails,
                               structuredf = testparams$structuredf,
                               levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                               maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,
@@ -86,6 +87,33 @@ y = ratio,
                               arrow = ggplot2::arrow(angle = 20,
                                             type = "closed" )
                           )
+
+
+## ook aangepaste plotdetails in risksurface
+                          ggplot2::ggplot() +
+                          ggsolvencyii::geom_sii_risksurface(data = testdata,
+                                                    mapping = ggplot2::aes(
+x = time,
+y = ratio,
+                                                    id = id, value = value, description = description,
+                                                    fill = description, color = description),
+lwd = 0.5,
+                              structuredf = testparams$structuredf,
+                              levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+                              maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,
+                              rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,
+                              squared = testsquared,
+                              plotdetails = sii_plotdetails_sf16
+                          ) +
+                          ggplot2::theme_bw() +
+                          ggplot2::scale_fill_manual(name = "Componenten", values = ggsolvencyii::sii_x_fillcolors_sf16_eng
+                          ) +
+                          ggplot2::scale_color_manual(name = "Componenten", values = ggsolvencyii::sii_x_edgecolors_sf16_eng
+                          ) +
+
+
+
+
 
 rm(testparams) ; rm(testdata) ;rm(test_result); rm(testmaxscrvalue); rm(testrotationdegrees);rm(testrotationdescription); rm(testscalingx); rm(testscalingy); rm(testsquared)
 

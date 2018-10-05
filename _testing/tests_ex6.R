@@ -56,7 +56,7 @@ unique(paste0(sii_z_ex6_data$id,"-",sii_z_ex6_data$comparewithid))
                              description = description,
                              comparewithid = comparewithid
                              ),
-                               outlinedf = sii_outline2_sf16_eng,
+                               plotdetails = sii_plotdetails_sf16,
                              lwd = 0.05
                ) +
   ggplot2::theme_bw() +
@@ -85,7 +85,9 @@ unique(paste0(sii_z_ex6_data$id,"-",sii_z_ex6_data$comparewithid))
                              ),
                              lwd = 0.1,
                               color = "black",
-                              alpha = 0.1
+                              alpha = 0.1,
+							  
+							  
                ) +
    ## only outer outline and scr outline,
    geom_sii_riskoutline(data = sii_z_ex6_data,
@@ -93,7 +95,7 @@ unique(paste0(sii_z_ex6_data$id,"-",sii_z_ex6_data$comparewithid))
                              description = description,
                              comparewithid = comparewithid
                              ),
-                             outlinedf = sii_outline2_sf16_eng,
+                             plotdetails = sii_z_ex4_plotdetails
                             lwd = 0.6,
                               color = "red",
                               alpha = 0.7
@@ -132,7 +134,7 @@ unique(paste0(sii_z_ex6_data$id,"-",sii_z_ex6_data$comparewithid))
                              comparewithid = comparewithid
                              ),
                               levelmax = sii_levelmax_sf16_995,
-                              outlinedf = sii_outline2_sf16_eng,
+                              plotdetails = sii_outline2_sf16_eng,
                              lwd = 0.6,
                               color = "red",
                               alpha = 0.7

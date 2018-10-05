@@ -85,6 +85,7 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #' @param rotationdescription (optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.
 #' @param rotationdegrees (optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
 #' @param squared (optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.
+#' @param plotdetails a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 4 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex4_plotdetails}}. geom_sii_riskoutline uses other columns in the same table
 #' @param ... ellipsis, a standard R parameter
 #'
 #' @import ggplot2
@@ -109,6 +110,7 @@ geom_sii_risksurface <- function(data = NULL,
                         rotationdegrees = NULL,
                         rotationdescription = NULL,
                         squared = FALSE,
+                        plotdetails = NULL,
                       ## other default ggplot2 parameters
                         position = "identity",
                         na.rm = FALSE,
@@ -116,7 +118,6 @@ geom_sii_risksurface <- function(data = NULL,
                         inherit.aes = TRUE,
                       ## internal parameters
                         ## purpose (attribution in call to ggplot::layer)
-                        ## outlinedf (attribution in call to ggplot::layer)
                       ## ellipsis
                         ...
                       ) {
@@ -138,9 +139,9 @@ geom_sii_risksurface <- function(data = NULL,
                               rotationdegrees = rotationdegrees,
                               rotationdescription = rotationdescription,
                               squared = squared,
+                              plotdetails = plotdetails,
                            ## internal params
                               purpose = "surfaces",
-                              outlinedf = NULL,
                            ## ellipsis
                               ...
                      )               )
@@ -157,7 +158,7 @@ geom_sii_risksurface <- function(data = NULL,
 #' @inheritParams geom_sii_risksurface
 #' @param stat  default stat is statsii_riskoutline, combinations with other stat's are not tested
 #' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid
-#' @param outlinedf default = \code{\link{sii_outline_sf16_eng}}: a dataframe with columns level (chr), and outline1,2,3,4,11,13 (all logical) defining which borders to plot. Outline11 and 13 are not yet implemented, meant to be a specific instance of outline1 and 3, on the edge of a 'block'. For the dutch SF structure an accompanying \code{\link{sii_outline_sf16_nld}} is provided in the package.
+#' @param plotdetails a table with columns 'levelordescription' and 'outline1' to 'outline4', indicating which outlines of which circle elements to plot. When no table is provided all segments are plotted. example 4 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex4_plotdetails}}. geom_sii_risksurface uses another column in the same table.
 #'
 #' @return a ggplot object \code{\link{geom_sii_risksurface}}
 #' @export
@@ -170,7 +171,7 @@ geom_sii_risksurface <- function(data = NULL,
 #'    color = "red", lwd = .5 )
 #'
 #'
-#'  sii_z_ex4_outline
+#'  sii_z_ex4_plotdetails
 #'
 #' ggplot2::ggplot() +
 #' geom_sii_riskoutline(data = sii_z_ex2_data,
@@ -180,7 +181,7 @@ geom_sii_risksurface <- function(data = NULL,
 #'   rotationdescription = "life",
 #'   rotationdegrees = -8,
 #'   squared =  TRUE,
-#'   outlinedf = sii_z_ex4_outline)
+#'   plotdetails = sii_z_ex4_plotdetails)
 #'
 #'
 #'
@@ -189,7 +190,6 @@ geom_sii_riskoutline <- function(data = NULL,
                     stat = "sii_riskoutline",
                   ## geomspecific parameter
                     structuredf = ggsolvencyii::sii_structure_sf16_eng,
-                    outlinedf = ggsolvencyii::sii_outline_sf16,
                     levelmax = 99,
                     aggregatesuffix = "_other",
                     maxscrvalue = NULL,
@@ -198,6 +198,7 @@ geom_sii_riskoutline <- function(data = NULL,
                     rotationdegrees = NULL,
                     rotationdescription = NULL,
                     squared = FALSE,
+                    plotdetails = NULL,
                     # fullstructure = FALSE, ## not an input yet
                   ## other standard ggplot parameters
                     position = "identity",
@@ -220,7 +221,7 @@ geom_sii_riskoutline <- function(data = NULL,
                               ## userparams
                                 levelmax = levelmax,
                                 structuredf = structuredf,
-                                outlinedf = outlinedf,
+                                plotdetails = plotdetails,
                                 maxscrvalue = maxscrvalue,
                                 aggregatesuffix = aggregatesuffix,
                                 scalingx = scalingx,
@@ -311,9 +312,16 @@ StatSiiRisksurface <- ggplot2::ggproto(
     default_aex = ggplot2::aes(color = "black", lwd = 0.05),
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
+# print( class(params$plotdetails))
         params$levelonedescription <- fn_levelonedescription(params = params)
         params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                     params = params)
+
+        if (is.null(params$plotdetails) ) {
+          params$plotdetails <- fn_constructionplotdetails(params$structure)
+        } else {print("not missing")}
+# print("params_post")
+# print( params)
         return(params)
         },
 
@@ -329,7 +337,6 @@ StatSiiRisksurface <- ggplot2::ggproto(
                              scales,
                              levelmax,
                              structuredf,
-                             outlinedf,
                              maxscrvalue,
                              aggregatesuffix,
                              scalingx,
@@ -338,14 +345,13 @@ StatSiiRisksurface <- ggplot2::ggproto(
                              rotationdegrees,
                              rotationdescription,
                              squared,
+                             plotdetails,
                              purpose,
                              ...
                             ) {
             siiparams <- list(levelmax = levelmax,
                                structuredf = structuredf,
-                               outlinedf = outlinedf,
                                maxscrvalue = maxscrvalue,
-                               # levelonedescription = levelonedescription,
                                aggregatesuffix = aggregatesuffix,
                                scalingx = scalingx,
                                scalingy = scalingy,
@@ -353,7 +359,8 @@ StatSiiRisksurface <- ggplot2::ggproto(
                                rotationdegrees = rotationdegrees,
                                rotationdescription = rotationdescription,
                                squared = squared,
-                               purpose = purpose)
+                              plotdetails = plotdetails,
+                              purpose = purpose)
 
             df <- fn_computegroup( data = data,
                                     siiparams = siiparams,
@@ -392,8 +399,11 @@ StatSiiRiskoutline <- ggplot2::ggproto(
       params$levelonedescription <- fn_levelonedescription(params = params)
       params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                params = params)
-            return(params)
-        },
+      if (is.null(params$plotdetails)) {
+        params$plotdetails <- fn_constructionplotdetails(params$structure)
+      }
+      return(params)
+   },
 
   ## setup data ----------------------------------------------- -----
     setup_data = function(data, params) {
@@ -407,9 +417,7 @@ StatSiiRiskoutline <- ggplot2::ggproto(
                               scales,
                               levelmax,
                               structuredf,
-                              outlinedf,
                               maxscrvalue,
-                              # levelonedescription,
                               aggregatesuffix,
                               scalingx,
                               scalingy,
@@ -417,14 +425,13 @@ StatSiiRiskoutline <- ggplot2::ggproto(
                               rotationdegrees,
                               rotationdescription,
                               squared,
+                              plotdetails,
                               purpose,
                               ...
                             ) {
               siiparams <- list(levelmax = levelmax,
                                structuredf = structuredf,
-                               outlinedf = outlinedf,
                                maxscrvalue = maxscrvalue,
-                               # levelonedescription = levelonedescription,
                                aggregatesuffix = aggregatesuffix,
                                scalingx = scalingx,
                                scalingy = scalingy,
@@ -432,6 +439,7 @@ StatSiiRiskoutline <- ggplot2::ggproto(
                                rotationdegrees = rotationdegrees,
                                rotationdescription = rotationdescription,
                                squared = squared,
+                               plotdetails = plotdetails,
                                purpose = purpose)
 
             df <- fn_computegroup(data = data,
@@ -508,7 +516,7 @@ stat_sii_risksurface <- function(mapping = NULL,
                         ## geomspecific parameter
                           levelmax = 99,
                           structuredf = ggsolvencyii::sii_structure_sf16_eng,
-                          # outlinedf = sii_outline_sf16,
+                          # plotdetails = sii_plotdetails_sf16,
                           maxscrvalue = NULL,
                           # levelonedescription = "SCR",
                           aggregatesuffix = "_other",
@@ -541,7 +549,7 @@ stat_sii_risksurface <- function(mapping = NULL,
                             rotationdegrees = rotationdegrees,
                             rotationdescription = rotationdescription,
                           ## internal params
-                            outlinedf = sii_outline_sf16,
+                            plotdetails = sii_plotdetails_sf16,
                             purpose = "surfaces",
                           ## ellipsis
                             ...

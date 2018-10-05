@@ -20,7 +20,7 @@
 
 sii_debug(data_descr = sii_z_ex7_data$description,
           structure = sii_z_ex7_structure,
-          outline = sii_z_ex7_outline,
+          plotdetails = sii_z_ex7_plotdetails,
           levelmax = sii_z_ex7_levelmax
       )
 

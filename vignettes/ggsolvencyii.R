@@ -5,7 +5,7 @@ knitr::opts_chunk$set(
 )
 
 ## ---- out.width='35%', fig.align='right', echo=FALSE, border = FALSE-----
-knitr::include_graphics('images/logo_engels.png')
+knitr::include_graphics('images/logo_engels_rvignettes.png')
 
 ## ---- fig.show='hold'----------------------------------------------------
 plot(1:10)

@@ -28,7 +28,7 @@
 sii_debug(data_descr = sii_z_ex2_data$description,
           structure = sii_structure_sf16_eng,
           levelmax = sii_levelmax_sf16_995,
-          outline = sii_outline_sf16_eng,
+          plotdetails = sii_plotdetails_sf16,
           fillcolors = sii_x_fillcolors_sf16_eng,
           edgecolors = sii_x_edgecolors_sf16_eng,
           aggregatesuffix = "_test"  )
@@ -36,7 +36,7 @@ sii_debug(data_descr = sii_z_ex2_data$description,
 sii_debug(data_descr = sii_z_ex2_data$description,
           structure = sii_structure_sf16_eng,
           levelmax = sii_levelmax_sf16_995,
-          outline = sii_outline_sf16_eng,
+          plotdetails = sii_plotdetails_sf16,
           fillcolors = sii_x_fillcolors_sf16_eng,
           edgecolors = sii_x_edgecolors_sf16_eng,
           aggregatesuffix = "_other"  )
@@ -134,51 +134,28 @@ rm(testparams) ; rm(testdata) ;rm(test_result)
 
 
 
-## test outline sec (default outline table )
+
+## test outline sec (standaard plotdetails table )
+  ggplot2::ggplot() +
+  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
+                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                                   description = description, comparewithid = comparewithid),
+                     color = "red",
+                     lwd = 0.5 ,
+					           plotdetails = sii_plotdetails_sf16
+  )
+
+
+## test outline sec (no plotdetails table )
   ggplot2::ggplot() +
   geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
                      lwd = .5 #,
-
-  )
-
-## test outline sec ( outline2 table)
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = comparewithid),
-                     outlinedf = sii_outline2_sf16_eng,
-                     color = "red",
-                     lwd = .5 #,
   )
 
 
- ## test outline sec ( outline table sii_z_ex4_outline)
-ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = comparewithid),
-                     color = "red",
-                     lwd = .5 ,
-                     outlinedf = sii_z_ex4_outline
-  )
-
-
-
-## test outline plus rotation, squared ( outline table sii_z_ex4_outline)
-ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = comparewithid),
-                     color = "red",
-                     lwd = .5 ,
-                     rotationdegrees = -8,
-                     squared =  TRUE,
-                     rotationdescription = "life",
-                     outlinedf = sii_z_ex4_outline
-  )
 
 
 # test alles in een

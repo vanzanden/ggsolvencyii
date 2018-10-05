@@ -25,7 +25,7 @@
 #' @param data_descr (no default) the vector 'description' from the data
 #' @param structure (no default) the structure dataframe
 #' @param levelmax (optional, no default): the levelmax dataframe, when not filled the expanded structure assumes levelmax was set to 99 for all levels.
-#' @param outline (optional, no default): the outline dataframe
+#' @param plotdetails (optional, no default): the plotdetails dataframe
 #' @param fillcolors (optional, no default): fillcolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )
 #' @param edgecolors (optional, no default): edgecolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )
 #' @param aggregatesuffix (optional, default = "_other"):
@@ -38,7 +38,7 @@ sii_debug <- function(data_descr,
                           structure = ggesolvencii::sii_structure_sf16_eng,
                           aggregatesuffix = "other",
                           levelmax = NULL,
-                          outline = NULL,
+                          plotdetails = NULL,
                           fillcolors = NULL,
                           edgecolors = NULL
                       )
@@ -68,13 +68,13 @@ sii_debug <- function(data_descr,
       s2_d_df$enrichedstructure <- "present"
       descr <- c(descr, s2_d)
 
-    blnoutline <- FALSE
-    if (!is.null(outline)) {
-      blnoutline <- TRUE
-      o_d <- unique(outline$levelordescription)
-      o_d_df <- as.data.frame(o_d)
-      o_d_df$outline <- "present";
-      descr <- c(descr, o_d)
+    blnplotdetails <- FALSE
+    if (!is.null(plotdetails)) {
+      blnplotdetails <- TRUE
+      p_d <- unique(plotdetails$levelordescription)
+      p_d_df <- as.data.frame(p_d)
+      p_d_df$plotdetails <- "present";
+      descr <- c(descr, p_d)
     }
     blnfillcolors <- FALSE
     if (!is.null(fillcolors)) {
@@ -97,12 +97,12 @@ sii_debug <- function(data_descr,
     descr_df <- as.data.frame(descr)
 
   ## merging into a result table
-                        m1 <- merge(x = descr_df, y = d_d_df, by.x = c("descr"), by.y = c("d_d"),  all.x = TRUE)
-                        m1 <- merge(x = m1,       y = s_d_df, by.x = c("descr"), by.y = c("s_d"),  all.x = TRUE)
-                        m1 <- merge(x = m1,      y = s2_d_df, by.x = c("descr"), by.y = c("s2_d"), all.x = TRUE)
-    if (blnoutline)    {m1 <- merge(x = m1,       y = o_d_df, by.x = c("descr"), by.y = c("o_d"),  all.x = TRUE)}
-    if (blnfillcolors) {m1 <- merge(x = m1,       y = f_d_df, by.x = c("descr"), by.y = c("f_d"),  all.x = TRUE)}
-    if (blnedgecolors) {m1 <- merge(x = m1,       y = e_d_df, by.x = c("descr"), by.y = c("e_d"),  all.x = TRUE)}
+                         m1 <- merge(x = descr_df, y = d_d_df, by.x = c("descr"), by.y = c("d_d"),  all.x = TRUE)
+                         m1 <- merge(x = m1,       y = s_d_df, by.x = c("descr"), by.y = c("s_d"),  all.x = TRUE)
+                         m1 <- merge(x = m1,      y = s2_d_df, by.x = c("descr"), by.y = c("s2_d"), all.x = TRUE)
+    if (blnplotdetails) {m1 <- merge(x = m1,       y = p_d_df, by.x = c("descr"), by.y = c("p_d"),  all.x = TRUE)}
+    if (blnfillcolors)  {m1 <- merge(x = m1,       y = f_d_df, by.x = c("descr"), by.y = c("f_d"),  all.x = TRUE)}
+    if (blnedgecolors)  {m1 <- merge(x = m1,       y = e_d_df, by.x = c("descr"), by.y = c("e_d"),  all.x = TRUE)}
 
   ## retreiving levels from inputted parameters
     s_l <- unique(struct2$level) ;s_l_df <- as.data.frame(s_l) ; s_l_df$structure <- "present"; lvl <- s_l
@@ -113,18 +113,18 @@ sii_debug <- function(data_descr,
         l_l <- unique(as.character(levelmax$level)) ;l_l_df <- as.data.frame(l_l) ; l_l_df$levelmax <- "present"; lvl <- c(lvl, l_l)
       } else {}
     }
-    if (blnoutline) {
-      o_l <- unique(outline$levelordescription) ;
-      o_l_df <- as.data.frame(o_l) ;
-      o_l_df$outline <- "present";
-      lvl <- c(lvl, o_l)
+    if (blnplotdetails) {
+      p_l <- unique(plotdetails$levelordescription) ;
+      p_l_df <- as.data.frame(p_l) ;
+      p_l_df$plotdetails <- "present";
+      lvl <- c(lvl, p_l)
     }
     lvl <- unique(lvl) ; lvl_df <- as.data.frame(lvl)
 
   ## merging into a result table
-                     m2 <- merge(x = lvl_df, y = s_l_df, by.x = c("lvl"), by.y = c("s_l"), all.x = TRUE)
-    if (blnlevel )  {m2 <- merge(x = m2,     y = l_l_df, by.x = c("lvl"), by.y = c("l_l"), all.x = TRUE)}
-    if (blnoutline) {m2 <- merge(x = m2,     y = o_l_df, by.x = c("lvl"), by.y = c("o_l"), all.x = TRUE)}
+                         m2 <- merge(x = lvl_df, y = s_l_df, by.x = c("lvl"), by.y = c("s_l"), all.x = TRUE)
+    if (blnlevel )      {m2 <- merge(x = m2,     y = l_l_df, by.x = c("lvl"), by.y = c("l_l"), all.x = TRUE)}
+    if (blnplotdetails) {m2 <- merge(x = m2,     y = p_l_df, by.x = c("lvl"), by.y = c("p_l"), all.x = TRUE)}
 
   ## combining two result tables in one result list
     result <- NULL

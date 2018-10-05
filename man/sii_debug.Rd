@@ -5,7 +5,7 @@
 \title{sii_debug}
 \usage{
 sii_debug(data_descr, structure = ggesolvencii::sii_structure_sf16_eng,
-  aggregatesuffix = "other", levelmax = NULL, outline = NULL,
+  aggregatesuffix = "other", levelmax = NULL, plotdetails = NULL,
   fillcolors = NULL, edgecolors = NULL)
 }
 \arguments{
@@ -17,7 +17,7 @@ sii_debug(data_descr, structure = ggesolvencii::sii_structure_sf16_eng,
 
 \item{levelmax}{(optional, no default): the levelmax dataframe, when not filled the expanded structure assumes levelmax was set to 99 for all levels.}
 
-\item{outline}{(optional, no default): the outline dataframe}
+\item{plotdetails}{(optional, no default): the plotdetails dataframe}
 
 \item{fillcolors}{(optional, no default): fillcolor parameter (list with items "description" = "color" where color can be a name, #hexcode or other )}
 

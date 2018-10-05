@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r, out.width='35%', fig.align='right', echo=FALSE, border = FALSE}
-knitr::include_graphics('images/logo_engels.png')
+knitr::include_graphics('images/logo_engels_rvignettes.png')
 ```
 
 ## Travis status

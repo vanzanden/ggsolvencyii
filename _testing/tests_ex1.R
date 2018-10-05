@@ -9,7 +9,22 @@ ggplot2::ggplot() +
               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
                             ,fill = description
                             ,color = description
+
               )  ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+
+## basistest circle====================================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex1_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+
+              ),
+              plotdetails = sii_plotdetails_sf16  ) +
   ggplot2::theme_bw() +
   ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)

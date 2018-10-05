@@ -25,7 +25,7 @@ testparams <- NULL
 testparams$structuredf <- sii_structure_sf16_nld # sii_z_ex_structure
 testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
 testparams$aggregatesuffix <- "_other"
-testparams$outline <- sii_outline_sf16_nld # sii_z_ex_outline
+testparams$plotdetails <- sii_plotdetails_sf16 # sii_z_ex4_plotdetails
 
 testdata <- sii_z_ex5_data
 
@@ -73,7 +73,7 @@ y = ratio,
 color = "red",
 lwd = 0.7,
 alpha = 0.99,
-                              outlinedf = testparams$outline,
+                              plotdetails = testparams$plotdetails,
                               structuredf = testparams$structuredf,
                               levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                               maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,

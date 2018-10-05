@@ -36,7 +36,7 @@ ggplot2::ggplot() +
                      lwd = .5 ,
                      # rotationdegrees = -45,
                      # rotationdescription = "life",
-                     outlinedf = sii_z_ex4_outline
+                     plotdetails = sii_z_ex4_plotdetails
   )
 
 
@@ -52,7 +52,7 @@ ggplot2::ggplot() +
                      rotationdegrees = -8,
                      squared =  TRUE,
                      rotationdescription = "life",
-                     outlinedf = sii_z_ex4_outline
+                     plotdetails = sii_z_ex4_plotdetails
   )
 
 
@@ -124,7 +124,7 @@ ggplot2::ggplot() +
                          # rotationdescription = "life",
                          alpha = 0.99,
                          scalingx = 0.5,scalingy = 0.5
-                         # outlinedf = "VERWIJZING NAAR EEN TABEL"
+                         # plotdetails = "VERWIJZING NAAR EEN TABEL"
       ) +
       ggplot2::theme_bw()    +
       geom_sii_riskconnection(data = sii_z_ex3_data,
@@ -136,7 +136,7 @@ ggplot2::ggplot() +
                                              type = "closed" )
                             # color = "red",
                             # lwd = 0.5 #,
-                            # outlinedf = "VERWIJZING NAAR EEN TABEL"
+                            # plotdetails = "VERWIJZING NAAR EEN TABEL"
       )
 
 
@@ -171,7 +171,7 @@ ggplot2::ggplot() +
                          # rotationdegrees = -45,# rotationdescription = "life",
                          squared = TRUE,
                          alpha = .99 # ,
-                         # scalingx = 1.5# outlinedf = "VERWIJZING NAAR EEN TABEL"
+                         # scalingx = 1.5# plotdetails = "VERWIJZING NAAR EEN TABEL"
                           ) +
       geom_sii_riskconnection(data = sii_z_ex2_data,
                             mapping = aes(x = time,
@@ -179,7 +179,7 @@ ggplot2::ggplot() +
                                           id = id,
                                           comparewithid = comparewithid )
                             , arrow = arrow(angle = 20, type = "closed" )
-                            # color = "red",# lwd = 0.5 #,# outlinedf = "VERWIJZING NAAR EEN TABEL"
+                            # color = "red",# lwd = 0.5 #,# plotdetails = "VERWIJZING NAAR EEN TABEL"
                               )    +
       ggplot2::theme_bw()
 
