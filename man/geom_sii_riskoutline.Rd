@@ -15,7 +15,7 @@ geom_sii_riskoutline(data = NULL, mapping = NULL,
 \arguments{
 \item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}}
 
-\item{mapping}{required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid}
+\item{mapping}{required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id', 'description', 'value'. Optional aes is 'comparewithid'}
 
 \item{stat}{default stat is statsii_riskoutline, combinations with other stat's are not tested}
 

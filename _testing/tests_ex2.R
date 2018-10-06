@@ -109,6 +109,10 @@ sii_debug(data_descr = sii_z_ex2_data$description,
  ## voorbereiding op outline  sec
 unique(paste0(sii_z_ex2_data$id,"-",sii_z_ex2_data$comparewithid))
 
+sii_z_ex2_data[!duplicated(sii_z_ex2_data[c('id','time', 'ratio', 'comparewithid')]),]
+
+
+
 ggplot2::ggplot() +
   geom_sii_risksurface(data = sii_z_ex2_data[sii_z_ex2_data$id == 2,],
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
@@ -132,10 +136,64 @@ rm(testparams) ; rm(testdata) ;rm(test_result)
 
 
 
+##  outline
+  ggplot2::ggplot() +
+  geom_sii_riskoutline(data = sii_z_ex2_data,
+                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                                   description = description, comparewithid = comparewithid),
+                     # color = "red",
+                     # lwd = .5 #,
+  )
+
+
+## outline sec (no plotdetails table )
+  ggplot2::ggplot() +
+  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
+                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                                   description = description, comparewithid = comparewithid),
+                     # color = "red",
+                     # lwd = .5 #,
+  )
+
+
+  ##  outline sec (no plotdetails table , fixed comparewithid)
+  ggplot2::ggplot() +
+  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
+                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                                   description = description, comparewithid = 2 ),
+                     color = "red",
+                     lwd = .5 #,
+  )
+
+  ## test outline sec (no plotdetails table , fixed wrong comparewithid)
+  ggplot2::ggplot() +
+  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
+                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                                   description = description, comparewithid = 7 ),
+                     color = "red",
+                     lwd = .5 #,
+  )
+
+  ## test outline sec (no plotdetails table , no comparewithid)
+  ggplot2::ggplot() +
+  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
+                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
+                                   description = description ),
+                     color = "red",
+                     lwd = .5 #,
+  )
 
 
 
-## test outline sec (standaard plotdetails table )
+
+
+
+
+
+
+
+
+  ## test outline sec (standaard plotdetails table )
   ggplot2::ggplot() +
   geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
@@ -143,16 +201,6 @@ rm(testparams) ; rm(testdata) ;rm(test_result)
                      color = "red",
                      lwd = 0.5 ,
 					           plotdetails = sii_plotdetails_sf16
-  )
-
-
-## test outline sec (no plotdetails table )
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = comparewithid),
-                     color = "red",
-                     lwd = .5 #,
   )
 
 

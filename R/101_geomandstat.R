@@ -157,7 +157,7 @@ geom_sii_risksurface <- function(data = NULL,
 #'
 #' @inheritParams geom_sii_risksurface
 #' @param stat  default stat is statsii_riskoutline, combinations with other stat's are not tested
-#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description, value and comparewithid
+#' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id', 'description', 'value'. Optional aes is 'comparewithid'
 #' @param plotdetails a table with columns 'levelordescription' and 'outline1' to 'outline4', indicating which outlines of which circle elements to plot. When no table is provided all segments are plotted. example 4 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex4_plotdetails}}. geom_sii_risksurface uses another column in the same table.
 #'
 #' @return a ggplot object \code{\link{geom_sii_risksurface}}
@@ -243,7 +243,7 @@ geom_sii_riskoutline <- function(data = NULL,
 #' Plots a line between those datapoints which have a matching value in the columns 'id' and 'comparewithid'.
 #'
 #' @inheritParams geom_sii_risksurface
-#' @param mapping required aes(thetics) : x (i.e. time, longitude, integer), y (i.e SCR ratio, lattitude), id, description (), value and comparewithid
+#' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id', 'description', 'value' and also'comparewithid'
 #' @param stat  default stat is statsii_riskconnection, combinations with other stat's are not tested
 #'
 #' @return a ggplot object
@@ -309,7 +309,7 @@ StatSiiRisksurface <- ggplot2::ggproto(
     "_class" =  "StatSiiRisksurface",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y", "description", "value"),
-    default_aex = ggplot2::aes(color = "black", lwd = 0.05),
+    ## default_aes = ggplot2::aes(color = "black", lwd = 0.05),
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
 # print( class(params$plotdetails))
@@ -391,11 +391,13 @@ StatSiiRiskoutline <- ggplot2::ggproto(
     "_class" =  "StatSiiRiskoutline",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y",
-                     "description", "value", "comparewithid"),
-    default_aex = ggplot2::aes(color = "red", lwd = 0.2),
-
+                      "description", "value", "comparewithid"),
+                     # "description", "value"), #, "comparewithid"),
+    # default_aex = ggplot2::aes(color = "red", lwd = 0.2),
+    default_aes = ggplot2::aes(color = "red", lwd = 0.2, comparewithid = 2 ),
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
+
       params$levelonedescription <- fn_levelonedescription(params = params)
       params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                params = params)
@@ -407,7 +409,13 @@ StatSiiRiskoutline <- ggplot2::ggproto(
 
   ## setup data ----------------------------------------------- -----
     setup_data = function(data, params) {
-           data_out <- fn_setupdata_outline(data = data,
+            if (!"comparewithid" %in% colnames(data)){
+              print("comparewithid is set to reference itself")
+              data$comparewithid = data$id
+            } else {
+              print("comparewithid is present in data")
+            }
+            data_out <- fn_setupdata_outline(data = data,
                                            params = params)
             return(data_out)
         },
@@ -468,7 +476,7 @@ StatSiiRiskconnection <- ggplot2::ggproto(
     "_class" =  "StatSiiRiskconnection",
     "_inherit" = ggplot2::Stat,
     required_aes = c("id", "x", "y", "comparewithid"),
-    default_aex = ggplot2::aes(color = "red", lwd = 0.2),
+    # default_aes = ggplot2::aes(color = "red", lwd = 0.2),
 
   ## setup parameters ----------------------------------------- -----
     # setup_params = function(data,params)
