@@ -80,7 +80,7 @@ fn_cornerpoints <- function(df, siiparams) {
         t1$de[1] <- 360
         t1$plottype[1] <- "circle"
       } else {
-        ## levelcounter != "1"
+        ## levelcounter not equal to one
         linestoprocess_ind <- sub("o", "", t1$level) == levelcounter
         ## some statistics on the group
         linestoprocess <- t1[sub("o", "", t1$level) == levelcounter, ]
@@ -103,11 +103,11 @@ fn_cornerpoints <- function(df, siiparams) {
               ## to avoid rounding errors
               de <- degroup #
             } else {
-              de <- db + (t1$value[linecounter] / sumgroup) * (degroup - dbgroup)
+             de <- db + (t1$value[linecounter] / sumgroup) * (degroup - dbgroup)
             }
             dbtemp <- de
             ri <- rigroup
-            ro <- sqrt( (t1$value[linecounter] / maxscrvalue) / ( (de - db) / 360))
+           ro <- sqrt((t1$value[linecounter] / maxscrvalue) / ((de - db) / 360))
             t1$ri[linecounter] <- ri
             rm(ri)
             t1$ro[linecounter] <- ro
@@ -185,10 +185,14 @@ fn_squareconversion <- function(df) {
         df$ri <- df$ri * (.5 * sqrt(pi))  ## factor .88
         df$ro <- df$ro * (.5 * sqrt(pi))  ## factor .88
         ## CALL
-        df$db <- apply(as.data.frame(df$db), MARGIN = 1, FUN = fn_squareddegrees)
+        df$db <- apply(as.data.frame(df$db),
+                       MARGIN = 1,
+                       FUN = fn_squareddegrees)
 # print(as.data.frame(df$de))
         ## CALL
-        df$de <- apply(as.data.frame(df$de), MARGIN = 1, FUN = fn_squareddegrees)
+        df$de <- apply(as.data.frame(df$de),
+                       MARGIN = 1,
+                       FUN = fn_squareddegrees)
 # print(as.data.frame(df$de))
       ## return results
         return(df)
@@ -206,7 +210,6 @@ fn_squareconversion <- function(df) {
 # ' @examples
 
 fn_squareddegrees <- function (circledegrees) {
-        # squaredegrees <- circledegrees
         rmd <- circledegrees %% 45 ## rmd for remainder in degrees
         pts <- circledegrees %/% 45 ## amount of 8th parts of circle/square
         rmr <- rmd / 180 * pi ## rmr : remainder in radials

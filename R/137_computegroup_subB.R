@@ -162,36 +162,33 @@ fn_squarepoints <- function(ri, ro, db, de,
       ## a "radial line"
         ## determination of octants 0 to 7
         ##     (compas bearing 0-45: octant 0, 45-90: octant 1 etc )
-          octant_b <- ((db + 2 * 360) %/% 45) %% 8
-          octant_e <- ((de + 2 * 360) %/% 45) %% 8
+        octant_b <- ((db + 2 * 360) %/% 45) %% 8
+        octant_e <- ((de + 2 * 360) %/% 45) %% 8
 # print(paste0("db de" , db, ", ", de))
 # print(paste0("octants" , octant_b, ", ", octant_e))
-        ## (beginning xpoint is calculated as :
-        ##    xbsign * ri + (1-abs(xbsign) * sqrt(2*ri^2) * sin/cosin function :
-        ## analog for endpoint (xesign, )
-        ##       xbsign is -1/0/1, xsignB = 0 or 1,
-        ##       negative values are introduced by sin/cosine function
-        ## analog for xpoint/ro and ypoint/ri and ypoint/ro
-          if (octant_b  == 0) {xbsign <-  0 ; ybsign <-  1 }
-          if (octant_b  == 1) {xbsign <-  1 ; ybsign <-  0 }
-          if (octant_b  == 2) {xbsign <-  1 ; ybsign <-  0 }
-          if (octant_b  == 3) {xbsign <-  0 ; ybsign <- -1 }
-          if (octant_b  == 4) {xbsign <-  0 ; ybsign <- -1 }
-          if (octant_b  == 5) {xbsign <- -1 ; ybsign <-  0 }
-          if (octant_b  == 6) {xbsign <- -1 ; ybsign <-  0 }
-          if (octant_b  == 7) {xbsign <-  0 ; ybsign <-  1 }
+      ## (beginning xpoint is calculated as :
+      ##    xbsign * ri + (1-abs(xbsign) * sqrt(2*ri^2) * sin/cosin function :
+      ## analog for endpoint (xesign, )
+      ##       xbsign is -1/0/1, xsignB = 0 or 1,
+      ##       negative values are introduced by sin/cosine function
+      ## analog for xpoint/ro and ypoint/ri and ypoint/ro
+        if (octant_b  == 0) {xbsign <-  0 ; ybsign <-  1 }
+        if (octant_b  == 1) {xbsign <-  1 ; ybsign <-  0 }
+        if (octant_b  == 2) {xbsign <-  1 ; ybsign <-  0 }
+        if (octant_b  == 3) {xbsign <-  0 ; ybsign <- -1 }
+        if (octant_b  == 4) {xbsign <-  0 ; ybsign <- -1 }
+        if (octant_b  == 5) {xbsign <- -1 ; ybsign <-  0 }
+        if (octant_b  == 6) {xbsign <- -1 ; ybsign <-  0 }
+        if (octant_b  == 7) {xbsign <-  0 ; ybsign <-  1 }
 
-          if (octant_e  == 0) {xesign <-  0 ; yesign <-  1 }
-          if (octant_e  == 1) {xesign <-  1 ; yesign <-  0 }
-          if (octant_e  == 2) {xesign <-  1 ; yesign <-  0 }
-          if (octant_e  == 3) {xesign <-  0 ; yesign <- -1 }
-          if (octant_e  == 4) {xesign <-  0 ; yesign <- -1 }
-          if (octant_e  == 5) {xesign <- -1 ; yesign <-  0 }
-          if (octant_e  == 6) {xesign <- -1 ; yesign <-  0 }
-          if (octant_e  == 7) {xesign <-  0 ; yesign <-  1 }
-
-
-# print(paste0(xsignA, xsignB, ysignA, ysignB))
+        if (octant_e  == 0) {xesign <-  0 ; yesign <-  1 }
+        if (octant_e  == 1) {xesign <-  1 ; yesign <-  0 }
+        if (octant_e  == 2) {xesign <-  1 ; yesign <-  0 }
+        if (octant_e  == 3) {xesign <-  0 ; yesign <- -1 }
+        if (octant_e  == 4) {xesign <-  0 ; yesign <- -1 }
+        if (octant_e  == 5) {xesign <- -1 ; yesign <-  0 }
+        if (octant_e  == 6) {xesign <- -1 ; yesign <-  0 }
+        if (octant_e  == 7) {xesign <-  0 ; yesign <-  1 }
 
         if (plottype == "outer") {
           xpoint <- fn_sqXP(vertdistance = ri, degrees = db,
@@ -232,8 +229,6 @@ fn_squarepoints <- function(ri, ro, db, de,
 
       ## points along the outer edge
         degseq <- fn_sqdegseq(startdegrees = db, enddegrees = de)
-# print("degseq 2")
-# print(degseq)
         for (degreesloop in degseq) {
           octant_loop <- ((degreesloop + 2 * 360) %/% 45) %% 8
           if (octant_loop  == 0) {xloopsign <-  0 ; yloopsign <-  1 }
@@ -293,8 +288,6 @@ fn_squarepoints <- function(ri, ro, db, de,
           degseq <- fn_sqdegseq(startdegrees = db,
                                enddegrees = de,
                                counterclockwise = TRUE)
-# print("degseq 4")
-# print(degseq)
           for (degreesloop in degseq) {
             octant_loop <- ((degreesloop + 2 * 360) %/% 45) %% 8
             if (octant_loop  == 0) {xloopsign <-  0 ; yloopsign <-  1 }
@@ -333,8 +326,11 @@ fn_squarepoints <- function(ri, ro, db, de,
 #' @return a distance
 
 fn_sqXP <- function(vertdistance, degrees, xsign, rounding) {
-    xpoint <- round(xsign * vertdistance + (1 - abs(xsign)) * sqrt(2 * vertdistance ^ 2) *
-                      cos(.5 * pi - degrees / 360 * 2 * pi), digits = rounding)
+    xpoint <- round(xsign * vertdistance +
+                      (1 - abs(xsign)) *
+                      sqrt(2 * vertdistance ^ 2) *
+                      cos(.5 * pi - degrees / 360 * 2 * pi),
+                    digits = rounding)
    ##return results
     return(xpoint)
   }
@@ -352,7 +348,11 @@ fn_sqXP <- function(vertdistance, degrees, xsign, rounding) {
 
 
 fn_sqYP <- function(vertdistance, degrees, ysign, rounding) {
-       ypoint <- round(ysign * vertdistance + (1 - abs(ysign)) * sqrt(2 * vertdistance ^ 2) * sin(.5 * pi - degrees / 360 * 2 * pi), digits = rounding)
+       ypoint <- round(ysign * vertdistance +
+                        (1 - abs(ysign)) *
+                        sqrt(2 * vertdistance ^ 2) *
+                        sin(.5 * pi - degrees / 360 * 2 * pi),
+                        digits = rounding)
       ##return results
         return(ypoint)
     }

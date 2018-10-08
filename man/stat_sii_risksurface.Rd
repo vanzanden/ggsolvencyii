@@ -15,7 +15,7 @@ stat_sii_risksurface(mapping = NULL, data = NULL,
 \arguments{
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value}
 
-\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}}
+\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex3_data}}}
 
 \item{geom}{the default is geom_sii_risksurface}
 
@@ -47,7 +47,7 @@ the scale of the different plot elements is is by default measured to the larges
 
 \item{squared}{(optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.}
 
-\item{plotdetails}{a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 4 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex4_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
+\item{plotdetails}{a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
 
 \item{...}{ellipsis, a standard R parameter}
 }

@@ -206,8 +206,9 @@
 
 
 
-## sii_z_ex1_data ======================================================= =====
-#' sii_z_ex1_data
+
+## sii_z_ex2_data ======================================================= =====
+#' sii_z_ex2_data
 #'
 #' example dataset, in tidyverse format, with only one instance of a limited filled sf structure.
 #'
@@ -226,11 +227,12 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex1_data
-"sii_z_ex1_data"
-
-## sii_z_ex2_data ======================================================= =====
 #' sii_z_ex2_data
+"sii_z_ex2_data"
+
+
+## sii_z_ex3_data ======================================================= =====
+#' sii_z_ex3_data
 #'
 #' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
 #'
@@ -250,12 +252,40 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex2_data
-"sii_z_ex2_data"
+#' sii_z_ex3_data
+"sii_z_ex3_data"
 
 
-## sii_z_ex3_structure ================================================== =====
-#' sii_z_ex3_structure
+## sii_z_ex3_plotdetails ================================================ =====
+#' sii_z_ex3_plotdetails
+#' #'
+#' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{surface}{boolean (logical): the surface }
+#'            \item{outline1}{boolean (logical): the radial line }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line }
+#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_z_ex3_plotdetails
+"sii_z_ex3_plotdetails"
+
+
+## sii_z_ex4_structure ================================================== =====
+#' sii_z_ex4_structure
 #'
 #' a adapted (compact) structure with no division of market, life, .. risks in subrisks (i.e. equity, longevity,... ). Descriptions are in English
 #'
@@ -272,12 +302,13 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex3_structure
-"sii_z_ex3_structure"
+#' sii_z_ex4_structure
+"sii_z_ex4_structure"
 
 
-## sii_z_ex3_data ======================================================= =====
-#' sii_z_ex3_data
+
+## sii_z_ex4_data ======================================================= =====
+#' sii_z_ex4_data
 #'
 #' example dataset, in tidyverse format, with several instances of a filled sf structure,
 #'
@@ -298,11 +329,11 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex3_data
-"sii_z_ex3_data"
+#' sii_z_ex4_data
+"sii_z_ex4_data"
 
-## sii_z_ex3_levelmax =================================================== =====
-#' sii_z_ex3_levelmax
+## sii_z_ex4_levelmax =================================================== =====
+#' sii_z_ex4_levelmax
 #'
 #' tekst
 # ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
@@ -319,122 +350,14 @@
 # '          }
 #'
 #' @examples
-#' sii_z_ex3_levelmax
-"sii_z_ex3_levelmax"
-
-
-
-## sii_z_ex4_plotdetails ================================================ =====
-#' sii_z_ex4_plotdetails
-#' #'
-#' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
-#'
-#' @docType data
-#'
-#' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-#'
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
-#'            \item{surface}{boolean (logical): the surface }
-#'            \item{outline1}{boolean (logical): the radial line }
-#'            \item{outline2}{boolean (logical): the outer line  }
-#'            \item{outline3}{boolean (logical): the radial line  }
-#'            \item{outline4}{boolean (logical): the inner line }
-#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
-#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
-#'          }
-#'
-#' @examples
-#' sii_z_ex4_plotdetails
-"sii_z_ex4_plotdetails"
-
-
-## sii_z_ex5_data ======================================================= =====
-#' sii_z_ex5_data
-#'
-#' example dataset, in tidyverse format, with one of a completely filled sf structure where all individual risks are equally divided. The purpose is to assert a correct division.
-#'
-#' @docType data
-#'
-#' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{tijd}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
-#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
-#'            \item{description}{character: component of the structure}
-#'            \item{id}{ number: }
-#'            \item{waarde}{numerical: }
-#'            \item{vergelijkmet}{numerical: }
-#'          }
-#'
-#' @examples
-#' sii_z_ex5_data
-"sii_z_ex5_data"
-
-
-## sii_z_ex5_plotdetails ================================================ =====
-#' sii_z_ex5_plotdetails
-#' #'
-#' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
-#'
-#' @docType data
-#'
-#' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-#'
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
-#'            \item{surface}{boolean (logical): the surface }
-#'            \item{outline1}{boolean (logical): the radial line }
-#'            \item{outline2}{boolean (logical): the outer line  }
-#'            \item{outline3}{boolean (logical): the radial line  }
-#'            \item{outline4}{boolean (logical): the inner line }
-#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
-#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
-#'          }
-#'
-#' @examples
-#' sii_z_ex5_plotdetails
-"sii_z_ex5_plotdetails"
-
-## sii_z_ex6_data ======================================================= =====
-#' sii_z_ex6_data
-#'
-#' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
-#'
-#' @docType data
-#'
-#' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
-
-#' @format A data frame with columns:
-#' \describe{
-#'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
-#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
-#'            \item{description}{character: component of the structure}
-#'            \item{id}{ number: }
-#'            \item{value}{numerical: }
-#'            \item{comparewithid}{numerical: }
-#'          }
-#'
-#' @examples
-#' sii_z_ex6_data
-"sii_z_ex6_data"
+#' sii_z_ex4_levelmax
+"sii_z_ex4_levelmax"
 
 
 
 
-
-
-## sii_z_ex7_structure ================================================== =====
-#' sii_z_ex7_structure
+## sii_z_ex6_structure ================================================== =====
+#' sii_z_ex6_structure
 #'
 #' a standard formula structure (as of 2016), with descriptions in English.
 #'
@@ -451,12 +374,12 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex7_structure
-"sii_z_ex7_structure"
+#' sii_z_ex6_structure
+"sii_z_ex6_structure"
 
 
-## sii_z_ex7_data ======================================================= =====
-#' sii_z_ex7_data
+## sii_z_ex6_data ======================================================= =====
+#' sii_z_ex6_data
 #'
 #' example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious
 #'
@@ -481,11 +404,11 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex7_data
-"sii_z_ex7_data"
+#' sii_z_ex6_data
+"sii_z_ex6_data"
 
-## sii_z_ex7_data2 ====================================================== =====
-#' sii_z_ex7_data2
+## sii_z_ex6_data2 ====================================================== =====
+#' sii_z_ex6_data2
 #'
 #' example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious. \cr
 #'   To show 'Counterparty default risk (CPD)' separate from the two components
@@ -517,11 +440,11 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex7_data2
-"sii_z_ex7_data2"
+#' sii_z_ex6_data2
+"sii_z_ex6_data2"
 
-## sii_z_ex7_levelmax =================================================== =====
-#' sii_z_ex7_levelmax
+## sii_z_ex6_levelmax =================================================== =====
+#' sii_z_ex6_levelmax
 #'
 #' tekst
 # ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
@@ -538,10 +461,92 @@
 # '          }
 #'
 #' @examples
-#' sii_z_ex7_levelmax
-"sii_z_ex7_levelmax"
+#' sii_z_ex6_levelmax
+"sii_z_ex6_levelmax"
 
 
 
 
+## sii_z_ex6_plotdetails ================================================ =====
+#' sii_z_ex6_plotdetails
+#' #'
+#' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{surface}{boolean (logical): the surface }
+#'            \item{outline1}{boolean (logical): the radial line }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line }
+#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_z_ex6_plotdetails
+"sii_z_ex6_plotdetails"
+
+## sii_z_ex7_data ======================================================= =====
+#' sii_z_ex7_data
+#'
+#' example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
+#'
+#' @docType data
+#'
+#' @source loosely based on public SFCR report of a medium sized dutch life insurer
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{tijd}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
+#'            \item{description}{character: component of the structure}
+#'            \item{id}{ number: }
+#'            \item{waarde}{numerical: }
+#'            \item{vergelijkmet}{numerical: }
+#'          }
+#'
+#' @examples
+#' sii_z_ex7_data
+"sii_z_ex7_data"
+
+
+
+
+
+
+## sii_z_ex7_plotdetails ================================================ =====
+#' sii_z_ex7_plotdetails
+#' #'
+#' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#'
+#' @docType data
+#'
+#' @source determined based on specification of EIOPA standard formula Solvency II structure
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
+#'            \item{surface}{boolean (logical): the surface }
+#'            \item{outline1}{boolean (logical): the radial line }
+#'            \item{outline2}{boolean (logical): the outer line  }
+#'            \item{outline3}{boolean (logical): the radial line  }
+#'            \item{outline4}{boolean (logical): the inner line }
+#'            \item{outline11}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline1, but but only for the first plotted component of that level. The components in each  level are plotted clockwise}
+#'            \item{outline13}{NOT YET IMPLEMENTED: boolean (logical): analogue to outline3, but but only for the last plotted component of that level. }
+#'          }
+#'
+#' @examples
+#' sii_z_ex7_plotdetails
+"sii_z_ex7_plotdetails"
 ## ====================================================================== =====

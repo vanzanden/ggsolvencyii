@@ -17,45 +17,85 @@
 ##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 ##
-## test 1
-testparams <- NULL
+## about indenting ====================================================== =====
+## four spaces indending is datasetting, preparation or cleaning up
+## no indenting is the actual test
+##
+## tests ================================================================ =====
+    testdata <- sii_z_ex2_data
 
-testparams$structuredf <- sii_structure_sf16_eng
-testdata <- sii_z_ex1_data
+    testparams <- NULL
+    testparams$structuredf <- sii_structure_sf16_eng
 
-test_result <- ggsolvencyii:::fn_levelonedescription(testparams)
-test_result
-testparams <- NULL
-testparams$levelonedescription <- test_result
+test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
+
+    testparams <- NULL
+    testparams$levelonedescription <- test_result
+
 test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
-rm(testparams) ; rm(testdata);rm(test_result)
+    rm(testparams) ; rm(testdata);rm(test_result)
 
-## test 2
-testparams <- NULL
 
-testparams$structuredf <- sii_structure_sf16_nld
-testdata <- sii_z_ex5_data
-testdata$value <- testdata$waarde
+## test
+    testdata <- sii_z_ex3_data
 
-test_result <- ggsolvencyii:::fn_levelonedescription(testparams)
-test_result
-testparams <- NULL
-testparams$levelonedescription <- test_result
+    testparams <- NULL
+    testparams$structuredf <- sii_structure_sf16_eng
+
+test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
+
+    testparams <- NULL
+    testparams$levelonedescription <- test_result
+
 test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
-rm(testparams) ; rm(testdata);rm(test_result)
+    rm(testparams) ; rm(testdata);rm(test_result)
 
 
+## test
+    testdata <- sii_z_ex4_data
 
-## test 3
-testparams <- NULL
+    testparams <- NULL
+    testparams$structuredf <- sii_z_ex4_structure
 
-testparams$structuredf <- sii_z_ex3_structure
-testdata <- sii_z_ex3_data
+test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ;test_result
 
-test_result <- ggsolvencyii:::fn_levelonedescription(testparams)
-test_result
-testparams <- NULL
-testparams$levelonedescription <- test_result
+    testparams <- NULL
+    testparams$levelonedescription <- test_result
+
 test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
-rm(testparams) ; rm(testdata); rm(test_result)
+    rm(testparams) ; rm(testdata); rm(test_result)
 
+
+## test
+    testdata <- sii_z_ex6_data
+
+    testparams <- NULL
+    testparams$structuredf <- sii_z_ex6_structure;
+
+test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
+
+    testparams <- NULL
+    testparams$levelonedescription <- test_result
+
+test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
+    rm(testparams) ; rm(testdata);rm(test_result)
+
+
+## test
+    testdata <- sii_z_ex7_data
+    ## simulate column renaming normaly done by geom_xxx ( mapping = aes(...., value = waarde, ,....), ....)
+    testdata$value <- testdata$waarde
+    testdata <- subset(testdata, select = -waarde);
+
+    testparams <- NULL
+    testparams$structuredf <- sii_structure_sf16_nld;
+
+test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
+
+    testparams <- NULL
+    testparams$levelonedescription <- test_result
+
+test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
+    rm(testparams) ; rm(testdata);rm(test_result)
+
+## ====================================================================== =====

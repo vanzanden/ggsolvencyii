@@ -6,27 +6,22 @@
 \title{sii_z_ex7_data}
 \format{A data frame with columns:
 \describe{
-           \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+           \item{tijd}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
            \item{description}{character: component of the structure}
            \item{id}{ number: }
-           \item{value}{numerical: }
-           \item{comparewithid}{numerical: }
+           \item{waarde}{numerical: }
+           \item{vergelijkmet}{numerical: }
          }}
 \source{
-the structure is based on public SFCR 2017 report of NN group,
-  with a possible wrong interpretation of diversification effects towards 'market basis and CPD risk'\cr
-  #' See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
-  www.nn-group.com /nn-group /file?uuid=e3e89829 -e7bd -495a -9fed
-  -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311 \cr
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden},
-  from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
+loosely based on public SFCR report of a medium sized dutch life insurer
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_ex7_data
 }
 \description{
-example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious
+example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
 }
 \examples{
 sii_z_ex7_data

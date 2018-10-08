@@ -3,7 +3,7 @@
 
 ## test outline sec (basis outline table)
 ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
+  geom_sii_riskoutline(data = sii_z_ex3_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -15,7 +15,7 @@ ggplot2::ggplot() +
 
 ## test outline sec (basis outline table)
 ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
+  geom_sii_riskoutline(data = sii_z_ex3_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                             description = description, comparewithid = comparewithid),
                      color = "red",
@@ -29,14 +29,14 @@ ggplot2::ggplot() +
 
  ## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
+  geom_sii_riskoutline(data = sii_z_ex3_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
                      lwd = .5 ,
                      # rotationdegrees = -45,
                      # rotationdescription = "life",
-                     plotdetails = sii_z_ex4_plotdetails
+                     plotdetails = sii_z_ex3_plotdetails
   )
 
 
@@ -44,7 +44,7 @@ ggplot2::ggplot() +
 
 ## test outline sec ( outline table sii_z_ex4_outline)
 ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
+  geom_sii_riskoutline(data = sii_z_ex3_data,
                      mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
                                    description = description, comparewithid = comparewithid),
                      color = "red",
@@ -52,7 +52,7 @@ ggplot2::ggplot() +
                      rotationdegrees = -8,
                      squared =  TRUE,
                      rotationdescription = "life",
-                     plotdetails = sii_z_ex4_plotdetails
+                     plotdetails = sii_z_ex3_plotdetails
   )
 
 
@@ -72,17 +72,17 @@ ggplot2::ggplot() +
 
 # test alles in een (testdata2)
 ggplot2::ggplot() +
-     geom_sii_risksurface(data = sii_z_ex2_data,
+     geom_sii_risksurface(data = sii_z_ex3_data,
                  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                                fill = description,color = description),
                                lwd = 0.5) +
                 ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
                 ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_sii_riskoutline(data = sii_z_ex2_data,
+      geom_sii_riskoutline(data = sii_z_ex3_data,
                          mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value,
                                        description = description, comparewithid = comparewithid),
                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-      geom_sii_riskconnection(data = sii_z_ex2_data,
+      geom_sii_riskconnection(data = sii_z_ex3_data,
                             mapping = ggplot2::aes(x = time, y = ratio, id = id, comparewithid = comparewithid ),
                             arrow = arrow(angle = 20, type = "closed" )
                             ) +
@@ -144,28 +144,28 @@ ggplot2::ggplot() +
 
 # test alles in een (testdata2)
     ggplot2::ggplot() +
-     geom_sii_risksurface(data = sii_z_ex2_data,
+     geom_sii_risksurface(data = sii_z_ex3_data,
                  mapping = ggplot2::aes(x = time,
                                y = ratio ,
                                id = id,
                                value = value,
                                description = description,
                                fill = description,color = description),
-                               # structuredf = sii_z_ex2_structure,
+                               # structuredf = sii_z_ex3_structure,
                                 # rotationdegrees = -45,
                                 # rotationdescription = "life",
                                squared = TRUE,
                                lwd = 0.5)    +
                 ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
                 ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_sii_riskoutline(data = sii_z_ex2_data,
+      geom_sii_riskoutline(data = sii_z_ex3_data,
                          mapping = aes(x = time,
                                        y = ratio ,
                                        id = id,
                                        value = value,
                                        description = description,
                                        comparewithid = comparewithid),
-                         # structuredf = sii_z_ex2_structure,
+                         # structuredf = sii_z_ex3_structure,
                          color = "red",
                          lwd = 0.7 ,
                          # rotationdegrees = -45,# rotationdescription = "life",
@@ -173,7 +173,7 @@ ggplot2::ggplot() +
                          alpha = .99 # ,
                          # scalingx = 1.5# plotdetails = "VERWIJZING NAAR EEN TABEL"
                           ) +
-      geom_sii_riskconnection(data = sii_z_ex2_data,
+      geom_sii_riskconnection(data = sii_z_ex3_data,
                             mapping = aes(x = time,
                                           y = ratio,
                                           id = id,

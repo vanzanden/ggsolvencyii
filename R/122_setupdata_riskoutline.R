@@ -41,12 +41,21 @@
 
 fn_setupdata_outline <- function(data, params) {
   ## CALL ##
-    expandedstructure <- fn_structure_expansion ( params = params)
+    expandedstructure <- fn_structure_expansion( params = params)
 
     datacopy <- dplyr::select(data, id, x, y,
                               description, compid = comparewithid)
     dataexclxy <- dplyr::select(data, -x, -y )
     dataexclxy <- dplyr::rename(dataexclxy, compid = id)
+    ## error catching: if comparewithid is not a subset of id then throw a warning
+    comparelist <- unique(datacopy$compid)
+    comparelist <- comparelist[!is.na(comparelist)]
+    for (i in comparelist) {
+      if (!i %in% dataexclxy$compid) {
+        warning("'comparewithid' value is ", i, " references a not existing 'id': this will cause a \n 'Error in `$<-.data.frame`(`*tmp*`, comparewithid, value = ) :' error")
+      }
+    }
+    ## merging
     data <- merge(x = dataexclxy, y = datacopy,
                   all.y = TRUE,
                   by = c("compid", "description") )
@@ -55,9 +64,9 @@ fn_setupdata_outline <- function(data, params) {
     data <- dplyr::select(data, -compid)
     data <- as.data.frame(data)
   ## CALL ##
-    data_out <- fn_structure_data_integration(expandedstructure = expandedstructure,
-                                              data = data
-                                              )
+    data_out <- fn_structure_data_integration(
+                                      expandedstructure = expandedstructure,
+                                      data = data)
   ## return results
     return(data_out)
 }

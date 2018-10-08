@@ -47,7 +47,7 @@ sii_debug <- function(data_descr,
     debugparams <- NULL
     debugparams$structuredf <- structure
     debugparams$levelmax <- levelmax
-    if (is.null(levelmax)) {debugparams$levelmax <- 99}
+    if (is.null(levelmax)) {debugparams$levelmax <- 90}
     debugparams$aggregatesuffix <- aggregatesuffix
     ## CALL
     struct2 <- fn_structure_expansion(debugparams)
@@ -97,20 +97,32 @@ sii_debug <- function(data_descr,
     descr_df <- as.data.frame(descr)
 
   ## merging into a result table
-                         m1 <- merge(x = descr_df, y = d_d_df, by.x = c("descr"), by.y = c("d_d"),  all.x = TRUE)
-                         m1 <- merge(x = m1,       y = s_d_df, by.x = c("descr"), by.y = c("s_d"),  all.x = TRUE)
-                         m1 <- merge(x = m1,      y = s2_d_df, by.x = c("descr"), by.y = c("s2_d"), all.x = TRUE)
-    if (blnplotdetails) {m1 <- merge(x = m1,       y = p_d_df, by.x = c("descr"), by.y = c("p_d"),  all.x = TRUE)}
-    if (blnfillcolors)  {m1 <- merge(x = m1,       y = f_d_df, by.x = c("descr"), by.y = c("f_d"),  all.x = TRUE)}
-    if (blnedgecolors)  {m1 <- merge(x = m1,       y = e_d_df, by.x = c("descr"), by.y = c("e_d"),  all.x = TRUE)}
+                         m1 <- merge(x = descr_df, y = d_d_df, by.x = c("descr"),
+                                     by.y = c("d_d"),  all.x = TRUE)
+                         m1 <- merge(x = m1,       y = s_d_df, by.x = c("descr"),
+                                     by.y = c("s_d"),  all.x = TRUE)
+                         m1 <- merge(x = m1,      y = s2_d_df, by.x = c("descr"),
+                                     by.y = c("s2_d"), all.x = TRUE)
+    if (blnplotdetails) {m1 <- merge(x = m1,       y = p_d_df, by.x = c("descr"),
+                                     by.y = c("p_d"),  all.x = TRUE)}
+    if (blnfillcolors)  {m1 <- merge(x = m1,       y = f_d_df, by.x = c("descr"),
+                                     by.y = c("f_d"),  all.x = TRUE)}
+    if (blnedgecolors)  {m1 <- merge(x = m1,       y = e_d_df, by.x = c("descr"),
+                                     by.y = c("e_d"),  all.x = TRUE)}
 
   ## retreiving levels from inputted parameters
-    s_l <- unique(struct2$level) ;s_l_df <- as.data.frame(s_l) ; s_l_df$structure <- "present"; lvl <- s_l
+    s_l <- unique(struct2$level)
+    s_l_df <- as.data.frame(s_l)
+    s_l_df$structure <- "present"
+    lvl <- s_l
     blnlevel <- FALSE
     if (!is.null(levelmax)) {
       if (length(levelmax) > 1) {
         blnlevel <- TRUE
-        l_l <- unique(as.character(levelmax$level)) ;l_l_df <- as.data.frame(l_l) ; l_l_df$levelmax <- "present"; lvl <- c(lvl, l_l)
+        l_l <- unique(as.character(levelmax$level))
+        l_l_df <- as.data.frame(l_l)
+        l_l_df$levelmax <- "present"
+        lvl <- c(lvl, l_l)
       } else {}
     }
     if (blnplotdetails) {
@@ -122,9 +134,12 @@ sii_debug <- function(data_descr,
     lvl <- unique(lvl) ; lvl_df <- as.data.frame(lvl)
 
   ## merging into a result table
-                         m2 <- merge(x = lvl_df, y = s_l_df, by.x = c("lvl"), by.y = c("s_l"), all.x = TRUE)
-    if (blnlevel )      {m2 <- merge(x = m2,     y = l_l_df, by.x = c("lvl"), by.y = c("l_l"), all.x = TRUE)}
-    if (blnplotdetails) {m2 <- merge(x = m2,     y = p_l_df, by.x = c("lvl"), by.y = c("p_l"), all.x = TRUE)}
+                         m2 <- merge(x = lvl_df, y = s_l_df, by.x = c("lvl"),
+                                     by.y = c("s_l"), all.x = TRUE)
+    if (blnlevel )      {m2 <- merge(x = m2,     y = l_l_df, by.x = c("lvl"),
+                                     by.y = c("l_l"), all.x = TRUE)}
+    if (blnplotdetails) {m2 <- merge(x = m2,     y = p_l_df, by.x = c("lvl"),
+                                     by.y = c("p_l"), all.x = TRUE)}
 
   ## combining two result tables in one result list
     result <- NULL

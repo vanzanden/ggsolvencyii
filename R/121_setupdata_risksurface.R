@@ -40,24 +40,27 @@ fn_setupdata_surfaces <- function(data, params) {
         expandedstructure <- fn_structure_expansion(params = params
                                                      )
 
-        structureanddata <- fn_structure_data_integration(expandedstructure = expandedstructure,
-                                                          data = data)
+        structureanddata <- fn_structure_data_integration(
+                                  expandedstructure = expandedstructure,
+                                  data = data)
       ## tbv ordering of legenda
         levelordering <- as.list(expandedstructure$description)
-        structureanddata$description <- factor(structureanddata$description, levels = levelordering)
-        if ('fill' %in% colnames(structureanddata)) {
+        structureanddata$description <- factor(structureanddata$description,
+                                               levels = levelordering)
+        if ("fill"  %in% colnames(structureanddata)) {
             if (structureanddata$description[1] == structureanddata$fill[1]) {
-              structureanddata$fill <- factor(structureanddata$fill, levels = levelordering)
+              structureanddata$fill <- factor(structureanddata$fill,
+                                              levels = levelordering)
           }
         }
-        if ('colour' %in% colnames(structureanddata)) {
+        if ("colour" %in% colnames(structureanddata)) {
           if (structureanddata$description[1] == structureanddata$colour[1]) {
-            structureanddata$colour <- factor(structureanddata$colour, levels = levelordering)
+            structureanddata$colour <- factor(structureanddata$colour,
+                                              levels = levelordering)
           }
         }
-        data_out <- structureanddata
       ## return results
-        return(data_out)
+        return(structureanddata)
     }
 
 ## fn_structure_expansion =============================================== =====
@@ -130,27 +133,24 @@ fn_structure_expansion <- function(params) {
                     dplyr::group_by(level) %>%
                     dplyr::summarise(n = n())
 
-        ## maximum of components in each level, determined by dataframe or integer
+        ## maximum of components in each level, a dataframe or integer
 
         if (length(levelmax) == 1) {
           levelmaxdf <- data.frame(level = t1$level,
                                    levelmax = rep(levelmax, nrow(t1)))
         } else {
-# print(as.data.frame(levelmax))
-# print(" ")
-# print(data.frame(level = t1$level,levelmax = rep(99, nrow(t1))))
           levelmaxdf <- rbind(as.data.frame(levelmax),
                               data.frame(level = t1$level,
                                    levelmax = rep(99, nrow(t1))))
-# print("pre deduplicate")
-# print(levelmaxdf)
+
           levelmaxdf <- levelmaxdf[ !duplicated(levelmaxdf$level),]
-# print("post deduplicate")
-# print(levelmaxdf)
+
           # if(nrow(levelmaxdf) > levelmax) {
-          #   print(paste0("parameter levelmax is expanded met levelmax = 99 for one or more levels present in the structure: ",
-          #                "see 'sii_debug(data_descr = <data>$description,structure = <structure>,levelmax = <levelmax>' for a comparison"
-          #               ))
+          #   print(paste0("parameter levelmax is expanded met levelmax = 99",
+          #   " for one or more levels present in the structure: ",
+          #   "see 'sii_debug(data_descr = <data>$description,",
+          #   "structure = <structure>,levelmax = <levelmax>' for a comparison"
+          #   ))
         }
 
       ## if the levelmax of a level is smaller than the amount of lines of that
@@ -243,10 +243,12 @@ fn_structure_data_integration <- function(expandedstructure,
     data <- dplyr::mutate(data, group = id)
 
     ## basis merge, this leaves "o" lines out of the picture
-    d_out <- merge(x = data, y = expandedstructure,
-                   all.x = TRUE, by = "description")
+    d_out <- merge(x = data,
+                   y = expandedstructure,
+                   all.x = TRUE,
+                   by = "description")
+# d_outA <<- d_out
     d_names <- colnames(d_out)
-    #d_lines <- nrow(d_out)
 
     ## we have to add lines for possible "o"-lines.
     ## the levels for which an "o" possibility exists
@@ -257,15 +259,20 @@ fn_structure_data_integration <- function(expandedstructure,
       s_t1 <- as.data.frame(s_t1)
       colnames(s_t1) <- "level"
       s_t1$leveltmp <- sub("o", "", s_t1$level)
+# s_t1A <<- s_t1
       ## first we take a copy of basismerge, and remove each line which has
-      ## an id and level equal to the next line, or for the level there will
+      ## an id and level equal to the next line, or for the level where there will
       ## never be a need for an "o"-line
       m_t1 <- d_out
       m_t1 <- d_out[order(d_out$id, d_out$level, d_out$value), ]
+## an issue arises when the levelmax dataframe has values for non-existing levels after merging with the dataset.
+
       m_rows <- nrow(m_t1)
       m_counter <- m_rows
+      ## 2DO ## replace some code by using duplicated function
       while (m_counter >= 2 ) {
-        if (m_t1$id[m_counter - 1] == m_t1$id[m_counter] & m_t1$level[m_counter - 1] == m_t1$level[m_counter] ) {
+        if (m_t1$id[m_counter - 1] == m_t1$id[m_counter] &
+                        m_t1$level[m_counter - 1] == m_t1$level[m_counter] ) {
           m_t1 <- m_t1[-(m_counter - 1), ]
           m_rows <- m_rows - 1
           m_counter <- m_counter - 1
@@ -280,7 +287,7 @@ fn_structure_data_integration <- function(expandedstructure,
         }
       }
       ## and check for line 1
-      if (m_t1$level[1] %in% s_t1$leveltmp == FALSE) {
+      if (!m_t1$level[1] %in% s_t1$leveltmp ) {
         m_t1 <- m_t1[-1, ]
       }
 
@@ -298,7 +305,7 @@ fn_structure_data_integration <- function(expandedstructure,
       m_t1$ordering_2       <- expandedstructure$ordering_2[match(m_t1$level,
                                                 expandedstructure$level)]
       m_t1$levelmax         <- 1
-
+m_t1C <<- m_t1
       ## COLOR and FILLCOLOR: most likely it will be connected to description,
       ## although user could have coupled it with id
       ## there might be a need to copy the properties
@@ -315,14 +322,24 @@ fn_structure_data_integration <- function(expandedstructure,
       ## FILLCOLOR
       if ("fill" %in% d_names) {
         m_t1$fill <- NA
-        if (d_out$fill[1] == d_out$description[1]) {m_t1$fill <- m_t1$description}
-        if (d_out$fill[1] == d_out$group[1]) {m_t1$fill <- m_t1$group}
-        if (is.na(m_t1$fill[1])) { m_t1$fill <- d_t2$fill[match(m_t1$level, d_t2$tmplevel)]}
+        if (d_out$fill[1] == d_out$description[1]) {
+          m_t1$fill <- m_t1$description
+        }
+        if (d_out$fill[1] == d_out$group[1]) {
+          m_t1$fill <- m_t1$group
+        }
+        if (is.na(m_t1$fill[1])) {
+          m_t1$fill <- d_t2$fill[match(m_t1$level, d_t2$tmplevel)]
+        }
       }
       ## COLOUR
       if ("colour" %in% d_names) {
-        if (d_out$colour[1] == d_out$description[1]) {m_t1$colour <- m_t1$description}
-        if (d_out$colour[1] == d_out$group[1]) {m_t1$colour <- m_t1$group}
+        if (d_out$colour[1] == d_out$description[1]) {
+          m_t1$colour <- m_t1$description
+          }
+        if (d_out$colour[1] == d_out$group[1]) {
+          m_t1$colour <- m_t1$group
+        }
       }
       d_out <- rbind(d_out, m_t1)
       ## reorder (id/group ascending, ordering_2 ascending)
@@ -364,18 +381,21 @@ fn_structure_data_integration <- function(expandedstructure,
               print("error in fn_structure_data_integration, flag-C")
             }
             max_gllines  <- gl_lines$levelmax[1]
-            ## geen grouping possible if no of lines without components = 0 or 1,
-            ## this check should be replaced to fn_structure_expansion
-            if (count_gllines_nochild <= 1 & (count_gllines_withchild + count_gllines_nochild > max_gllines)) {
-              print(paste0("for level ", l_counter,
-                           " for id=", g_counter,
-                           " no accumulation is possible: only one levelcomponent has no childlevels, adjust parameter(dataframe) levelmax"))
+            ## geen grouping possible if number of lines without components = 0 or 1,
+            ## 2DO ## this check should be replaced to fn_structure_expansion
+            if (count_gllines_nochild <= 1 & (count_gllines_withchild
+                              + count_gllines_nochild > max_gllines)) {
+              print(paste0("for id=", g_counter, " and level =", l_counter, " ",
+                           "no accumulation is possible: only one ",
+                           "component has no childlevels, ",
+                           "please adjust parameter(dataframe) levelmax"))
               d_out2 <- rbind(d_out2, gl_lines)
             } else {
               ## flag_levelmaxissue
               if (max_gllines < count_gllines_withchild + 1) {
                 max_old <- max_gllines
-                max_gllines <- count_gllines_withchild + 1 ## we know count_gllines_nochild is greater or equal to 2
+                ## we know count_gllines_nochild is greater or equal to 2
+                max_gllines <- count_gllines_withchild + 1
                   print(paste0("for level ", l_counter,
                                " for id=", g_counter,
                                " levelmax is adjusted from ", max_old,
@@ -384,23 +404,25 @@ fn_structure_data_integration <- function(expandedstructure,
                   rm(max_old)
               }
               if (count_gllines > max_gllines) {
-                gl_lines_nochild <- gl_lines_nochild[order(-gl_lines_nochild$value ), ]
-                count_gllines_nochild_keep <- max_gllines - count_gllines_withchild - 1
-                if (count_gllines_nochild_keep < 1) {
-                  gl_lines_nochild_keep <- gl_lines_nochild[0, ]
-                } else {
-                  gl_lines_nochild_keep <- gl_lines_nochild[1:count_gllines_nochild_keep, ]
-                }
-                gl_lines_nochild_tosum <- gl_lines_nochild[count_gllines_nochild_keep +
-                                                        1:(nrow(gl_lines_nochild) - count_gllines_nochild_keep), ]
-                gl_lines_nochild_tosum$ind_show <- FALSE
-                o_line$value <- sum(gl_lines_nochild_tosum$value)
-                o_line$ind_show <- TRUE
-                d_out2 <- rbind(d_out2,
-                                gl_lines_withchild,
-                                gl_lines_nochild_keep,
-                                gl_lines_nochild_tosum,
-                                o_line)
+## block wrongly indented due to long var-names
+    gl_lines_nochild <- gl_lines_nochild[order(-gl_lines_nochild$value ), ]
+    count_gllines_nochild_keep <- max_gllines - count_gllines_withchild - 1
+    if (count_gllines_nochild_keep < 1) {
+      gl_lines_nochild_keep <- gl_lines_nochild[0, ]
+    } else {
+      gl_lines_nochild_keep <- gl_lines_nochild[1:count_gllines_nochild_keep, ]
+    }
+    gl_lines_nochild_tosum <- gl_lines_nochild[count_gllines_nochild_keep +
+                1:(nrow(gl_lines_nochild) - count_gllines_nochild_keep), ]
+    gl_lines_nochild_tosum$ind_show <- FALSE
+    o_line$value <- sum(gl_lines_nochild_tosum$value)
+    o_line$ind_show <- TRUE
+    d_out2 <- rbind(d_out2,
+## end of block wrongly indented due to long var-names
+                    gl_lines_withchild,
+                    gl_lines_nochild_keep,
+                    gl_lines_nochild_tosum,
+                    o_line)
               } else {
                 d_out2 <- rbind(d_out2, gl_lines)
               }
@@ -420,15 +442,19 @@ fn_structure_data_integration <- function(expandedstructure,
 
   ## adding ordering4 but actual ordering based on ordering3
     d_out2$ordering_4 <- 1:nrow(d_out2)
-    # d_out2b <- d_out2[order(d_out2$ordering_3), ]   # 5 okt 2018, d_out2b is never used (apparantly: syntax highlighting)
-    # d_out2.rownames <- 1:nrow(d_out2)               # 5 okt 2018, d_out2b.rownames is never used (ditto)
+    ## 5 okt 2018, d_out2b is never used (apparantly: syntax highlighting)
+    ## d_out2b <- d_out2[order(d_out2$ordering_3), ]
+    ## 5 okt 2018, d_out2b.rownames is never used (ditto)
+    # d_out2.rownames <- 1:nrow(d_out2)
     ## delete obsolete lines
     d_out2 <- d_out2[d_out2$ind_show == TRUE, ]
     d_out2 <- d_out2[d_out2$value != 0, ]
 
-  ## when dataset has (value != 0) descriptions that does not exist in expanded structure
-  ##   then a NA line is introduced when merging data and expanded structure. This will be removed here
-    d_out2 <- d_out2[!is.na(d_out2$description),]
+  ## when dataset has (value != 0) descriptions that does
+  ##  not exist in expanded structure
+  ##   then a NA line is introduced when merging data and expanded structure.
+  ##   This will be removed here
+    d_out2 <- d_out2[!is.na(d_out2$description), ]
   ## return results
     return(d_out2)
 }
@@ -445,7 +471,7 @@ fn_structure_data_integration <- function(expandedstructure,
 #'
 #' @return the dataframe with an added column ind_show
 
-fn_add_ind_show <- function (data) {
+fn_add_ind_show <- function(data) {
         data$ind_show <- TRUE
         data$ind_show[data$ind_d == TRUE] <- FALSE
         data$ind_show[data$ind_o == TRUE] <- FALSE

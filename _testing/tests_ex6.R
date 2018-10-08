@@ -17,152 +17,78 @@
 ##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 ##
+## about indenting ====================================================== =====
+## four spaces indending is datasetting, preparation or cleaning up
+## no indenting is the actual test
+##
+## test ================================================================= =====
+    testdata <- sii_z_ex6_data
 
- ## voorbereiding op outline  sec
-unique(paste0(sii_z_ex6_data$id,"-",sii_z_ex6_data$comparewithid))
+    testparams <- NULL
+    testparams$structuredf <- sii_z_ex6_structure
+    testparams$levelmax <- 99
+    testparams$aggregatesuffix <- "_other"
 
-## basistest regel 1, tonen resultaten van de buildup waarmee vergeleken wordt
- ggplot2::ggplot() +
-  geom_sii_risksurface(data = sii_z_ex6_data[sii_z_ex6_data$id == 1,],
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                             lwd = 0.05
-               ) +
-  ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;test_result
 
-
- ## basistest, outline met alle segmenten
- ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             comparewithid = comparewithid
-                             ),
-                             lwd = 0.05
-               ) +
-  ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
-
-
-## basistest, outline
- ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             comparewithid = comparewithid
-                             ),
-                               plotdetails = sii_plotdetails_sf16,
-                             lwd = 0.05
-               ) +
-  ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+    rm(testparams); rm(testdata); rm(test_result)
 
 
 
- ## alles, SHOWCASE
- ggplot2::ggplot() +
-  geom_sii_risksurface(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                             lwd = 0.05
-               ) +
-  ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-  ## complete outline, very thin
-  geom_sii_riskoutline(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             comparewithid = comparewithid
-                             ),
-                             lwd = 0.1,
-                              color = "black",
-                              alpha = 0.1,
-							  
-							  
-               ) +
-   ## only outer outline and scr outline,
-   geom_sii_riskoutline(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             comparewithid = comparewithid
-                             ),
-                             plotdetails = sii_z_ex4_plotdetails
-                            lwd = 0.6,
-                              color = "red",
-                              alpha = 0.7
-               )
+        testdata <- sii_z_ex6_data
+
+        testparams <- NULL
+        testparams$structuredf <- sii_structure_sf16_eng # sii_z_ex_structure
+        testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
+        testparams$aggregatesuffix <- "_other"
+
+sii_debug(data_descr = testdata$description, structure = testparams$structuredf, aggregatesuffix = testparams$aggregatesuffix,
+          levelmax = testparams$levelmax)
+
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ; test_result
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;
+
+ rm(testdata); rm(testparams); rm(test_result)
+# tests ========================================================= =====
+        testdata <- sii_z_ex6_data
+
+        testparams <- NULL
+        testparams$structuredf <- sii_z_ex6_structure
+        testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
+        testparams$aggregatesuffix <- "_other"
+        testparams$plotdetails <-  NULL
+
+        testmaxscrvalue = NULL # 100
+        testscalingx = 1 # 0.02
+        testscalingy = 1 # 0.02
+        testrotationdegrees = NULL # 10 # -10 # 70
+        testrotationdescription = NULL # operational #  life # l_longevity # h_s_longevity
+        testsquared = FALSE # TRUE
 
 
+ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping = ggplot2::aes(
+        x = time,
+        y = ratio,
+        value = value,  id = id, description = description, fill = description, color = description),
+                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+                        maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
+                        rotationdescription = testrotationdescription, squared = testsquared,plotdetails = testparams$plotdetails) +
+  ggplot2::theme_bw() #+ ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
+                      # ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_x_edgecolors_sf16_eng)
 
- ## alles, SHOWCASE, met grouping
- ggplot2::ggplot() +
-  geom_sii_risksurface(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                              levelmax = sii_levelmax_sf16_995,
-                             lwd = 0.05
-               ) +
-  ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-  ## complete outline, very thin
-  geom_sii_riskoutline(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             comparewithid = comparewithid
-                             ),
-                              levelmax = sii_levelmax_sf16_995,
-                             lwd = 0.1,
-                              color = "black",
-                              alpha = 0.1
-               ) +
-   ## only outer outline and scr outline,
-   geom_sii_riskoutline(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             comparewithid = comparewithid
-                             ),
-                              levelmax = sii_levelmax_sf16_995,
-                              plotdetails = sii_outline2_sf16_eng,
-                             lwd = 0.6,
-                              color = "red",
-                              alpha = 0.7
-               )
-
- ## alles, custom outline
-
- ggplot2::ggplot() +
-  geom_sii_risksurface(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                             lwd = 0.05
-                             ,color = "red"
-               ) +
-  ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-  geom_sii_riskoutline(data = sii_z_ex6_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             comparewithid = comparewithid
-
-                             ),
-                             lwd = 0.05,
-               outline = sii_z_ex6_outline
-               )
-
++
+  ggsolvencyii::geom_sii_riskoutline(data = testdata, mapping = ggplot2::aes(
+        comparewithid = comparewithid,
+        x = time,
+        y = ratio,
+        value = value,  id = id, description = description), color = "red", lwd = 0.7, alpha = 0.99,
+                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+                        maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
+                        rotationdescription = testrotationdescription, squared = testsquared, plotdetails = testparams$plotdetails) +
+  ggsolvencyii::geom_sii_riskconnection(data = testdata, mapping = ggplot2::aes(
+        comparewithid = comparewithid,
+        x = time,
+        y = ratio,      id = id), arrow = ggplot2::arrow(angle = 20, type = "closed" ))
 
 

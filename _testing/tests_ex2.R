@@ -17,211 +17,283 @@
 ##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 ##
-## sii_z_ex2_data ================================================== =====
+## about indenting ====================================================== =====
+## four spaces indending is datasetting, preparation or cleaning up
+## no indenting is the actual test
 ##
-## 3 dataregel, 1 EN 2E scr bevat alle leven en markt risicos
-## de derde regel ook nonlife en health
+## test ================================================================= =====
+    testdata <- sii_z_ex2_data
+
+    testparams <- NULL
+    testparams$structuredf <- sii_structure_sf16_eng
+    testparams$levelmax <- sii_levelmax_sf16_993
+    testparams$aggregatesuffix <- "_other"
+
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
+
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;test_result
+
+    rm(testparams); rm(testdata); rm(test_result)
+
+## sii_z_example1_data ================================================== =====
+##
+## 1 dataregel, scr bevat allee leven en markt risicos
 ##
 ##
-
-
-sii_debug(data_descr = sii_z_ex2_data$description,
-          structure = sii_structure_sf16_eng,
-          levelmax = sii_levelmax_sf16_995,
-          plotdetails = sii_plotdetails_sf16,
-          fillcolors = sii_x_fillcolors_sf16_eng,
-          edgecolors = sii_x_edgecolors_sf16_eng,
-          aggregatesuffix = "_test"  )
-
-sii_debug(data_descr = sii_z_ex2_data$description,
-          structure = sii_structure_sf16_eng,
-          levelmax = sii_levelmax_sf16_995,
-          plotdetails = sii_plotdetails_sf16,
-          fillcolors = sii_x_fillcolors_sf16_eng,
-          edgecolors = sii_x_edgecolors_sf16_eng,
-          aggregatesuffix = "_other"  )
-
-
-## basistest data, tonen resultaten
- ggplot2::ggplot() +
+## basistest circle, no plotdetails ===================================== =====
+ggplot2::ggplot() +
   geom_sii_risksurface(data = sii_z_ex2_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                             lwd = 0.05
-               ) +
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+
+              )  )
+
+## basistest circle, legends ok === ===================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+
+              )  ) +
   ggplot2::theme_bw() +
   ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
-## groeperen van resultaten, levelmax = 3
- ggplot2::ggplot() +
+## basistest circle=, with plotdetails table ============================ =====
+ggplot2::ggplot() +
   geom_sii_risksurface(data = sii_z_ex2_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                              # maxscrvalue = 53.333,
-                               levelmax = 3,
-                             # levelmax = sii_levelmax_sf16_993,
-                             # color = "black",
-                              # scalingx = .2,
-                             # , scalingy=.5,
-                             # rotationdegrees = -90,
-                             # squared = TRUE,
-                             # rotationdescription = "life",
-                             # rotationdescription = "l_longevity",
-                             lwd = 0.05
-               ) +
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+
+              ),
+              plotdetails = sii_plotdetails_sf16  ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+##  =max scr===================================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+              ),
+               maxscrvalue = .00333
+              ) +
   ggplot2::theme_bw() +
   ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
-## groeperen van resultaten, levelmax = 993
-  ggplot2::ggplot() +
+##  =schaling hor===================================================== =====
+ggplot2::ggplot() +
   geom_sii_risksurface(data = sii_z_ex2_data,
-               mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                             description = description,
-                             fill = description, color = description
-                             ),
-                              # maxscrvalue = 53.333,
-                             # levelmax = 4,
-                             levelmax = sii_levelmax_sf16_993,
-                             # color = "black",
-                              # scalingx = .2,
-                             # , scalingy=.5,
-                             # rotationdegrees = -90,
-                             # squared = TRUE,
-                             # rotationdescription = "life",
-                             # rotationdescription = "l_longevity",
-                             lwd = 0.05
-               ) +
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+              ),
+               scalingx = .01
+  ) +
   ggplot2::theme_bw() +
   ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
   ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
 
+##  ==levelmax =2==================================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+              ),
+               levelmax = 2  ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
- ## voorbereiding op outline  sec
-unique(paste0(sii_z_ex2_data$id,"-",sii_z_ex2_data$comparewithid))
+##  ==levelmax = 3 ,color is part of aes=================================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            # ,color = description
+                            ),
+               levelmax = 3,
+              color = "black"
+              ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
-sii_z_ex2_data[!duplicated(sii_z_ex2_data[c('id','time', 'ratio', 'comparewithid')]),]
+##  ===levelmax = tabel 993 ============================================= =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+              ),
+               levelmax = sii_levelmax_sf16_993
+  ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
 
 
+##  ===levelmax = tabel 995============================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+              ),
+               levelmax = sii_levelmax_sf16_995
+  ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+
+
+## test square and description rotation ================================== =====
+
+ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+    geom_sii_risksurface(data = sii_z_ex2_data,
+                  mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                                 ,fill = description
+                              ),
+                     rotationdescription = "l_lapse",
+                     squared = TRUE,
+                color = "black",
+                lwd = 0.25
+
+                 ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+## test square, fixed rotation and description rotation ================== =====
+
+ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+    geom_sii_risksurface(data = sii_z_ex2_data,
+                  mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                                 ,fill = description
+                                ,color = description
+                              ),
+                      rotationdegrees = -10,
+                     rotationdescription = "l_lapse",
+                     squared = TRUE,
+                color = "black",
+                lwd = 0.25
+
+                 ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+
+## test description rotatie on an "other" item ================== =====
+
+ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+    geom_sii_risksurface(data = sii_z_ex2_data,
+                  mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                                 ,fill = description
+                                ,color = description
+                              ),
+                     squared = TRUE,
+                     levelmax = sii_levelmax_sf16_995,
+                     rotationdescription = "market_other",
+                color = "black",
+                lwd = 0.25
+                 ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+
+
+
+## test alles ================== =====
+
+ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+    geom_sii_risksurface(data = sii_z_ex2_data,
+                  mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                                 ,fill = description
+                                ,color = description
+                              ),
+                  maxscrvalue = 53.333,
+                   scalingx = 10.0,
+                   scalingy = 0.005,
+                    levelmax = sii_levelmax_sf16_995,
+                      rotationdegrees = -90,
+                     rotationdescription = "life_other",
+                     squared = TRUE,
+                # color = "green",
+                lwd = 0.75
+                 ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+
+## vergelijk grootte van rond en square in een figuur =================== =====
 
 ggplot2::ggplot() +
-  geom_sii_risksurface(data = sii_z_ex2_data[sii_z_ex2_data$id == 2,],
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description,color = description, fill = description ),
-                     lwd = .5
-  )
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = 10, y = 5 , id = id, value = value
+                                     ,description = description
+                                    ,fill = description
+                                    ,color = description
+                                    ),
+              # color = NA
+              lwd = .75
+              ,alpha = 0.6
+  ) +
+  ggplot2::theme_bw()  +
+  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = 10, y = 5 , id = id, value = value,
+                            description = description
+                            ,fill = description
+                                        ),
+              color = "black",
+              lwd = .5,
+              squared = TRUE,
+              # rotationdegrees = 45,
+              alpha = .2
+   )
+
+## outline (no 'compareid'-column is present in data , is equal to the situation that raw data has the column but no mapping has been mede in 'geom_'-call)
+## no comparewithid in the mapping
+  ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+    geom_sii_riskoutline(data = sii_z_ex2_data,
+                  mapping = ggplot2::aes(x = time, y = ratio , id = id,
+                                         value = value, description = description)
+                 ) +
+  ggplot2::theme_bw()
+
+##  comparewithid in the mapping, refering to id. i.e. "self"
+
+  ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+    geom_sii_riskoutline(data = sii_z_ex2_data,
+                  mapping = ggplot2::aes(x = time, y = ratio , id = id,
+                                         value = value, description = description
+                                        ,comparewithid = id)
+                 ) +
+  ggplot2::theme_bw()
 
 
-testparams <- NULL
-
-testparams$structuredf <- sii_structure_sf16_eng
-testparams$levelmax <- 99
-testdata <- sii_z_ex2_data[sii_z_ex2_data$id == 2,]
-
-testparams$aggregatesuffix <- "_other"
-test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ;test_result
-
-test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ; test_result
-
-rm(testparams) ; rm(testdata) ;rm(test_result)
-
-
-
-##  outline
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data,
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = comparewithid),
-                     # color = "red",
-                     # lwd = .5 #,
-  )
-
-
-## outline sec (no plotdetails table )
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = comparewithid),
-                     # color = "red",
-                     # lwd = .5 #,
-  )
-
-
-  ##  outline sec (no plotdetails table , fixed comparewithid)
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = 2 ),
-                     color = "red",
-                     lwd = .5 #,
-  )
-
-  ## test outline sec (no plotdetails table , fixed wrong comparewithid)
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = 7 ),
-                     color = "red",
-                     lwd = .5 #,
-  )
-
-  ## test outline sec (no plotdetails table , no comparewithid)
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description ),
-                     color = "red",
-                     lwd = .5 #,
-  )
-
-
-
-
-
-
-
-
-
-
-
-  ## test outline sec (standaard plotdetails table )
-  ggplot2::ggplot() +
-  geom_sii_riskoutline(data = sii_z_ex2_data[sii_z_ex2_data$id <= 2,],
-                     mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value,
-                                   description = description, comparewithid = comparewithid),
-                     color = "red",
-                     lwd = 0.5 ,
-					           plotdetails = sii_plotdetails_sf16
-  )
-
-
-
-
-# test alles in een
-    ggplot() +
-     geom_sii_risksurface(data = sii_z_ex2_data,
-                 mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
-                               fill = description,color = description),
-                               lwd = 0.5) +
-                ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-                ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng) +
-      geom_sii_riskoutline(data = sii_z_ex2_data,
-                         mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value,
-                                       description = description, comparewithid = comparewithid),
-                         color = "red", lwd = 0.7, alpha = 0.99 ) +
-      geom_sii_riskconnection(data = sii_z_ex2_data,
-                            mapping = ggplot2::aes(x = time, y = ratio, id = id, comparewithid = comparewithid ),
-                            arrow = arrow(angle = 20, type = "closed" )
-                            ) +
-      ggplot2::theme_bw()
+  ## will throw error plus warning about this error
+  ggplot2::ggplot() +  #xlim(0,40) +# ylim(190,230)+
+    geom_sii_riskoutline(data = sii_z_ex2_data,
+                  mapping = ggplot2::aes(x = time, y = ratio , id = id,
+                                         value = value, description = description
+                                        ,comparewithid = 2)
+                 ) +
+  ggplot2::theme_bw()
 
 

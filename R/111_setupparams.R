@@ -87,11 +87,17 @@ fn_maxscrvalue <- function(data, params
 
 fn_constructionplotdetails <- function(structure) {
 
-      lvl <- c(structure$level, paste0(structure$level, "o"), paste0(structure$level, "d"))
+      lvl <- c(structure$level,
+               paste0(structure$level, "o"),
+               paste0(structure$level, "d"))
       plotdetails <- data.frame(levelordescription = lvl,
                                surface = TRUE,
-                               outline1 = TRUE, outline2 = TRUE, outline3 = TRUE, outline4 = TRUE,
-                               outline11 = TRUE, outline13 = TRUE)
+                               outline1 = TRUE,
+                               outline2 = TRUE,
+                               outline3 = TRUE,
+                               outline4 = TRUE,
+                               outline11 = TRUE,
+                               outline13 = TRUE)
     ## deduplicate
       plotdetails <- plotdetails[!duplicated(plotdetails), ]
     ## removal of lines with double lettercodes (i.e. 'do', 'dd')

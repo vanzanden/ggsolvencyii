@@ -6,14 +6,14 @@
 \usage{
 geom_sii_risksurface(data = NULL, mapping = NULL,
   stat = "sii_risksurface",
-  structuredf = ggsolvencyii::sii_structure_sf16_eng, levelmax = 99,
-  aggregatesuffix = "_other", maxscrvalue = NULL, scalingx = 1,
-  scalingy = 1, rotationdegrees = NULL, rotationdescription = NULL,
-  squared = FALSE, plotdetails = NULL, position = "identity",
-  na.rm = FALSE, show.legend = NA, inherit.aes = TRUE, ...)
+  structuredf = ggsolvencyii::sii_structure_sf16_eng, squared = FALSE,
+  levelmax = 99, aggregatesuffix = "_other", plotdetails = NULL,
+  rotationdegrees = NULL, rotationdescription = NULL, maxscrvalue = NULL,
+  scalingx = 1, scalingy = 1, position = "identity", na.rm = FALSE,
+  show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex1_data}}}
+\item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex3_data}}}
 
 \item{mapping}{required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value}
 
@@ -21,10 +21,18 @@ geom_sii_risksurface(data = NULL, mapping = NULL,
 
 \item{structuredf}{(dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataset with a suffix "d" behind the levelnumber are diversification items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the description in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in description column.}
 
+\item{squared}{(optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.}
+
 \item{levelmax}{(integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 separate items and one grouped item. \cr
 For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii_levelmax_sf16_993}} are present in the package where the components of market, life, non-life, health are combined in 5 or 3 items.}
 
 \item{aggregatesuffix}{(string, default = "_other")\cr When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix}
+
+\item{plotdetails}{a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
+
+\item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
+
+\item{rotationdescription}{(optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.}
 
 \item{maxscrvalue}{(optional, double, default = NULL)\cr
 the scale of the different plot elements is is by default measured to the largest level 1 element (i.e. SCR) in the dataset, this can be overridden by this parameter for example when combining several plots}
@@ -32,14 +40,6 @@ the scale of the different plot elements is is by default measured to the larges
 \item{scalingx}{(optional, positive value ,default = 1)\cr for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in x-direction}
 
 \item{scalingy}{(optional, positive value ,default = 1)\cr for plots where units in x and y are different in magnitude distortion can occur. This parameter scales only in y-direction}
-
-\item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
-
-\item{rotationdescription}{(optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.}
-
-\item{squared}{(optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the heigth and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equalsized part which fall in the vertical or horizontal parts of the square.}
-
-\item{plotdetails}{a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 4 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex4_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
 
 \item{position}{standard ggplot function}
 

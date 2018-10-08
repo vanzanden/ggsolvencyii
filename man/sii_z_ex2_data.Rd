@@ -6,12 +6,11 @@
 \title{sii_z_ex2_data}
 \format{A data frame with columns:
 \describe{
-           \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+           \item{time}{numerical: a representation of an x value: \cr  The x aesthetic could also be a normal numbering, or a longitude}
            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
            \item{description}{character: component of the structure}
-           \item{id}{ number: }
-           \item{value}{numerical: }
-           \item{comparewithid}{numerical: }
+           \item{id}{ number}
+           \item{value}{numerical }
          }}
 \source{
 loosely based on public SFCR report of a medium sized dutch life insurer
@@ -21,7 +20,7 @@ loosely based on public SFCR report of a medium sized dutch life insurer
 sii_z_ex2_data
 }
 \description{
-example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
+example dataset, in tidyverse format, with only one instance of a limited filled sf structure.
 }
 \examples{
 sii_z_ex2_data
