@@ -247,7 +247,6 @@ fn_structure_data_integration <- function(expandedstructure,
                    y = expandedstructure,
                    all.x = TRUE,
                    by = "description")
-# d_outA <<- d_out
     d_names <- colnames(d_out)
 
     ## we have to add lines for possible "o"-lines.
@@ -259,7 +258,6 @@ fn_structure_data_integration <- function(expandedstructure,
       s_t1 <- as.data.frame(s_t1)
       colnames(s_t1) <- "level"
       s_t1$leveltmp <- sub("o", "", s_t1$level)
-# s_t1A <<- s_t1
       ## first we take a copy of basismerge, and remove each line which has
       ## an id and level equal to the next line, or for the level where there will
       ## never be a need for an "o"-line
@@ -305,7 +303,6 @@ fn_structure_data_integration <- function(expandedstructure,
       m_t1$ordering_2       <- expandedstructure$ordering_2[match(m_t1$level,
                                                 expandedstructure$level)]
       m_t1$levelmax         <- 1
-m_t1C <<- m_t1
       ## COLOR and FILLCOLOR: most likely it will be connected to description,
       ## although user could have coupled it with id
       ## there might be a need to copy the properties

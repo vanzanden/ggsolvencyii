@@ -18,6 +18,7 @@
 ##
 ##
 ## sii_structure_sf16_eng/nld , sii_edge/fillcolors_eng/nld ============= =====
+  ## read data from xls==== =====
   readdata <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                               sheet = "struct_and_colors_sf16",
                                               col_types = c(rep("text", 8)))
@@ -34,16 +35,6 @@
         devtools::use_data(sii_structure_sf16_eng, overwrite = FALSE)
         rm(sii_structure_sf16_eng) ; rm(dataset)
 
-  ## struct nld =========== =====
-        dataset <- dplyr::select(readdata,
-                                 description = description_nld,
-                                 level,
-                                 childlevel)
-        dataset <- dataset[!is.na(dataset$description), ]
-        sii_structure_sf16_nld <- dataset
-        # sii_structure_sf16_nld
-        devtools::use_data(sii_structure_sf16_nld, overwrite = FALSE)
-        rm(sii_structure_sf16_nld) ; rm(dataset)
 
   ## color fill eng ======= =====
         dataset <- dplyr::select(readdata,
@@ -57,17 +48,6 @@
         devtools::use_data(sii_x_fillcolors_sf16_eng, overwrite = FALSE)
         rm(sii_x_fillcolors_sf16_eng) ; rm(dataset); rm(colorset)
 
-  ##  color fill nld ====== =====
-        dataset <- dplyr::select(readdata,
-                                 description = description_color_nld,
-                                 colorset = fill)
-        dataset <- dataset[!is.na(dataset$colorset), ]
-        colorset <- paste0("#",dataset$colorset)
-        names(colorset) <- dataset$description
-        sii_x_fillcolors_sf16_nld <- colorset
-        # sii_x_fillcolors_sf16_nld
-        devtools::use_data(sii_x_fillcolors_sf16_nld, overwrite = FALSE)
-        rm(sii_x_fillcolors_sf16_nld) ; rm(dataset); rm(colorset)
 
   ## color edge eng ======= =====
         dataset <- dplyr::select(readdata,
@@ -81,7 +61,30 @@
         devtools::use_data(sii_x_edgecolors_sf16_eng, overwrite = FALSE)
         rm(sii_x_edgecolors_sf16_eng) ; rm(dataset); rm(colorset)
 
-  ##  color edge nld ====== =====
+  ##   struct nld ========= =====
+        dataset <- dplyr::select(readdata,
+                                 description = description_nld,
+                                 level,
+                                 childlevel)
+        dataset <- dataset[!is.na(dataset$description), ]
+        sii_structure_sf16_nld <- dataset
+        # sii_structure_sf16_nld
+        devtools::use_data(sii_structure_sf16_nld, overwrite = FALSE)
+        rm(sii_structure_sf16_nld) ; rm(dataset)
+
+  ##   color fill nld ===== =====
+        dataset <- dplyr::select(readdata,
+                                 description = description_color_nld,
+                                 colorset = fill)
+        dataset <- dataset[!is.na(dataset$colorset), ]
+        colorset <- paste0("#",dataset$colorset)
+        names(colorset) <- dataset$description
+        sii_x_fillcolors_sf16_nld <- colorset
+        # sii_x_fillcolors_sf16_nld
+        devtools::use_data(sii_x_fillcolors_sf16_nld, overwrite = FALSE)
+        rm(sii_x_fillcolors_sf16_nld) ; rm(dataset); rm(colorset)
+
+  ##   color edge nld ===== =====
         dataset <- dplyr::select(readdata,
                                  description=description_color_nld,
                                  colorset = edge)
@@ -92,21 +95,21 @@
         devtools::use_data(sii_x_edgecolors_sf16_nld, overwrite = FALSE)
         rm(sii_x_edgecolors_sf16_nld) ; rm(dataset); rm(colorset)
 
-  ## last cleanup
+  ## last cleanup ========= =====
         rm(readdata)
 
 ## sii_levelmax_sf16_995 ================================================ =====
   sii_levelmax_sf16_995 <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                             sheet = "levelmax_sf16_995")
   # sii_levelmax_sf16_995
-  devtools::use_data(sii_levelmax_sf16_995, overwrite = TRUE)
+  devtools::use_data(sii_levelmax_sf16_995, overwrite = FALSE)
   rm(sii_levelmax_sf16_995)
 
 ## sii_levelmax_sf16_993 ================================================ =====
   sii_levelmax_sf16_993 <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
                                             sheet = "levelmax_sf16_993")
   # sii_levelmax_sf16_993
-  devtools::use_data(sii_levelmax_sf16_993, overwrite = TRUE)
+  devtools::use_data(sii_levelmax_sf16_993, overwrite = FALSE)
   rm(sii_levelmax_sf16_993)
 
 ## sii_plotdetails_sf16 ================================================= =====
@@ -123,7 +126,7 @@
 
   sii_plotdetails_sf16 <- as.data.frame(data)
   # sii_plotdetails_sf16
-  devtools::use_data(sii_plotdetails_sf16, overwrite = TRUE)
+  devtools::use_data(sii_plotdetails_sf16, overwrite = FALSE)
       ## test for tidyverse transformation for outline
       testdata <- dplyr::select(sii_plotdetails_sf16, - surface)
       testdata <- tidyr::gather(data = testdata, key = outlinetype, value = draw, -levelordescription)
@@ -150,7 +153,7 @@
                                       # comparewithid = data$comparewithid
                                       )
   # sii_z_ex2_data
-  devtools::use_data(sii_z_ex2_data, overwrite = TRUE)
+  devtools::use_data(sii_z_ex2_data, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex2_data)
 
@@ -170,8 +173,8 @@
                                       id = data$id,
                                       comparewithid = data$comparewithid
                                     )
-  # sii_z_ex3_data
-  devtools::use_data(sii_z_ex3_data, overwrite = TRUE)
+   # sii_z_ex3_data
+  devtools::use_data(sii_z_ex3_data, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex3_data)
 
@@ -189,7 +192,7 @@
 
   sii_z_ex3_plotdetails <- as.data.frame(data)
   # sii_z_ex3_plotdetails
-  devtools::use_data(sii_z_ex3_plotdetails, overwrite = TRUE)
+  devtools::use_data(sii_z_ex3_plotdetails, overwrite = FALSE)
       ## test for tidyverse transformation for outline
       testdata <- dplyr::select(sii_z_ex3_plotdetails, - surface)
       testdata <- tidyr::gather(data = testdata, key = outlinetype, value = draw, -levelordescription)
@@ -206,7 +209,7 @@
                                                 col_types = c(rep("text", 3),
                                                               rep("skip", 2)))
   # sii_z_ex4_structure
-  devtools::use_data(sii_z_ex4_structure, overwrite = TRUE)
+  devtools::use_data(sii_z_ex4_structure, overwrite = FALSE)
   rm(sii_z_ex4_structure)
 
 ## sii_z_ex4_data ================================================== =====
@@ -225,7 +228,7 @@
                                     comparewithid = data$comparewithid
                                     )
   # sii_z_ex4_data
-  devtools::use_data(sii_z_ex4_data, overwrite = TRUE)
+  devtools::use_data(sii_z_ex4_data, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex4_data)
 
@@ -237,7 +240,7 @@
                                         levelmax = as.numeric(data$levelmax)
                                         )
   # sii_z_ex4_levelmax
-  devtools::use_data(sii_z_ex4_levelmax, overwrite = TRUE)
+  devtools::use_data(sii_z_ex4_levelmax, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex4_levelmax)
 
@@ -247,14 +250,52 @@
 
 ##  e x a m p l e  6 ==================================================== =====
 ## sii_z_ex6_structure , edge, fillcolors =============================== =====
-  sii_z_ex6_structure <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
-                                                sheet = "ex6_struct",
-                                                col_types = c(rep("text", 3))
-                                                )
-  # sii_z_ex6_structure
-  devtools::use_data(sii_z_ex6_structure, overwrite = TRUE)
-  rm(sii_z_ex6_structure)
+  ## read data from xls==== =====
+  readdata <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
+                                              sheet = "ex6_struct_and_colors",
+                                              col_types = c(rep("text", 8)))
+  readdata
 
+  ## struct eng =========== =====
+        dataset <- dplyr::select(readdata,
+                                 description = description_eng,
+                                 level,
+                                 childlevel)
+        dataset <- dataset[!is.na(dataset$description), ]
+        sii_z_ex6_structure <- dataset
+        sii_z_ex6_structure
+        devtools::use_data(sii_z_ex6_structure, overwrite = FALSE)
+        rm(sii_z_ex6_structure) ; rm(dataset)
+
+
+  ## color fill eng ======= =====
+        dataset <- dplyr::select(readdata,
+                                 description = description_color_eng,
+                                 colorset = fill)
+        dataset <- dataset[!is.na(dataset$colorset), ]
+        colorset <- paste0("#",dataset$colorset)
+        names(colorset) <- dataset$description
+        sii_z_ex6_fillcolors <- colorset
+        # sii_z_ex6_fillcolors
+        devtools::use_data(sii_z_ex6_fillcolors, overwrite = FALSE)
+        rm(sii_z_ex6_fillcolors) ; rm(dataset); rm(colorset)
+
+
+  ## color edge eng ======= =====
+        dataset <- dplyr::select(readdata,
+                                 description=description_color_eng,
+                                 colorset = edge)
+        dataset <- dataset[!is.na(dataset$colorset), ]
+        colorset <- paste0("#",dataset$colorset)
+        names(colorset) <- dataset$description
+        sii_z_ex6_edgecolors <- colorset
+        # sii_z_ex6_edgecolors
+        devtools::use_data(sii_z_ex6_edgecolors, overwrite = FALSE)
+        rm(sii_z_ex6_edgecolors) ; rm(dataset); rm(colorset)
+
+
+  ## last cleanup ========= =====
+        rm(readdata)
 
 ## sii_z_ex6_data ================================================== =====
   data <- readxl::read_xlsx(path = "xls/preparingtables.xlsx",
@@ -272,7 +313,7 @@
                                       comparewithid = data$comparewithid
                                     )
   # sii_z_ex6_data
-  devtools::use_data(sii_z_ex6_data, overwrite = TRUE)
+  devtools::use_data(sii_z_ex6_data, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex6_data)
 
@@ -292,7 +333,7 @@
                                       comparewithid = data$comparewithid
                                     )
   # sii_z_ex6_data2
-  devtools::use_data(sii_z_ex6_data2, overwrite = TRUE)
+  devtools::use_data(sii_z_ex6_data2, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex6_data2)
 
@@ -305,7 +346,7 @@
                                         levelmax = as.numeric(data$levelmax)
                                         )
   # sii_z_ex6_levelmax
-  devtools::use_data(sii_z_ex6_levelmax, overwrite = TRUE)
+  devtools::use_data(sii_z_ex6_levelmax, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex6_levelmax)
 
@@ -323,7 +364,7 @@
 
   sii_z_ex6_plotdetails <- as.data.frame(data)
   # sii_z_ex6_plotdetails
-  devtools::use_data(sii_z_ex6_plotdetails, overwrite = TRUE)
+  devtools::use_data(sii_z_ex6_plotdetails, overwrite = FALSE)
       ## test for tidyverse transformation for outline
       testdata <- dplyr::select(sii_z_ex6_plotdetails, - surface)
       testdata <- tidyr::gather(data = testdata, key = outlinetype, value = draw, -levelordescription)
@@ -348,7 +389,7 @@
                                       vergelijkmet = data$vergelijkmet
                                     )
   # sii_z_ex7_data
-  devtools::use_data(sii_z_ex7_data, overwrite = TRUE)
+  devtools::use_data(sii_z_ex7_data, overwrite = FALSE)
   rm(data)
   rm(sii_z_ex7_data)
 
@@ -366,7 +407,7 @@
 
   sii_z_ex7_plotdetails <- as.data.frame(data)
   # sii_z_ex7_plotdetails
-  devtools::use_data(sii_z_ex7_plotdetails, overwrite = TRUE)
+  devtools::use_data(sii_z_ex7_plotdetails, overwrite = FALSE)
       ## test for tidyverse transformation for outline
       testdata <- dplyr::select(sii_z_ex7_plotdetails, - surface)
       testdata <- tidyr::gather(data = testdata, key = outlinetype, value = draw, -levelordescription)

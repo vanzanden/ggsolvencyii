@@ -70,7 +70,7 @@ sii_debug(data_descr = testdata$description,
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ; test_result
 
-test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ; test_result
 
 ggplot2::ggplot() +
                           ggsolvencyii::geom_sii_risksurface(data = testdata,

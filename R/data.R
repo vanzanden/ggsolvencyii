@@ -20,7 +20,7 @@
 ## sii_x_fillcolors_sf16_eng ============================================ =====
 #' sii_x_fillcolors_sf16_eng
 #'
-#' a colorset where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
+#' a colorset, as named list, where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
 #'
 #' @docType data
 #'
@@ -35,7 +35,7 @@
 ## sii_x_edgecolors_sf16_eng ============================================ =====
 #' sii_x_edgecolors_sf16_eng
 #'
-#' a colorset where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
 #'
 #' @docType data
 #'
@@ -52,7 +52,7 @@
 ## sii_x_fillcolors_sf16_nld ============================================ =====
 #' sii_x_fillcolors_sf16_nld
 #'
-#' a colorset where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
+#' a colorset, as named list, where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
 #'
 #' @docType data
 #'
@@ -67,7 +67,7 @@
 ## sii_x_edgecolors_sf16_nld ============================================ =====
 #' sii_x_edgecolors_sf16_nld
 #'
-#' a colorset where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
 #'
 #' @docType data
 #'
@@ -207,6 +207,7 @@
 
 
 
+
 ## sii_z_ex2_data ======================================================= =====
 #' sii_z_ex2_data
 #'
@@ -229,6 +230,7 @@
 #' @examples
 #' sii_z_ex2_data
 "sii_z_ex2_data"
+
 
 
 ## sii_z_ex3_data ======================================================= =====
@@ -282,6 +284,7 @@
 #' @examples
 #' sii_z_ex3_plotdetails
 "sii_z_ex3_plotdetails"
+
 
 
 ## sii_z_ex4_structure ================================================== =====
@@ -352,6 +355,7 @@
 #' @examples
 #' sii_z_ex4_levelmax
 "sii_z_ex4_levelmax"
+
 
 
 
@@ -494,6 +498,38 @@
 #' sii_z_ex6_plotdetails
 "sii_z_ex6_plotdetails"
 
+## sii_z_ex6_fillcolors ================================================= =====
+#' sii_z_ex6_fillcolors
+#'
+#' a colorset, as named list, where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
+#'
+#' @docType data
+#'
+#' @source
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden/ggsolvencyii}
+#'
+#' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
+#' @examples
+#' sii_z_ex6_fillcolors
+"sii_z_ex6_fillcolors"
+
+## sii_z_ex6_edgecolors ================================================= =====
+#' sii_z_ex6_edgecolors
+#'
+#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#'
+#' @docType data
+#'
+#' @source
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden/ggsolvencyii}
+#'
+#' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
+
+#' @examples
+#' sii_z_ex6_edgecolors
+"sii_z_ex6_edgecolors"
+
+
 ## sii_z_ex7_data ======================================================= =====
 #' sii_z_ex7_data
 #'
@@ -549,4 +585,5 @@
 #' @examples
 #' sii_z_ex7_plotdetails
 "sii_z_ex7_plotdetails"
+
 ## ====================================================================== =====

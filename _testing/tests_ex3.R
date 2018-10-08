@@ -38,7 +38,7 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
 
 rm(testdata); rm(testparams); rm(test_result)
 
-## test ================================================================= =====
+## test setup ================================================================= =====
         testdata <- sii_z_ex3_data
 
         testparams <- NULL
@@ -54,7 +54,7 @@ rm(testdata); rm(testparams); rm(test_result)
         testrotationdescription = NULL # operational #  life # l_longevity # h_s_longevity
         testsquared = FALSE # TRUE
 
-
+## plain vanilla plot
 ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping = ggplot2::aes(
         x = time,
         y = ratio,
@@ -78,7 +78,7 @@ ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping 
         y = ratio,      id = id), arrow = ggplot2::arrow(angle = 20, type = "closed" )
                           )
 
-## test ================================================================= =====
+## test  and plotdetails 3 where only 'o'levels are plotted in surface but since there is no grouping, nothing is plotted========== =====
 testparams$plotdetails <-  sii_z_ex3_plotdetails
 
 ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping = ggplot2::aes(
@@ -105,7 +105,32 @@ ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping 
 
 
 
-## test ===missing pieces door combin levelmax and plotdetails 2 where 'o'levels not plotted =====
+## test ===missing pieces door combin levelmax and plotdetails 3 where only 'o'levels are plotted =====
+testparams$levelmax = sii_levelmax_sf16_995
+
+ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping = ggplot2::aes(
+        x = time,
+        y = ratio,
+        value = value,  id = id, description = description, fill = description, color = description),
+                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+                        maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
+                        rotationdescription = testrotationdescription, squared = testsquared,plotdetails = testparams$plotdetails) +
+  ggplot2::theme_bw() + ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
+                      ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_x_edgecolors_sf16_eng) +
+  ggsolvencyii::geom_sii_riskoutline(data = testdata, mapping = ggplot2::aes(
+        comparewithid = comparewithid,
+        x = time,
+        y = ratio,
+        value = value,  id = id, description = description), color = "red", lwd = 0.7, alpha = 0.99,
+                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+                        maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
+                        rotationdescription = testrotationdescription, squared = testsquared, plotdetails = testparams$plotdetails) +
+  ggsolvencyii::geom_sii_riskconnection(data = testdata, mapping = ggplot2::aes(
+        comparewithid = comparewithid,
+        x = time,
+        y = ratio,      id = id), arrow = ggplot2::arrow(angle = 20, type = "closed" ))
+
+## less groups, so o-level is larger,
 testparams$levelmax = sii_levelmax_sf16_993
 
 ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping = ggplot2::aes(
@@ -130,8 +155,12 @@ ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping 
         x = time,
         y = ratio,      id = id), arrow = ggplot2::arrow(angle = 20, type = "closed" ))
 
+
+
+
 ## test ===self reference =====
-testparams$levelmax = sii_levelmax_sf16_993
+testparams$levelmax = 99
+testparams$plotdetails <- NULL
 
 ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping = ggplot2::aes(
         x = time,

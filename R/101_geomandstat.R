@@ -168,7 +168,7 @@ geom_sii_risksurface <- function(data = NULL,
 #'
 #' @examples
 #' ggplot2::ggplot() +
-#' geom_sii_riskoutline(data = sii_z_ex2_data,
+#' geom_sii_riskoutline(data = sii_z_ex3_data,
 #'  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'    color = "red", lwd = .5 )
@@ -177,7 +177,7 @@ geom_sii_risksurface <- function(data = NULL,
 #'  sii_z_ex3_plotdetails
 #'
 #' ggplot2::ggplot() +
-#' geom_sii_riskoutline(data = sii_z_ex2_data,
+#' geom_sii_riskoutline(data = sii_z_ex3_data,
 #'   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
 #'                          comparewithid = comparewithid),
 #'   color = "red", lwd = .5 ,
@@ -258,24 +258,24 @@ geom_sii_riskoutline <- function(data = NULL,
 #' \dontrun{
 #' dummy
 # ' ggplot2::ggplot() +
-# '   geom_sii_riskconnection(data = sii_z_ex2_data,
+# '   geom_sii_riskconnection(data = sii_z_ex3_data,
 # '   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
 # '   arrow = arrow (angle=20, type = "closed" ))
 # '
 # '
 # '    ggplot() +
-# '     geom_siiscrbuild(data= sii_z_ex2_data,
+# '     geom_siiscrbuild(data= sii_z_ex3_data,
 # '                 mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
 # '                               description=description,
 # '                               fill = description,color = description),
 # '                               lwd=.5) +
 # '      ggplot2::scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
 # '      ggplot2::scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
-# '      geom_sii_riskoutline(data= sii_z_ex2_data,
+# '      geom_sii_riskoutline(data= sii_z_ex3_data,
 # '                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
 # '                         description=description, comparewithid=comparewithid),
 # '                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-# '      geom_sii_riskconnection(data = sii_z_ex2_data,
+# '      geom_sii_riskconnection(data = sii_z_ex3_data,
 # '                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
 # '                            comparewithid = comparewithid ),
 # '                            arrow = arrow (angle=20, type = "closed" )

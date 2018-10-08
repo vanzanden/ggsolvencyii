@@ -39,12 +39,14 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
         testdata <- sii_z_ex6_data
 
         testparams <- NULL
-        testparams$structuredf <- sii_structure_sf16_eng # sii_z_ex_structure
-        testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
+        testparams$structuredf <- sii_z_ex6_structure
+        testparams$levelmax <-  sii_z_ex6_levelmax
         testparams$aggregatesuffix <- "_other"
+        testparams$fillcolors <-  sii_z_ex6_fillcolors
+        testparams$edgecolors <-  sii_z_ex6_edgecolors
 
 sii_debug(data_descr = testdata$description, structure = testparams$structuredf, aggregatesuffix = testparams$aggregatesuffix,
-          levelmax = testparams$levelmax)
+          levelmax = testparams$levelmax, fillcolors = testparams$fillcolors, edgecolors = testparams$edgecolors)
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ; test_result
 test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;
@@ -55,9 +57,12 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
 
         testparams <- NULL
         testparams$structuredf <- sii_z_ex6_structure
-        testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
+        testparams$levelmax <- 99
+        # testparams$levelmax <- sii_z_ex6_levelmax
         testparams$aggregatesuffix <- "_other"
         testparams$plotdetails <-  NULL
+        testparams$fillcolors <-  sii_z_ex6_fillcolors
+        testparams$edgecolors <-  sii_z_ex6_edgecolors
 
         testmaxscrvalue = NULL # 100
         testscalingx = 1 # 0.02
@@ -74,8 +79,8 @@ ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping 
                         structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                         maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
                         rotationdescription = testrotationdescription, squared = testsquared,plotdetails = testparams$plotdetails) +
-  ggplot2::theme_bw() #+ ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
-                      # ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_x_edgecolors_sf16_eng)
+  ggplot2::theme_bw() + ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_z_ex6_fillcolors) +
+                       ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_z_ex6_edgecolors)
 
 +
   ggsolvencyii::geom_sii_riskoutline(data = testdata, mapping = ggplot2::aes(

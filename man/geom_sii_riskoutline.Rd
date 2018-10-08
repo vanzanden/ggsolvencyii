@@ -63,7 +63,7 @@ by means of the column aes()value comparewithid in the data an overlay can be ma
 }
 \examples{
 ggplot2::ggplot() +
-geom_sii_riskoutline(data = sii_z_ex2_data,
+geom_sii_riskoutline(data = sii_z_ex3_data,
  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                          comparewithid = comparewithid),
    color = "red", lwd = .5 )
@@ -72,7 +72,7 @@ geom_sii_riskoutline(data = sii_z_ex2_data,
  sii_z_ex3_plotdetails
 
 ggplot2::ggplot() +
-geom_sii_riskoutline(data = sii_z_ex2_data,
+geom_sii_riskoutline(data = sii_z_ex3_data,
   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
                          comparewithid = comparewithid),
   color = "red", lwd = .5 ,
