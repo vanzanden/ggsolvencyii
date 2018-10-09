@@ -18,7 +18,7 @@ the structure is based on public SFCR 2017 report of NN group,
   See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
   www.nn-group.com/ nn-group/file? uuid=e3e89829 -e7bd -495a -9fed
   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden},
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
   from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
 }
 \usage{

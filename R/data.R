@@ -25,7 +25,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
@@ -40,7 +40,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
@@ -57,7 +57,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
@@ -72,7 +72,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
@@ -88,7 +88,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -109,7 +109,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -134,7 +134,7 @@
 #' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -156,7 +156,7 @@
 #' @docType data
 # '
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden} :
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden} :
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -179,7 +179,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -212,7 +212,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -236,7 +236,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -259,7 +259,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
@@ -274,7 +274,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
@@ -292,7 +292,7 @@
 # ' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 # ' \describe{
@@ -313,7 +313,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -340,7 +340,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -366,7 +366,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -391,7 +391,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 
 #' @format A data frame with columns:
 #' \describe{
@@ -417,7 +417,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -445,7 +445,7 @@
 #' @docType data
 #'
 #' @source based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #'
 #' @format A data frame with columns:
@@ -469,7 +469,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -493,7 +493,7 @@
 # ' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 # ' \describe{
@@ -521,7 +521,7 @@
 #'   #' See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
 #'   www.nn-group.com /nn-group /file?uuid=e3e89829 -e7bd -495a -9fed
 #'   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311 \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden},
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
 #'   from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
 #'
 #' @format A data frame with columns:
@@ -557,7 +557,7 @@
 #'   See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
 #'   www.nn-group.com/ nn-group/file? uuid=e3e89829 -e7bd -495a -9fed
 #'   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden},
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
 #'   from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
 #'
 #' @format A data frame with columns:
@@ -581,7 +581,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -603,7 +603,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
@@ -618,7 +618,7 @@
 #' @docType data
 #'
 #' @source
-#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
+#'   made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
@@ -636,7 +636,7 @@
 # ' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 # ' \describe{
@@ -660,7 +660,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -686,16 +686,16 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 
 #' @format A data frame with columns:
 #' \describe{
-#'            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+#'            \item{tijd}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{value}{numerical: positive voor risks, negative for diversification effects}
-#'            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }
+#'            \item{waarde}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{vergelijkmet}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
 #' sii_z_ex7_data
@@ -710,7 +710,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -736,7 +736,7 @@
 #'#' @docType data
 #'
 #' @source stamen
-#'   made with code in \code{preparingmap.R}, located in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}.
+#'   made with code in \code{preparingmap.R}, located in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}.
 #'
 #' @format a ggplot2 object
 #'

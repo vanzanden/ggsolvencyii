@@ -6,15 +6,15 @@
 \title{sii_z_ex7_data}
 \format{A data frame with columns:
 \describe{
-           \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
+           \item{tijd}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
            \item{description}{character: component of the structure}
            \item{id}{ number: a grouping item}
-           \item{value}{numerical: positive voor risks, negative for diversification effects}
-           \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }}
+           \item{waarde}{numerical: positive voor risks, negative for diversification effects}
+           \item{vergelijkmet}{numerical: a reference to the id of another datapoint }#'          }}
 \source{
 loosely based on public SFCR report of a medium sized dutch life insurer
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_ex7_data

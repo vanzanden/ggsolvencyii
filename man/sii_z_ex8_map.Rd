@@ -9,7 +9,7 @@ A map of the westen europe, to show a location based geom_sii_risk...() plot}
 \format{a ggplot2 object}
 \source{
 stamen
-  made with code in \code{preparingmap.R}, located in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}.
+  made with code in \code{preparingmap.R}, located in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}.
 }
 \usage{
 sii_z_ex8_map

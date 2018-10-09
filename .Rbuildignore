@@ -4,6 +4,6 @@
 ^__prive$
 ^_binaries$
 ^_testing$
-^xls$
+^_data_helperfiles$
 ^README\.Rmd$
 ^README-.*\.png$
