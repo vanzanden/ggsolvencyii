@@ -17,6 +17,10 @@ knitr::opts_chunk$set(
 
 The goal of ggsolvencyii is to show the buildup ("build-down") of the Solvency II SCR from the individual risks. 
 
+ggsolvencyii builds on ggplot-functionality and provides three geom's \code{geom_sii_risksurface}, \code{geom_sii_riskoutline}  and \code{geom_sii_riskconnection}. 
+
+For troubleshooting \code{\link{sii_debug}} provides an overview of present risk descriptions and levels in the data and supporting tables    
+
 ## Travis status
 [![Travis-CI.com Build Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii)
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
@@ -30,7 +34,7 @@ The goal of ggsolvencyii is to show the buildup ("build-down") of the Solvency I
 
 
 ```{r, out.width='25%', fig.align='right', echo=FALSE, border = FALSE}
-knitr::include_graphics('vignettes/images/logo_engels.png')
+knitr::include_graphics('vignettes/images/logo_engels_rvignettes.png')
 ```
 
 
@@ -44,9 +48,24 @@ devtools::install_github("vanzanden/ggsolvencyii")
 ```
 
 ## Example
+An life insurer reports its solvency ratio following Standard Formula rules, with English names for all risks. The original data is the following: 
+```{r data, echo = FALSE}
 
-This is a basic example which shows you how to solve a common problem:
 
+```
+
+The geom needs the tidyverse format of this data
 ```{r example}
-## basic example code
+ggplot2::ggplot() +
+  ggsolvencyii::geom_sii_risksurface(
+    data = ggsolvencyii::sii_z_ex2_data,
+    mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, 
+                           description = description, 
+                           fill = description, color = description) ) +
+ggplot2::theme_bw() +
+ggplot2::scale_fill_manual(name = "Risks",values =    
+                             ggsolvencyii::sii_x_fillcolors_sf16_eng) +
+ggplot2::scale_color_manual(name = "Risks",values =
+                             ggsolvencyii::sii_x_edgecolors_sf16_eng)
+
 ```

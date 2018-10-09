@@ -2,6 +2,8 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^__prive$
+^__prive_laptoponly$
+^__prive_pconly$
 ^_binaries$
 ^_testing$
 ^_data_helperfiles$

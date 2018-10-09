@@ -511,7 +511,7 @@ StatSiiRiskconnection <- ggplot2::ggproto(
 #' @param geom the default is geom_sii_risksurface
 #'
 #' @return a ggplot object
-#' @export
+# ' @export  not at this time
 #'
 # ' @examples dummy
 
