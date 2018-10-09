@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # ggsolvencyii
 
-The goal of ggsolvencyii is to ...
+The goal of ggsolvencyii is to show the buildup ("build-down") of the Solvency II SCR from the individual risks. 
 
 ## Travis status
 [![Travis-CI.com Build Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii)
@@ -26,7 +26,6 @@ The goal of ggsolvencyii is to ...
 [![version](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://CRAN.R-project.org/package=ggsolvencii)
 ![cranlogs](http://cranlogs.r-pkg.org./badges/ggsolvencyii)
 [![codecov](https://codecov.io/gh/vanzanden/ggsolvencyii/branch/master/graph/badge.svg)](https://codecov.io/gh/vanzanden/ggsolvencyii)
-![Active](http://www.repostatus.org/badges/latest/active.svg)
 -->
 
 

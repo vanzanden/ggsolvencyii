@@ -6,7 +6,7 @@
 \title{sii_z_ex6_fillcolors}
 \format{A list with items in the form "\emph{description}"= "#\emph{colorcode}":}
 \source{
-made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden/ggsolvencyii}
+made with \code{preparingtables.R} (not included in this package) which can be found on \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden/ggsolvencyii}
 }
 \usage{
 sii_z_ex6_fillcolors

@@ -12,7 +12,7 @@
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure. \cr
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_structure_sf16_nld

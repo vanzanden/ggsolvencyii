@@ -22,6 +22,23 @@
 ## no indenting is the actual test
 ##
 ## tests ================================================================ =====
+    testdata <- sii_z_ex1_data
+
+    testparams <- NULL
+    testparams$structuredf <- sii_z_ex1_structure
+
+test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
+
+    testparams <- NULL
+    testparams$levelonedescription <- test_result
+
+test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
+    rm(testparams) ; rm(testdata);rm(test_result)
+
+
+
+
+
     testdata <- sii_z_ex2_data
 
     testparams <- NULL
@@ -79,6 +96,22 @@ test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
 
 test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
     rm(testparams) ; rm(testdata);rm(test_result)
+
+
+## test
+    testdata <- sii_z_ex6_data2
+
+    testparams <- NULL
+    testparams$structuredf <- sii_z_ex6_structure;
+
+test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
+
+    testparams <- NULL
+    testparams$levelonedescription <- test_result
+
+test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
+    rm(testparams) ; rm(testdata);rm(test_result)
+
 
 
 ## test

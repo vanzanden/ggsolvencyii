@@ -20,7 +20,7 @@ when defining an item (or the \code{squared = TRUE} transformation) 4 lines can 
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_ex7_plotdetails

@@ -40,10 +40,19 @@ fn_setupdata_surfaces <- function(data, params) {
         expandedstructure <- fn_structure_expansion(params = params
                                                      )
 
-        structureanddata <- fn_structure_data_integration(
+      ## check data: is each value in column 'description' present in the structure?
+        for (i in unique(data$description)){
+          if (!i %in% expandedstructure$description){
+            print(paste0("the data contains '", i, "' in the description-column. ", i, " Is not present in the (expanded) structure. This results in warning about 'non-finite values' or errors when used in combination with grouping of risks"))
+          }
+        }
+
+
+          structureanddata <- fn_structure_data_integration(
                                   expandedstructure = expandedstructure,
                                   data = data)
-      ## tbv ordering of legenda
+
+      ## ordering of levels for a nice legenda
         levelordering <- as.list(expandedstructure$description)
         structureanddata$description <- factor(structureanddata$description,
                                                levels = levelordering)
@@ -59,6 +68,7 @@ fn_setupdata_surfaces <- function(data, params) {
                                               levels = levelordering)
           }
         }
+
       ## return results
         return(structureanddata)
     }

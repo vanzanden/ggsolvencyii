@@ -22,6 +22,38 @@
 ## no indenting is the actual test
 ##
 ## test ================================================================= =====
+    testdata <- sii_z_ex1_data
+
+    testparams <- NULL
+    testparams$structuredf <- sii_z_ex1_structure
+    testparams$levelmax <- 99
+    testparams$aggregatesuffix <- "_other"
+
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
+
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;test_result
+
+    rm(testparams); rm(testdata); rm(test_result)
+
+
+
+    testdata <- sii_z_ex1_data
+
+    testparams <- NULL
+    testparams$structuredf <- sii_z_ex1_structure
+    testparams$levelmax <- sii_z_ex1_levelmax
+    testparams$aggregatesuffix <- "_other"
+
+test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
+
+test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;test_result
+
+    rm(testparams); rm(testdata); rm(test_result)
+
+
+
+
+
     testdata <- sii_z_ex2_data
 
     testparams <- NULL
@@ -170,13 +202,3 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
 ## ====================================================================== =====
     rm(testparams) ; rm(testdata) ; rm(test_result)
 ## ====================================================================== =====
-
-
-
-
-
-
-
-
-rm(m_t1B)
-rm(m_t1C)

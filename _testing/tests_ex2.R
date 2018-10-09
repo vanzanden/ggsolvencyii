@@ -35,7 +35,7 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
 
     rm(testparams); rm(testdata); rm(test_result)
 
-## sii_z_example1_data ================================================== =====
+## sii_z_example2_data ================================================== =====
 ##
 ## 1 dataregel, scr bevat allee leven en markt risicos
 ##
@@ -58,8 +58,8 @@ ggplot2::ggplot() +
 
               )  ) +
   ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "Componenten",values = sii_x_fillcolors_sf16_eng) +
-  ggplot2::scale_color_manual(name = "Componenten",values = sii_x_edgecolors_sf16_eng)
+  ggplot2::scale_fill_manual(name = "Componenten", values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten", values = sii_x_edgecolors_sf16_eng)
 
 
 ## basistest circle=, with plotdetails table ============================ =====

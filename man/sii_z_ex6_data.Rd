@@ -9,9 +9,9 @@
            \item{time}{numerical: a representation of an x value: \cr The x aesthetic could also be a normal numbering, or a longitude}
            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
            \item{description}{character: component of the structure}
-           \item{id}{ number: }
-           \item{value}{numerical: }
-           \item{comparewithid}{numerical: }
+           \item{id}{ number: a grouping item}
+           \item{value}{numerical: positive voor risks, negative for diversification effects}
+           \item{comparewithid}{numerical: a reference to the id of another datapoint }
          }}
 \source{
 the structure is based on public SFCR 2017 report of NN group,
@@ -19,7 +19,7 @@ the structure is based on public SFCR 2017 report of NN group,
   #' See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
   www.nn-group.com /nn-group /file?uuid=e3e89829 -e7bd -495a -9fed
   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311 \cr
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/xls}{github.com/vanzanden},
+  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/data_helperfiles}{github.com/vanzanden},
   from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
 }
 \usage{

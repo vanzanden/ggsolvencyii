@@ -22,19 +22,23 @@
 ## no indenting is the actual test
 ##
 ## test ================================================================= =====
-    testdata <- sii_z_ex2_data
-
     testparams <- NULL
-    testparams$structuredf <- sii_structure_sf16_eng
-    testparams$levelmax <- sii_levelmax_sf16_993
+    testparams$structuredf <- sii_z_ex1_structure
+    testparams$fillcolors <- sii_z_ex1_fillcolors
+    testparams$edgecolors <- sii_z_ex1_edgecolors
+    testparams$plotdetails <- sii_z_ex1_plotdetails
+    testparams$levelmax <- sii_z_ex1_levelmax
     testparams$aggregatesuffix <- "_other"
+
+sii_debug(data_descr = testdata$description, structure = testparams$structuredf, aggregatesuffix = testparams$aggregatesuffix,
+          levelmax = testparams$levelmax, plotdetails = testparams$plotdetails,fillcolors = testparams$fillcolors, edgecolors = testparams$edgecolors)
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
 
 test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;test_result
 
     rm(testparams); rm(testdata); rm(test_result)
-# tests ========================================================= =====
+# test ========================================================= =====
         testdata <- sii_z_ex_data
 
         testparams <- NULL
@@ -50,7 +54,7 @@ test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ; test_result
 test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = test_result, data = testdata) ;
 
  rm(testdata); rm(testparams); rm(test_result)
-# tests ========================================================= =====
+# test ========================================================= =====
         testdata <- sii_z_ex3_data
 
         testparams <- NULL
@@ -92,7 +96,7 @@ ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping 
 
 
 ## cleanup ============================================================== =====
-rm(testparams) ; rm(testdata) ;rm(test_result); rm(testmaxscrvalue); rm(testrotationdegrees);rm(testrotationdescription); rm(testscalingx); rm(testscalingy); rm(testsquared)
+rm(testparams) ; rm(testdata) ; rm(testmaxscrvalue); rm(testrotationdegrees);rm(testrotationdescription); rm(testscalingx); rm(testscalingy); rm(testsquared)
 ## ====================================================================== =====
 
 

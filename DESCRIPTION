@@ -18,7 +18,8 @@ Imports: dplyr,
          ggplot2,
          magrittr,
          tidyr
-Suggests: knitr,
+Suggests: ggmap,
+          knitr,
           rmarkdown
 VignetteBuilder: knitr
 URL: https://github.com/vanzanden/ggsolvencyii
