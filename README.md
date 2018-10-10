@@ -1,7 +1,5 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-    ## Warning: package 'ggplot2' was built under R version 3.5.1
-
 ggsolvencyii
 ============
 
@@ -29,17 +27,17 @@ devtools::install_github("vanzanden/ggsolvencyii")
 # or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows
 ```
 
+short version
+-------------
+
+This README is a short version of the vignette <https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes/ggsolvencyii.html>
+
 example
 -------
 
-This README is a short version of the vignette "ggsolvencyii" in <https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes> .
+ggsolvencyii builds on ggplot-functionality and provides three geom's: `geom_sii_risksurface`, `geom_sii_riskoutline` and `geom_sii_riskconnection`
 
-ggsolvencyii builds on ggplot-functionality and provides three geom's: \* `geom_sii_risksurface` \* `geom_sii_riskoutline`
-\* `geom_sii_riskconnection`
-
-These were used to produce the following plot which for example could be used for an ORSA report.
-
-The total surface (to the centerpoint of each circle) of the outer segments show the size of undiversified risks. Diversification is made visible by the difference between the risk segment and the next segment nearer to the center of the plot. The red (out)lines are displayed for comparison with the previous SCR buildup.
+These three goem's were used to produce the following plot which for example could be used for an ORSA report.
 
 <img src="README-showcase-1.png" width="70%" />
 
@@ -47,6 +45,8 @@ The total surface (to the centerpoint of each circle) of the outer segments show
     #> [1] "scaling is based on a max (level= 1) value of 25.7433642812936"
     #> [1] "scaling is based on a max (level= 1) value of 25.7433642812936"
     #> [1] "scaling is based on a max (level= 1) value of 25.7433642812936"
+
+The total surface (to the centerpoint of each circle) of the outer segments show the size of undiversified risks. Diversification is made visible by the difference between the risk segment and the next segment nearer to the center of the plot. The red (out)lines are displayed for comparison with the previous SCR buildup.
 
 Baseplot and options
 --------------------
