@@ -6,5 +6,5 @@ __prive/
 __prive_laptoponly/
 __prive_pconly/
 xls/~$preparingtables.xlsx
-
 packrat/lib*/
+packrat/src/
