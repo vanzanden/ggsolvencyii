@@ -1,4 +1,10 @@
 ---
+output:
+  pdf_document: default
+  html_document: default
+---
+<title> ggsolvencyii </title>
+---
 output: github_document
 ---
 
@@ -255,5 +261,5 @@ all SCR-buildups from a single call to `geom_sii_risksurface` or `geom_sii_risko
 ### Plotdetails
 The plotdetails table can be passed as a parameter to `geom_sii_risksurface` and `geom_sii_riskoutline`. It indicates whether to actual plot surfaces or outlinesegments (1 to 4) *after* the composition of the round (or squared) layout of segments. An example is the seperate plotting of inner and outer segments, with different transparancy in the showcase, or only plotting the outline of the SCR itself and the lowest risklevels. See the separate vignette for a detailed explanation.
 
-## Outlines, comparewithid
+### Outlines, comparewithid
 With the optional aes `comparewithid` in `geom_sii_riskoutline` it is possible (without the need of bothersome data-manipulation) to overlay  the outline of one SCR over the surfaceplot of another. This for easy comparison between the two. See vignettes "geom_sii_riskoutline" and "geom_sii_riskconnection" for details
