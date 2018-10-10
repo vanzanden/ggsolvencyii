@@ -2,7 +2,7 @@
 % Please edit documentation in R/137_computegroup_subB.R
 \name{fn_sqdegseq}
 \alias{fn_sqdegseq}
-\title{fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with al the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.}
+\title{fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with all the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.}
 \usage{
 fn_sqdegseq(startdegrees, enddegrees, counterclockwise = FALSE,
   reset = FALSE)
@@ -20,5 +20,5 @@ fn_sqdegseq(startdegrees, enddegrees, counterclockwise = FALSE,
 a sequence of at least two compass directions, with the multiples of 45 degrees in between the outer limits.
 }
 \description{
-fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with al the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
+fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with all the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
 }

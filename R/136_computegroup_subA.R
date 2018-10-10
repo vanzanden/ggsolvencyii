@@ -55,7 +55,7 @@ fn_cornerpoints <- function(df, siiparams) {
     t1 <- t1[t1$value > 0, ]
   ## ri : radius inner
   ## ro : radius outer
-  ## db : degrees beginning of section (compaswise: 0 degrees is north)
+  ## db : degrees beginning of section (compass-wise: 0 degrees is north)
   ## de : degrees end of section
 
   ## values outlinetype(assigned in function 'polygonpoints') are
@@ -174,7 +174,7 @@ fn_rotation <- function(df, siiparams) {
 
 #' fn_squareconversion
 #'
-#' @param df a dataframe with colums ri, ro, db, de
+#' @param df a dataframe with columns ri, ro, db, de
 #'
 #' @return the same dataframe with ri, ro, db and de converted in parameters for a square plot
 # ' @export

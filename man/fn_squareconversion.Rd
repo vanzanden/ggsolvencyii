@@ -7,7 +7,7 @@
 fn_squareconversion(df)
 }
 \arguments{
-\item{df}{a dataframe with colums ri, ro, db, de}
+\item{df}{a dataframe with columns ri, ro, db, de}
 }
 \value{
 the same dataframe with ri, ro, db and de converted in parameters for a square plot

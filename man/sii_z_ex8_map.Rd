@@ -5,7 +5,7 @@
 \alias{sii_z_ex8_map}
 \title{sii_z_ex8
 #'
-A map of the westen europe, to show a location based geom_sii_risk...() plot}
+A map of western Europe, to show a location based geom_sii_risk...() plot}
 \format{a ggplot2 object}
 \source{
 stamen
@@ -15,7 +15,9 @@ stamen
 sii_z_ex8_map
 }
 \description{
-#' @docType data
+sii_z_ex8
+#'
+A map of western Europe, to show a location based geom_sii_risk...() plot
 }
 \examples{
 sii_z_ex8_map

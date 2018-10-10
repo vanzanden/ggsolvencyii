@@ -34,7 +34,7 @@
 #'
 #' @param ri the  inner radius of the circle segment
 #' @param ro the outer radius of the circle segment
-#' @param db degrees beginning of section (compasswise: 0 degrees is north, 90 degrees is east)
+#' @param db degrees beginning of section (compass-wise: 0 degrees is north, 90 degrees is east)
 #' @param de degrees end of section
 #' @param plottype "circle" of "outer", the former only requiring a ro
 #' @param indication11 dummy text
@@ -42,7 +42,7 @@
 #' @param stepsize default value = 0.5, as of now no calls to this function override this default. the stepsize in degrees along the inner or outer lines,
 #'
 #' @return a dataframe with points to be plotted, relative from (0,0) coordinates system.
-#' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie omschrijving/description)
+#' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie description)
 #' ## outlinetype are 1 through 4 and 11 and 13.
 #'       type 1 : line from point defined by ri/db  to ro/db (radius outward)
 #'       type 2 : line from point defined by ro/db  to ro/de (outer line of section)
@@ -139,14 +139,14 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
 #'
 #' @param ri the (vertical) distance of center of circle to the inner edge of the segment;
 #' @param ro the (vertical) distance of center of circle to the outer edge of the segment;
-#' @param db degrees beginning of section (compaswise: 0 degrees is north, 90 degrees is east)
+#' @param db degrees beginning of section (compass-wise: 0 degrees is north, 90 degrees is east)
 #' @param de degrees end of section
 #' @param plottype "circle" of "outer", the former only requiring a ro
 #' @param indication11 dummy text
 #' @param indication13 dummy text
 #'
 #' @return a dataframe with points to be plotted, relative from (0,0) coordinates system.
-#' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie omschrijving/description)
+#' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie description)
 #' ## outlinetype are 1 through 4 and 11 and 13.
 #'       type 1 : line from point defined by ri/db  to ro/db (radius outward)
 #'       type 2 : line from point defined by ro/db  to ro/de (outer line of section)
@@ -358,7 +358,7 @@ fn_sqYP <- function(vertdistance, degrees, ysign, rounding) {
     }
 
 ## fn_sqdegseq ========================================================== =====
-#' fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with al the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
+#' fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with all the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
 #'
 #' @param startdegrees a startingpoint of degrees (as used in a compass)
 #' @param enddegrees the endpoint of degrees (as used in a compass)

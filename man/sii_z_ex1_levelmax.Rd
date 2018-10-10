@@ -6,13 +6,13 @@
 \title{sii_z_ex1_levelmax}
 \format{A data frame with columns:}
 \source{
-made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_ex1_levelmax
 }
 \description{
-tekst
+maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
 }
 \examples{
 sii_z_ex1_levelmax

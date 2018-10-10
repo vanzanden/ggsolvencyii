@@ -12,7 +12,7 @@ fn_circlepoints(ri, ro, db, de, plottype, indication11, indication13,
 
 \item{ro}{the outer radius of the circle segment}
 
-\item{db}{degrees beginning of section (compasswise: 0 degrees is north, 90 degrees is east)}
+\item{db}{degrees beginning of section (compass-wise: 0 degrees is north, 90 degrees is east)}
 
 \item{de}{degrees end of section}
 
@@ -26,7 +26,7 @@ fn_circlepoints(ri, ro, db, de, plottype, indication11, indication13,
 }
 \value{
 a dataframe with points to be plotted, relative from (0,0) coordinates system.
-The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie omschrijving/description)
+The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie description)
 ## outlinetype are 1 through 4 and 11 and 13.
       type 1 : line from point defined by ri/db  to ro/db (radius outward)
       type 2 : line from point defined by ro/db  to ro/de (outer line of section)

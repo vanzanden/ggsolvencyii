@@ -35,7 +35,7 @@
 ## sii_x_edgecolors_sf16_eng ============================================ =====
 #' sii_x_edgecolors_sf16_eng
 #'
-#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolors..} variable.
 #'
 #' @docType data
 #'
@@ -67,7 +67,7 @@
 ## sii_x_edgecolors_sf16_nld ============================================ =====
 #' sii_x_edgecolors_sf16_nld
 #'
-#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolors..} variable.
 #'
 #' @docType data
 #'
@@ -88,7 +88,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -109,7 +109,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -134,7 +134,7 @@
 #' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -156,7 +156,7 @@
 #' @docType data
 # '
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden} :
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden} :
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -179,7 +179,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -212,7 +212,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -220,7 +220,7 @@
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{value}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{value}{numerical: positive for risks, negative for diversification effects}
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
@@ -236,7 +236,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -269,7 +269,7 @@
 ## sii_z_ex1_edgecolors ================================================= =====
 #' sii_z_ex1_edgecolors
 #'
-#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolors..} variable.
 #'
 #' @docType data
 #'
@@ -286,13 +286,13 @@
 ## sii_z_ex1_levelmax =================================================== =====
 #' sii_z_ex1_levelmax
 #'
-#' tekst
-# ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+# ' tekst
+#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
 #'
 # ' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 # ' \describe{
@@ -313,7 +313,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -340,7 +340,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -366,7 +366,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -374,7 +374,7 @@
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{value}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{value}{numerical: positive for risks, negative for diversification effects}
 #'          }
 #'
 #' @examples
@@ -391,7 +391,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 
 #' @format A data frame with columns:
 #' \describe{
@@ -399,7 +399,7 @@
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{value}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{value}{numerical: positive for risks, negative for diversification effects}
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }
 #'          }
 #'
@@ -417,7 +417,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -445,7 +445,7 @@
 #' @docType data
 #'
 #' @source based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #'
 #' @format A data frame with columns:
@@ -454,7 +454,7 @@
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{value}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{value}{numerical: positive for risks, negative for diversification effects}
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
@@ -469,7 +469,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -487,13 +487,13 @@
 ## sii_z_ex4_levelmax =================================================== =====
 #' sii_z_ex4_levelmax
 #'
-#' tekst
-# ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+# ' tekst
+#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
 #'
 # ' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 # ' \describe{
@@ -521,7 +521,7 @@
 #'   #' See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
 #'   www.nn-group.com /nn-group /file?uuid=e3e89829 -e7bd -495a -9fed
 #'   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311 \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
 #'   from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
 #'
 #' @format A data frame with columns:
@@ -530,7 +530,7 @@
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{value}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{value}{numerical: positive for risks, negative for diversification effects}
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }
 #'          }
 #'
@@ -542,7 +542,7 @@
 #' sii_z_ex6_data2
 #'
 #' example dataset of a internal model of a large Dutch insurer (NN group). Values are fictious. \cr
-#'   To show 'Counterparty default risk (CPD)' separate from the two components
+#'   To show 'counterparty default risk (CPD)' separate from the two components
 #'   'type 1' and 'type 2' the following assumption is made: The (fictious)
 #'   diversification towards the higher level from CPD risk is transferred
 #'   to a position between CPD and its two components.
@@ -557,7 +557,7 @@
 #'   See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
 #'   www.nn-group.com/ nn-group/file? uuid=e3e89829 -e7bd -495a -9fed
 #'   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
 #'   from there transfered to R environment with code in \code{preparingtables.R} in the same directory.
 #'
 #' @format A data frame with columns:
@@ -566,7 +566,7 @@
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{value}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{value}{numerical: positive for risks, negative for diversification effects}
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
@@ -581,7 +581,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure. \cr
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -598,7 +598,7 @@
 ## sii_z_ex6_fillcolors ================================================= =====
 #' sii_z_ex6_fillcolors
 #'
-#' a colorset, as named list, where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
+#' a colorset, as named list, where each accumulation-level and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
 #'
 #' @docType data
 #'
@@ -613,7 +613,7 @@
 ## sii_z_ex6_edgecolors ================================================= =====
 #' sii_z_ex6_edgecolors
 #'
-#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+#' a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolors..} variable.
 #'
 #' @docType data
 #'
@@ -630,13 +630,13 @@
 ## sii_z_ex6_levelmax =================================================== =====
 #' sii_z_ex6_levelmax
 #'
-#' tekst
-# ' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+# ' tekst
+#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
 #'
 # ' @docType data
 #'
 #' @source
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 # ' \describe{
@@ -655,12 +655,12 @@
 #' sii_z_ex6_plotdetails
 #' #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -686,7 +686,7 @@
 #' @docType data
 #'
 #' @source loosely based on public SFCR report of a medium sized dutch life insurer
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 
 #' @format A data frame with columns:
 #' \describe{
@@ -694,7 +694,7 @@
 #'            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
 #'            \item{description}{character: component of the structure}
 #'            \item{id}{ number: a grouping item}
-#'            \item{waarde}{numerical: positive voor risks, negative for diversification effects}
+#'            \item{waarde}{numerical: positive for risks, negative for diversification effects}
 #'            \item{vergelijkmet}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
@@ -710,7 +710,7 @@
 #' @docType data
 #'
 #' @source determined based on specification of EIOPA standard formula Solvency II structure
-#'   made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+#'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -731,9 +731,9 @@
 ## sii_z_ex8_map ======================================================== =====
 #' sii_z_ex8
 #' #'
-#' A map of the westen europe, to show a location based geom_sii_risk...() plot
+#' A map of western Europe, to show a location based geom_sii_risk...() plot
 #'
-#'#' @docType data
+#' @docType data
 #'
 #' @source stamen
 #'   made with code in \code{preparingmap.R}, located in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}.

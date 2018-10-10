@@ -232,7 +232,7 @@ fn_determinelevels <- function(vector_in,  ind_value = FALSE,
 
 
 ## fn_structure_data_integration ======================================== =====
-#' fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is nessecary.
+#' fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is neccessary.
 #'
 #' @param expandedstructure result of fn_structure_expansion()
 #' @inheritParams fn_maxscrvalue

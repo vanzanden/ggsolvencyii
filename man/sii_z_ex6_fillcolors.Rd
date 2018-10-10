@@ -12,7 +12,7 @@ made with \code{preparingtables.R} (not included in this package) which can be f
 sii_z_ex6_fillcolors
 }
 \description{
-a colorset, as named list, where each accumulationlevel and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
+a colorset, as named list, where each accumulation-level and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
 }
 \examples{
 sii_z_ex6_fillcolors

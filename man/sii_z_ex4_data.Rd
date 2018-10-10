@@ -10,11 +10,11 @@
            \item{ratio}{numerical: solvency II ratio, a representation of an y value: \cr y aesthetic could also be a lattitude}
            \item{description}{character: component of the structure}
            \item{id}{ number: a grouping item}
-           \item{value}{numerical: positive voor risks, negative for diversification effects}
+           \item{value}{numerical: positive for risks, negative for diversification effects}
            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }}
 \source{
 based on public SFCR 2017 reports of a medium sized dutch life insurer in Oosterhout
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+  made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_ex4_data

@@ -12,7 +12,7 @@ made with \code{preparingtables.R} (not included in this package) which can be f
 sii_x_edgecolors_sf16_nld
 }
 \description{
-a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolor..} variable.
+a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolors..} variable.
 }
 \examples{
 sii_x_edgecolors_sf16_nld

@@ -2,7 +2,7 @@
 % Please edit documentation in R/121_setupdata_risksurface.R
 \name{fn_structure_data_integration}
 \alias{fn_structure_data_integration}
-\title{fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is nessecary.}
+\title{fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is neccessary.}
 \usage{
 fn_structure_data_integration(expandedstructure, data)
 }
@@ -15,5 +15,5 @@ fn_structure_data_integration(expandedstructure, data)
 data
 }
 \description{
-fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is nessecary.
+fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is neccessary.
 }

@@ -6,7 +6,7 @@
 \title{sii_z_ex6_plotdetails
 #'
 A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.}
+when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.}
 \format{A data frame with columns:
 \describe{
            \item{levelordescription}{string with format \emph{'level(numeric)' [<point> 'sublevel(numeric)'] ['d']} i.e. 1, 2.01, 3.1d where d indicates a diversification component \strong{AND/OR} description(s) from the corresponding structure }
@@ -20,7 +20,7 @@ when defining an item (or the \code{squared = TRUE} transformation) 4 lines can 
          }}
 \source{
 determined based on specification of EIOPA standard formula Solvency II structure
-  made from excelfile in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
+  made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}, from there transfered to R environment with code in \code{preparingtables.R}.
 }
 \usage{
 sii_z_ex6_plotdetails
@@ -29,7 +29,7 @@ sii_z_ex6_plotdetails
 sii_z_ex6_plotdetails
 #'
 A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 }
 \examples{
 sii_z_ex6_plotdetails
