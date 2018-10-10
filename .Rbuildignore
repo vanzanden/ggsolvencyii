@@ -9,3 +9,5 @@
 ^_data_helperfiles$
 ^README\.Rmd$
 ^README-.*\.png$
+^packrat/
+^\.Rprofile$

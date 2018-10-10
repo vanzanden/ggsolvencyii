@@ -8,9 +8,10 @@ geom_sii_risksurface(data = NULL, mapping = NULL,
   stat = "sii_risksurface",
   structuredf = ggsolvencyii::sii_structure_sf16_eng, squared = FALSE,
   levelmax = 99, aggregatesuffix = "_other", plotdetails = NULL,
-  rotationdegrees = NULL, rotationdescription = NULL, maxscrvalue = NULL,
-  scalingx = 1, scalingy = 1, position = "identity", na.rm = FALSE,
-  show.legend = NA, inherit.aes = TRUE, ...)
+  rotationdegrees = NULL, rotationdescription = NULL,
+  maxscrvalue = NULL, scalingx = 1, scalingy = 1,
+  position = "identity", na.rm = FALSE, show.legend = NA,
+  inherit.aes = TRUE, ...)
 }
 \arguments{
 \item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex3_data}}}
