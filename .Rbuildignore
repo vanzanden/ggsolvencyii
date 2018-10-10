@@ -4,6 +4,7 @@
 ^__prive$
 ^__prive_laptoponly$
 ^__prive_pconly$
+^__winbuilder$
 ^_binaries$
 ^_testing$
 ^_data_helperfiles$
