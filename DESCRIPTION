@@ -1,6 +1,6 @@
 Package: ggsolvencyii
 Title: A ggplot2-plot Of Composition Of SOLVENCY II SCR: SF and IM
-Version: 0.0.0.9000
+Version: 0.9.0
 Authors@R: person("Marco", "van Zanden", email = "git@vanzanden.nl", role = c("aut", "cre"))
 Author: drs M. van Zanden AAG FRM
 Maintainer: M. van Zanden <git@vanzanden.nl>
