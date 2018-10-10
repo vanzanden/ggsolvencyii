@@ -729,20 +729,20 @@
 "sii_z_ex7_plotdetails"
 
 ## sii_z_ex8_map ======================================================== =====
-#' sii_z_ex8
-#' #'
-#' A map of western Europe, to show a location based geom_sii_risk...() plot
-#'
-#' @docType data
-#'
-#' @source stamen
-#'   made with code in \code{preparingmap.R}, located in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}.
-#'
-#' @format a ggplot2 object
-#'
-#' @examples
-#' sii_z_ex8_map
-"sii_z_ex8_map"
+# ' sii_z_ex8
+# ' #'
+# ' A map of western Europe, to show a location based geom_sii_risk...() plot
+# '
+# ' @docType data
+# '
+# ' @source stamen
+# '   made with code in \code{preparingmap.R}, located in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden}.
+# '
+# ' @format a ggplot2 object
+# '
+# ' @examples
+# ' sii_z_ex8_map
+# "sii_z_ex8_map"
 
 ## ====================================================================== =====
 
