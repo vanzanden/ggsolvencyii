@@ -37,6 +37,10 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
 
 
 
+t <- sii_debug(data_descr = sii_z_ex1_data$description,structure = sii_structure_sf16_eng,aggregatesuffix = "other", levelmax = sii_levelmax_sf16_995,plotdetails = sii_z_ex1_plotdetails, fillcolors = sii_z_ex1_fillcolors, edgecolors = sii_z_ex1_edgecolors)
+t$debug_description[37:45,]
+rbind(t$debug_level[1:13,],tail(t$debug_level,2))
+
     testdata <- sii_z_ex1_data
 
     testparams <- NULL

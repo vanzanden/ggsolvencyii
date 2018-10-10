@@ -3,5 +3,7 @@
 .RData
 .Ruserdata
 __prive/
+__prive_laptoponly/
+__prive_pconly/
 xls/~$preparingtables.xlsx
 

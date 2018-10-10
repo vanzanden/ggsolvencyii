@@ -19,7 +19,7 @@
 ## ====================================================================== =====
 ## sii_structure_sf16_eng/nld , sii_edge/fillcolors_eng/nld ============= =====
   ## read data from xls==== =====
-  readdata <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  readdata <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                                               sheet = "struct_and_colors_sf16",
                                               col_types = c(rep("text", 8)))
   readdata
@@ -99,21 +99,21 @@
         rm(readdata)
 
 ## sii_levelmax_sf16_995 ================================================ =====
-  sii_levelmax_sf16_995 <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  sii_levelmax_sf16_995 <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                                             sheet = "levelmax_sf16_995")
   # sii_levelmax_sf16_995
   devtools::use_data(sii_levelmax_sf16_995, overwrite = FALSE)
   rm(sii_levelmax_sf16_995)
 
 ## sii_levelmax_sf16_993 ================================================ =====
-  sii_levelmax_sf16_993 <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  sii_levelmax_sf16_993 <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                                             sheet = "levelmax_sf16_993")
   # sii_levelmax_sf16_993
   devtools::use_data(sii_levelmax_sf16_993, overwrite = FALSE)
   rm(sii_levelmax_sf16_993)
 
 ## sii_plotdetails_sf16 ================================================= =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "plotdetails_sf16")
     data$levelordescription <- as.character(data$levelordescription)
     data$surface <- as.logical(data$surface)
@@ -138,7 +138,7 @@
 
 ##  e x a m p l e  1 ==================================================== =====
 ## sii_z_ex1_data ======================================================= =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex1_data")
   data <- tidyr::gather(data,
                         key = description,
@@ -159,7 +159,7 @@
 
 ## sii_z_ex1_structure , edge- and fillcolors============================ =====
   ## read data from xls==== =====
-  readdata <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  readdata <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                                               sheet = "ex1_struct_and_colors",
                                               col_types = c(rep("text", 8)))
   readdata
@@ -205,7 +205,7 @@
   ## last cleanup ========= =====
         rm(readdata)
 ## sii_z_ex1_plotdetails ================================================ =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex1_plotdetails")
     data$levelordescription <- as.character(data$levelordescription)
     data$surface <- as.logical(data$surface)
@@ -226,7 +226,7 @@
   rm(testdata)
   rm(sii_z_ex1_plotdetails)
 ## sii_z_ex1_plotdetails2================================================ =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex1_plotdetails2")
     data$levelordescription <- as.character(data$levelordescription)
     data$surface <- as.logical(data$surface)
@@ -247,7 +247,7 @@
   rm(testdata)
   rm(sii_z_ex1_plotdetails2)
 ## sii_z_ex1_levelmax =================================================== =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex1_levelmax")
   sii_z_ex1_levelmax <- data.frame(
                                         level = as.character(data$level),
@@ -260,7 +260,7 @@
 
 ##  e x a m p l e  2 ==================================================== =====
 ## sii_z_ex2_data ======================================================= =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex2_data")
   data <- tidyr::gather(data,
                         key = description,
@@ -281,7 +281,7 @@
 
 ##  e x a m p l e  3 ==================================================== =====
 ## sii_z_ex3_data ======================================================= =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex3_data")
   data <-  tidyr::gather(data,
                          key = description,
@@ -301,7 +301,7 @@
   rm(sii_z_ex3_data)
 
 ## sii_z_ex3_plotdetails ================================================ =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex3_plotdetails")
     data$levelordescription <- as.character(data$levelordescription)
     data$surface <- as.logical(data$surface)
@@ -326,7 +326,7 @@
 
 ##  e x a m p l e  4 ==================================================== =====
 ## sii_z_ex4_structure ================================================== =====
-  sii_z_ex4_structure <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  sii_z_ex4_structure <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                                                 sheet = "ex4_struct",
                                                 col_types = c(rep("text", 3),
                                                               rep("skip", 2)))
@@ -335,7 +335,7 @@
   rm(sii_z_ex4_structure)
 
 ## sii_z_ex4_data ======================================================= =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex4_data")
   data <- tidyr::gather(data,
                         key = description,
@@ -355,7 +355,7 @@
   rm(sii_z_ex4_data)
 
 ## sii_z_ex4_levelmax =================================================== =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex4_levelmax")
   sii_z_ex4_levelmax <- data.frame(
                                         level = as.character(data$level),
@@ -373,7 +373,7 @@
 ##  e x a m p l e  6 ==================================================== =====
 ## sii_z_ex6_structure , edge- and fillcolors============================ =====
   ## read data from xls==== =====
-  readdata <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  readdata <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                                               sheet = "ex6_struct_and_colors",
                                               col_types = c(rep("text", 8)))
   readdata
@@ -420,7 +420,7 @@
         rm(readdata)
 
 ## sii_z_ex6_data ======================================================= =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex6_data")
   data <- tidyr::gather(data,
                         key = description,
@@ -440,7 +440,7 @@
   rm(sii_z_ex6_data)
 
 ## sii_z_ex6_data2 ====================================================== =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex6_data_adapted")
   data <- tidyr::gather(data,
                         key = description,
@@ -461,7 +461,7 @@
 
 
 ## sii_z_ex6_levelmax =================================================== =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex6_levelmax")
   sii_z_ex6_levelmax <- data.frame(
                                         level = as.character(data$level),
@@ -473,7 +473,7 @@
   rm(sii_z_ex6_levelmax)
 
 ## sii_z_ex6_plotdetails ================================================ =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex6_plotdetails")
     data$levelordescription <- as.character(data$levelordescription)
     data$surface <- as.logical(data$surface)
@@ -496,7 +496,7 @@
 
 ##  e x a m p l e  7 ==================================================== =====
 ## sii_z_ex7_data ======================================================= =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex7_data")
   data <- tidyr::gather(data,
                         key = description,
@@ -516,7 +516,7 @@
   rm(sii_z_ex7_data)
 
 ## sii_z_ex7_plotdetails ================================================ =====
-  data <- readxl::read_xlsx(path = "data_helperfiles/preparingtables.xlsx",
+  data <- readxl::read_xlsx(path = "_data_helperfiles/preparingtables.xlsx",
                             sheet = "ex7_plotdetails")
     data$levelordescription <- as.character(data$levelordescription)
     data$surface <- as.logical(data$surface)

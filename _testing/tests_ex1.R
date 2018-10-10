@@ -89,7 +89,7 @@ ggplot2::ggplot() +
                         rotationdescription = testrotationdescription, squared = testsquared,
         plotdetails = NULL,
         lwd = 0.25,
-        alpha = 0.75
+        alpha = 1
         ) +
   ggplot2::theme_bw() +
   ggplot2::scale_fill_manual(name = "risks", values = testparams$fillcolors) +
@@ -136,7 +136,7 @@ ggplot2::ggplot() +
                         rotationdescription = testrotationdescription, squared = testsquared,
         plotdetails = sii_z_ex1_plotdetails2,
 
-        alpha = 0.30,
+        alpha = 0.15,
         color = NA
                         )
 
