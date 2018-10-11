@@ -94,7 +94,86 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #' @return a ggplot object
 #' @export
 #'
-# ' @examples dummy
+#' @examples
+#' ## dataset human readable
+#' library(ggsolvencyii)
+#' t <- tidyr::spread(data = sii_z_ex1_data, key = description, value = value)
+#' t <- as.data.frame(t)
+#' t <- t[order(t$id),]
+#' t <- dplyr::select( t, id, time, comparewithid, ratio, SCR, dplyr::everything())
+#' t[1:3 ,1:8]
+#'
+#' ggplot() +
+#' geom_sii_risksurface(
+#'     data = sii_z_ex1_data[sii_z_ex1_data$id == 1, ],
+#' mapping = aes(x = time,
+#'                   y = ratio,
+#'                   id = id,
+#'                   value = value,
+#'                   description = description,
+#'                   color = description,
+#'                   fill = description
+#'                    ) ) +
+#' theme_bw() +
+#' scale_fill_manual(name = "Risks",values = sii_x_fillcolors_sf16_eng) +
+#' scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
+#'
+#'
+#'
+#' ggplot() +
+#'  geom_sii_risksurface(
+#'    data = sii_z_ex2_data,
+#'    mapping = aes(x = time, y = ratio, id = id, value = value,
+#'                  description = description,
+#'                  # color = description,
+#'                  fill = description
+#'                  ),
+#'    color = "black",
+#'    levelmax = sii_levelmax_sf16_993) +
+#' theme_bw() +
+#' scale_fill_manual(name = "Risks",values = sii_x_fillcolors_sf16_eng) # +
+#' # scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
+#'
+#'
+#'
+#'ggplot() +
+#'  geom_sii_risksurface(data = sii_z_ex1_data[sii_z_ex1_data$id == 1, ],
+#'        mapping = ggplot2::aes(x = time,
+#'                               y = ratio,
+#'                               ## x and y could for example be
+#'                               ## longitude and latitude
+#'                               ## in combination with plotted map
+#'                               value = value,
+#'                               id = id,
+#'                               description = description,
+#'                               fill = description, ## optional
+#'                               color = description  ## optional
+#'                               ),
+#'            ## all parameters are shown here,
+#'            ## the values behind the outcommented are the default values
+#'              ## how and what
+#'                ## structuredf = sii_structure_sf16_eng,
+#'                ## plotdetails = NULL,
+#'              ## grouping
+#'                # levelmax = 99,
+#'                # aggregatesuffix = "other",
+#'              ## scaling
+#'                # maxscrvalue =  NULL,
+#'                # scalingx = 1,
+#'                # scalingy = 1,
+#'              ## rotation and squared
+#'                # rotationdegrees = NULL,
+#'                # rotationdescription = NULL,
+#'                # squared = FALSE,
+#'              ## cosmetic
+#'                lwd = 0.25,
+#'                # alpha = 1
+#'        ) +
+#'  theme_bw() +
+#'  scale_fill_manual(name = "risks", values = sii_z_ex1_fillcolors) +
+#'  scale_color_manual(name = "risks", values = sii_z_ex1_edgecolors)
+
+
 
 geom_sii_risksurface <- function(data = NULL,
                         mapping = NULL,
@@ -167,24 +246,36 @@ geom_sii_risksurface <- function(data = NULL,
 #' @export
 #'
 #' @examples
-#' dd <- subset(x= sii_z_ex3_data,select = c("id","time","ratio","comparewithid"))
-#' dd[!duplicated(dd), ]
+#' library(ggsolvencyii)
 #'
+#' sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 #'
-#'ggplot2::ggplot() + geom_sii_risksurface(data = sii_z_ex3_data, mapping = ggplot2::aes(
-        #'x = time, y = ratio, value = value, id = id, description = description, fill = description, color = description)) +
-#'ggplot2::theme_bw() + 
-#'ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
-#'ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_x_edgecolors_sf16_eng) 
+#' ggplot()+
+#' geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#'   # comparewithid = comparewithid,
+#'   x = time,
+#'   y = ratio,
+#'   value = value,
+#'   id = id,
+#'   description = description),
+#' color = "red",
+#' lwd = 0.7
+#' )
 #'
-#' +
+#'##and with comparewithid in  aes()
 #'
-#' ggsolvencyii::geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
-#' comparewithid = comparewithid,
-#' x = time, y = ratio, value = value, id = id, description = description), color = "red", lwd = 0.7, alpha = 0.99,
-#' structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
-#' maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
-#' rotationdescription = testrotationdescription, squared = testsquared, plotdetails = testparams$plotdetails)
+#' ggplot()+
+#' geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#'   comparewithid = comparewithid,
+#'   x = time,
+#'   y = ratio,
+#'   value = value,
+#'   id = id,
+#'   description = description),
+#' color = "red",
+#' lwd = 0.7
+#' )
+#'
 #'
 geom_sii_riskoutline <- function(data = NULL,
                     mapping = NULL,
@@ -246,40 +337,28 @@ geom_sii_riskoutline <- function(data = NULL,
 #' Plots a line between (x and y coordinates of )those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
 #'
 #' @inheritParams geom_sii_risksurface
-#' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id', 'description', 'value' and also 'comparewithid'
+#' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id' and also 'comparewithid'
 #' @param stat  default stat is statsii_riskconnection, combinations with other stat's are not tested
 #'
 #' @return a ggplot object
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' dummy
-# ' ggplot2::ggplot() +
-# '   geom_sii_riskconnection(data = sii_z_ex3_data,
-# '   mapping = ggplot2::aes(x=time, y=ratio, id = id,  comparewithid = comparewithid ),
-# '   arrow = arrow (angle=20, type = "closed" ))
-# '
-# '
-# '    ggplot() +
-# '     geom_siiscrbuild(data= sii_z_ex3_data,
-# '                 mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
-# '                               description=description,
-# '                               fill = description,color = description),
-# '                               lwd=.5) +
-# '      ggplot2::scale_fill_manual(name = "Componenten",values = fillcolors_sf_eng) +
-# '      ggplot2::scale_color_manual(name = "Componenten",values = colorcolors_sf_eng) +
-# '      geom_sii_riskoutline(data= sii_z_ex3_data,
-# '                         mapping = ggplot2::aes(x=time, y=ratio, id = id, value = value,
-# '                         description=description, comparewithid=comparewithid),
-# '                          color = "red", lwd = 0.7, alpha = 0.99 ) +
-# '      geom_sii_riskconnection(data = sii_z_ex3_data,
-# '                            mapping = ggplot2::aes(x=time, y=ratio, id = id,
-# '                            comparewithid = comparewithid ),
-# '                            arrow = arrow (angle=20, type = "closed" )
-# '                            ) +
-# '      ggplot2::theme_bw()
-#'}
+#' library(ggsolvencyii)
+#'
+#' sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
+#'
+#' ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#'   comparewithid = comparewithid,
+#'   x = time,
+#'   y = ratio,
+#'   id = id,
+#'   ),
+#' color = "red",
+#' lwd = 0.7,
+#' arrow = arrow()
+#' )
+
 
 
 geom_sii_riskconnection <- function(data = NULL,

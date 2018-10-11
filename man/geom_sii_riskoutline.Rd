@@ -63,23 +63,35 @@ When describing an outline of a circlepart 4 segments can be distinguised, radia
 by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
 }
 \examples{
-dd <- subset(x= sii_z_ex3_data,select = c("id","time","ratio","comparewithid"))
-dd[!duplicated(dd), ]
+library(ggsolvencyii)
 
+sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 
-ggplot2::ggplot() + geom_sii_risksurface(data = sii_z_ex3_data, mapping = ggplot2::aes(
-x = time, y = ratio, value = value, id = id, description = description, fill = description, color = description)) +
-ggplot2::theme_bw() + 
-ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
-ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_x_edgecolors_sf16_eng) 
+ggplot()+
+geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+  # comparewithid = comparewithid,
+  x = time,
+  y = ratio,
+  value = value,
+  id = id,
+  description = description),
+color = "red",
+lwd = 0.7
+)
 
-+
+##and with comparewithid in  aes()
 
-ggsolvencyii::geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
-comparewithid = comparewithid,
-x = time, y = ratio, value = value, id = id, description = description), color = "red", lwd = 0.7, alpha = 0.99,
-structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
-maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
-rotationdescription = testrotationdescription, squared = testsquared, plotdetails = testparams$plotdetails)
+ggplot()+
+geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+  comparewithid = comparewithid,
+  x = time,
+  y = ratio,
+  value = value,
+  id = id,
+  description = description),
+color = "red",
+lwd = 0.7
+)
+
 
 }

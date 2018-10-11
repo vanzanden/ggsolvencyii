@@ -11,7 +11,7 @@ geom_sii_riskconnection(data = NULL, mapping = NULL,
 \arguments{
 \item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex3_data}}}
 
-\item{mapping}{required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id', 'description', 'value' and also 'comparewithid'}
+\item{mapping}{required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id' and also 'comparewithid'}
 
 \item{stat}{default stat is statsii_riskconnection, combinations with other stat's are not tested}
 
@@ -32,7 +32,18 @@ a ggplot object
 Plots a line between (x and y coordinates of )those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
 }
 \examples{
-\dontrun{
-dummy
-}
+library(ggsolvencyii)
+
+sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
+
+ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = ggplot2::aes(
+  comparewithid = comparewithid,
+  x = time,
+  y = ratio,
+  id = id,
+  ),
+color = "red",
+lwd = 0.7,
+arrow = arrow()
+)
 }
