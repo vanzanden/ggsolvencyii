@@ -97,6 +97,7 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #' @examples
 #' ## dataset human readable
 #' library(ggsolvencyii)
+#' library(ggplot2)
 #' t <- tidyr::spread(data = sii_z_ex1_data, key = description, value = value)
 #' t <- as.data.frame(t)
 #' t <- t[order(t$id),]
@@ -117,8 +118,6 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #' theme_bw() +
 #' scale_fill_manual(name = "Risks",values = sii_x_fillcolors_sf16_eng) +
 #' scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
-#'
-#'
 #'
 #' ggplot() +
 #'  geom_sii_risksurface(
@@ -247,11 +246,12 @@ geom_sii_risksurface <- function(data = NULL,
 #'
 #' @examples
 #' library(ggsolvencyii)
+#' library(ggplot2)
 #'
 #' sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 #'
 #' ggplot()+
-#' geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#' geom_sii_riskoutline(data = sii_z_ex3_data, mapping = aes(
 #'   # comparewithid = comparewithid,
 #'   x = time,
 #'   y = ratio,
@@ -265,7 +265,7 @@ geom_sii_risksurface <- function(data = NULL,
 #'##and with comparewithid in  aes()
 #'
 #' ggplot()+
-#' geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#' geom_sii_riskoutline(data = sii_z_ex3_data, mapping = aes(
 #'   comparewithid = comparewithid,
 #'   x = time,
 #'   y = ratio,
@@ -348,7 +348,7 @@ geom_sii_riskoutline <- function(data = NULL,
 #'
 #' sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 #'
-#' ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#' ggplot2::ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = ggplot2::aes(
 #'   comparewithid = comparewithid,
 #'   x = time,
 #'   y = ratio,

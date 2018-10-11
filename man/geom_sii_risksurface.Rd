@@ -61,6 +61,7 @@ returns a ggplot2 object with filled, concentric circle(part)s, defined by the v
 \examples{
 ## dataset human readable
 library(ggsolvencyii)
+library(ggplot2)
 t <- tidyr::spread(data = sii_z_ex1_data, key = description, value = value)
 t <- as.data.frame(t)
 t <- t[order(t$id),]
@@ -81,8 +82,6 @@ mapping = aes(x = time,
 theme_bw() +
 scale_fill_manual(name = "Risks",values = sii_x_fillcolors_sf16_eng) +
 scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
-
-
 
 ggplot() +
  geom_sii_risksurface(

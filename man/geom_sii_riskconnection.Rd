@@ -36,7 +36,7 @@ library(ggsolvencyii)
 
 sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 
-ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = ggplot2::aes(
+ggplot2::ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = ggplot2::aes(
   comparewithid = comparewithid,
   x = time,
   y = ratio,

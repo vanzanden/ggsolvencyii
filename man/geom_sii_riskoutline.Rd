@@ -64,11 +64,12 @@ by means of the column aes()value comparewithid in the data an overlay can be ma
 }
 \examples{
 library(ggsolvencyii)
+library(ggplot2)
 
 sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 
 ggplot()+
-geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+geom_sii_riskoutline(data = sii_z_ex3_data, mapping = aes(
   # comparewithid = comparewithid,
   x = time,
   y = ratio,
@@ -82,7 +83,7 @@ lwd = 0.7
 ##and with comparewithid in  aes()
 
 ggplot()+
-geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+geom_sii_riskoutline(data = sii_z_ex3_data, mapping = aes(
   comparewithid = comparewithid,
   x = time,
   y = ratio,
