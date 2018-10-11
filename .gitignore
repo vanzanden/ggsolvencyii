@@ -6,6 +6,8 @@ __prive_laptoponly/
 __prive_pconly/
 __winbuilder_laptoponly/
 __winbuilder_pconly/
+__crantest_laptoponly/
+__crantest_pconly/
 xls/~$preparingtables.xlsx
 packrat/lib*/
 packrat/src/

@@ -5,6 +5,8 @@
 ^__prive_pconly$
 ^__winbuilder_laptoponly$
 ^__winbuilder_pconly$
+^__crantest_laptoponly$
+^__crantest_pconly$
 ^_binaries$
 ^_testing$
 ^_data_helperfiles$
