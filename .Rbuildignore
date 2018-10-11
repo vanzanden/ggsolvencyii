@@ -12,3 +12,6 @@
 ^README-.*\.png$
 ^packrat/
 ^\.Rprofile$
+^cran-comments.md$
+
+
