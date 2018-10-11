@@ -56,32 +56,30 @@ the scale of the different plot elements is is by default measured to the larges
 a ggplot object \code{\link{geom_sii_risksurface}}
 }
 \description{
-returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. Used for a comparison between instances of an SCR with a match between 'id' and 'comparewithid'.
+returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
 }
 \details{
 When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
 }
 \examples{
-ggplot2::ggplot() +
-geom_sii_riskoutline(data = sii_z_ex3_data,
- mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
-                         comparewithid = comparewithid),
-   color = "red", lwd = .5 )
+dd <- subset(x= sii_z_ex3_data,select = c("id","time","ratio","comparewithid"))
+dd[!duplicated(dd), ]
 
 
- sii_z_ex3_plotdetails
+ggplot2::ggplot() + geom_sii_risksurface(data = sii_z_ex3_data, mapping = ggplot2::aes(
+x = time, y = ratio, value = value, id = id, description = description, fill = description, color = description)) +
+ggplot2::theme_bw() + 
+ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
+ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_x_edgecolors_sf16_eng) 
 
-ggplot2::ggplot() +
-geom_sii_riskoutline(data = sii_z_ex3_data,
-  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
-                         comparewithid = comparewithid),
-  color = "red", lwd = .5 ,
-  rotationdescription = "life",
-  rotationdegrees = -8,
-  squared =  TRUE,
-  plotdetails = sii_z_ex3_plotdetails)
++
 
-
+ggsolvencyii::geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+comparewithid = comparewithid,
+x = time, y = ratio, value = value, id = id, description = description), color = "red", lwd = 0.7, alpha = 0.99,
+structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
+rotationdescription = testrotationdescription, squared = testsquared, plotdetails = testparams$plotdetails)
 
 }

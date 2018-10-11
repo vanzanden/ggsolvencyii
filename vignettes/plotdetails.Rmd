@@ -1,0 +1,37 @@
+---
+title: "plotdetails"
+author: "Marco van Zanden"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{plotdetails}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r,init,echo=FALSE,results=FALSE,warnings=FALSE,message=FALSE}
+knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="z_plotdetails-")
+library(ggplot2)
+library(ggsolvencyii)
+```
+```{r,logo, out.width='25%', fig.align='right', echo=FALSE, border = FALSE}
+knitr::include_graphics('images/logo_engels_rvignettes.png')
+```
+
+## Disclaimer
+
+This documentation is in a rudimentary form for release 0.9.0. which is meant to see how much interest (not the financial one) this package generates.
+
+## Vignettes
+The following vignettes are available.  
+ 
+* ggsolvencyii 
+* geom_sii_risksurface
+* geom_sii_riskoutline
+* geom_sii_riskconnection
+* plotdetails (this vignette)
+* showcase
+* coding_overview
+
+On https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes less rudimentary versions might be available between releases.
+
+## 

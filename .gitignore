@@ -2,10 +2,11 @@
 .Rhistory
 .RData
 .Ruserdata
-__prive/
 __prive_laptoponly/
 __prive_pconly/
-__winbuilder/
+__winbuilder_laptoponly/
+__winbuilder_pconly/
 xls/~$preparingtables.xlsx
 packrat/lib*/
 packrat/src/
+inst/doc

@@ -11,7 +11,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r,init,echo=FALSE,results=FALSE,warnings=FALSE,message=FALSE}
-knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="README-")
+knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="z-README-")
 library(ggplot2)
 library(ggsolvencyii)
 ```
@@ -28,7 +28,8 @@ knitr::include_graphics('vignettes/images/logo_engels_rvignettes.png')
 ```
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Travis-CI.com Build Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii)
-
+[![cran Build Status](https://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 
 
 <!-- 
@@ -51,7 +52,8 @@ devtools::install_github("vanzanden/ggsolvencyii")
 
 
 ## short version
-This README is a short version of the vignette https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes/ggsolvencyii.html 
+This README is a short version of the vignette 'ggsolvencyii' at https://github.com/vanzanden/ggsolvencyii/tree/master/ which shows more code.
+the annotated code of the first example is shown in vignette 'showcase'.
 
 ## example
 
@@ -59,105 +61,151 @@ ggsolvencyii builds on ggplot-functionality and provides three geom's: `geom_sii
 
 These three goem's were used to produce the following plot which for example could be used for an ORSA report. 
 
-
-
-```{r, showcase, out.width='70%', echo = FALSE, message=FALSE }
+```{r, showcase, echo = FALSE, results = 'hide' }
+      ## the original dataset has three three-year scenarios, 
+      ## only two years of two branches are used here 
         testdata <- sii_z_ex1_data[sii_z_ex1_data$id <= 7,]
         testdata <- testdata[testdata$time <= 2018,]
 
-        testparams <- NULL
-        testparams$structuredf <- sii_structure_sf16_eng # sii_z_ex_structure
-        testparams$fillcolors <- sii_z_ex1_fillcolors
-        testparams$edgecolors <- sii_z_ex1_edgecolors
-        testparams$levelmax <- 99 #sii_z_ex1_levelmax
-        testparams$aggregatesuffix <- "_other"
-        testparams$plotdetails <-  sii_z_ex1_plotdetails
+      ## printing SCR values and interdependency of 'id' and 'comparewithid'
+        testdata[testdata$description == "SCR", ]
+```
 
-        testmaxscrvalue = NULL # 100
-        testscalingx = .22 # 0.02
-        testscalingy = 1 # 0.02
-        testrotationdegrees = NULL # 10 # -10 # 70
-        testrotationdescription = NULL # operational #  life # l_longevity # h_s_longevity
-        testsquared = FALSE # TRUE
+```{r, showcase2, echo=FALSE, fig.asp = 0.7, fig.width=7 }
+## horizontalscaling to get round circles is depending on the dimensions of the canvas. 
+## automated scaling to canvas size is on the to do list.
+  horizontalscaling = .22 
 
-ggplot2::ggplot() +
-    ggsolvencyii::geom_sii_risksurface(
-        data = testdata[testdata$id == 1, ]
-                                     , mapping = ggplot2::aes(
-        x = time,
-        y = ratio,
-        value = value,  id = id, description = description, fill = description,
-        color = description
-                        ),
-                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
-        maxscrvalue =  25.7433642812936,
-                        scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
-                        rotationdescription = testrotationdescription, squared = testsquared,
-        plotdetails = NULL,
-        lwd = 0.25,
-        alpha = 1
+ggplot() +
+##  a plain vanilla plot of one SCR buildup, the 'current situation': 
+  geom_sii_risksurface(data = testdata[testdata$id == 1, ], 
+        mapping = ggplot2::aes(x = time, 
+                               y = ratio,
+                               ## x and y could for example be 
+                               ## longitude and latitude 
+                               ## in combination with plotted map
+                               value = value, 
+                               id = id, 
+                               description = description, 
+                               fill = description, ## optional
+                               color = description  ## optional
+                               ),
+            ## all parameters are shown here, 
+            ## the values behind the outcommented are the default values
+              ## how and what
+                ## structuredf = sii_structure_sf16_eng,
+                ## plotdetails = NULL,
+              ## grouping
+                # levelmax = 99, 
+                # aggregatesuffix = "other",
+              ## scaling
+                ## since the data in this geom is only a subset 
+                ## of 'testdata' manual scaling is needed
+                ## each geom_sii_risksurface and geom_sii_riskoutline
+                ## call returns the calculated (or given) maximum in an
+                ## outputmessage
+                maxscrvalue =  25.7433642812936,
+                scalingx = horizontalscaling, 
+                # scalingy = 1,
+              ## rotation and squared
+                # rotationdegrees = NULL,
+                # rotationdescription = NULL, 
+                # squared = FALSE,
+              ## cosmetic
+                lwd = 0.25,
+                # alpha = 1
         ) +
-  ggplot2::theme_bw() +
-  ggplot2::scale_fill_manual(name = "risks", values = testparams$fillcolors) +
-  ggplot2::scale_color_manual(name = "risks", values = testparams$edgecolors) +
-  ggsolvencyii::geom_sii_risksurface(data = testdata, mapping = ggplot2::aes(
-        x = time,
-        y = ratio,
-        value = value,  id = id, description = description, fill = description, color = description
-                        ),
-                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
-                        maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
-                        rotationdescription = testrotationdescription, squared = testsquared,
-        plotdetails = testparams$plotdetails,
-        lwd = 0.25,
-        alpha = 1.0
-        ) +
-  ggsolvencyii::geom_sii_riskconnection(data = testdata, mapping = ggplot2::aes(
-        comparewithid = comparewithid,
-        x = time,
-        y = ratio,      id = id), arrow = ggplot2::arrow(angle = 10, type = "open" ), alpha = 0.15) +
-  ggsolvencyii::geom_sii_riskoutline(data = testdata, mapping = ggplot2::aes(
-        comparewithid = comparewithid,
-        x = time,
-        y = ratio,
-        value = value,  id = id, description = description
-                        ),
-        color = "red",
-        lwd = 0.25,
-        alpha = 0.6,
-                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
-                        maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
-                        rotationdescription = testrotationdescription, squared = testsquared,
-        plotdetails = testparams$plotdetails) +
-  ggsolvencyii::geom_sii_risksurface(
-        data = testdata,
-                          mapping = ggplot2::aes(
-        x = time,
-        y = ratio,
-        value = value,  id = id, description = description, fill = description #,
-        # color = description
-                        ),
-                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
-                        maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
-                        rotationdescription = testrotationdescription, squared = testsquared,
+  
+  theme_bw() +
+
+## Combining several geom-calls might result in unexpected ordering of the legends
+## It can help to plot the dataset which results in the most individual risks first.  
+  scale_fill_manual(name = "risks", values = sii_z_ex1_fillcolors) +
+  
+  scale_color_manual(name = "risks", values = sii_z_ex1_edgecolors) +
+
+## a second instance of geom_sii_risksurface, all data (1+2*2 id's) is used
+## by using a plotdetails dataframe not all calculated circle segments are plotted
+  geom_sii_risksurface(data = testdata, 
+          mapping = ggplot2::aes(x = time,y = ratio,value = value,  id = id, 
+                                 description = description, 
+                                 fill = description, color = description
+                                 ),
+  ## two plotdetailstables are used for this showcase: 
+  ## this one indicates that only levels 1-3 are plotted in geom_sii_risksurface
+  ## sii_z_ex1_plotdetails2 indicates only levels 4.xx and 5.xx are plotted
+  ## this dataset has only 4.01, 4.02 levels present (market- and life subrisks )
+      plotdetails = sii_z_ex1_plotdetails,
+      scalingx = horizontalscaling, 
+      lwd = 0.25,
+      alpha = 1.0
+  ) +
+
+## this third instance of geom_sii_risksurface plots only the levels 4.01 and 4.02
+## by using the other plotdetails dataframe.  
+## A small alpha has the effect that these levels are less obtrusive, 
+## giving a overview of SCR results, but still showing all information
+## 'color is NA', in the options means it does only plot the surface of the polygons.
+## (geom_polygon is the basis for the actual plotting),
+  geom_sii_risksurface(data = testdata,
+              mapping = ggplot2::aes(x = time, y = ratio, value = value,  id = id, 
+                                     description = description, 
+                                     fill = description #,
+                                     ## outcommenting here is not enough to prevent
+                                     ## outlines to be plotted ...
+                                     # color = description
+                                     ),
         plotdetails = sii_z_ex1_plotdetails2,
-
+        scalingx = horizontalscaling, 
         alpha = 0.15,
+      ## ... explicit no (edge)coloring is neccesary
         color = NA
-                        )
-
+        ) +
+## Arrows are plotted to connect 'id' and 'comparewithid' combinations. 
+## This helps in understanding the outlines of the following geom_sii_riskoutline call  
+  geom_sii_riskconnection(data = testdata, 
+                mapping = ggplot2::aes(x = time, y = ratio, id = id,
+                    ## for geom_sii_riskconnection comparewithid is a required aesthetic.
+                    ## (this is is not the case for geom_sii_riskoutline)
+                      comparewithid = comparewithid ), 
+                arrow = ggplot2::arrow(angle = 10, type = "open" ), 
+                alpha = 0.15
+                ) +
+  
+## geoms_sii_riskoutline uses other columns in plotdetails than geoms_sii_risksurface
+## for each line segment for each defined description or level plotting can be
+## switched on or off.
+## a risk-partition (apart from the full circle SCR) has four outline segments. 
+## two radii and an inner and outer circle segment.
+## sii_z_ex1_plotdetails defines only the outer circle segments ('outline2') to be plotted
+## for levels 1, 4.01 and 4.02 AND for the indivual risks operational and cp-default.
+## these individual risks are on level 2 and 3 but have no subrisks.
+  geom_sii_riskoutline(data = testdata, 
+          mapping = ggplot2::aes(x = time, y = ratio, value = value,  id = id, 
+                                 description = description, 
+                                 comparewithid = comparewithid,
+                        ),
+    ## only sii_z_ex1_plotdetails is used with the outline-geom.
+      plotdetails = sii_z_ex1_plotdetails,
+      scalingx = horizontalscaling, 
+      color = "red",
+      lwd = 0.25,
+      alpha = 0.6,
+) 
 
 ## cleanup ============================================================== =====
-rm(testparams) ; rm(testdata) ; rm(testmaxscrvalue); rm(testrotationdegrees);rm(testrotationdescription); rm(testscalingx); rm(testscalingy); rm(testsquared)
+rm(testdata) ; rm(horizontalscaling)
 ## ====================================================================== =====
 ```
+
+
 The total surface (to the centerpoint of each circle) of the outer segments show the size of undiversified risks. Diversification is made visible by the difference between the risk segment and the next segment nearer to the center of the plot. The red (out)lines are displayed for comparison with the previous SCR buildup. 
 
 
 ## Baseplot and options
 
 ### base
-An life insurer reports its solvency ratio following Standard Formula rules, with English names for all risks. It has a set of risks, diversification effects, and accumulations to the SCR for the current situation ('id'=1) and three three-year ORSA scenarios ('id' is 2-4, 5-7, 8-10). The results are stored in a datafile of which the first lines and columns are shown here: 
+An life insurer reports its solvency ratio following Standard Formula rules, with English names for all risks. It has a set of risks, diversification effects, and accumulations to the SCR for the current situation ('id'=1) and two two-year ORSA scenarios. <!--The results are stored in a datafile of which the first lines and columns are shown here: 
 ```{r origdata, echo = FALSE}
 t <- tidyr::spread(data = sii_z_ex1_data, key = description, value = value)
 t <- as.data.frame(t)
@@ -166,7 +214,7 @@ t <- dplyr::select( t, id, time, comparewithid, ratio, SCR, dplyr::everything())
 t <- t[1:3 ,1:8]
 knitr::kable(x = t)
 ```
-
+-->
 The SCR composition of the current situation (id = 1) is shown below where `sii_z_ex1_data` a tidyverse transformation is of the data.
 
 ```{r example1, out.width='50%', warning = FALSE}
@@ -190,25 +238,27 @@ scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
 ### levelmax
 To prevent cluttering of the legend it is possible to group the smallest items of a level by providing a levelmax-table in such a way that the indicated maximum items in that level is not exceded. the example is on another dataset `sii_z_ex2_data`, with only one SCR result. 
 
-```{r examplelevelmax, echo = FALSE, out.width='50%', warning = FALSE, message = FALSE}
+```{r examplelevelmax, echo=FALSE, warning = FALSE, message = FALSE,fig.asp = 0.7, fig.width=5}
 ggplot() +
   geom_sii_risksurface(
     data = sii_z_ex2_data,
     mapping = aes(x = time, y = ratio, id = id, value = value, 
-                           description = description, 
-                           fill = description, color = description),
-                  levelmax = sii_levelmax_sf16_993) +
+                  description = description, 
+                  # color = description,
+                  fill = description  
+                  ),
+    color = "black",
+    levelmax = sii_levelmax_sf16_993) +
 theme_bw() +
-scale_fill_manual(name = "Risks",values = sii_x_fillcolors_sf16_eng) +
-scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
-
+scale_fill_manual(name = "Risks",values = sii_x_fillcolors_sf16_eng) # +
+# scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
 ```
 
 ### Rotation and squared 
 
-`Rotationdescription` rotates the plot in such a way that the indicated item (can be on either level, i.e. works also on 'life' or 'operational') is plotted on just on the righthandside of '12 o'clock'. `rotationdegrees provides an added rotation. The example rotates 'm_equity' to 12 'o clock, and then 45 degrees counter clockwise.
+`rotationdescription` Rotates the plot in such a way that the indicated item (can be on either level, i.e. works also on 'life' or 'operational') is plotted on just on the righthandside of '12 o'clock'. `rotationdegrees' provides an added rotation. The example rotates 'm_equity' to 12 'o clock, and then 45 degrees counter clockwise.
 
-The option squared makes a square plot, with the surface of all segments still in proportion. 
+The option 'squared' makes a square plot, with the surface of all segments still in proportion. 
 ```{r rotationsquare, echo = FALSE, out.width='50%', warning = FALSE, message = FALSE}
 ggplot() +
   geom_sii_risksurface(
@@ -255,11 +305,15 @@ ggplot2::ggplot() +
    )
 ```
 
-### scaling
+<!-- ### scaling
 all SCR-buildups from a single call to `geom_sii_risksurface` or `geom_sii_riskoutline` plot are by default scaled in such a way that the largest SCR has a plotradius of one. When combining more calls, with several datasets a manual `maxscrvalue`-value can be given as a parameter. To prevent distortion, depending on the scale of x and y axis, `scalingx` and `scalingy` parameters are available.
 
 ### Plotdetails
 The plotdetails table can be passed as a parameter to `geom_sii_risksurface` and `geom_sii_riskoutline`. It indicates whether to actual plot surfaces or outlinesegments (1 to 4) *after* the composition of the round (or squared) layout of segments. An example is the seperate plotting of inner and outer segments, with different transparancy in the showcase, or only plotting the outline of the SCR itself and the lowest risklevels. See the separate vignette for a detailed explanation.
 
 ### Outlines, comparewithid
-With the optional aes `comparewithid` in `geom_sii_riskoutline` it is possible (without the need of bothersome data-manipulation) to overlay  the outline of one SCR over the surfaceplot of another. This for easy comparison between the two. See vignettes "geom_sii_riskoutline" and "geom_sii_riskconnection" for details
+With the optional aes `comparewithid` in `geom_sii_riskoutline` it is possible (without the need of bothersome data-manipulation) to overlay  the outline of one SCR over the surfaceplot of another. This for easy comparison between the two. See vignettes "geom_sii_riskoutline" and "geom_sii_riskconnection" for details.
+-->
+
+## additional parameters
+additional parameters, some in the form of tables, can be used for determing what parts of the calculated circle-segments to plot ('plotdetails'), scaling ('maxscrvalue', 'scalingx', 'scalingy'), or for easy comparison between two instances of a SCR buildup (aesthetic 'comparewithid').

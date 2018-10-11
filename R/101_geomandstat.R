@@ -153,7 +153,7 @@ geom_sii_risksurface <- function(data = NULL,
 ## geom_sii_riskoutline ================================================= =====
 #' geom_sii_riskoutline
 #'
-#'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. Used for a comparison between instances of an SCR with a match between 'id' and 'comparewithid'.
+#'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
@@ -167,26 +167,24 @@ geom_sii_risksurface <- function(data = NULL,
 #' @export
 #'
 #' @examples
-#' ggplot2::ggplot() +
-#' geom_sii_riskoutline(data = sii_z_ex3_data,
-#'  mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
-#'                          comparewithid = comparewithid),
-#'    color = "red", lwd = .5 )
+#' dd <- subset(x= sii_z_ex3_data,select = c("id","time","ratio","comparewithid"))
+#' dd[!duplicated(dd), ]
 #'
 #'
-#'  sii_z_ex3_plotdetails
+#'ggplot2::ggplot() + geom_sii_risksurface(data = sii_z_ex3_data, mapping = ggplot2::aes(
+        #'x = time, y = ratio, value = value, id = id, description = description, fill = description, color = description)) +
+#'ggplot2::theme_bw() + 
+#'ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
+#'ggplot2::scale_color_manual(name = "Comp", values = ggsolvencyii::sii_x_edgecolors_sf16_eng) 
 #'
-#' ggplot2::ggplot() +
-#' geom_sii_riskoutline(data = sii_z_ex3_data,
-#'   mapping = ggplot2::aes(x = time, y = ratio, id = id, value = value, description = description,
-#'                          comparewithid = comparewithid),
-#'   color = "red", lwd = .5 ,
-#'   rotationdescription = "life",
-#'   rotationdegrees = -8,
-#'   squared =  TRUE,
-#'   plotdetails = sii_z_ex3_plotdetails)
+#' +
 #'
-#'
+#' ggsolvencyii::geom_sii_riskoutline(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#' comparewithid = comparewithid,
+#' x = time, y = ratio, value = value, id = id, description = description), color = "red", lwd = 0.7, alpha = 0.99,
+#' structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+#' maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
+#' rotationdescription = testrotationdescription, squared = testsquared, plotdetails = testparams$plotdetails)
 #'
 geom_sii_riskoutline <- function(data = NULL,
                     mapping = NULL,
@@ -245,7 +243,7 @@ geom_sii_riskoutline <- function(data = NULL,
 ## geom_sii_riskconnection ============================================== =====
 #' geom_sii_riskconnection
 #'
-#' Plots a line between those datapoints which have a matching value in the columns 'id' and 'comparewithid'.
+#' Plots a line between (x and y coordinates of )those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
 #'
 #' @inheritParams geom_sii_risksurface
 #' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id', 'description', 'value' and also 'comparewithid'
