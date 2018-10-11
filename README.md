@@ -1,13 +1,14 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-ggsolvencyii
-============
+
+# ggsolvencyii
 
 The goal of ggsolvencyii is to show the buildup (“build-down”) of the
 Solvency II SCR from the individual risks, whether for standard formula
-or (partial) intern models.
+or (partial) intern
+models.
 
-status
-------
+## status
 
 <img src="vignettes/images/logo_engels_rvignettes.png" width="25%" style="display: block; margin: auto 0 auto auto;" />
 [![Project Status: WIP – Initial development is in progress, but there
@@ -26,8 +27,8 @@ downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.or
 ![cranlogs](http://cranlogs.r-pkg.org./badges/ggsolvencyii)
 [![codecov](https://codecov.io/gh/vanzanden/ggsolvencyii/branch/master/graph/badge.svg)](https://codecov.io/gh/vanzanden/ggsolvencyii)
 -->
-Installation
-------------
+
+## Installation
 
 You can install ggsolvencyii from Github:
 
@@ -37,25 +38,24 @@ devtools::install_github("vanzanden/ggsolvencyii")
 # or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows
 ```
 
-short version
--------------
+## short version
 
 This README is a short version of the vignette ‘ggsolvencyii’ at
-<a href="https://github.com/vanzanden/ggsolvencyii/tree/master/" class="uri">https://github.com/vanzanden/ggsolvencyii/tree/master/</a>
-which shows more code. the annotated code of the first example is shown
-in vignette ‘showcase’.
+<https://github.com/vanzanden/ggsolvencyii/tree/master/> which shows
+more code. the annotated code of the first example is shown in vignette
+‘showcase’.
 
-example
--------
+## example
 
 ggsolvencyii builds on ggplot-functionality and provides three geom’s:
 `geom_sii_risksurface`, `geom_sii_riskoutline` and
 `geom_sii_riskconnection`
 
 These three goem’s were used to produce the following plot which for
-example could be used for an ORSA report.
+example could be used for an ORSA
+    report.
 
-![](z-README-showcase2-1.png)
+![](z-README-showcase2-1.png)<!-- -->
 
     #> [1] "scaling is based on inputvalue (maxscrvalue) of 25.7433642812936"
     #> [1] "scaling is based on a max (level= 1) value of 25.7433642812936"
@@ -68,8 +68,7 @@ visible by the difference between the risk segment and the next segment
 nearer to the center of the plot. The red (out)lines are displayed for
 comparison with the previous SCR buildup.
 
-Baseplot and options
---------------------
+## Baseplot and options
 
 ### base
 
@@ -118,7 +117,7 @@ items of a level by providing a levelmax-table in such a way that the
 indicated maximum items in that level is not exceded. the example is on
 another dataset `sii_z_ex2_data`, with only one SCR result.
 
-![](z-README-examplelevelmax-1.png)
+![](z-README-examplelevelmax-1.png)<!-- -->
 
     #> [1] "scaling is based on a max (level= 1) value of 30"
 
@@ -126,9 +125,10 @@ another dataset `sii_z_ex2_data`, with only one SCR result.
 
 `rotationdescription` Rotates the plot in such a way that the indicated
 item (can be on either level, i.e. works also on ‘life’ or
-‘operational’) is plotted on just on the righthandside of ‘12 o’clock’.
-\`rotationdegrees’ provides an added rotation. The example rotates
-‘m\_equity’ to 12 ’o clock, and then 45 degrees counter clockwise.
+‘operational’) is plotted on just on the righthandside of ‘12
+o’clock’. \`rotationdegrees’ provides an added rotation. The example
+rotates ‘m\_equity’ to 12 ’o clock, and then 45 degrees counter
+clockwise.
 
 The option ‘squared’ makes a square plot, with the surface of all
 segments still in proportion.
@@ -156,11 +156,11 @@ The plotdetails table can be passed as a parameter to `geom_sii_risksurface` and
 ### Outlines, comparewithid
 With the optional aes `comparewithid` in `geom_sii_riskoutline` it is possible (without the need of bothersome data-manipulation) to overlay  the outline of one SCR over the surfaceplot of another. This for easy comparison between the two. See vignettes "geom_sii_riskoutline" and "geom_sii_riskconnection" for details.
 -->
-additional parameters
----------------------
+
+## additional parameters
 
 additional parameters, some in the form of tables, can be used for
 determing what parts of the calculated circle-segments to plot
-(‘plotdetails’), scaling (‘maxscrvalue’, ‘scalingx’, ‘scalingy’), or for
-easy comparison between two instances of a SCR buildup (aesthetic
+(‘plotdetails’), scaling (‘maxscrvalue’, ‘scalingx’, ‘scalingy’), or
+for easy comparison between two instances of a SCR buildup (aesthetic
 ‘comparewithid’).
