@@ -345,10 +345,11 @@ geom_sii_riskoutline <- function(data = NULL,
 #'
 #' @examples
 #' library(ggsolvencyii)
+#' library(ggplot2)
 #'
 #' sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 #'
-#' ggplot2::ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = ggplot2::aes(
+#' ggplot() + geom_sii_riskconnection(data = sii_z_ex3_data, mapping = aes(
 #'   comparewithid = comparewithid,
 #'   x = time,
 #'   y = ratio,
