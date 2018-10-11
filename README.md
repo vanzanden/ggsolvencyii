@@ -3,23 +3,28 @@
 
 # ggsolvencyii
 
-The goal of ggsolvencyii is to show the buildup (“build-down”) of the
-Solvency II SCR from the individual risks, whether for standard formula
-or (partial) intern
-models.
+<img src="vignettes/images/logo_engels_rvignettes.png" align="right" width="25%" />
 
-## status
+<P>
 
-<img src="vignettes/images/logo_engels_rvignettes.png" width="25%" style="display: block; margin: auto 0 auto auto;" />
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![Travis-CI.com Build
+<P>
+
+<P>
+
+### status
+
+[![Travis Build
 Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii)
 [![cran Build
-Status](https://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
+Status](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
+
+## Overview
+
+The goal of ggsolvencyii is to show the buildup (“build-down”) of the
+Solvency II SCR from the individual risks, whether for standard formula
+or (partial) intern models.
 
 <!-- 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)
@@ -35,8 +40,9 @@ You can install ggsolvencyii from Github:
 ``` r
 # install.packages("devtools")
 devtools::install_github("vanzanden/ggsolvencyii")
-# or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows
 ```
+
+<!--# or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows-->
 
 ## short version
 
@@ -137,17 +143,18 @@ segments still in proportion.
     #> [1] "scaling is based on a max (level= 1) value of 30"
     #> [1] "for id = 1 the description dependent rotation is : 325.945945945946 degrees"
 
-The second plot shows a comparison between a circle and square plot of
-the same data. Note that the radius of the SCR circle is smaller than
-the size of the SCR square and that angles are different because in the
-corners there is ‘additional’ surface available compared to a circle.
+<!--
+
+The second plot shows a comparison between a circle and square plot of the same data. Note that the radius of the SCR circle is smaller than the size of the SCR square and that angles are different because in the corners there is 'additional' surface available compared to a circle.
 
 <img src="z-README-circlesquare-1.png" width="50%" />
 
-    #> [1] "scaling is based on a max (level= 1) value of 30"
-    #> [1] "scaling is based on a max (level= 1) value of 30"
+```
+#> [1] "scaling is based on a max (level= 1) value of 30"
+#> [1] "scaling is based on a max (level= 1) value of 30"
+```
 
-<!-- ### scaling
+ ### scaling
 all SCR-buildups from a single call to `geom_sii_risksurface` or `geom_sii_riskoutline` plot are by default scaled in such a way that the largest SCR has a plotradius of one. When combining more calls, with several datasets a manual `maxscrvalue`-value can be given as a parameter. To prevent distortion, depending on the scale of x and y axis, `scalingx` and `scalingy` parameters are available.
 
 ### Plotdetails
