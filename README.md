@@ -19,6 +19,8 @@ Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https:/
 Status](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 
 ## Overview
 
@@ -61,7 +63,7 @@ These three goem’s were used to produce the following plot which for
 example could be used for an ORSA
     report.
 
-![](z-README-showcase2-1.png)<!-- -->
+![](man/images/README-showcase2-1.png)<!-- -->
 
     #> [1] "scaling is based on inputvalue (maxscrvalue) of 25.7433642812936"
     #> [1] "scaling is based on a max (level= 1) value of 25.7433642812936"
@@ -104,7 +106,7 @@ scale_fill_manual(name = "Risks",values = sii_x_fillcolors_sf16_eng) +
 scale_color_manual(name = "Risks",values = sii_x_edgecolors_sf16_eng)
 ```
 
-<img src="z-README-example1-1.png" width="50%" />
+<img src="man/images/README-example1-1.png" width="50%" />
 
     #> [1] "scaling is based on a max (level= 1) value of 23"
 
@@ -123,7 +125,7 @@ items of a level by providing a levelmax-table in such a way that the
 indicated maximum items in that level is not exceded. the example is on
 another dataset `sii_z_ex2_data`, with only one SCR result.
 
-![](z-README-examplelevelmax-1.png)<!-- -->
+![](man/images/README-examplelevelmax-1.png)<!-- -->
 
     #> [1] "scaling is based on a max (level= 1) value of 30"
 
@@ -138,7 +140,7 @@ clockwise.
 
 The option ‘squared’ makes a square plot, with the surface of all
 segments still in proportion.
-<img src="z-README-rotationsquare-1.png" width="50%" />
+<img src="man/images/README-rotationsquare-1.png" width="50%" />
 
     #> [1] "scaling is based on a max (level= 1) value of 30"
     #> [1] "for id = 1 the description dependent rotation is : 325.945945945946 degrees"
@@ -147,7 +149,7 @@ segments still in proportion.
 
 The second plot shows a comparison between a circle and square plot of the same data. Note that the radius of the SCR circle is smaller than the size of the SCR square and that angles are different because in the corners there is 'additional' surface available compared to a circle.
 
-<img src="z-README-circlesquare-1.png" width="50%" />
+<img src="man/images/README-circlesquare-1.png" width="50%" />
 
 ```
 #> [1] "scaling is based on a max (level= 1) value of 30"

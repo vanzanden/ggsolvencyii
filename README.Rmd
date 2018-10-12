@@ -5,7 +5,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r,init,echo=FALSE,results=FALSE,warnings=FALSE,message=FALSE}
-knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="z-README-")
+knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="man/images/README-")
 library(ggplot2)
 library(ggsolvencyii)
 ```
