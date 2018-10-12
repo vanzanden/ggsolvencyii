@@ -5,7 +5,30 @@ date: "11 oktober 2018"
 output: html_document
 ---
 
-## version 0.9.0
+## version 0.9.0, CRAN comments and **actions taken**, 
+October 12 2018
+
+Thanks, we see:
+
+   The Title field should be in title case. Current version is:
+   'A ggplot2-plot Of Composition Of SOLVENCY II SCR: SF and IM'
+   In title case that is:
+   'A ggplot2-Plot of Composition of SOLVENCY II SCR: SF and IM'
+
+**changed in 'A 'ggplot2'-Plot of Composition of Solvency II SCR: SF and IM'** 
+
+Also, pls single quote software names such as 'ggplot2' in Title and 
+Description fields.
+
+**done**
+
+
+
+
+---
+
+## version 0.9.0, first submit, 
+October 11 2018
 
 devtools::release() resulted in 1 WARNING, 1 NOTE
 

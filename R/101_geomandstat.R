@@ -63,7 +63,7 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 ## geom_sii_risksurface ================================================= =====
 #' geom_sii_risksurface
 #'
-#' returns a ggplot2 object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
+#' returns a 'ggplot2' object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
 #' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex3_data}}
@@ -231,7 +231,7 @@ geom_sii_risksurface <- function(data = NULL,
 ## geom_sii_riskoutline ================================================= =====
 #' geom_sii_riskoutline
 #'
-#'  returns a ggplot2 object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
+#'  returns a 'ggplot2' object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
@@ -334,7 +334,7 @@ geom_sii_riskoutline <- function(data = NULL,
 ## geom_sii_riskconnection ============================================== =====
 #' geom_sii_riskconnection
 #'
-#' Plots a line between (x and y coordinates of )those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
+#' returns a 'ggplot2' object; it plots a line between (x and y coordinates of) those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
 #'
 #' @inheritParams geom_sii_risksurface
 #' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id' and also 'comparewithid'
@@ -583,7 +583,7 @@ StatSiiRiskconnection <- ggplot2::ggproto(
 ## stat_sii_risksurface ================================================= =====
 #' stat_sii_risksurface
 #'
-#' stat_sii_risksurface returns a ggplot2 object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
+#' returns a 'ggplot2' object with filled, concentric circle(part)s, defined by the values of a hierarchy of levels.
 #'
 #' @inheritParams geom_sii_risksurface
 #' @param geom the default is geom_sii_risksurface

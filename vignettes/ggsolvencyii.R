@@ -25,7 +25,7 @@ knitr::include_graphics('images/logo_engels_rvignettes.png')
 ## automated scaling to canvas size is on the to do list.
   horizontalscaling = .22 
 
-ggplot() +
+ggplot2::ggplot() +
 ##  a plain vanilla plot of one SCR buildup, the 'current situation': 
   geom_sii_risksurface(data = testdata[testdata$id == 1, ], 
         mapping = ggplot2::aes(x = time, 
@@ -65,18 +65,18 @@ ggplot() +
                 # alpha = 1
         ) +
   
-  theme_bw() +
+  ggplot2::theme_bw() +
 
 ## Combining several geom-calls might result in unexpected ordering of the legends
 ## It can help to plot the dataset which results in the most individual risks first.  
-  scale_fill_manual(name = "risks", values = sii_z_ex1_fillcolors) +
+  ggplot2::scale_fill_manual(name = "risks", values = sii_z_ex1_fillcolors) +
   
-  scale_color_manual(name = "risks", values = sii_z_ex1_edgecolors) +
+  ggplot2::scale_color_manual(name = "risks", values = sii_z_ex1_edgecolors) +
 
 ## a second instance of geom_sii_risksurface, all data (1+2*2 id's) is used
 ## by using a plotdetails dataframe not all calculated circle segments are plotted
   geom_sii_risksurface(data = testdata, 
-          mapping = ggplot2::aes(x = time,y = ratio,value = value,  id = id, 
+          mapping = aes(x = time,y = ratio,value = value,  id = id, 
                                  description = description, 
                                  fill = description, color = description
                                  ),
@@ -113,7 +113,7 @@ ggplot() +
 ## Arrows are plotted to connect 'id' and 'comparewithid' combinations. 
 ## This helps in understanding the outlines of the following geom_sii_riskoutline call  
   geom_sii_riskconnection(data = testdata, 
-                mapping = ggplot2::aes(x = time, y = ratio, id = id,
+                mapping = aes(x = time, y = ratio, id = id,
                     ## for geom_sii_riskconnection comparewithid is a required aesthetic.
                     ## (this is is not the case for geom_sii_riskoutline)
                       comparewithid = comparewithid ), 
@@ -130,7 +130,7 @@ ggplot() +
 ## for levels 1, 4.01 and 4.02 AND for the indivual risks operational and cp-default.
 ## these individual risks are on level 2 and 3 but have no subrisks.
   geom_sii_riskoutline(data = testdata, 
-          mapping = ggplot2::aes(x = time, y = ratio, value = value,  id = id, 
+          mapping = aes(x = time, y = ratio, value = value,  id = id, 
                                  description = description, 
                                  comparewithid = comparewithid,
                         ),
