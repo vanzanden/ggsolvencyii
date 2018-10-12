@@ -66,7 +66,8 @@ by means of the column aes()value comparewithid in the data an overlay can be ma
 library(ggsolvencyii)
 library(ggplot2)
 
-sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
+## see details about id and comparewithid
+# sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 
 ggplot()+
 geom_sii_riskoutline(data = sii_z_ex3_data, mapping = aes(

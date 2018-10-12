@@ -248,7 +248,8 @@ geom_sii_risksurface <- function(data = NULL,
 #' library(ggsolvencyii)
 #' library(ggplot2)
 #'
-#' sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
+#' ## see details about id and comparewithid
+#' # sii_z_ex3_data[sii_z_ex3_data$description == "SCR", ]
 #'
 #' ggplot()+
 #' geom_sii_riskoutline(data = sii_z_ex3_data, mapping = aes(

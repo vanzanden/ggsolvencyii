@@ -22,7 +22,24 @@ Description fields.
 
 **done**
 
+### new test build_win()
+passed with 3 NOTEs:
 
+* checking CRAN incoming feasibility ... NOTE
+* Maintainer: 'Marco van Zanden <git@vanzanden.nl>'
+    * New submission
+
+** running examples for arch 'i386' ... [20s] NOTE<p>
+Examples with CPU or elapsed time > 10s<p>
+                      user system elapsed<p>
+geom_sii_riskoutline 10.05      0   10.12<p>
+<p>
+** running examples for arch 'x64' ... [20s] NOTE<p>
+Examples with CPU or elapsed time > 10s<p>
+                      user system elapsed<p>
+geom_sii_riskoutline 10.01   0.07   10.13<p>
+
+**one example has been outcommented, will show in man-page as a comment**
 
 
 ---
