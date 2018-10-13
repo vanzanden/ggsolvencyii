@@ -53,10 +53,10 @@ the scale of the different plot elements is is by default measured to the larges
 \item{...}{ellipsis, a standard R parameter}
 }
 \value{
-a ggplot object \code{\link{geom_sii_risksurface}}
+a 'ggplot2' object \code{\link{geom_sii_risksurface}}
 }
 \description{
-returns a 'ggplot2' object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
+returns a 'ggplot2' object, based on geom_path with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
 }
 \details{
 When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
