@@ -40,7 +40,7 @@ We also see:
 
 License components with restrictions and base license permitting such:
 
-     GPL-3 + file LICENSE
+   GPL-3 + file LICENSE
 
    File 'LICENSE':
 
@@ -56,7 +56,7 @@ reference in the DESCRIPTION file.
 
 **done**
 
-### new test build_win()
+#### new test build_win()
 passed with 1 NOTE:
 
 * checking CRAN incoming feasibility ... NOTE
