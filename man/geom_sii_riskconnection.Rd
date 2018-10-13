@@ -26,10 +26,10 @@ geom_sii_riskconnection(data = NULL, mapping = NULL,
 \item{...}{ellipsis, a standard R parameter}
 }
 \value{
-a ggplot object
+a 'ggplot2' object based on 'geom_polygon'
 }
 \description{
-returns a 'ggplot2' object; it plots a line between (x and y coordinates of) those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
+returns a 'ggplot2' object, based on geom_segment.; it plots a line between (x and y coordinates of) those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
 }
 \examples{
 library(ggsolvencyii)

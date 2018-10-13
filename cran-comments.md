@@ -1,12 +1,81 @@
 ---
 title: "cran-comments"
 author: "Marco van Zanden"
-date: "11 oktober 2018"
+date: "October 13 2018"
 output: html_document
 ---
 
-## version 0.9.0, CRAN comments and **actions taken**, 
-October 12 2018
+### version 0.9.0, CRAN comments and **actions taken**
+October 13, 2018
+
+Thanks, we see
+
+Last time I wrote
+
+"Also, pls single quote software names such as 'ggplot2' in Title and 
+Description fields."
+
+You did not do so for the Description field.
+
+**apologies. I had used a search and replace on 'ggplot2', while Description had 'ggplot' **
+
+Is there some reference about the method you can add in the Description 
+field in the form Authors (year) <doi:.....>?
+
+**The method is European legislation for insurance companies. **
+**Description field has been changed to:**
+
+***An implementation of 'ggplot2'-methods to present the composition of Solvency II SCR as*** 
+***a series of concentric circle-parts. Solvency II (Solvency 2) is European insurance*** 
+***legislation, coming in force by the delegated acts of October 10, 2014.*** ***(https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AL%3A2015%3A012%3ATOC).*** 
+***Additional files, defining the structure of the Standard Formula (SF) method*** 
+***of de SCR-calculation are provided; The structure files can be adopted for localization***
+***or for insurance companies who use Internal Models (IM). Options are available for ***
+***combining smaller components (i.e. risks), horizontal and vertical scaling, rotation,*** 
+***and plotting only some or the circle-segments. With outlines and connectors several*** 
+***SCR-compositions can be compared, for example in ORSA scenarios.***
+
+
+We also see:
+
+License components with restrictions and base license permitting such:
+
+     GPL-3 + file LICENSE
+
+   File 'LICENSE':
+
+                         GNU GENERAL PUBLIC LICENSE
+
+                            Version 3, 29 June 2007
+
+  ...
+
+Please do not ship the full GPL. File LICENSE is only intended for 
+additional restrictions. If there are none, delete the file and its 
+reference in the DESCRIPTION file.
+
+**done**
+
+### new test build_win()
+passed with 1 NOTE:
+
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Marco van Zanden <git@vanzanden.nl>'
+
+New submission
+
+Possibly mis-spelled words in DESCRIPTION:
+  IM (2:67, 10:106)
+  ORSA (12:88)
+  SCR (2:55, 6:95, 9:85, 12:39)
+  de (9:82)
+
+**misspelling of 'de' adjusted to 'the', no rerun of build_win()**
+
+---
+
+### version 0.9.0, CRAN comments and **actions taken**, 
+October 12, 2018
 
 Thanks, we see:
 
@@ -45,7 +114,7 @@ geom_sii_riskoutline 10.01   0.07   10.13<p>
 ---
 
 ## version 0.9.0, first submit, 
-October 11 2018
+October 11, 2018
 
 devtools::release() resulted in 1 WARNING, 1 NOTE
 

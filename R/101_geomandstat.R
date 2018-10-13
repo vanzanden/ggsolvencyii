@@ -63,7 +63,7 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 ## geom_sii_risksurface ================================================= =====
 #' geom_sii_risksurface
 #'
-#' returns a 'ggplot2' object with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
+#' returns a 'ggplot2' object, based on geom_polygon, with filled, concentric circle(part)s, defined by the values in a hierarchy of levels.
 #'
 #' @param mapping required aes(thetics) : x (i.e. time, longitude), y (i.e SCR ratio, lattitude), id, description (), value
 #' @param data  the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex3_data}}
@@ -231,7 +231,7 @@ geom_sii_risksurface <- function(data = NULL,
 ## geom_sii_riskoutline ================================================= =====
 #' geom_sii_riskoutline
 #'
-#'  returns a 'ggplot2' object with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
+#'  returns a 'ggplot2' object, based on geom_path with the outlines concentric circle(part)s, defined by the values in a hierarchy of levels. This can be used instead of geom_sii_risksurface to plot the composition of the SCR. When optional aes(thetic) 'comparewithid' is passed to the geom_sii_riskoutline then the second SCR can be an overlay over another, for easy comparison.
 #'
 #' When describing an outline of a circlepart 4 segments can be distinguised, radial line outwards, outer circle segment, radial line inwards, inner circle segment. Whether or not to plot these lines can be determined with an outline dataframe.
 #' by means of the column aes()value comparewithid in the data an overlay can be made to compare two SCR representations.
@@ -241,7 +241,7 @@ geom_sii_risksurface <- function(data = NULL,
 #' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id', 'description', 'value'. Optional aes is 'comparewithid'
 #' @param plotdetails a table with columns 'levelordescription' and 'outline1' to 'outline4', indicating which outlines of which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_risksurface uses another column in the same table.
 #'
-#' @return a ggplot object \code{\link{geom_sii_risksurface}}
+#' @return a 'ggplot2' object \code{\link{geom_sii_risksurface}}
 #' @export
 #'
 #' @examples
@@ -297,13 +297,13 @@ geom_sii_riskoutline <- function(data = NULL,
                     maxscrvalue = NULL,
                     scalingx = 1,
                     scalingy = 1,
-                  ## other standard ggplot parameters
+                  ## other standard 'ggplot2' parameters
                     position = "identity",
                     na.rm = FALSE,
                     show.legend = NA,
                     inherit.aes = TRUE,
                   ## internal parameters
-                    ## purpose (attribution in call to ggplot::layer),
+                    ## purpose (attribution in call to ggplot2::layer),
                   ## ellipsis
                     ...
                   ) {
@@ -335,13 +335,13 @@ geom_sii_riskoutline <- function(data = NULL,
 ## geom_sii_riskconnection ============================================== =====
 #' geom_sii_riskconnection
 #'
-#' returns a 'ggplot2' object; it plots a line between (x and y coordinates of) those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
+#' returns a 'ggplot2' object, based on geom_segment.; it plots a line between (x and y coordinates of) those datapoints which have a matching value in the columns 'id' and 'comparewithid'. values in 'id' must be unique. For values in 'comparewithid' is uniqueness not required, but a matching value in 'id' must be present.
 #'
 #' @inheritParams geom_sii_risksurface
 #' @param mapping required aes(thetics) : 'x' (i.e. time, longitude, integer), 'y' (i.e SCR ratio, lattitude), 'id' and also 'comparewithid'
 #' @param stat  default stat is statsii_riskconnection, combinations with other stat's are not tested
 #'
-#' @return a ggplot object
+#' @return a 'ggplot2' object based on 'geom_polygon'
 #' @export
 #'
 #' @examples
