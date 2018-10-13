@@ -5,7 +5,7 @@ Date: 2018-10-17
 Authors@R: person("Marco", "van Zanden", email = "git@vanzanden.nl", role = c("aut", "cre"))
 Description: An implementation of 'ggplot2'-methods to present the composition of Solvency II SCR as a series of concentric circle-parts. 
  Solvency II (Solvency 2) is European insurance legislation, coming in force by the delegated acts of October 10, 2014.
- (https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AL%3A2015%3A012%3ATOC). 
+ <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AL%3A2015%3A012%3ATOC>. 
  Additional files, defining the structure of the Standard Formula (SF) method of de SCR-calculation are provided;
  The structure files can be adopted for localization or for insurance companies who use Internal Models (IM).
  Options are available for combining smaller components, horizontal and vertical scaling, rotation, and plotting only some circle-parts.
