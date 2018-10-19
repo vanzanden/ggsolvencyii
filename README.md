@@ -15,8 +15,7 @@
 
 [![Travis Build
 Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii)
-[![Build
-status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)
+<!-- [![Build status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)-->
 [![cran Build
 Status](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![CRAN RStudio mirror
