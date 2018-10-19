@@ -23,6 +23,31 @@ Swetlana Herbrandt
 
 **done**
 
+#### new test build_win()
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Marco van Zanden <git@vanzanden.nl>'
+
+New submission
+
+Possibly mis-spelled words in DESCRIPTION:
+  IM (2:67, 10:106)
+  ORSA (12:88)
+  SCR (2:55, 6:125, 9:85, 12:39)
+  de (9:82)
+
+**misspelling of 'de' adjusted to 'the', (issue with branches, hence recurring problem)
+
+Found the following (possibly) invalid URLs:
+  URL: https://www.r-pkg.org/pkg/ggsolvencyii
+    From: inst/doc/ggsolvencyii.html
+    Status: 404
+    Message: Not Found
+    
+** badges removed in vignette  **  
+** no rerun of build_win()**
+
+
+
 ---
 
 ### version 0.9.0(versioning reset on October 19), CRAN comments and **actions taken**
