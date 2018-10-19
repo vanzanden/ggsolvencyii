@@ -21,7 +21,7 @@ Imports: dplyr,
          tidyr
 Suggests: ggmap,
           knitr,
-          rmarkdown,
+          rmarkdown
 VignetteBuilder: knitr
 URL: https://github.com/vanzanden/ggsolvencyii
 BugReports: https://github.com/vanzanden/ggsolvencyii/issues
