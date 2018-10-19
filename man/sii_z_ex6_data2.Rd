@@ -15,7 +15,7 @@
 \source{
 the structure is based on public SFCR 2017 report of NN group,
   with a possible wrong interpretation of diversification effects towards 'market basis and CPD risk' \cr#'
-  See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
+  See \href{https://preview.tinyurl.com/ggsolvencyii-001}{preview.tinyurl.com/ggsolvencyii-001}, page 33 linking to
   www.nn-group.com/ nn-group/file? uuid=e3e89829 -e7bd -495a -9fed
   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311
   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
@@ -35,6 +35,7 @@ example dataset of a internal model of a large Dutch insurer (NN group). Values 
   and their (7,4,4 and 4) components
 }
 \examples{
-sii_z_ex6_data2
+installedtable <- sii_z_ex6_data2
+installedtable
 }
 \keyword{datasets}

@@ -23,6 +23,7 @@ sii_z_ex7_data
 example dataset, in tidyverse format, with all columns of the complete SF16 structure present in the data but with only a few risks filled with non-zero values,
 }
 \examples{
-sii_z_ex7_data
+installedtable <- sii_z_ex7_data
+installedtable
 }
 \keyword{datasets}

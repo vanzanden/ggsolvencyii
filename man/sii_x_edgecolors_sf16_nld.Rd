@@ -15,6 +15,7 @@ sii_x_edgecolors_sf16_nld
 a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolors..} variable.
 }
 \examples{
-sii_x_edgecolors_sf16_nld
+installedtable <- sii_x_edgecolors_sf16_nld
+installedtable
 }
 \keyword{datasets}

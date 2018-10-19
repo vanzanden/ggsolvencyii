@@ -16,3 +16,4 @@
 ^\.Rprofile$
 ^cran-comments.md$
 
+^appveyor\.yml$

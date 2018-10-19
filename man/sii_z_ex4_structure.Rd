@@ -21,6 +21,7 @@ sii_z_ex4_structure
 a adapted (compact) structure with no division of market, life, .. risks in subrisks (i.e. equity, longevity,... ). Descriptions are in English
 }
 \examples{
-sii_z_ex4_structure
+installedtable <- sii_z_ex4_structure
+installedtable
 }
 \keyword{datasets}

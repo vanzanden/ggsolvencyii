@@ -15,6 +15,7 @@ sii_z_ex1_edgecolors
 a colorset, as named list, where each risk has the edgecolor of the "motherlevel", as defined in the \code{..fillcolors..} variable.
 }
 \examples{
-sii_z_ex1_edgecolors
+installedtable <- sii_z_ex1_edgecolors
+installedtable
 }
 \keyword{datasets}

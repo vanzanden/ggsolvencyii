@@ -23,6 +23,7 @@ sii_z_ex2_data
 example dataset, in tidyverse format, with only one instance of a limited filled sf structure.
 }
 \examples{
-sii_z_ex2_data
+installedtable <- sii_z_ex2_data
+installedtable
 }
 \keyword{datasets}

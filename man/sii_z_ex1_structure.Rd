@@ -21,6 +21,7 @@ sii_z_ex1_structure
 a adapted (compact) structure, for a life-insurer with only  market and life risk and their subrisks
 }
 \examples{
-sii_z_ex1_structure
+installedtable <- sii_z_ex1_structure
+installedtable
 }
 \keyword{datasets}

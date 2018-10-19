@@ -1,11 +1,31 @@
 ---
 title: "cran-comments"
 author: "Marco van Zanden"
-date: "October 13 2018"
+date: "October 19 2018"
 output: html_document
 ---
 
-### version 0.9.0, CRAN comments and **actions taken**
+### version 0.1.0, CRAN comments and **actions taken**
+October 19, 2018
+
+**I reset versioning from 0.9.0 to 0.1.0.**
+
+Thanks, please replace the semicolon by a period in "are provided; The" 
+(Description text).
+
+Please explain all acronyms (e.g. ORSA, SCR) in your Description text to 
+avoid misunderstandings.
+
+Please fix and resubmit.
+
+Best,
+Swetlana Herbrandt
+
+**done**
+
+---
+
+### version 0.9.0(versioning reset on October 19), CRAN comments and **actions taken**
 October 13, 2018
 
 Thanks, we see
@@ -74,7 +94,7 @@ Possibly mis-spelled words in DESCRIPTION:
 
 ---
 
-### version 0.9.0, CRAN comments and **actions taken**, 
+### version 0.9.0(versioning reset on October 19), CRAN comments and **actions taken**, 
 October 12, 2018
 
 Thanks, we see:
@@ -113,7 +133,7 @@ geom_sii_riskoutline 10.01   0.07   10.13<p>
 
 ---
 
-## version 0.9.0, first submit, 
+## version 0.9.0 (versioning reset on October 19), first submit, 
 October 11, 2018
 
 devtools::release() resulted in 1 WARNING, 1 NOTE

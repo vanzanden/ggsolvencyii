@@ -15,6 +15,7 @@ sii_z_ex4_levelmax
 maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
 }
 \examples{
-sii_z_ex4_levelmax
+installedtable <- sii_z_ex4_levelmax
+installedtable
 }
 \keyword{datasets}

@@ -21,6 +21,7 @@ maximum number of items in a level, 99 items for levels 1-3
 (equity/longevity/...) in a standard formula structure.
 }
 \examples{
-sii_levelmax_sf16_995
+installedtable <- sii_levelmax_sf16_995
+installedtable
 }
 \keyword{datasets}

@@ -15,6 +15,8 @@
 
 [![Travis Build
 Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)
 [![cran Build
 Status](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![CRAN RStudio mirror
@@ -24,9 +26,10 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/ggsolvencyii)](https://
 
 ## Overview
 
-The goal of ggsolvencyii is to show the buildup (“build-down”) of the
-Solvency II SCR from the individual risks, whether for standard formula
-or (partial) intern models.
+The goal of ggsolvencyii is to provide ‘ggplot2’-geom’s to show the
+composition of the Solvency (II) Capital Requirement (SCR) from
+(diversified) risks and subrisks, whether for standard formula (SF) or
+(partial) intern models (IM/PIM).
 
 <!-- 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)
@@ -37,7 +40,13 @@ or (partial) intern models.
 
 ## Installation
 
-You can install ggsolvencyii from Github:
+You can install ggsolvencyii from Cran (stable release)
+
+``` r
+install.packages("ggsolvencyii")
+```
+
+or (develoment version) from Github:
 
 ``` r
 # install.packages("devtools")
@@ -59,9 +68,9 @@ ggsolvencyii builds on ggplot-functionality and provides three geom’s:
 `geom_sii_risksurface`, `geom_sii_riskoutline` and
 `geom_sii_riskconnection`
 
-These three goem’s were used to produce the following plot which for
-example could be used for an ORSA
-    report.
+These three geom’s were used to produce the following plot which for
+example could be used for an ORSA (Own Risk and Solvency Assessment)
+report.
 
 ![](man/images/README-showcase2-1.png)<!-- -->
 

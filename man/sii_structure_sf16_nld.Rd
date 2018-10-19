@@ -21,6 +21,7 @@ sii_structure_sf16_nld
 a standard formula structure (as of 2016), with descriptions in Dutch.
 }
 \examples{
-sii_structure_sf16_nld
+installedtable <- sii_structure_sf16_nld
+installedtable
 }
 \keyword{datasets}

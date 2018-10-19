@@ -32,6 +32,7 @@ A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutl
 when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 }
 \examples{
-sii_z_ex1_plotdetails2
+installedtable <- sii_z_ex1_plotdetails2
+installedtable
 }
 \keyword{datasets}

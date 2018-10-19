@@ -23,6 +23,7 @@ sii_z_ex1_data
 example dataset, in tidyverse format, for the showcase of a limited structure.
 }
 \examples{
-sii_z_ex1_data
+installedtable <- sii_z_ex1_data
+installedtable
 }
 \keyword{datasets}

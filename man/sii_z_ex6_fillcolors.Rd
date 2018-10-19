@@ -15,6 +15,7 @@ sii_z_ex6_fillcolors
 a colorset, as named list, where each accumulation-level and each type of risk has it's own color, where ".._other" has the same color as the "motherlevel", i.e. 'market_other' has the same color as 'market' while other 'm_..' risks have a different hue.
 }
 \examples{
-sii_z_ex6_fillcolors
+installedtable <- sii_z_ex6_fillcolors
+installedtable
 }
 \keyword{datasets}

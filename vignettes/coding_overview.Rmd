@@ -19,7 +19,7 @@ knitr::include_graphics('images/logo_engels_rvignettes.png')
 
 ## Disclaimer
 
-This documentation is in a rudimentary form for release 0.9.0. which is meant to see how much interest (not the financial one) this package generates.
+This documentation is in a rudimentary form for release 0.1.0. which is meant to see how much interest (not the financial one) this package generates.
 
 ## Vignettes
 The following vignettes are available.  

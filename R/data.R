@@ -29,8 +29,9 @@
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
-#' sii_x_fillcolors_sf16_eng
-"sii_x_fillcolors_sf16_eng"
+#' installedtable <- sii_x_fillcolors_sf16_eng
+#' installedtable
+ "sii_x_fillcolors_sf16_eng"
 
 ## sii_x_edgecolors_sf16_eng ============================================ =====
 #' sii_x_edgecolors_sf16_eng
@@ -45,7 +46,8 @@
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
 #' @examples
-#' sii_x_edgecolors_sf16_eng
+#' installedtable <- sii_x_edgecolors_sf16_eng
+#' installedtable
 "sii_x_edgecolors_sf16_eng"
 
 
@@ -61,7 +63,8 @@
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
-#' sii_x_fillcolors_sf16_nld
+#' installedtable <- sii_x_fillcolors_sf16_nld
+#' installedtable
 "sii_x_fillcolors_sf16_nld"
 
 ## sii_x_edgecolors_sf16_nld ============================================ =====
@@ -77,7 +80,8 @@
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
 #' @examples
-#' sii_x_edgecolors_sf16_nld
+#' installedtable <- sii_x_edgecolors_sf16_nld
+#' installedtable
 "sii_x_edgecolors_sf16_nld"
 
 ## sii_structure_sf16_eng =============================================== =====
@@ -98,7 +102,8 @@
 #'          }
 #'
 #' @examples
-#' sii_structure_sf16_eng
+#' installedtable <- sii_structure_sf16_eng
+#' installedtable
 "sii_structure_sf16_eng"
 
 ## sii_structure_sf16_nld =============================================== =====
@@ -119,7 +124,8 @@
 #'          }
 #'
 #' @examples
-#' sii_structure_sf16_nld
+#' installedtable <- sii_structure_sf16_nld
+#' installedtable
 "sii_structure_sf16_nld"
 
 
@@ -144,7 +150,8 @@
 #'
 #'
 #' @examples
-#' sii_levelmax_sf16_995
+#' installedtable <- sii_levelmax_sf16_995
+#' installedtable
 "sii_levelmax_sf16_995"
 
 ## sii_levelmax_sf16_993 ================================================ =====
@@ -166,7 +173,8 @@
 #'
 #'
 #' @examples
-#' sii_levelmax_sf16_993
+#' installedtable <- sii_levelmax_sf16_993
+#' installedtable
 "sii_levelmax_sf16_993"
 
 
@@ -194,7 +202,8 @@
 #'          }
 #'
 #' @examples
-#' sii_plotdetails_sf16
+#' installedtable <- sii_plotdetails_sf16
+#' installedtable
 "sii_plotdetails_sf16"
 
 
@@ -224,7 +233,8 @@
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
-#' sii_z_ex1_data
+#' installedtable <- sii_z_ex1_data
+#' installedtable
 "sii_z_ex1_data"
 
 
@@ -246,7 +256,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex1_structure
+#' installedtable <- sii_z_ex1_structure
+#' installedtable
 "sii_z_ex1_structure"
 
 
@@ -263,7 +274,8 @@
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
-#' sii_z_ex1_fillcolors
+#' installedtable <- sii_z_ex1_fillcolors
+#' installedtable
 "sii_z_ex1_fillcolors"
 
 ## sii_z_ex1_edgecolors ================================================= =====
@@ -279,7 +291,8 @@
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
 #' @examples
-#' sii_z_ex1_edgecolors
+#' installedtable <- sii_z_ex1_edgecolors
+#' installedtable
 "sii_z_ex1_edgecolors"
 
 
@@ -301,7 +314,8 @@
 # '          }
 #'
 #' @examples
-#' sii_z_ex1_levelmax
+#' installedtable <- sii_z_ex1_levelmax
+#' installedtable
 "sii_z_ex1_levelmax"
 
 ## sii_z_ex1_plotdetails ================================================ =====
@@ -328,7 +342,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex1_plotdetails
+#' installedtable <- sii_z_ex1_plotdetails
+#' installedtable
 "sii_z_ex1_plotdetails"
 
 ## sii_z_ex1_plotdetails2 =============================================== =====
@@ -355,7 +370,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex1_plotdetails2
+#' installedtable <- sii_z_ex1_plotdetails2
+#' installedtable
 "sii_z_ex1_plotdetails2"
 
 ## sii_z_ex2_data ======================================================= =====
@@ -378,7 +394,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex2_data
+#' installedtable <- sii_z_ex2_data
+#' installedtable
 "sii_z_ex2_data"
 
 
@@ -404,7 +421,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex3_data
+#' installedtable <- sii_z_ex3_data
+#' installedtable
 "sii_z_ex3_data"
 
 
@@ -432,7 +450,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex3_plotdetails
+#' installedtable <- sii_z_ex3_plotdetails
+#' installedtable
 "sii_z_ex3_plotdetails"
 
 
@@ -458,7 +477,8 @@
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
-#' sii_z_ex4_data
+#' installedtable <- sii_z_ex4_data
+#' installedtable
 "sii_z_ex4_data"
 
 ## sii_z_ex4_structure ================================================== =====
@@ -479,7 +499,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex4_structure
+#' installedtable <- sii_z_ex4_structure
+#' installedtable
 "sii_z_ex4_structure"
 
 
@@ -502,7 +523,8 @@
 # '          }
 #'
 #' @examples
-#' sii_z_ex4_levelmax
+#' installedtable <- sii_z_ex4_levelmax
+#' installedtable
 "sii_z_ex4_levelmax"
 
 
@@ -518,7 +540,7 @@
 #'
 #' @source the structure is based on public SFCR 2017 report of NN group,
 #'   with a possible wrong interpretation of diversification effects towards 'market basis and CPD risk'\cr
-#'   #' See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
+#'   #' See \href{https://preview.tinyurl.com/ggsolvencyii-001}{preview.tinyurl.com/ggsolvencyii-001}, page 33 linking to
 #'   www.nn-group.com /nn-group /file?uuid=e3e89829 -e7bd -495a -9fed
 #'   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311 \cr
 #'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
@@ -535,7 +557,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex6_data
+#' installedtable <- sii_z_ex6_data
+#' installedtable
 "sii_z_ex6_data"
 
 ## sii_z_ex6_data2 ====================================================== =====
@@ -554,7 +577,7 @@
 #'
 #' @source the structure is based on public SFCR 2017 report of NN group,
 #'   with a possible wrong interpretation of diversification effects towards 'market basis and CPD risk' \cr#'
-#'   See \href{https://tinyurl.com/ggsolvencyii-001}{tinyurl.com/ggsolvencyii-001}, page 33 linking to
+#'   See \href{https://preview.tinyurl.com/ggsolvencyii-001}{preview.tinyurl.com/ggsolvencyii-001}, page 33 linking to
 #'   www.nn-group.com/ nn-group/file? uuid=e3e89829 -e7bd -495a -9fed
 #'   -4bc54a9349eb&owner =c5df72fd -8a65 -4f75 -956d -5e37307aa50c &contentid =2311
 #'   made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/master/_data_helperfiles}{github.com/vanzanden},
@@ -570,7 +593,8 @@
 #'            \item{comparewithid}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
-#' sii_z_ex6_data2
+#' installedtable <- sii_z_ex6_data2
+#' installedtable
 "sii_z_ex6_data2"
 
 ## sii_z_ex6_structure ================================================== =====
@@ -591,7 +615,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex6_structure
+#' installedtable <- sii_z_ex6_structure
+#' installedtable
 "sii_z_ex6_structure"
 
 
@@ -607,7 +632,8 @@
 #'
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 #' @examples
-#' sii_z_ex6_fillcolors
+#' installedtable <- sii_z_ex6_fillcolors
+#' installedtable
 "sii_z_ex6_fillcolors"
 
 ## sii_z_ex6_edgecolors ================================================= =====
@@ -623,7 +649,8 @@
 #' @format A list with items in the form "\emph{description}"= "#\emph{colorcode}":
 
 #' @examples
-#' sii_z_ex6_edgecolors
+#' installedtable <- sii_z_ex6_edgecolors
+#' installedtable
 "sii_z_ex6_edgecolors"
 
 
@@ -645,7 +672,8 @@
 # '          }
 #'
 #' @examples
-#' sii_z_ex6_levelmax
+#' installedtable <- sii_z_ex6_levelmax
+#' installedtable
 "sii_z_ex6_levelmax"
 
 
@@ -675,7 +703,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex6_plotdetails
+#' installedtable <- sii_z_ex6_plotdetails
+#' installedtable
 "sii_z_ex6_plotdetails"
 
 ## sii_z_ex7_data ======================================================= =====
@@ -698,7 +727,8 @@
 #'            \item{vergelijkmet}{numerical: a reference to the id of another datapoint }#'          }
 #'
 #' @examples
-#' sii_z_ex7_data
+#' installedtable <- sii_z_ex7_data
+#' installedtable
 "sii_z_ex7_data"
 
 ## sii_z_ex7_plotdetails ================================================ =====
@@ -725,7 +755,8 @@
 #'          }
 #'
 #' @examples
-#' sii_z_ex7_plotdetails
+#' installedtable <- sii_z_ex7_plotdetails
+#' installedtable
 "sii_z_ex7_plotdetails"
 
 ## sii_z_ex8_map ======================================================== =====
@@ -741,8 +772,9 @@
 # ' @format a ggplot2 object
 # '
 # ' @examples
-# ' sii_z_ex8_map
-# "sii_z_ex8_map"
+# ' installedtable <- sii_z_ex8_map
+# ' installedtable
+"sii_z_ex8_map"
 
 ## ====================================================================== =====
 

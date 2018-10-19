@@ -21,6 +21,7 @@ sii_structure_sf16_eng
 a standard formula structure (as of 2016), with descriptions in English.
 }
 \examples{
-sii_structure_sf16_eng
+installedtable <- sii_structure_sf16_eng
+installedtable
 }
 \keyword{datasets}

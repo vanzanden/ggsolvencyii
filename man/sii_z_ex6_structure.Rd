@@ -21,6 +21,7 @@ sii_z_ex6_structure
 a standard formula structure (as of 2016), with descriptions in English.
 }
 \examples{
-sii_z_ex6_structure
+installedtable <- sii_z_ex6_structure
+installedtable
 }
 \keyword{datasets}
