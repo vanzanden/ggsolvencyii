@@ -46,13 +46,12 @@ The following vignettes are available or will be available soon
 check https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes
 
 * ggsolvencyii (this vignette)
-* geom_sii_risksurface
-* geom_sii_riskoutline
-* geom_sii_riskconnection
-* plotdetails
+* geom_sii_risksurface (placeholder)
+* geom_sii_riskoutline (placeholder)
+* geom_sii_riskconnection (placeholder)
+* plotdetails (placeholder)
 * showcase
-* coding_overview
-* work_in_progress
+* coding_overview (placeholder)
 
 ## example
 

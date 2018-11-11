@@ -1,3 +1,14 @@
+### version 0.1.0, CRAN comments, Release to CRAN
+
+Subject: Re: CRAN submission ggsolvencyii 0.1.0
+From: Uwe Ligges 
+Date: Sun, 28 Oct 2018 23:20:18 +0100
+
+Thanks, on its way to CRAN.
+
+Best,
+Uwe Ligges
+
 ---
 title: "cran-comments"
 author: "Marco van Zanden"

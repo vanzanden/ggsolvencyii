@@ -21,7 +21,7 @@ library(ggsolvencyii)
 ### status
 
 [![Travis Build Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https://travis-ci.com/vanzanden/ggsolvencyii)
-<!-- [![Build status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)-->
+[![Build status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)
 [![cran Build Status](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
@@ -58,14 +58,14 @@ devtools::install_github("vanzanden/ggsolvencyii")
 <!--# or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows-->
 
 ## short version
-This README is a short version of the vignette 'ggsolvencyii' at https://github.com/vanzanden/ggsolvencyii/tree/master/ which shows more code.
-the annotated code of the first example is shown in vignette 'showcase'.
+This README is a short version of the vignette 'ggsolvencyii' at https://cran.r-project.org/web/packages/ggsolvencyii/index.html  (and https://github.com/vanzanden/ggsolvencyii/tree/master/) which shows the same examples with more code.
+the complete annotated code resulting in the first figure is shown in vignette 'showcase'.
 
 ## example
 
-ggsolvencyii builds on ggplot-functionality and provides three geom's: `geom_sii_risksurface`, `geom_sii_riskoutline` and `geom_sii_riskconnection`
+ggsolvencyii builds on ggplot-functionality and provides three geom's: `geom_sii_risksurface`, `geom_sii_riskoutline` and `geom_sii_riskconnection`.
 
-These three geom's were used to produce the following plot which for example could be used for an ORSA (Own Risk and Solvency Assessment) report. 
+These three geom's were used to produce the following showcase plot which might be used for an ORSA (Own Risk and Solvency Assessment) report. 
 
 ```{r, showcase, echo = FALSE, results = 'hide' }
       ## the original dataset has three three-year scenarios, 
