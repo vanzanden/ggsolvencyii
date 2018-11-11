@@ -48,6 +48,7 @@
 
 fn_cornerpoints <- function(df, siiparams) {
     maxscrvalue         <- siiparams$maxscrvalue
+    tocenter            <- siiparams$tocenter
 
     t1 <- df  %>%
             dplyr::mutate(ri = NA, ro = NA, db = NA, de = NA, plottype = NA)
@@ -106,8 +107,12 @@ fn_cornerpoints <- function(df, siiparams) {
              de <- db + (t1$value[linecounter] / sumgroup) * (degroup - dbgroup)
             }
             dbtemp <- de
-            ri <- rigroup
-           ro <- sqrt((t1$value[linecounter] / maxscrvalue) / ((de - db) / 360))
+            if (tocenter == TRUE) {
+              ri <- 0
+            } else {
+              ri <- rigroup
+            }
+            ro <- sqrt((t1$value[linecounter] / maxscrvalue) / ((de - db) / 360))
             t1$ri[linecounter] <- ri
             rm(ri)
             t1$ro[linecounter] <- ro

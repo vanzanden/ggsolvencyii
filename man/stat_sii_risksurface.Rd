@@ -47,7 +47,7 @@ the scale of the different plot elements is is by default measured to the larges
 
 \item{squared}{(optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the height and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equally sized part which fall in the vertical or horizontal parts of the square.}
 
-\item{plotdetails}{a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
+\item{plotdetails}{(optional) a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_riskoutline uses other columns in the same table}
 
 \item{...}{ellipsis, a standard R parameter}
 }

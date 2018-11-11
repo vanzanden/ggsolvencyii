@@ -297,3 +297,28 @@ ggplot2::ggplot() +
   ggplot2::theme_bw()
 
 
+## basistest circle, tocenter = TRUE  =================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+
+              ) , tocenter = FALSE ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten", values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten", values = sii_x_edgecolors_sf16_eng)
+
+
+## basistest circle, tocenter = TRUE  =================================== =====
+ggplot2::ggplot() +
+  geom_sii_risksurface(data = sii_z_ex2_data,
+              mapping = ggplot2::aes(x = time, y = ratio , id = id, value = value, description = description
+                            ,fill = description
+                            ,color = description
+
+              ) , tocenter = TRUE ) +
+  ggplot2::theme_bw() +
+  ggplot2::scale_fill_manual(name = "Componenten", values = sii_x_fillcolors_sf16_eng) +
+  ggplot2::scale_color_manual(name = "Componenten", values = sii_x_edgecolors_sf16_eng)
+

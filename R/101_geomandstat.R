@@ -85,7 +85,10 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #' @param rotationdescription (optional, string, default = NULL)\cr default the orientation of the lower level (higher number) circles is based on the structure. When this parameter is not NULL then the circles are rotated in such a way that the indicated item lies in the "north-east" part of the circle.
 #' @param rotationdegrees (optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
 #' @param squared (optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the height and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equally sized part which fall in the vertical or horizontal parts of the square.
-#' @param plotdetails a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_riskoutline uses other columns in the same table
+#' @param plotdetails (optional) a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_riskoutline uses other columns in the same table
+#' @param tocenter (optional, boolean, default = FALSE)\cr whether to extend the circle segments to the center
+#' @param relalpha (optional, boolean, default = FALSE)\cr whether to apply a relative alpha to segments, based on column alpha in plotdetails (not yet implemented)
+#'
 #' @param ... ellipsis, a standard R parameter
 #'
 #' @import ggplot2
@@ -186,6 +189,8 @@ geom_sii_risksurface <- function(data = NULL,
                         aggregatesuffix = "_other",
                         ##
                         plotdetails = NULL,
+                        tocenter = FALSE,
+                        relalpha = FALSE,
                         ## rotation
                         rotationdegrees = NULL,
                         rotationdescription = NULL,
@@ -221,6 +226,8 @@ geom_sii_risksurface <- function(data = NULL,
                               rotationdescription = rotationdescription,
                               squared = squared,
                               plotdetails = plotdetails,
+                              tocenter = tocenter,
+                              relalpha = relalpha,
                            ## internal params
                               purpose = "surfaces",
                            ## ellipsis
@@ -290,6 +297,8 @@ geom_sii_riskoutline <- function(data = NULL,
                     aggregatesuffix = "_other",
                     ##
                     plotdetails = NULL,
+                    tocenter = FALSE,
+                    relalpha = FALSE,
                     ## rotation
                     rotationdegrees = NULL,
                     rotationdescription = NULL,
@@ -321,10 +330,12 @@ geom_sii_riskoutline <- function(data = NULL,
                                 levelmax = levelmax,
                                 aggregatesuffix = aggregatesuffix,
                                 plotdetails = plotdetails,
+                                tocenter = tocenter,
+                                relalpha = relalpha,
                                 maxscrvalue = maxscrvalue,
                                 scalingx = scalingx, scalingy = scalingy,
                                 rotationdegrees = rotationdegrees,
-                              rotationdescription = rotationdescription,
+                                rotationdescription = rotationdescription,
                               ## internal params
                                 purpose = "outline",
                               ## ellipsis
@@ -375,13 +386,13 @@ geom_sii_riskconnection <- function(data = NULL,
                                     ...
                                   ) {
                         ggplot2::layer(data = data,
-                       stat = stat,
-                       geom = GeomSiiRiskconnection,
-                       mapping = mapping,
-                       position = position,
-                       show.legend = FALSE,
-                       inherit.aes = inherit.aes,
-                       params = list(  na.rm = na.rm,
+                        stat = stat,
+                        geom = GeomSiiRiskconnection,
+                        mapping = mapping,
+                        position = position,
+                        show.legend = FALSE,
+                        inherit.aes = inherit.aes,
+                        params = list(  na.rm = na.rm,
                                       ## userparams
                                       ## ellipsis
                                         ...
@@ -429,6 +440,8 @@ StatSiiRisksurface <- ggplot2::ggproto(
                              rotationdescription,
                              squared,
                              plotdetails,
+                             tocenter,
+                             relalpha,
                              purpose,
                              ...
                             ) {
@@ -441,8 +454,10 @@ StatSiiRisksurface <- ggplot2::ggproto(
                                rotationdegrees = rotationdegrees,
                                rotationdescription = rotationdescription,
                                squared = squared,
-                              plotdetails = plotdetails,
-                              purpose = purpose)
+                               plotdetails = plotdetails,
+                               tocenter = tocenter,
+                               relalpha = relalpha,
+                               purpose = purpose)
 
             df <- fn_computegroup( data = data,
                                     siiparams = siiparams,
@@ -515,6 +530,8 @@ StatSiiRiskoutline <- ggplot2::ggproto(
                               rotationdescription,
                               squared,
                               plotdetails,
+                              tocenter,
+                              relalpha,
                               purpose,
                               ...
                             ) {
@@ -528,6 +545,8 @@ StatSiiRiskoutline <- ggplot2::ggproto(
                                rotationdescription = rotationdescription,
                                squared = squared,
                                plotdetails = plotdetails,
+                               tocenter = tocenter,
+                               relalpha = relalpha,
                                purpose = purpose)
 
             df <- fn_computegroup(data = data,

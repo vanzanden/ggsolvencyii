@@ -8,10 +8,10 @@ geom_sii_riskoutline(data = NULL, mapping = NULL,
   stat = "sii_riskoutline",
   structuredf = ggsolvencyii::sii_structure_sf16_eng, squared = FALSE,
   levelmax = 99, aggregatesuffix = "_other", plotdetails = NULL,
-  rotationdegrees = NULL, rotationdescription = NULL,
-  maxscrvalue = NULL, scalingx = 1, scalingy = 1,
-  position = "identity", na.rm = FALSE, show.legend = NA,
-  inherit.aes = TRUE, ...)
+  tocenter = FALSE, relalpha = FALSE, rotationdegrees = NULL,
+  rotationdescription = NULL, maxscrvalue = NULL, scalingx = 1,
+  scalingy = 1, position = "identity", na.rm = FALSE,
+  show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
 \item{data}{the dataset in tidyverse format (column 'description' as a factor). see examples in \code{\link{sii_z_ex2_data}} or \code{\link{sii_z_ex3_data}}}
@@ -30,6 +30,10 @@ For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii
 \item{aggregatesuffix}{(string, default = "_other")\cr When a certain level contains more items than specified by levelmax  the smallest items are combined. The description is of the name of the one higher level (lower number) with a suffix}
 
 \item{plotdetails}{a table with columns 'levelordescription' and 'outline1' to 'outline4', indicating which outlines of which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_risksurface uses another column in the same table.}
+
+\item{tocenter}{(optional, boolean, default = FALSE)\cr whether to extend the circle segments to the center}
+
+\item{relalpha}{(optional, boolean, default = FALSE)\cr whether to apply a relative alpha to segments, based on column alpha in plotdetails (not yet implemented)}
 
 \item{rotationdegrees}{(optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description}
 
