@@ -27,20 +27,20 @@
     testdata <- sii_z_ex4_data
 
     testparams <- NULL
-    testparams$structuredf <- sii_structure_sf16_eng
+    testparams$structure <- sii_structure_sf16_eng
     testparams$levelmax <- sii_levelmax_sf16_993
     testparams$aggregatesuffix <- "_other"
 
 
 sii_debug(data_descr = testdata$description,
-          structure = testparams$structuredf,
+          structure = testparams$structure,
           levelmax = testparams$levelmax
 )
 
 
 
 sii_debug(data_descr = testdata$description,
-          structure = testparams$structuredf,
+          structure = testparams$structure,
           levelmax = testparams$levelmax
 )
 
@@ -50,7 +50,7 @@ sii_debug(data_descr = testdata$description,
     testdata <- sii_z_ex4_data[sii_z_ex4_data$id == 1, ]
 
     testparams <- NULL
-    testparams$structuredf <- sii_z_ex4_structure # sii_z_ex_structure
+    testparams$structure <- sii_z_ex4_structure # sii_z_ex_structure
     testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
     testparams$aggregatesuffix <- "_other"
     testparams$plotdetails <- NULL
@@ -63,7 +63,7 @@ sii_debug(data_descr = testdata$description,
     testsquared = FALSE # TRUE
 
 sii_debug(data_descr = testdata$description,
-                                    structure = testparams$structuredf,
+                                    structure = testparams$structure,
                                     aggregatesuffix = testparams$aggregatesuffix,
                                     levelmax = testparams$levelmax
                           )
@@ -81,7 +81,7 @@ ggplot2::ggplot() +
                                                     id = id,  description = description,
                                                     fill = description, color = description),
     lwd = 0.5,
-                              structuredf = testparams$structuredf,
+                              structure = testparams$structure,
                               levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                               maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,
                               rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,
@@ -105,7 +105,7 @@ ggplot2::ggplot() +
                                                     id = id,  description = description,
                                                     fill = description, color = description),
     lwd = 0.5,
-                              structuredf = testparams$structuredf,
+                              structure = testparams$structure,
                               levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                               maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,
                               rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,
@@ -129,7 +129,7 @@ ggplot2::ggplot() +
                                                     id = id,  description = description,
                                                     fill = description, color = description),
     lwd = 0.5,
-                              structuredf = testparams$structuredf,
+                              structure = testparams$structure,
                               levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                               maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,
                               rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,
@@ -155,7 +155,7 @@ ggplot2::ggplot() +
                                                     id = id,  description = description,
                                                     fill = description, color = description),
     lwd = 0.5,
-                              structuredf = testparams$structuredf,
+                              structure = testparams$structure,
                               levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                               maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,
                               rotationdegrees = testrotationdegrees, rotationdescription = testrotationdescription,

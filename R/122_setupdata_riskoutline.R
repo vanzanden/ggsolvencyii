@@ -43,6 +43,15 @@ fn_setupdata_outline <- function(data, params) {
   ## CALL ##
     expandedstructure <- fn_structure_expansion( params = params)
 
+      ## check data: is each value in column 'description' present in the structure?,
+        for (i in unique(data$description)){
+          if (!i %in% expandedstructure$description){
+            warning("description '", i, "', present in the data is not present in the structure. These datalines were ignored.")
+            data <- data[data$description != i,]
+          }
+        }
+
+
     datacopy <- dplyr::select(data, id, x, y,
                               description, compid = comparewithid)
     dataexclxy <- dplyr::select(data, -x, -y )
@@ -52,7 +61,7 @@ fn_setupdata_outline <- function(data, params) {
     comparelist <- comparelist[!is.na(comparelist)]
     for (i in comparelist) {
       if (!i %in% dataexclxy$compid) {
-        warning("'comparewithid' value is ", i, " references a not existing 'id': this will cause a \n 'Error in `$<-.data.frame`(`*tmp*`, comparewithid, value = ) :' error")
+        warning("datalines exist with 'comparewithid' = ", i, ". There are no lines with such a value in 'id': this will cause errors")
       }
     }
     ## merging

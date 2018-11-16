@@ -25,7 +25,7 @@
     testdata <- sii_z_ex1_data
 
     testparams <- NULL
-    testparams$structuredf <- sii_z_ex1_structure
+    testparams$structure <- sii_z_ex1_structure
 
 test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
 
@@ -42,7 +42,7 @@ test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparam
     testdata <- sii_z_ex2_data
 
     testparams <- NULL
-    testparams$structuredf <- sii_structure_sf16_eng
+    testparams$structure <- sii_structure_sf16_eng
 
 test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
 
@@ -57,7 +57,7 @@ test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparam
     testdata <- sii_z_ex3_data
 
     testparams <- NULL
-    testparams$structuredf <- sii_structure_sf16_eng
+    testparams$structure <- sii_structure_sf16_eng
 
 test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
 
@@ -72,7 +72,7 @@ test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparam
     testdata <- sii_z_ex4_data
 
     testparams <- NULL
-    testparams$structuredf <- sii_z_ex4_structure
+    testparams$structure <- sii_z_ex4_structure
 
 test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ;test_result
 
@@ -87,7 +87,7 @@ test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparam
     testdata <- sii_z_ex6_data
 
     testparams <- NULL
-    testparams$structuredf <- sii_z_ex6_structure;
+    testparams$structure <- sii_z_ex6_structure;
 
 test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
 
@@ -102,7 +102,7 @@ test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparam
     testdata <- sii_z_ex6_data2
 
     testparams <- NULL
-    testparams$structuredf <- sii_z_ex6_structure;
+    testparams$structure <- sii_z_ex6_structure;
 
 test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
 
@@ -121,7 +121,7 @@ test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparam
     testdata <- subset(testdata, select = -waarde);
 
     testparams <- NULL
-    testparams$structuredf <- sii_structure_sf16_nld;
+    testparams$structure <- sii_structure_sf16_nld;
 
 test_result <- ggsolvencyii:::fn_levelonedescription(testparams) ; test_result
 

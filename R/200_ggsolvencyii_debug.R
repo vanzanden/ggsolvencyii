@@ -34,8 +34,8 @@
 #' @export
 #'
 # ' @examples
-sii_debug <- function(data_descr,
-                          structure = ggesolvencii::sii_structure_sf16_eng,
+sii_debug <- function(data_descriptionvector,
+                          structure = ggsolvencyii::sii_structure_sf16_eng,
                           aggregatesuffix = "other",
                           levelmax = NULL,
                           plotdetails = NULL,
@@ -45,7 +45,7 @@ sii_debug <- function(data_descr,
 {
   ## preparation to make parameter(list) to call fn_structure_expansion
     debugparams <- NULL
-    debugparams$structuredf <- structure
+    debugparams$structure <- structure
     debugparams$levelmax <- levelmax
     if (is.null(levelmax)) {debugparams$levelmax <- 90}
     debugparams$aggregatesuffix <- aggregatesuffix
@@ -53,7 +53,7 @@ sii_debug <- function(data_descr,
     struct2 <- fn_structure_expansion(debugparams)
 
   ## retreiving descriptions from inputted parameters
-    d_d <- levels(data_descr)
+    d_d <- levels(data_descriptionvector)
       d_d_df <- as.data.frame(d_d)
       d_d_df$data <- "present"
       descr <- d_d

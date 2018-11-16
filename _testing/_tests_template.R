@@ -23,14 +23,14 @@
 ##
 ## test ================================================================= =====
     testparams <- NULL
-    testparams$structuredf <- sii_z_ex1_structure
+    testparams$structure <- sii_z_ex1_structure
     testparams$fillcolors <- sii_z_ex1_fillcolors
     testparams$edgecolors <- sii_z_ex1_edgecolors
     testparams$plotdetails <- sii_z_ex1_plotdetails
     testparams$levelmax <- sii_z_ex1_levelmax
     testparams$aggregatesuffix <- "_other"
 
-sii_debug(data_descr = testdata$description, structure = testparams$structuredf, aggregatesuffix = testparams$aggregatesuffix,
+sii_debug(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
           levelmax = testparams$levelmax, plotdetails = testparams$plotdetails,fillcolors = testparams$fillcolors, edgecolors = testparams$edgecolors)
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
@@ -42,11 +42,11 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
         testdata <- sii_z_ex_data
 
         testparams <- NULL
-        testparams$structuredf <- sii_structure_sf16_eng # sii_z_ex_structure
+        testparams$structure <- sii_structure_sf16_eng # sii_z_ex_structure
         testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
         testparams$aggregatesuffix <- "_other"
 
-sii_debug(data_descr = testdata$description, structure = testparams$structuredf, aggregatesuffix = testparams$aggregatesuffix,
+sii_debug(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
           levelmax = testparams$levelmax)
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ; test_result
@@ -58,7 +58,7 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
         testdata <- sii_z_ex3_data
 
         testparams <- NULL
-        testparams$structuredf <- sii_structure_sf16_eng # sii_z_ex_structure
+        testparams$structure <- sii_structure_sf16_eng # sii_z_ex_structure
         testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
         testparams$aggregatesuffix <- "_other"
         testparams$plotdetails <-  NULL
@@ -75,7 +75,7 @@ ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping 
         x = time,
         y = ratio,
         value = value,  id = id, description = description, fill = description, color = description),
-                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+                        structure = testparams$structure, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                         maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
                         rotationdescription = testrotationdescription, squared = testsquared,plotdetails = testparams$plotdetails) +
   ggplot2::theme_bw() + ggplot2::scale_fill_manual(name = "Comp", values = ggsolvencyii::sii_x_fillcolors_sf16_eng) +
@@ -85,7 +85,7 @@ ggplot2::ggplot() + ggsolvencyii::geom_sii_risksurface(data = testdata, mapping 
         x = time,
         y = ratio,
         value = value,  id = id, description = description), color = "red", lwd = 0.7, alpha = 0.99,
-                        structuredf = testparams$structuredf, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
+                        structure = testparams$structure, levelmax = testparams$levelmax, aggregatesuffix = testparams$aggregatesuffix,
                         maxscrvalue = testmaxscrvalue, scalingx = testscalingx, scalingy = testscalingy,rotationdegrees = testrotationdegrees,
                         rotationdescription = testrotationdescription, squared = testsquared, plotdetails = testparams$plotdetails) +
   ggsolvencyii::geom_sii_riskconnection(data = testdata, mapping = ggplot2::aes(

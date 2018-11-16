@@ -73,7 +73,7 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #' @param show.legend standard ggplot function
 #' @param inherit.aes standard ggplot function
 #'
-#' @param structuredf (dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataset with a suffix "d" behind the levelnumber are diversification items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the description in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in description column.
+#' @param structure (dataframe: default = \code{\link{sii_structure_sf16_eng}})\cr A representation of the buildup from individual risks to the SCR. columns are \enumerate{\item description (chr),\item  level (chr),\item  childlevel (chr)}. In the standard formula structure, SCR has level 1, with childlevel 2. This means it consists of all datalines with level == 2, ie. "BSCR", "operational" and "Adjustment-LACDT". lines in the dataset with a suffix "d" behind the levelnumber are diversification items. As of now these are not used in any calculation. the values in column "description" in the dataset need to match the description in this file. The package contains also a file \code{\link{sii_structure_sf16_nld}} with Dutch terms in description column.
 #'
 #' @param levelmax (integer or dataframe, default = 99)\cr a positive integer or a dataframe with columns 'level' and 'levelmax'. \cr The maximum amount of items in a certain level to be plotted. The smallest items are combined to one item. In the case level consisting of 7 items has a levelmax of 5 this results in 4 separate items and one grouped item. \cr
 #'   For a less detailed plot \code{\link{sii_levelmax_sf16_995}} and \code{\link{sii_levelmax_sf16_993}} are present in the package where the components of market, life, non-life, health are combined in 5 or 3 items.
@@ -86,8 +86,8 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #' @param rotationdegrees (optional, integer, -360 to 360, default = NULL)\cr when given, the fixed amount of degrees (positive is clockwise) of which each item is rotated (as in a compass, -90 is a quarter rotation anti-clockwise), additive to possible rotation to description
 #' @param squared (optional, boolean, default = FALSE)\cr when set to TRUE plot returns a square representation. Compared with a circle representation of the same data the height and width of the square are smaller than the radius of the circle. Segments which fall in the corner parts of the square are smaller than equally sized part which fall in the vertical or horizontal parts of the square.
 #' @param plotdetails (optional) a table with columns 'levelordescription' and 'surface', indicating which circle elements to plot. When no table is provided all segments are plotted. example 3 shows how to combine geom_sii_risksurface and geom_sii_riskoutline by using using table \code{\link{sii_z_ex3_plotdetails}}. geom_sii_riskoutline uses other columns in the same table
-#' @param tocenter (optional, boolean, default = FALSE)\cr whether to extend the circle segments to the center
-#' @param relalpha (optional, boolean, default = FALSE)\cr whether to apply a relative alpha to segments, based on column alpha in plotdetails (not yet implemented)
+# ' @param tocenter (optional, boolean, default = FALSE)\cr whether to extend the circle segments to the center
+# ' @param relalpha (optional, boolean, default = FALSE)\cr whether to apply a relative alpha to segments, based on column alpha in plotdetails (not yet implemented)
 #'
 #' @param ... ellipsis, a standard R parameter
 #'
@@ -154,7 +154,7 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #'            ## all parameters are shown here,
 #'            ## the values behind the outcommented are the default values
 #'              ## how and what
-#'                ## structuredf = sii_structure_sf16_eng,
+#'                ## structure = sii_structure_sf16_eng,
 #'                ## plotdetails = NULL,
 #'              ## grouping
 #'                # levelmax = 99,
@@ -182,15 +182,15 @@ geom_sii_risksurface <- function(data = NULL,
                         stat = "sii_risksurface",
                       ## geomspecific parameters
                         ## structure and form
-                        structuredf = ggsolvencyii::sii_structure_sf16_eng,
+                        structure = ggsolvencyii::sii_structure_sf16_eng,
                         squared = FALSE,
                         ## grouping
                         levelmax = 99,
                         aggregatesuffix = "_other",
                         ##
                         plotdetails = NULL,
-                        tocenter = FALSE,
-                        relalpha = FALSE,
+                        # tocenter = FALSE, #((de)activate in version 0.2.0)
+                        # relalpha = FALSE, #((de)activate in version 0.2.0)
                         ## rotation
                         rotationdegrees = NULL,
                         rotationdescription = NULL,
@@ -217,7 +217,7 @@ geom_sii_risksurface <- function(data = NULL,
                        params = list( na.rm = na.rm,
                             ## userparams
                               levelmax = levelmax,
-                              structuredf = structuredf,
+                              structure = structure,
                               maxscrvalue = maxscrvalue,
                               aggregatesuffix = aggregatesuffix,
                               scalingx = scalingx,
@@ -226,10 +226,12 @@ geom_sii_risksurface <- function(data = NULL,
                               rotationdescription = rotationdescription,
                               squared = squared,
                               plotdetails = plotdetails,
-                              tocenter = tocenter,
-                              relalpha = relalpha,
+                              # tocenter = tocenter, #((de)activate in version 0.2.0)
+                              # relalpha = relalpha, #((de)activate in version 0.2.0)
+                              tocenter = FALSE, #((de)activate in version 0.2.0)
+                              relalpha = FALSE, #((de)activate in version 0.2.0)
                            ## internal params
-                              purpose = "surfaces",
+                              purpose = "surface",
                            ## ellipsis
                               ...
                      )               )
@@ -290,15 +292,15 @@ geom_sii_riskoutline <- function(data = NULL,
                     stat = "sii_riskoutline",
                   ## geomspecific parameters
                     ## structure and form
-                    structuredf = ggsolvencyii::sii_structure_sf16_eng,
+                    structure = ggsolvencyii::sii_structure_sf16_eng,
                     squared = FALSE,
                     ## grouping
                     levelmax = 99,
                     aggregatesuffix = "_other",
                     ##
                     plotdetails = NULL,
-                    tocenter = FALSE,
-                    relalpha = FALSE,
+                    # tocenter = FALSE, #((de)activate in version 0.2.0)
+                    # relalpha = FALSE, #((de)activate in version 0.2.0)
                     ## rotation
                     rotationdegrees = NULL,
                     rotationdescription = NULL,
@@ -325,13 +327,15 @@ geom_sii_riskoutline <- function(data = NULL,
                 inherit.aes = inherit.aes,
                 params = list(  na.rm = na.rm,
                               ## userparams
-                                structuredf = structuredf,
+                                structure = structure,
                                 squared = squared,
                                 levelmax = levelmax,
                                 aggregatesuffix = aggregatesuffix,
                                 plotdetails = plotdetails,
-                                tocenter = tocenter,
-                                relalpha = relalpha,
+                                # tocenter = tocenter, #((de)activate in version 0.2.0)
+                                # relalpha = relalpha,#((de)activate in version 0.2.0)
+                                tocenter = FALSE, #((de)activate in version 0.2.0)
+                                relalpha = FALSE, #((de)activate in version 0.2.0)
                                 maxscrvalue = maxscrvalue,
                                 scalingx = scalingx, scalingy = scalingy,
                                 rotationdegrees = rotationdegrees,
@@ -408,7 +412,7 @@ StatSiiRisksurface <- ggplot2::ggproto(
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
 # print( class(params$plotdetails))
-        params$levelonedescription <- fn_levelonedescription(params = params)
+        # levelonedescription <- fn_levelonedescription(params = params)
         params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                     params = params)
 
@@ -431,7 +435,7 @@ StatSiiRisksurface <- ggplot2::ggproto(
     compute_group = function(data,
                              scales,
                              levelmax,
-                             structuredf,
+                             structure,
                              maxscrvalue,
                              aggregatesuffix,
                              scalingx,
@@ -446,7 +450,7 @@ StatSiiRisksurface <- ggplot2::ggproto(
                              ...
                             ) {
             siiparams <- list(levelmax = levelmax,
-                               structuredf = structuredf,
+                               structure = structure,
                                maxscrvalue = maxscrvalue,
                                aggregatesuffix = aggregatesuffix,
                                scalingx = scalingx,
@@ -495,7 +499,7 @@ StatSiiRiskoutline <- ggplot2::ggproto(
   ## setup parameters ----------------------------------------- -----
     setup_params = function(data, params) {
 
-      params$levelonedescription <- fn_levelonedescription(params = params)
+      # levelonedescription <- fn_levelonedescription(params = params)
       params$maxscrvalue         <- fn_maxscrvalue(data = data,
                                                params = params)
       if (is.null(params$plotdetails)) {
@@ -521,7 +525,7 @@ StatSiiRiskoutline <- ggplot2::ggproto(
     compute_group = function(data,
                               scales,
                               levelmax,
-                              structuredf,
+                              structure,
                               maxscrvalue,
                               aggregatesuffix,
                               scalingx,
@@ -536,7 +540,7 @@ StatSiiRiskoutline <- ggplot2::ggproto(
                               ...
                             ) {
               siiparams <- list(levelmax = levelmax,
-                               structuredf = structuredf,
+                               structure = structure,
                                maxscrvalue = maxscrvalue,
                                aggregatesuffix = aggregatesuffix,
                                scalingx = scalingx,
@@ -622,7 +626,7 @@ stat_sii_risksurface <- function(mapping = NULL,
                           na.rm = FALSE,
                         ## geomspecific parameter
                           levelmax = 99,
-                          structuredf = ggsolvencyii::sii_structure_sf16_eng,
+                          structure = ggsolvencyii::sii_structure_sf16_eng,
                           maxscrvalue = NULL,
                           aggregatesuffix = "_other",
                           scalingx = 1,
@@ -645,7 +649,7 @@ stat_sii_risksurface <- function(mapping = NULL,
                      params = list(na.rm = na.rm,
                           ## userparams
                             levelmax = levelmax,
-                            structuredf = structuredf,
+                            structure = structure,
                             maxscrvalue = maxscrvalue,
                             # levelonedescription = levelonedescription,
                             aggregatesuffix = aggregatesuffix,
@@ -655,7 +659,7 @@ stat_sii_risksurface <- function(mapping = NULL,
                             rotationdescription = rotationdescription,
                           ## internal params
                             plotdetails = plotdetails,
-                            purpose = "surfaces",
+                            purpose = "surface",
                           ## ellipsis
                             ...
            )             )

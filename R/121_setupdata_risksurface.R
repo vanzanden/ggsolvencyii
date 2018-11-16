@@ -40,10 +40,11 @@ fn_setupdata_surfaces <- function(data, params) {
         expandedstructure <- fn_structure_expansion(params = params
                                                      )
 
-      ## check data: is each value in column 'description' present in the structure?
+      ## check data: is each value in column 'description' present in the structure?,
         for (i in unique(data$description)){
           if (!i %in% expandedstructure$description){
-            print(paste0("the data contains '", i, "' in the description-column. ", i, " Is not present in the (expanded) structure. This results in warning about 'non-finite values' or errors when used in combination with grouping of risks"))
+            warning("description '", i, "', present in the data is not present in the structure. These datalines were ignored.")
+            data <- data[data$description != i,]
           }
         }
 
@@ -51,6 +52,15 @@ fn_setupdata_surfaces <- function(data, params) {
           structureanddata <- fn_structure_data_integration(
                                   expandedstructure = expandedstructure,
                                   data = data)
+
+        ## maybe also adding the possibility that relalpha parameters can be boolean, or a factor
+        # if relalpha == TRUE#((de)activate in version 0.2.0)
+        #   if (alpha is not in data), #((de)activate in version 0.2.0)
+        #     {add alpha = 1 to data}#((de)activate in version 0.2.0)
+        #   multiply alpha with relalpha #((de)activate in version 0.2.0)
+
+
+
 
       ## ordering of levels for a nice legenda
         levelordering <- as.list(expandedstructure$description)
@@ -83,11 +93,11 @@ fn_setupdata_surfaces <- function(data, params) {
 #' @return a dataframe
 
 fn_structure_expansion <- function(params) {
-        structuredf     <- params$structuredf
+        structure     <- params$structure
         levelmax        <- params$levelmax
         aggregatesuffix <- params$aggregatesuffix
 
-        s_out <- structuredf
+        s_out <- structure
         ## preserve initial ordering of structure
         s_out <- dplyr::mutate(s_out, ordering_1 = 1:nrow(s_out))
         ## adding ind_d column
