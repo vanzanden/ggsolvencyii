@@ -24,6 +24,7 @@
 ## small:
 ##    fn_levelonedescription
 ##    fn_maxscrvalue
+##    fn_constructionplotdetails
 ## ====================================================================== =====
 
 ## fn_levelonedescription =============================================== =====
@@ -40,6 +41,9 @@
 fn_levelonedescription <- function(params) {
     structuredf     <- params$structuredf
     levelonedescription <- structuredf$description[structuredf$level == 1]
+    if (length(levelonedescription) == 0) {
+      stop("no description with level = 1 is present in the structure: this will lead to errors")
+    }
   ## return results
     return(levelonedescription)
 }
@@ -65,12 +69,10 @@ fn_maxscrvalue <- function(data, params
       ## afleiden maxscrvalue for scaling
         if (!is.null(params$maxscrvalue)) {
           value_out <- params$maxscrvalue
-          print(paste0("scaling is based on inputvalue (maxscrvalue) of ",
-                       value_out))
+          message("scaling is based on inputvalue (maxscrvalue) of ",value_out)
         } else {
           value_out <- max(data$value[data$description == levelonedescription])
-            print(paste0("scaling is based on a max (level= 1) value of ",
-                         value_out ))
+          message("scaling is based on a max (level= 1) value of ", value_out )
           # }
         }
       ## return results
