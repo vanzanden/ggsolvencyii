@@ -189,11 +189,7 @@ fn_rotation <- function(df, siiparams) {
 
 fn_squareconversion <- function(df , siiparams) {
         squared <- siiparams$squared
-<<<<<<< HEAD
         if (squared == TRUE ) {
-=======
-        if (squared == TRUE ){
->>>>>>> 9900d4f1345d6476d0d824f91fc35b5f50356bfc
           df$ri <- df$ri * (.5 * sqrt(pi))  ## factor .88
           df$ro <- df$ro * (.5 * sqrt(pi))  ## factor .88
           ## CALL

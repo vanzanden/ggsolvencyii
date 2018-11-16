@@ -9,9 +9,7 @@ fn_transform_plotdetails(df, siiparams)
 \arguments{
 \item{df}{a dataframe with column level and some other levels}
 
-\item{outline}{boolean, TRUE if calling geom is geom_sii_riskoutline , only one boolean can be set to TRUE}
-
-\item{surface}{boolean, TRUE if calling geom is geom_sii_risksurface , only one boolean can be set to TRUE}
+\item{siiparams}{the (extended) parameterset}
 }
 \value{
 a tidyverse dataframe

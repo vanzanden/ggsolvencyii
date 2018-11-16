@@ -8,6 +8,8 @@ fn_squareconversion(df, siiparams)
 }
 \arguments{
 \item{df}{a dataframe with columns ri, ro, db, de}
+
+\item{siiparams}{the (extended) parameterset}
 }
 \value{
 the same dataframe with ri, ro, db and de converted in parameters for a square plot
