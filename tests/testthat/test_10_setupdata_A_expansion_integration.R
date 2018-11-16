@@ -25,11 +25,11 @@ context("setup data")
 
     ## simulation of the route through ggplot
     ## only required aesthetics
-    testdata_ggplotformat <- dplyr::rename(testdata, x = time, y = ratio, id = id, description = description  )
+    testdata_ggplotformat <- dplyr::rename(testdata, x = time, y = ratio, id = id, description = description , value = value )
     testdata_ggplotformat <- dplyr::mutate(testdata_ggplotformat, group = 1)
 
     testparams <- NULL
-    testparams$structuredf <- sii_z_ex1_structure
+    testparams$structure <- sii_z_ex1_structure
     testparams$levelmax <- 99
     testparams$aggregatesuffix <- "_other"
 

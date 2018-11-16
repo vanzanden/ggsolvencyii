@@ -4,7 +4,7 @@
 \alias{fn_squareconversion}
 \title{fn_squareconversion}
 \usage{
-fn_squareconversion(df)
+fn_squareconversion(df, siiparams)
 }
 \arguments{
 \item{df}{a dataframe with columns ri, ro, db, de}

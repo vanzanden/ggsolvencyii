@@ -4,7 +4,7 @@
 \alias{fn_transform_plotdetails}
 \title{fn_transform_plotdetails}
 \usage{
-fn_transform_plotdetails(df, outline = FALSE, surface = FALSE)
+fn_transform_plotdetails(df, siiparams)
 }
 \arguments{
 \item{df}{a dataframe with column level and some other levels}

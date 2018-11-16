@@ -1,4 +1,3 @@
-## GNU General Public License version 3 , see file LICENCE ============== =====
 ##
 ##    sourcefile of package 'ggsolvencyii'
 ##    Copyright (C) <2018>  < Marco van Zanden , git@vanzanden.nl >
@@ -66,7 +65,7 @@ fn_computegroup <- function(data, scales, siiparams) {
 
 fn_geomsiidatatopoints <- function(df, siiparams) {
   ## parameters in this function
-    squared <- siiparams$squared
+    # squared <- siiparams$squared
     plotdetails <- siiparams$plotdetails
     purpose <- siiparams$purpose
   ## CALL ##
@@ -77,12 +76,12 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
   ## CALL ##
     rotation_intresult <- fn_rotation(df = cornerpoints_intresult,
                                      siiparams = siiparams)
-    if (squared == TRUE) {
+    # if (squared == TRUE) {
       ## CALL ##
-        circleorsquare_intresult <- fn_squareconversion(df = rotation_intresult)
-    } else {
-      circleorsquare_intresult <- rotation_intresult
-    }
+        circleorsquare_intresult <- fn_squareconversion(df = rotation_intresult, siiparams = siiparams)
+    # } else {
+      # circleorsquare_intresult <- rotation_intresult
+    # }
 
     counter_polyorder <- 1
   ## CALL ##
@@ -97,25 +96,25 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
 
 
 
-    if (purpose == "surfaces" ) {
-       ## CALL ##
-      plotdetails_trans <- fn_transform_plotdetails(plotdetails,
-                                                    outline = FALSE,
-                                                    surface = TRUE)
-    }
-    if (purpose == "outline" ) {
-       ## CALL ##
-      plotdetails_trans <- fn_transform_plotdetails(plotdetails,
-                                                    outline = TRUE,
-                                                    surface = FALSE)
-    }
+    # if (purpose == "surface" ) {
+    #   CALL ##
+    # plotdetails_trans <- fn_transform_plotdetails(plotdetails,outline = FALSE,surface = TRUE)
+    # }
+    # if (purpose == "outline" ) {
+    #    ## CALL ##
+    #   plotdetails_trans <- fn_transform_plotdetails(plotdetails,
+    #                                                 outline = TRUE,
+    #                                                 surface = FALSE)
+    # }
+
+    plotdetails_trans <- fn_transform_plotdetails(plotdetails,siiparams) ## will need only params$purpose
 
   ## first: draw is TRUE or FALSE where
   ## explicitly set to T or F for a certain description.
       plotdetails_trans_description <- dplyr::rename(plotdetails_trans,
                                         description = levelordescription)
 
-    if (purpose == "surfaces" ) {
+    if (purpose == "surface" ) {
       t1 <- merge(x = step5_result,
                   y = plotdetails_trans_description,
                   by = c("description"),
@@ -135,7 +134,7 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
     ## is to see if a T or F is set for a certain level
     plotdetails_trans_level <- dplyr::rename(plotdetails_trans,
                                       level = levelordescription )
-    if (purpose == "surfaces" ) {
+    if (purpose == "surface" ) {
       t1 <- merge(x = step5_undefined,
                   y = plotdetails_trans_level,
                   by = c("level"), all.x = TRUE)
@@ -163,8 +162,7 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
 #' fn_transform_plotdetails
 #'
 #' @param df a dataframe with column level and some other levels
-#' @param outline boolean, TRUE if calling geom is geom_sii_riskoutline , only one boolean can be set to TRUE
-#' @param surface boolean, TRUE if calling geom is geom_sii_risksurface , only one boolean can be set to TRUE
+#' @param siiparams the (extended) parameterset
 #'
 #' @return a tidyverse dataframe
 #'
@@ -189,8 +187,10 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
           # 2                       TRUE
           # ..                      FALSE
 
-fn_transform_plotdetails <- function(df, outline = FALSE, surface = FALSE) {
-      if (outline == TRUE) {
+fn_transform_plotdetails <- function(df, siiparams) {
+      purpose = siiparams$purpose
+
+      if (purpose == "outline") {
         df <- dplyr::select(df, levelordescription,
                             outline1, outline2, outline3, outline4,
                             outline11, outline13)
@@ -202,7 +202,7 @@ fn_transform_plotdetails <- function(df, outline = FALSE, surface = FALSE) {
       ## return results
         return(result)
       }
-      if (surface == TRUE) {
+      if (purpose == "surface") {
         df <- dplyr::select(df, levelordescription, draw = surface)
       ## return results
         return(df)

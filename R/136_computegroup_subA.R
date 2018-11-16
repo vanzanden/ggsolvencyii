@@ -180,25 +180,27 @@ fn_rotation <- function(df, siiparams) {
 #' fn_squareconversion
 #'
 #' @param df a dataframe with columns ri, ro, db, de
+#' @param siiparams the (extended) parameterset
 #'
 #' @return the same dataframe with ri, ro, db and de converted in parameters for a square plot
 # ' @export
 #'
 # ' @examples
 
-fn_squareconversion <- function(df) {
-        df$ri <- df$ri * (.5 * sqrt(pi))  ## factor .88
-        df$ro <- df$ro * (.5 * sqrt(pi))  ## factor .88
-        ## CALL
-        df$db <- apply(as.data.frame(df$db),
-                       MARGIN = 1,
-                       FUN = fn_squareddegrees)
-# print(as.data.frame(df$de))
-        ## CALL
-        df$de <- apply(as.data.frame(df$de),
-                       MARGIN = 1,
-                       FUN = fn_squareddegrees)
-# print(as.data.frame(df$de))
+fn_squareconversion <- function(df , siiparams) {
+        squared <- siiparams$squared
+        if (squared == TRUE ) {
+          df$ri <- df$ri * (.5 * sqrt(pi))  ## factor .88
+          df$ro <- df$ro * (.5 * sqrt(pi))  ## factor .88
+          ## CALL
+          df$db <- apply(as.data.frame(df$db),
+                         MARGIN = 1,
+                         FUN = fn_squareddegrees)
+          ## CALL
+          df$de <- apply(as.data.frame(df$de),
+                         MARGIN = 1,
+                         FUN = fn_squareddegrees)
+        }
       ## return results
         return(df)
     }

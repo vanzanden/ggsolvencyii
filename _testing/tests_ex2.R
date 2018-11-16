@@ -25,7 +25,7 @@
     testdata <- sii_z_ex2_data
 
     testparams <- NULL
-    testparams$structuredf <- sii_structure_sf16_eng
+    testparams$structure <- sii_structure_sf16_eng
     testparams$levelmax <- sii_levelmax_sf16_993
     testparams$aggregatesuffix <- "_other"
 

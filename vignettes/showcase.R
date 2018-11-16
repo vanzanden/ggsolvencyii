@@ -37,7 +37,7 @@ ggplot2::ggplot() +
             ## all parameters are shown here, 
             ## the values behind the outcommented are the default values
               ## how and what
-                ## structuredf = sii_structure_sf16_eng,
+                ## structure = sii_structure_sf16_eng,
                 ## plotdetails = NULL,
               ## grouping
                 # levelmax = 99, 

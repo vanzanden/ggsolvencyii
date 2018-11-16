@@ -22,7 +22,7 @@ utils::suppressForeignCheck(c("comparewithid", "compid",
                               "description", "draw",
                               "group",
                               "id",
-                              "level","level_grouping", "levelordescription",
+                              "level","level_grouping", "levelordescription","surface"
                               "n",
                               "outline1", "outline2", "outline3", "outline4",
                               "outline11", "outline13",

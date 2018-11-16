@@ -28,14 +28,14 @@ context("small functions")
       teststructure <- sii_structure_sf16_eng
       #teststructure
       testparams <- NULL
-      testparams$structuredf <- teststructure
+      testparams$structure <- teststructure
       testresultA <- ggsolvencyii:::fn_levelonedescription(testparams)
 
     ## ----------------- -----
       ## corrupt structure, catch an error
-      teststructure <- teststructure[teststructure$level != 1,]
-      teststructure
-      testparams$structuredf <- teststructure
+      teststructure_corrupt <- teststructure[teststructure$level != 1,]
+      # teststructure_corrupt
+      testparams$structure <- teststructure_corrupt
 
 test_that("fn_levelonedescription" ,{
 expect_equal( testresultA, "SCR" )
@@ -48,7 +48,8 @@ expect_error( ggsolvencyii:::fn_levelonedescription(testparams), "no description
 
       ## basic test, maxscrvalue is not present in the params
       testparams <- NULL
-      testparams$levelonedescription <- "SCR"
+      testparams$structure <- teststructure
+      # testparams$levelonedescription <- "SCR"
       testresult <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparams)
       # testresult
 
@@ -174,6 +175,4 @@ rm(expectedE)
 rm(expectedF)
 rm(expectedG)
 rm(expectedH)
-
-
 

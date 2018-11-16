@@ -27,26 +27,6 @@
 ##    fn_constructionplotdetails
 ## ====================================================================== =====
 
-## fn_levelonedescription =============================================== =====
-#' fn_levelonedescription extracts the name of level 1 item from the structure
-#'
-#' @inheritParams fn_maxscrvalue
-# '  @param params the params send by the geom_class, possible adjusted by setup_params.
-#'
-#' @return the value maxscrvalue, whether or not this is provided by the user
-# ' @exportnot
-#'
-# ' @examples
-
-fn_levelonedescription <- function(params) {
-    structuredf     <- params$structuredf
-    levelonedescription <- structuredf$description[structuredf$level == 1]
-    if (length(levelonedescription) == 0) {
-      stop("no description with level = 1 is present in the structure: this will lead to errors")
-    }
-  ## return results
-    return(levelonedescription)
-}
 
 
 
@@ -63,11 +43,11 @@ fn_levelonedescription <- function(params) {
 #'
 # ' @examples
 
-fn_maxscrvalue <- function(data, params
-                          ) {
-      levelonedescription <- params$levelonedescription
+fn_maxscrvalue <- function(data, params) {
       ## afleiden maxscrvalue for scaling
-        if (!is.null(params$maxscrvalue)) {
+      levelonedescription <- fn_levelonedescription(params)
+
+      if (!is.null(params$maxscrvalue)) {
           value_out <- params$maxscrvalue
           message("scaling is based on inputvalue (maxscrvalue) of ",value_out)
         } else {
@@ -77,7 +57,35 @@ fn_maxscrvalue <- function(data, params
         }
       ## return results
         return(value_out)
+  }
+
+
+## fn_levelonedescription =============================================== =====
+#' fn_levelonedescription extracts the name of level 1 item from the structure
+#'
+#' @inheritParams fn_maxscrvalue
+# '  @param params the params send by the geom_class, possible adjusted by setup_params.
+#'
+#' @return the value maxscrvalue, whether or not this is provided by the user
+# ' @exportnot
+#'
+# ' @examples
+
+fn_levelonedescription <- function(params) {
+    structure     <- params$structure
+    levelonedescription <- structure$description[structure$level == 1]
+    if (length(levelonedescription) == 0) {
+      stop("no description with level = 1 is present in the structure: this will lead to errors")
     }
+  ## return results
+    return(levelonedescription)
+}
+
+
+
+
+
+
 ## fn_constructionplotdetails============================================ =====
 #' fn_constructionplotdetails
 #'
@@ -94,6 +102,7 @@ fn_constructionplotdetails <- function(structure) {
                paste0(structure$level, "d"))
       plotdetails <- data.frame(levelordescription = lvl,
                                surface = TRUE,
+                               # relalpha = 1,  #((de)activate in version 0.2.0)
                                outline1 = TRUE,
                                outline2 = TRUE,
                                outline3 = TRUE,
