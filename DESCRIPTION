@@ -23,7 +23,8 @@ Suggests:
     ggmap,
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+	covr
 VignetteBuilder: knitr
 URL: https://github.com/vanzanden/ggsolvencyii
 BugReports: https://github.com/vanzanden/ggsolvencyii/issues
