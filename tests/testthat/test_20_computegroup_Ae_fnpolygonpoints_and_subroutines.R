@@ -48,7 +48,7 @@ context("fn_polygonpoints and subroutines")
     testresultFa <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], FALSE,FALSE)
     testresultFb <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], TRUE,TRUE)
 
-    td = data.frame(ri = c(0,1,0), ro = c(1,1.2,1) , db = c(74,93,185), de = c(212,12,195), type = c("outer", "outer", "outer"))
+    td = data.frame(ri = c(0,1,0,.5), ro = c(1,1.2,1,.9) , db = c(74,93,185,355), de = c(212,12,195,359), type = c("outer", "outer", "outer", "outer"))
     i = 1
     testresultGa <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], FALSE,FALSE)
     testresultGb <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], TRUE,FALSE)
@@ -57,9 +57,12 @@ context("fn_polygonpoints and subroutines")
     i = 2
     testresultHa <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], FALSE,FALSE)
     testresultHb <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], TRUE,FALSE)
-    i = 3 # "circle"
+    i = 3
     testresultJa <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], FALSE,FALSE)
     testresultJb <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], TRUE,TRUE)
+    i = 4
+    testresultJc <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], FALSE,FALSE)
+    testresultJd <- fn_squarepoints(ri = td$ri[i],ro = td$ro[i],db = td$db[i],de = td$de[i], plottype = td$type[i], TRUE,TRUE)
 
 
 

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggsolvencyii
+# ggsolvencyii 0.1.1beta
 
 <img src="vignettes/images/logo_engels_rvignettes.png" align="right" width="25%" />
 
@@ -23,6 +23,8 @@ Status](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org
 downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
+[![Coverage
+status](https://codecov.io/gh/vanzanden/ggsolvencyii/branch/master/graph/badge.svg)](https://codecov.io/github/vanzanden/ggsolvencyii?branch=master)
 
 ## Overview
 

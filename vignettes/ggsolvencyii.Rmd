@@ -22,12 +22,6 @@ knitr::include_graphics('images/logo_engels_rvignettes.png')
 The goal of ggsolvencyii is to provide 'ggplot2'-geom's to show the composition of the Solvency (II) Capital Requirement (SCR) from (diversified) risks and subrisks, whether for standard formula (SF) or (partial) intern models (IM/PIM).
 
 
-<!-- 
-[![Build status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)
-[![version](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://CRAN.R-project.org/package=ggsolvencii)
-![cranlogs](http://cranlogs.r-pkg.org./badges/ggsolvencyii)
-[![codecov](https://codecov.io/gh/vanzanden/ggsolvencyii/branch/master/graph/badge.svg)](https://codecov.io/gh/vanzanden/ggsolvencyii)
--->
 
 
 
