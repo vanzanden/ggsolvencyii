@@ -203,7 +203,8 @@ fn_transform_plotdetails <- function(df, siiparams) {
         return(result)
       }
       if (purpose == "surface") {
-        df <- dplyr::select(df, levelordescription, draw = surface)
+        df <- dplyr::select(df, levelordescription, surface)
+        df <- dplyr::rename(df, draw = surface)
       ## return results
         return(df)
       }
