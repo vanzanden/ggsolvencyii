@@ -13,7 +13,7 @@ devtools version: 2.0.1
 
 check_win_devel finished without issues
 
-
+=======
 
 check_rhub - results
 
