@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.Rprofile$
 ^\.travis\.yml$
 ^__prive_laptoponly$
 ^__prive_pconly$
@@ -8,12 +9,10 @@
 ^__crantest_laptoponly$
 ^__crantest_pconly$
 ^_binaries$
-^_testing$
 ^_data_helperfiles$
+^_testing$
+^appveyor\.yml$
+^codecov\.yml$
+^cran-comments.md$
 ^README\.Rmd$
 ^README-.*\.png$
-^packrat/
-^\.Rprofile$
-^cran-comments.md$
-
-^appveyor\.yml$
