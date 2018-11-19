@@ -47,7 +47,7 @@ test_result <- ggsolvencyii:::fn_maxscrvalue(data = testdata, params = testparam
         testparams$levelmax <- sii_z_ex1_levelmax
         testparams$aggregatesuffix <- "_other"
 
-sii_debug(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
+sii_debug_geom(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
           levelmax = testparams$levelmax, plotdetails = testparams$plotdetails,fillcolors = testparams$fillcolors, edgecolors = testparams$edgecolors)
 
 

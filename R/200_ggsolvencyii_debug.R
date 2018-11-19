@@ -17,8 +17,14 @@
 ##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 ##
-## sii_debug ============================================================ =====
-#' sii_debug
+## functions in this file =============================================== =====
+##
+## main:
+##    sii_debug_geom
+## small:
+##
+## sii_debug_geom ============================================================ =====
+#' sii_debug_geom
 #'
 #' assists in finding level or description mismatches in a set parameter(tables)
 #'
@@ -34,7 +40,7 @@
 #' @export
 #'
 # ' @examples
-sii_debug <- function(data_descriptionvector,
+sii_debug_geom <- function(data_descriptionvector,
                           structure = ggsolvencyii::sii_structure_sf16_eng,
                           aggregatesuffix = "other",
                           levelmax = NULL,

@@ -97,12 +97,12 @@ rm(testdata)
 # rm(intresultE)
 #
 rm(testresultA)
-rm(testresultAa); rm(testresultAb)#; rm(testresultAc); rm(testresultAd)
+# rm(testresultAa); rm(testresultAb)#; rm(testresultAc); rm(testresultAd)
 rm(testresultB)
 # rm(testresultBa); rm(testresultBb);
-rm(testresultC)
+# rm(testresultC)
 # rm(testresultCa); rm(testresultCb);
-rm(testresultD)
+# rm(testresultD)
 # rm(testresultDa); rm(testresultDb); rm(testresultDc); rm(testresultDd)
 # rm(testresultEa); rm(testresultEb);
 # rm(testresultFa); rm(testresultFb);

@@ -30,7 +30,7 @@
     testparams$levelmax <- sii_z_ex1_levelmax
     testparams$aggregatesuffix <- "_other"
 
-sii_debug(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
+sii_debug_geom(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
           levelmax = testparams$levelmax, plotdetails = testparams$plotdetails,fillcolors = testparams$fillcolors, edgecolors = testparams$edgecolors)
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams); test_result
@@ -46,7 +46,7 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
         testparams$levelmax <- 99 # sii_levelmax_995 # sii_z_ex_levelmax
         testparams$aggregatesuffix <- "_other"
 
-sii_debug(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
+sii_debug_geom(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
           levelmax = testparams$levelmax)
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ; test_result

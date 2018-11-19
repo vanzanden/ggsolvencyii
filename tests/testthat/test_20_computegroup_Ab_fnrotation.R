@@ -72,6 +72,12 @@ context("fn_rotation for a surfaceplot")
     testparams$rotationdegrees  <- NULL
     testresultC <- ggsolvencyii:::fn_rotation(df = intresultC, siiparams = testparams)
 
+ # test_that("fn_rotation" ,{
+ # expect_message( , TRUE)
+ # })
+
+
+
     testparams$rotationdescription  <- "life_other"
     testparams$rotationdegrees  <- NULL
     testresultD <- ggsolvencyii:::fn_rotation(df = intresultC, siiparams = testparams)

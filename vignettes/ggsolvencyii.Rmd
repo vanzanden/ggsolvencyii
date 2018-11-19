@@ -198,10 +198,10 @@ rm(testdata) ; rm(horizontalscaling)
 The total surface (to the centerpoint of each circle) of the outer segments show the size of undiversified risks. Diversification is made visible by the difference between the risk segment and the next segment nearer to the center of the plot. The red (out)lines are displayed for comparison with the previous SCR buildup. 
 
 
-For troubleshooting `sii_debug` provides an overview of present risk descriptions and levels in the data and supporting tables. 
+For troubleshooting `sii_debug_geom` provides an overview of present risk descriptions and levels in the data and supporting tables. 
   
 ```{r, debug, echo=FALSE, eval = FALSE}
-t <- sii_debug(data_descr = sii_z_ex1_data$description,structure = sii_structure_sf16_eng,aggregatesuffix = "other", levelmax = sii_levelmax_sf16_995,plotdetails = sii_z_ex1_plotdetails, fillcolors = sii_z_ex1_fillcolors, edgecolors = sii_z_ex1_edgecolors)    
+t <- sii_debug_geom(data_descr = sii_z_ex1_data$description,structure = sii_structure_sf16_eng,aggregatesuffix = "other", levelmax = sii_levelmax_sf16_995,plotdetails = sii_z_ex1_plotdetails, fillcolors = sii_z_ex1_fillcolors, edgecolors = sii_z_ex1_edgecolors)    
 knitr::kable(t$debug_description[37:45,])
 knitr::kable(rbind(t$debug_level[1:13,],tail(t$debug_level,2)))
 ```

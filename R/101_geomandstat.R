@@ -93,6 +93,7 @@ GeomSiiRiskconnection <- ggplot2::ggproto(
 #'
 #' @import ggplot2
 #' @importFrom dplyr mutate
+#' @import magrittr
 #'
 #' @return a ggplot object
 #' @export
@@ -511,7 +512,7 @@ StatSiiRiskoutline <- ggplot2::ggproto(
   ## setup data ----------------------------------------------- -----
     setup_data = function(data, params) {
             if (!"comparewithid" %in% colnames(data)){
-              print("comparewithid is set to reference itself")
+              message("comparewithid is set to reference itself")
               data$comparewithid <- data$id
             } else {
               # print("comparewithid is present in data")

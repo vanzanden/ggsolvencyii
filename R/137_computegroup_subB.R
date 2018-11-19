@@ -30,26 +30,26 @@
 
 
 ## fn_circlepoints ====================================================== =====
-#' fn_circlepoints
-#'
-#' @param ri the  inner radius of the circle segment
-#' @param ro the outer radius of the circle segment
-#' @param db degrees beginning of section (compass-wise: 0 degrees is north, 90 degrees is east)
-#' @param de degrees end of section
-#' @param plottype "circle" of "outer", the former only requiring a ro
-#' @param indication11 dummy text
-#' @param indication13 dummy text
-#' @param stepsize default value = 0.5, as of now no calls to this function override this default. the stepsize in degrees along the inner or outer lines,
-#'
-#' @return a dataframe with points to be plotted, relative from (0,0) coordinates system.
-#' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie description)
-#' ## outlinetype are 1 through 4 and 11 and 13.
-#'       type 1 : line from point defined by ri/db  to ro/db (radius outward)
-#'       type 2 : line from point defined by ro/db  to ro/de (outer line of section)
-#'       type 3 : line from point defined by ro/de  to ri/de (radius inward)
-#'       type 4 : line from point defined by ri/de  to ri/db  outer line of section)
-# ' @exportnot
-#'
+# ' fn_circlepoints
+# '
+# ' @param ri the  inner radius of the circle segment
+# ' @param ro the outer radius of the circle segment
+# ' @param db degrees beginning of section (compass-wise: 0 degrees is north, 90 degrees is east)
+# ' @param de degrees end of section
+# ' @param plottype "circle" of "outer", the former only requiring a ro
+# ' @param indication11 dummy text
+# ' @param indication13 dummy text
+# ' @param stepsize default value = 0.5, as of now no calls to this function override this default. the stepsize in degrees along the inner or outer lines,
+# '
+# ' @return a dataframe with points to be plotted, relative from (0,0) coordinates system.
+# ' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie description)
+# ' ## outlinetype are 1 through 4 and 11 and 13.
+# '       type 1 : line from point defined by ri/db  to ro/db (radius outward)
+# '       type 2 : line from point defined by ro/db  to ro/de (outer line of section)
+# '       type 3 : line from point defined by ro/de  to ri/de (radius inward)
+# '       type 4 : line from point defined by ri/de  to ri/db  outer line of section)
+# ' @export
+# '
 # ' @examples
 
 fn_circlepoints <- function(ri, ro, db, de, plottype,
@@ -135,25 +135,25 @@ fn_circlepoints <- function(ri, ro, db, de, plottype,
 
 
 ## fn_squarepoints ====================================================== =====
-#' fn_squarepoints
-#'
-#' @param ri the (vertical) distance of center of circle to the inner edge of the segment;
-#' @param ro the (vertical) distance of center of circle to the outer edge of the segment;
-#' @param db degrees beginning of section (compass-wise: 0 degrees is north, 90 degrees is east)
-#' @param de degrees end of section
-#' @param plottype "circle" of "outer", the former only requiring a ro
-#' @param indication11 dummy text
-#' @param indication13 dummy text
-#'
-#' @return a dataframe with points to be plotted, relative from (0,0) coordinates system.
-#' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie description)
-#' ## outlinetype are 1 through 4 and 11 and 13.
-#'       type 1 : line from point defined by ri/db  to ro/db (radius outward)
-#'       type 2 : line from point defined by ro/db  to ro/de (outer line of section)
-#'       type 3 : line from point defined by ro/de  to ri/de (radius inward)
-#'       type 4 : line from point defined by ri/de  to ri/db  outer line of section)
+# ' fn_squarepoints
+# '
+# ' @param ri the (vertical) distance of center of circle to the inner edge of the segment;
+# ' @param ro the (vertical) distance of center of circle to the outer edge of the segment;
+# ' @param db degrees beginning of section (compass-wise: 0 degrees is north, 90 degrees is east)
+# ' @param de degrees end of section
+# ' @param plottype "circle" of "outer", the former only requiring a ro
+# ' @param indication11 dummy text
+# ' @param indication13 dummy text
+# '
+# ' @return a dataframe with points to be plotted, relative from (0,0) coordinates system.
+# ' The dataframe has 3 columns: xpoint, ypoint, outlinetype (from puntenfunctie description)
+# ' ## outlinetype are 1 through 4 and 11 and 13.
+# '       type 1 : line from point defined by ri/db  to ro/db (radius outward)
+# '       type 2 : line from point defined by ro/db  to ro/de (outer line of section)
+# '       type 3 : line from point defined by ro/de  to ri/de (radius inward)
+# '       type 4 : line from point defined by ri/de  to ri/db  outer line of section)
 # ' @exportnot
-#'
+# '
 # ' @examples
 
 fn_squarepoints <- function(ri, ro, db, de,
@@ -316,14 +316,14 @@ fn_squarepoints <- function(ri, ro, db, de,
     }
 
 ## fn_sqXP ============================================================== =====
-#' fn_sqXP calculating the horizontal offset of the point, based on a reference value (vertdistance) and compass direction.
-#'
-#' @param vertdistance dummy text
-#' @param degrees dummy text
-#' @param xsign dummy text
-#' @param rounding dummy text
-#'
-#' @return a distance
+# ' fn_sqXP calculating the horizontal offset of the point, based on a reference value (vertdistance) and compass direction.
+# '
+# ' @param vertdistance dummy text
+# ' @param degrees dummy text
+# ' @param xsign dummy text
+# ' @param rounding dummy text
+# '
+# ' @return a distance
 
 fn_sqXP <- function(vertdistance, degrees, xsign, rounding) {
     xpoint <- round(xsign * vertdistance +
@@ -337,14 +337,14 @@ fn_sqXP <- function(vertdistance, degrees, xsign, rounding) {
 
 
 ## fn_sqYP ============================================================== =====
-#' fn_sqYP calculating the vertical offset of the point, based on a reference value (vertdistance) and compass direction.
-#'
-#' @param vertdistance dummy text
-#' @param degrees dummy text
-#' @param ysign dummy text
-#' @param rounding dummy text
-#'
-#' @return a distance
+# ' fn_sqYP calculating the vertical offset of the point, based on a reference value (vertdistance) and compass direction.
+# '
+# ' @param vertdistance dummy text
+# ' @param degrees dummy text
+# ' @param ysign dummy text
+# ' @param rounding dummy text
+# '
+# ' @return a distance
 
 
 fn_sqYP <- function(vertdistance, degrees, ysign, rounding) {
@@ -358,16 +358,16 @@ fn_sqYP <- function(vertdistance, degrees, ysign, rounding) {
     }
 
 ## fn_sqdegseq ========================================================== =====
-#' fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with all the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
-#'
-#' @param startdegrees a startingpoint of degrees (as used in a compass)
-#' @param enddegrees the endpoint of degrees (as used in a compass)
-#' @param counterclockwise (bln, default = FALSE)
-#' @param reset (bln, default = FALSE) if reset is True then startdegrees is reset to a number between 0 and 360, and enddegrees to a number between 0 and 720 degrees
-#'
-#' @return a sequence of at least two compass directions, with the multiples of 45 degrees in between the outer limits.
+# ' fn_sqdegseq gives a sequence of degrees based on a starting and end rotation, with all the multiples of 45 degrees within the range. If starting degrees > enddegrees then (multples of) 360 degrees are added until start degrees is smaller then enddegrees.
+# '
+# ' @param startdegrees a startingpoint of degrees (as used in a compass)
+# ' @param enddegrees the endpoint of degrees (as used in a compass)
+# ' @param counterclockwise (bln, default = FALSE)
+# ' @param reset (bln, default = FALSE) if reset is True then startdegrees is reset to a number between 0 and 360, and enddegrees to a number between 0 and 720 degrees
+# '
+# ' @return a sequence of at least two compass directions, with the multiples of 45 degrees in between the outer limits.
 # ' @exportnot
-#'
+# '
 # ' @examples
 
 fn_sqdegseq <- function(startdegrees, enddegrees,

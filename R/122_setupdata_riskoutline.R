@@ -28,15 +28,15 @@
 ##
 ##
 ## fn_setupdata_outline ================================================= =====
-#' fn_setupdata_outline
-#'
-#' @inheritParams fn_maxscrvalue
+# ' fn_setupdata_outline
+# '
+# ' @inheritParams fn_maxscrvalue
 # ' @param data the data send by the geom_class
 # ' @param params the params send by the geom_classs
-#'
-#' @return an adjusted version of input dataframe data
+# '
+# ' @return an adjusted version of input dataframe data
 # ' @exportnot
-#'
+# '
 # ' @examples
 
 fn_setupdata_outline <- function(data, params) {

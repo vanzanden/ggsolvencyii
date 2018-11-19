@@ -45,7 +45,7 @@ test_result <- ggsolvencyii:::fn_structure_data_integration(expandedstructure = 
         testparams$fillcolors <-  sii_z_ex6_fillcolors
         testparams$edgecolors <-  sii_z_ex6_edgecolors
 
-sii_debug(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
+sii_debug_geom(data_descr = testdata$description, structure = testparams$structure, aggregatesuffix = testparams$aggregatesuffix,
           levelmax = testparams$levelmax, fillcolors = testparams$fillcolors, edgecolors = testparams$edgecolors)
 
 test_result <- ggsolvencyii:::fn_structure_expansion(testparams) ; test_result

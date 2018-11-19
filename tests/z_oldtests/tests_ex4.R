@@ -32,14 +32,14 @@
     testparams$aggregatesuffix <- "_other"
 
 
-sii_debug(data_descr = testdata$description,
+sii_debug_geom(data_descr = testdata$description,
           structure = testparams$structure,
           levelmax = testparams$levelmax
 )
 
 
 
-sii_debug(data_descr = testdata$description,
+sii_debug_geom(data_descr = testdata$description,
           structure = testparams$structure,
           levelmax = testparams$levelmax
 )
@@ -62,7 +62,7 @@ sii_debug(data_descr = testdata$description,
     testrotationdescription = NULL # operational #  life # l_longevity # h_s_longevity
     testsquared = FALSE # TRUE
 
-sii_debug(data_descr = testdata$description,
+sii_debug_geom(data_descr = testdata$description,
                                     structure = testparams$structure,
                                     aggregatesuffix = testparams$aggregatesuffix,
                                     levelmax = testparams$levelmax

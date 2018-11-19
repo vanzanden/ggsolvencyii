@@ -30,11 +30,11 @@
 ## ====================================================================== =====
 
 ## fn_setupdata_surfaces ================================================ =====
-#' fn_setupdata_surfaces
-#'
-#' @inheritParams fn_maxscrvalue
-#'
-#' @return an adjusted version of input dataframe data
+# ' fn_setupdata_surfaces
+# '
+# ' @inheritParams fn_maxscrvalue
+# '
+# ' @return an adjusted version of input dataframe data
 
 fn_setupdata_surfaces <- function(data, params) {
         expandedstructure <- fn_structure_expansion(params = params
@@ -84,13 +84,13 @@ fn_setupdata_surfaces <- function(data, params) {
     }
 
 ## fn_structure_expansion =============================================== =====
-#' fn_structure_expansion takes the structure dataframe and enriches it with additional lines for accumulation
-#'
-#' @inheritParams fn_maxscrvalue
-#'
-#' @importFrom magrittr %>%
-#'
-#' @return a dataframe
+# ' fn_structure_expansion takes the structure dataframe and enriches it with additional lines for accumulation
+# '
+# ' @inheritParams fn_maxscrvalue
+# '
+# ' @importFrom magrittr %>%
+# '
+# ' @return a dataframe
 
 fn_structure_expansion <- function(params) {
         structure     <- params$structure
@@ -168,7 +168,7 @@ fn_structure_expansion <- function(params) {
           # if(nrow(levelmaxdf) > levelmax) {
           #   print(paste0("parameter levelmax is expanded met levelmax = 99",
           #   " for one or more levels present in the structure: ",
-          #   "see 'sii_debug(data_descr = <data>$description,",
+          #   "see 'sii_debug_geom(data_descriptionvector = <data>$description,",
           #   "structure = <structure>,levelmax = <levelmax>' for a comparison"
           #   ))
         }
@@ -195,16 +195,16 @@ fn_structure_expansion <- function(params) {
 
 
 ## fn_determinelevels =================================================== =====
-#' fn_determinelevels reduces a vector with levels to a list with unique items, possible after further selection or transformation to value
-#'
-#' @param vector_in a vector with levels, this function reduces it to unique values
-#' @param ind_value default = FALSE: levels are returned as value. Implies that ind_d and ind_o are set to FALSE (while default is TRUE)
-#' @param ind_integer default = FALSE: levels are returned as value. Implies that ind_value is set to TRUE, and hence ind_d and ind_o to FALSE
-#' @param ind_d default = TRUE: xxxxd levels are included in the result
-#' @param ind_o default = TRUE: xxxxo levels are included in the result
-#' @param ind_onlyspecials default = FALSE: non xxxxd/xxxo levels are NOT included in the result
-#'
-#' @return a vector of levels, in character, numeric or integer format
+# ' fn_determinelevels reduces a vector with levels to a list with unique items, possible after further selection or transformation to value
+# '
+# ' @param vector_in a vector with levels, this function reduces it to unique values
+# ' @param ind_value default = FALSE: levels are returned as value. Implies that ind_d and ind_o are set to FALSE (while default is TRUE)
+# ' @param ind_integer default = FALSE: levels are returned as value. Implies that ind_value is set to TRUE, and hence ind_d and ind_o to FALSE
+# ' @param ind_d default = TRUE: xxxxd levels are included in the result
+# ' @param ind_o default = TRUE: xxxxo levels are included in the result
+# ' @param ind_onlyspecials default = FALSE: non xxxxd/xxxo levels are NOT included in the result
+# '
+# ' @return a vector of levels, in character, numeric or integer format
 
 fn_determinelevels <- function(vector_in,  ind_value = FALSE,
                                 ind_integer = FALSE,
@@ -242,14 +242,16 @@ fn_determinelevels <- function(vector_in,  ind_value = FALSE,
 
 
 ## fn_structure_data_integration ======================================== =====
-#' fn_structure_data_integration combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is neccessary.
-#'
-#' @param expandedstructure result of fn_structure_expansion()
-#' @inheritParams fn_maxscrvalue
-#'
-#' @importFrom magrittr %>%
-#'
-#' @return data
+# ' fn_structure_data_integration
+# '
+# ' combines data and expanded structure, calculation aggregated items and removing lines for which no aggregation is neccessary.
+# '
+# ' @param expandedstructure result of fn_structure_expansion()
+# ' @inheritParams fn_maxscrvalue
+# '
+# ' @importFrom magrittr %>%
+# '
+# ' @return data
 
 
 fn_structure_data_integration <- function(expandedstructure,
@@ -402,10 +404,11 @@ fn_structure_data_integration <- function(expandedstructure,
             ## 2DO ## this check should be replaced to fn_structure_expansion
             if (count_gllines_nochild <= 1 & (count_gllines_withchild
                               + count_gllines_nochild > max_gllines)) {
-              print(paste0("for id=", g_counter, " and level =", l_counter, " ",
-                           "no accumulation is possible: only one ",
-                           "component has no childlevels, ",
-                           "please adjust parameter(dataframe) levelmax"))
+              message("for id=", g_counter,
+                      " and level =", l_counter,
+                      "no accumulation is possible: only one ",
+                      "component has no childlevels, ",
+                      "please adjust parameter(dataframe) levelmax")
               d_out2 <- rbind(d_out2, gl_lines)
             } else {
               ## flag_levelmaxissue
@@ -413,11 +416,11 @@ fn_structure_data_integration <- function(expandedstructure,
                 max_old <- max_gllines
                 ## we know count_gllines_nochild is greater or equal to 2
                 max_gllines <- count_gllines_withchild + 1
-                  print(paste0("for level ", l_counter,
-                               " for id=", g_counter,
-                               " levelmax is adjusted from ", max_old,
-                               " to ", max_gllines,
-                               ", due to the amount of childlevels" ))
+                  message("for level ", l_counter,
+                          " for id=", g_counter,
+                          " levelmax is adjusted from ", max_old,
+                          " to ", max_gllines,
+                          ", due to the amount of childlevels" )
                   rm(max_old)
               }
               if (count_gllines > max_gllines) {
@@ -477,16 +480,16 @@ fn_structure_data_integration <- function(expandedstructure,
 }
 
 ## fn_add_ind_show ====================================================== =====
-#' fn_add_ind_show
-#'
-#' fn_add_ind_show is a little piece that has to be added to data in either fork
-#'   after the \cr "if (!is.null(s_t1))" statement to fill column ind_show
-#'   for several items
-#'
-#' @inheritParams fn_maxscrvalue
+# ' fn_add_ind_show
+# '
+# ' fn_add_ind_show is a little piece that has to be added to data in either fork
+# '   after the \cr "if (!is.null(s_t1))" statement to fill column ind_show
+# '   for several items
+# '
+# ' @inheritParams fn_maxscrvalue
 # ' @param data an dataframe, consisting of the dataset and the expanded structure
-#'
-#' @return the dataframe with an added column ind_show
+# '
+# ' @return the dataframe with an added column ind_show
 
 fn_add_ind_show <- function(data) {
         data$ind_show <- TRUE

@@ -20,11 +20,11 @@ Imports: dplyr,
          magrittr,
          tidyr
 Suggests: 
-    ggmap,
+	  covr,
+	  ggmap,
     knitr,
     rmarkdown,
-    testthat,
-	covr
+    testthat
 VignetteBuilder: knitr
 URL: https://github.com/vanzanden/ggsolvencyii
 BugReports: https://github.com/vanzanden/ggsolvencyii/issues

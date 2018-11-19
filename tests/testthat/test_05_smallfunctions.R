@@ -141,7 +141,7 @@ expect_equal(testresultH, expectedH)
 
       teststructure <- sii_structure_sf16_eng
       testresult <- ggsolvencyii:::fn_constructionplotdetails(teststructure)
-      str(testresult)
+      # str(testresult)
 
 test_that("fn_constructionplotdetails" ,{
 expect_equal(colnames(testresult), c("levelordescription","surface","outline1","outline2","outline3","outline4","outline11","outline13"))

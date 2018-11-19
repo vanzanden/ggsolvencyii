@@ -28,13 +28,13 @@
 
 
 ## fn_computegroup ====================================================== =====
-#' fn_computegroup
-#'
-#' @inheritParams fn_maxscrvalue
-#' @param scales dummy text
-#' @param siiparams The (adjusted) geom parameterset, forwarded to lower level functions as siiparams
-#'
-#' @return a dataframe which contains transformed or enriched data, usable for plotting
+# ' fn_computegroup
+# '
+# ' @inheritParams fn_maxscrvalue
+# ' @param scales dummy text
+# ' @param siiparams The (adjusted) geom parameterset, forwarded to lower level functions as siiparams
+# '
+# ' @return a dataframe which contains transformed or enriched data, usable for plotting
 
 
 fn_computegroup <- function(data, scales, siiparams) {
@@ -52,15 +52,15 @@ fn_computegroup <- function(data, scales, siiparams) {
 
 
 ## fn_geomsiidatatopoints =============================================== =====
-#' fn_geomsiidatatopoints
-#'
-#' @param df dummy text
-#' @param siiparams dummy text
-#'
-#' @importFrom dplyr select
-#' @importFrom tidyr spread
-#'
-#' @return a list with one item 'df' (data.frame)
+# ' fn_geomsiidatatopoints
+# '
+# ' @param df dummy text
+# ' @param siiparams dummy text
+# '
+# ' @importFrom dplyr select
+# ' @importFrom tidyr spread
+# '
+# ' @return a list with one item 'df' (data.frame)
 
 
 fn_geomsiidatatopoints <- function(df, siiparams) {
@@ -159,14 +159,14 @@ fn_geomsiidatatopoints <- function(df, siiparams) {
     return(solviipolygon)
 }
 ## fn_transform_plotdetails ============================================= =====
-#' fn_transform_plotdetails
-#'
-#' @param df a dataframe with column level and some other levels
-#' @param siiparams the (extended) parameterset
-#'
-#' @return a tidyverse dataframe
-#'
-#' @importFrom tidyr gather
+# ' fn_transform_plotdetails
+# '
+# ' @param df a dataframe with column level and some other levels
+# ' @param siiparams the (extended) parameterset
+# '
+# ' @return a tidyverse dataframe
+# '
+# ' @importFrom tidyr gather
 
           # transforms table from human format
           # levelordescription surface outline1 ...2 ... ...4 ...11 outline13
