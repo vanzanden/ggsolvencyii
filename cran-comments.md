@@ -1,3 +1,50 @@
+---
+title: "cran-comments"
+author: "Marco van Zanden"
+date: "November 19 2018"
+output: html_document
+---
+
+### version 0.1.1, CRAN comments 
+r version: 3.5.1
+r studio version: 1.1.463
+devtools version: 2.0.1
+
+
+
+check_rhub - results
+
+   http://builder.r-hub.io/status/ggsolvencyii_0.1.1.tar.gz-afc1f814186e497d826ab86042e3cc35
+
+  checking examples ... NOTE
+  Examples with CPU or elapsed time > 5s
+                       user system elapsed
+  geom_sii_riskoutline 8.20   0.04    8.26
+  geom_sii_risksurface 5.05   0.02    5.09
+
+0 errors √ | 0 warnings √ | 1 note x
+
+ http://builder.r-hub.io/status/ggsolvencyii_0.1.1.tar.gz-09823e7efc7d4253a4ddd1ad6d0a45b2
+
+failure: 
+ERROR: this R is version 3.4.4, package 'ggsolvencyii' requires R >= 3.5.0
+
+http://builder.r-hub.io/status/ggsolvencyii_0.1.1.tar.gz-50cbe90770324bc7a358b33ba7d00a79
+   
+* checking re-building of vignette outputs ... WARNING
+
+4581#> Error in re-building vignettes:
+4582#> ...
+4583#> Warning in (function (filename = "Rplot%03d.png", width = 480, height = 480, :
+4584#> unable to open connection to X11 display ''
+4585#> Quitting from lines 74-75 (coding_overview.Rmd)
+4586#> Error: processing vignette 'coding_overview.Rmd' failed with diagnostics:
+4587#> unable to start device PNG 
+
+this seems a local problem
+
+==============================================================
+
 ### version 0.1.0, CRAN comments, Release to CRAN
 
 Subject: Re: CRAN submission ggsolvencyii 0.1.0
@@ -9,13 +56,7 @@ Thanks, on its way to CRAN.
 Best,
 Uwe Ligges
 
----
-title: "cran-comments"
-author: "Marco van Zanden"
-date: "October 19 2018"
-output: html_document
----
-
+ 
 ### version 0.1.0, CRAN comments and **actions taken**
 October 19, 2018
 

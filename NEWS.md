@@ -20,6 +20,9 @@
 
 - preparation for version 0.2.0
     - preparatory lines for parameters `relalpha`  and `tocenter`)
+    
+- backtesting
+    - Depends: R (>= 3.4.0) (was >= 3.5.0)
 
 ## version 0.1.0, October 2018
 
