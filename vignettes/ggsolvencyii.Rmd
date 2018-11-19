@@ -2,6 +2,7 @@
 title: "ggsolvencyii"
 author: "Marco van Zanden"
 date: "`r Sys.Date()`"
+md_document: markdown_strict
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{ggsolvencyii}

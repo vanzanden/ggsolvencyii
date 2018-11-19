@@ -2,8 +2,8 @@
 knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="z_coding_overview-")
 library(ggplot2)
 library(ggsolvencyii)
-library(magrittr)
-library(dplyr)
+# library(magrittr)
+# library(dplyr)
 # library(tidyr)
 
 ## ----logo, out.width='25%', fig.align='right', echo=FALSE, border = FALSE----
