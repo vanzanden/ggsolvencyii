@@ -16,7 +16,7 @@ made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/mas
 sii_levelmax_sf16_993
 }
 \description{
-maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...) in a standard formula structure.
+maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lower level risk (equity/longevity/...) in a standard formula structure.
 }
 \examples{
 installedtable <- sii_levelmax_sf16_993

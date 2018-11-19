@@ -83,25 +83,8 @@ context("fn_polygonpoints and subroutines")
     testdata_ggplotformat <- dplyr::rename(testdata, x = time, y = ratio, id = id, description = description , value = value )
     testdata_ggplotformat <- dplyr::mutate(testdata_ggplotformat, group = id)
 
-    ## available parameters
-                      #   ## structure and form
-                      #   structure = ggsolvencyii::sii_structure_sf16_eng,
-                      #   squared = FALSE,
-                      #   ## grouping
-                      #   levelmax = 99,   aggregatesuffix = "_other",
-                      #   ##
-                      #   plotdetails = NULL,    tocenter = FALSE,   relalpha = FALSE,
-                      #   ## rotation
-                      #   rotationdegrees = NULL,    rotationdescription = NULL,
-                      #   ## scaling
-                      #   maxscrvalue = NULL, scalingx = 1, scalingy = 1,
-                      # ## other default ggplot2 parameters
-                      # ## internal parameters
-                      #   ## purpose (attribution in call to ggplot::layer)
-                      #
-
     testparams <- NULL
-    testparams$structure = sii_structure_sf16_eng
+     testparams$structure = sii_structure_sf16_eng
 #    testparams$structure <- sii_z_ex1_structure
     testparams$levelmax <- sii_levelmax_sf16_993
     testparams$aggregatesuffix <- "_other"
@@ -134,6 +117,22 @@ context("fn_polygonpoints and subroutines")
     testresultL <- ggsolvencyii:::fn_polygonpoints(df = intresultE, siiparams = testparams, counter_polyorder = 1)
 
 
+    testparams$squared  <- FALSE
+
+    intresultM <- ggsolvencyii:::fn_squareconversion(df = intresultD, siiparams = testparams)
+    testparams$purpose  <- "surface"
+
+    testresultN <- ggsolvencyii:::fn_polygonpoints(df = intresultM, siiparams = testparams, counter_polyorder = 1)
+
+    testparams$purpose  <- "outline"
+
+    testresultP <- ggsolvencyii:::fn_polygonpoints(df = intresultM, siiparams = testparams, counter_polyorder = 1)
+
+
+
+
+
+
 #
 # #  test_that("fn_squareddegrees" ,{
 # # expect_equal(testresultAa, TRUE)  ## ERRORED
@@ -151,6 +150,8 @@ rm(intresultB_group2)
 rm(intresultC)
 rm(intresultD)
 rm(intresultE)
+rm(intresultM)
+
 #
 rm(testresultAa); rm(testresultAb); rm(testresultAc); rm(testresultAd)
 rm(testresultBa); rm(testresultBb);
@@ -162,9 +163,11 @@ rm(testresultGa); rm(testresultGb); rm(testresultGc); rm(testresultGd)
 rm(testresultHa); rm(testresultHb);
 rm(testresultJa); rm(testresultJb);
 
-
 rm(testresultK)
 rm(testresultL)
+rm(testresultN)
+rm(testresultP)
+
 # # rm(testresultH)
 # # rm(testresultJ)
 #

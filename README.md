@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggsolvencyii 0.1.1beta
+# ggsolvencyii 0.1.1
 
 <img src="vignettes/images/logo_engels_rvignettes.png" align="right" width="25%" />
 
@@ -19,8 +19,7 @@ Status](https://travis-ci.com/vanzanden/ggsolvencyii.svg?branch=master)](https:/
 status](https://ci.appveyor.com/api/projects/status/github/vanzanden/ggsolvencyii?branch=master)](https://ci.appveyor.com/project/vanzanden/ggsolvencyii/branch/master)
 [![cran Build
 Status](http://www.r-pkg.org/badges/version/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
-[![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
+<!--[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)-->
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/ggsolvencyii)](https://www.r-pkg.org/pkg/ggsolvencyii)
 [![Coverage
@@ -60,10 +59,11 @@ devtools::install_github("vanzanden/ggsolvencyii")
 ## short version
 
 This README is a short version of the vignette ‘ggsolvencyii’ at
-<https://cran.r-project.org/web/packages/ggsolvencyii/index.html> (and
-<https://github.com/vanzanden/ggsolvencyii/tree/master/>) which shows
-the same examples with more code. the complete annotated code resulting
-in the first figure is shown in vignette ‘showcase’.
+<https://cran.r-project.org/web/packages/ggsolvencyii/index.html> which
+shows the same examples with more code. The complete annotated code for
+the first figure is shown in vignette ‘showcase’. A further elaboration
+on the inner workings of the package and the use of parameter-values and
+tables can be found in vignette "coding overview’.
 
 ## example
 
@@ -149,11 +149,7 @@ clockwise.
 
 The option ‘squared’ makes a square plot, with the surface of all
 segments still in proportion.
-<img src="man/images/README-rotationsquare-1.png" width="50%" />
-
-    #> [1] "for id = 1 the description dependent rotation is : 325.945945945946 degrees"
-
-<!--
+<img src="man/images/README-rotationsquare-1.png" width="50%" /> <!--
 
 The second plot shows a comparison between a circle and square plot of the same data. Note that the radius of the SCR circle is smaller than the size of the SCR square and that angles are different because in the corners there is 'additional' surface available compared to a circle.
 

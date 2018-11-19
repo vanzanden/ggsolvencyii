@@ -12,7 +12,7 @@ made from excel-file in \href{https://github.com/vanzanden/ggsolvencyii/tree/mas
 sii_z_ex6_levelmax
 }
 \description{
-maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lower level risk (equity/longevity/...)
 }
 \examples{
 installedtable <- sii_z_ex6_levelmax

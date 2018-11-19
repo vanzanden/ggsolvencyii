@@ -30,7 +30,7 @@ The goal of ggsolvencyii is to provide 'ggplot2'-geom's to show the composition 
 You can install ggsolvencyii from Github:
 
 ```{r gh-installation, eval = FALSE}
-# install.packages("devtools")
+# install.packages("devtools", "dplyr" , "magrittr")
 devtools::install_github("vanzanden/ggsolvencyii")
 # or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows
 ```
@@ -40,9 +40,6 @@ The following vignettes are available or will be available soon
 check https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes
 
 * ggsolvencyii (this vignette)
-* geom_sii_risksurface (placeholder)
-* geom_sii_riskoutline (placeholder)
-* geom_sii_riskconnection (placeholder)
 * plotdetails (placeholder)
 * showcase
 * coding_overview (placeholder)
@@ -56,7 +53,7 @@ ggsolvencyii builds on ggplot-functionality and provides three geom's:
 
 These were used to produce the following plot which for example could be used for an ORSA report. 
 
-The commented code is shown in vignette "showcase".
+the complete annotated code for the first figure is shown in vignette 'showcase'. A further elaboration on the inner workings of the package and the use of parameter-values and tables can be found in vignette "coding overview'.
 
 ```{r, showcase, echo=FALSE, results = 'hide' }
       ## the original dataset has three three-year scenarios, 
@@ -195,7 +192,7 @@ rm(testdata) ; rm(horizontalscaling)
 ## ====================================================================== =====
 ```
 
-The total surface (to the centerpoint of each circle) of the outer segments show the size of undiversified risks. Diversification is made visible by the difference between the risk segment and the next segment nearer to the center of the plot. The red (out)lines are displayed for comparison with the previous SCR buildup. 
+The total surface (to the center point of each circle) of the outer segments show the size of undiversified risks. Diversification is made visible by the difference between the risk segment and the next segment nearer to the center of the plot. The red (out)lines are displayed for comparison with the previous SCR buildup. 
 
 
 For troubleshooting `sii_debug_geom` provides an overview of present risk descriptions and levels in the data and supporting tables. 
@@ -206,7 +203,7 @@ knitr::kable(t$debug_description[37:45,])
 knitr::kable(rbind(t$debug_level[1:13,],tail(t$debug_level,2)))
 ```
 
-## Baseplot and options
+## Base plot and options
 
 ### base
 An life insurer reports its solvency ratio following Standard Formula rules, with English names for all risks. It has a set of risks, diversification effects, and accumulations to the SCR for the current situation ('id'=1) and three three-year ORSA scenarios ('id' is 2-4, 5-7, 8-10). The results are stored in a datafile of which the first lines and columns are shown here: 
@@ -268,7 +265,7 @@ knitr::kable(head(sii_structure_sf16_eng,15))
 ```
 
 ### levelmax
-To prevent cluttering of the legend it is possible to group the smallest items of a level by providing a levelmax-table in such a way that the indicated maximum items in that level is not exceded. the example is on another dataset `sii_z_ex2_data`, with only one SCR result. 
+To prevent cluttering of the legend it is possible to group the smallest items of a level by providing a levelmax-table in such a way that the indicated maximum items in that level is not exceeded. the example is on another dataset `sii_z_ex2_data`, with only one SCR result. 
 ```{r levelmaxtext, eval = FALSE}
 sii_levelmax_sf16_993
 ```

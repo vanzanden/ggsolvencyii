@@ -24,7 +24,7 @@ sii_plotdetails_sf16
 }
 \description{
 A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 }
 \examples{
 installedtable <- sii_plotdetails_sf16

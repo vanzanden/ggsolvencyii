@@ -134,7 +134,7 @@
 #' sii_levelmax_sf16_995
 #'
 #' maximum number of items in a level, 99 items for levels 1-3
-#' (SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lowerlevel risk
+#' (SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lower level risk
 #' (equity/longevity/...) in a standard formula structure.
 #'
 #' @docType data
@@ -157,7 +157,7 @@
 ## sii_levelmax_sf16_993 ================================================ =====
 #' sii_levelmax_sf16_993
 #'
-#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...) in a standard formula structure.
+#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lower level risk (equity/longevity/...) in a standard formula structure.
 #'
 #'
 #' @docType data
@@ -182,7 +182,7 @@
 #' sii_plotdetails_sf16
 #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
 #'
@@ -300,7 +300,7 @@
 #' sii_z_ex1_levelmax
 #'
 # ' tekst
-#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lower level risk (equity/longevity/...)
 #'
 # ' @docType data
 #'
@@ -322,7 +322,7 @@
 #' sii_z_ex1_plotdetails
 #' #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
 #'
@@ -350,7 +350,7 @@
 #' sii_z_ex1_plotdetails2
 #' #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
 #'
@@ -430,7 +430,7 @@
 #' sii_z_ex3_plotdetails
 #' #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
 #'
@@ -509,7 +509,7 @@
 #' sii_z_ex4_levelmax
 #'
 # ' tekst
-#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lower level risk (equity/longevity/...)
 #'
 # ' @docType data
 #'
@@ -658,7 +658,7 @@
 #' sii_z_ex6_levelmax
 #'
 # ' tekst
-#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lowerlevel risk (equity/longevity/...)
+#' maximum number of items in a level, 99 items for levels 1-3 (SCR, BSCR/OR/ADJ, Market/life/... risks) and 3 items for lower level risk (equity/longevity/...)
 #'
 # ' @docType data
 #'
@@ -735,7 +735,7 @@
 #' sii_z_ex7_plotdetails
 #' #'
 #' A table for \code{\link{geom_sii_risksurface}} and \code{\link{geom_sii_riskoutline}} indicating which outlines of each item should be shown, specified per level and/or description. the latter overrule the former. \cr
-#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguised, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
+#' when defining an item (or the \code{squared = TRUE} transformation) 4 lines can be distinguished, a radialline going outwards, a circle segment (clockwise), a radialline going inwards, a circle segment (counterclockwise). These are numbered as outline1 to outline4.
 #'
 #' @docType data
 #'

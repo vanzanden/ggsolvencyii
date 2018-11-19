@@ -12,26 +12,195 @@ vignette: >
 knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="z_coding_overview-")
 library(ggplot2)
 library(ggsolvencyii)
+library(magrittr)
+library(dplyr)
+# library(tidyr)
 ```
 ```{r,logo, out.width='25%', fig.align='right', echo=FALSE, border = FALSE}
 knitr::include_graphics('images/logo_engels_rvignettes.png')
 ```
 
-## Disclaimer
+## interested ? ..... anyone ????
 
-This documentation is in a rudimentary form for release 0.1.0. which is meant to see how much interest (not the financial one) this package generates.
+This documentation is in a rudimentary form for release 0.1.1. which is meant to see how much interest (not the financial one) this package generates. 
 
 ## Vignettes
 The following vignettes are available.  
  
-* _ggsolvencyii 
-* geom_sii_risksurface (placeholder)
-* geom_sii_riskoutline (placeholder)
-* geom_sii_riskconnection (placeholder)
+* ggsolvencyii 
 * plotdetails (placeholder)
 * showcase
-* coding_overview (this vignette) (placeholder)
+* coding_overview (this vignette) 
 
 On https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes less rudimentary versions might be available between releases.
 
-## 
+## Have you seen the examples in vignettes ggsolvency  and showcase yet?
+It will be very helpful to have seen a few examples of what ggsolvencyii can do before going through this vignette.
+
+## data in human readable and tidyverse format 
+
+a typical spreadsheet might show some ORSA (own risk and solvency assessment) in the shape represented by the following data.frame: 
+
+id | time | ratio | SCR |BSCR|operational|life|market|l_expenses|l_CAT|m_equity | and so on
+---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+1 | 2017 | 230 | 100 |80|25|33|50 |..|..|..|..|
+2 | 2018 | 225 | 103 |85|25|33|57|..|..|..|..|
+3 | 2019 | 227 | 107 |90|23|37|60|..|..|..|..|
+.. | |  |  |||||||||
+
+One can discern several parts. The first columns are id of each SCR composition and its 'meta' attributes (time, ratio). The further columns describe the components of each SCR item. The value of each item is in the crossing of its corresponding column and row. 
+
+### data in 'ggplot2' prescribe format (tidyverse format)
+
+`ggplot2`, the foundation on which the plotting part of this package is build expects data in a tidyverse format. Each row in the data describes only one data point i.e. value of SCR item for one specific 'id'.
+
+the following code is used from transferring data (for example 2, a single SCR plot) in a spreadsheet the same form as the  "human format" as above to tidyverse format (the numbers differ though !)
+```r 
+data <- readxl::read_xlsx(path = "path/filename.xlsx",sheet = "ex2_data")
+  data <- tidyr::gather(data,
+                        key = description,
+                        value = value,
+                        -id, -time, -ratio)
+  sii_z_ex2_data <- data.frame(   time = as.numeric(data$time),
+                                      ratio = as.numeric(data$ratio),
+                                      description = data$description,   # it has to be a factor !!
+                                      value = as.numeric(data$value),
+                                      id = data$id 
+
+```
+```{r tidyverse}
+ head(sii_z_ex2_data,7)
+```
+
+### ggsolvencyii: data transformations
+
+when the above data is passed to the package with (a very) basic line as
+```r
+ggplot() + geom_sii_risksurface(data = sii_z_ex2_data , mapping = aes(x=time, y = ratio, id=id, value = value, description = description))
+```
+a lot happens under the hood. Broadly speaking the next steps are taken for `geom_sii_surface` and `.._outline`:
+     
+     1. when `geom_sii_riskoutline` is used for comparison of id's, risk-values are moved between data rows
+     2. the structure of the SCR composition a expanded with grouping information
+     3. the expanded structure is integrated with the data
+     4. actual grouping is performed by adding rows 
+     5. for all elements to be plotted the corner-coordinates of the circle segments are calculated
+     6. when applicable rotation and/or "squarification" is applied by changing the corner-coordinates
+     7. corner coordinates are transformed in a series of points for polygons  
+
+#### shuffling with riskvalues in the data
+
+`geom_sii_riskoutline` plots (some of) the outlines of circle segment and as such can be used for a non-obtrusive plot, or for an overlay of the composition of one SCR over the other (see use in vignette `showcase`. To prevent the need of working with two separate datasets the optional aesthetic `comparewithid` is present in `geom_sii_outline`. It is best explained with an example. Compare the data of `sii_z_ex1_data` with the expanded structures without and with use of the `comparewithid`-aesthetic. It shows that the structure of id = 1 is not plotted anymore at its own location (2016,230) but three times in 201: Value 23 for SCR is now present three times in the data. This transformation is used for all (sub)risks.
+
+```{r comparewithid_1 }
+## the original data
+      sii_z_ex1_data[sii_z_ex1_data$description == "SCR", ]
+```
+
+```{r comparewithid_2, echo = FALSE}
+  testdata <- sii_z_ex1_data #contains comparewithid
+ 
+    ## simulation of the route through ggplot
+    ## only required aesthetics, comparewithid is always present in data passed to setupdata, if not filled as aesthetic it is the same as id
+    testdata_ggplotformat <- dplyr::rename(testdata, x = time, y = ratio, id = id, description = description , value = value, comparewithid = comparewithid )
+    ##  with connection
+    testdata_ggplotformat <- dplyr::mutate(testdata_ggplotformat, group = 1)
+
+    testparams <- NULL
+    testparams$structure <- sii_z_ex1_structure
+    testparams$levelmax <- sii_levelmax_sf16_995
+    testparams$aggregatesuffix <- "_other"
+
+    vignetteCa <- ggsolvencyii:::fn_setupdata_outline(data = testdata_ggplotformat, params = testparams)
+    vignetteCb <- vignetteCa[vignetteCa$description ==  "SCR",c("description","id","x","y", "value")]
+    vignetteCc <- nrow(vignetteCa[vignetteCb$description ==  "SCR",])
+    ##  without connection
+    
+    testdata_ggplotformat$comparewithid = testdata_ggplotformat$id
+    vignetteBa <- ggsolvencyii:::fn_setupdata_outline(data = testdata_ggplotformat, params = testparams)
+    vignetteBb <- vignetteBa[vignetteBa$description ==  "SCR",c("description","id","x","y", "value")]
+    vignetteBc <-nrow(vignetteBb[vignetteBb$description ==  "SCR",])
+        
+    message("without passing the aesthetic 'comparewithid`: 10 lines of data")
+    vignetteBb
+    message("and with passing passing the aesthetic 'comparewithid': 9 lines of data")
+    vignetteCb
+```
+
+
+
+#### structure: levels, levels, levels...
+The foundation of the package is the structure. A representation of the buildup of the SCR from its risks and subrisks. This structure is applied as a data.frame passed as a parameter to the geom's `geom_sii_surface` and `geom_sii_outline`.
+The default data.frame is `sii_structure_sf16_eng` where 'sf16' stands for the standard formula as of 2016, and 'eng' for English descriptions. 
+
+```{r structure}
+ head(sii_structure_sf16_eng, 15)
+```
+
+A Dutch version, `sii_structure_sf16_nld`, is present in the package.
+
+The hierarchy of the elements in `description`  is determined by `level` and their components (`childlevel`). SCR has a mandatory level (character value) "1". rows with a suffix 'd' indicate a diversification item. 
+
+For other localizations or for use with internal models another structure can be passed to the geom. see my interpretation of the Internal Model of the dutch insurer "nationale nederlanden" in `sii_z_ex6_structure`. Changing level-numbering or descriptions of items leads possible to the need of changing other (parameter) files as well (i.e. levelmax, plotdetails, coloring-sets).
+
+#### expanding the structure: possible grouping
+
+When reporting the SCR composition of a large insurance company many risks will be present. This can lead to a very cluttered plot where all information is present but which is difficult to interpret. The package provides the means to restrict the amount of items to 'k' (in general or for each level separately) by means of the parameter `levelmax`. this can be an integer, to applied to all items or in the form of a data.frame. The default value is 99, only grouping for risks with more than 100 sub-risks....
+
+Parameter `levelmax = sii_levelmax_sf16_995` shows all higher levels (lower level numbers) but restricts the lower levels (higher numbers) to 4 individual risks and 1 grouping of the smallest risks in that level.
+
+```{r levelmax}
+sii_levelmax_sf16_995
+```
+
+Combining the structure and the levelmax-information leads to an expanded structure of which the lines for levels 3 and 4.01 are shown here: 
+```{r expanded, echo=FALSE}
+    testdata <- sii_z_ex2_data
+
+    testparams <- NULL
+    testparams$structure <- sii_structure_sf16_eng
+    testparams$levelmax <- sii_levelmax_sf16_995
+    testparams$aggregatesuffix <- "_other"
+ 
+    vignetteA <- ggsolvencyii:::fn_structure_expansion(testparams)
+    vignetteA_show <- vignetteA
+    vignetteA_show <- vignetteA_show[vignetteA_show$level %in% c("3", "4.01","4.01d","4.01o"),]
+    vignetteA_show <- dplyr::select(.data = vignetteA_show, description,level,childlevel,levelmax)
+    vignetteA_show
+    
+```
+
+The row with level `4.01o` is the added row. The description is derived from the row where `childlevel` = 4.01 and the value of the parameter `aggregatesuffix` (default value is "other"). 
+
+#### integration with  data and actual grouping
+
+The data (in tidyverse format!) is combined with the expanded structure by means of a left-join on the side of the data. Because the data is not expected to have  `o`-lines for integration they will not be present in the merged table. When a _possible_ grouping line is present in the expanded structure a check is conducted whether the data contains so much risks for that level that _actual_ grouping is needed. (The dataset can contain less risks than the structure which is used; i.e. a pure life-insurance company can use the standard `sii_structure_sf16_eng` without any problems)
+
+#### 
+
+Now it's known which lines in the expanded structure/data-data.frame should be plotted it is time to convert the date into circle segments. For the data-row with the largest SCR value it is defined as a full circle with radius = 1whatever the values of x and y. When combining several calls to geom_sii_risksurface and/or _riskoutline the parameter `maxscrvalue` overwrites this extracted value. All plot-elements are scaled to the surface value of the item. additional manual horizontal and vertical scaling is possible, depending on the range of x and y values of the axes to retain the round shape. 
+
+For other levels the circle segments are defined by an inner and outer radius and a number of (compass-)degrees of the first and last radial line (clockwise).
+the inner radius is defined by the outer radius of the next higher level. the number of compass-degrees is defined by the fraction of the value of each item and its (equal leveled) 'peers'. The value / surface dictates the outer radius.
+
+When applicable a rotation is performed, a rotation in such a way that the first radial line of a specific (sub)risk point to 12 'o clock, and/or an added fixed rotation. 
+
+A final transformation to a squared form is possible. to keep surfaces correct the 'radial'-lines are adjusted. This might lead to unpredictable results in combination with a rotation which is not a multiple of 45 degrees or description-based rotation.
+
+The (transformed/rotated) corner points are translated in polygon points (for `geom_sii_risksurface`) or line segments (for `geom_sii_riskoutline`)
+
+The final step is to define which of all these polygons or line segments actually will be plotted. By default everything will be plotted but passing a dataframe to parameter `plotdetails` can determine this on a `level`-level or a `description`-level. 
+
+In the showcase two data-frames are used, only differing in column `surface`, but equal for outline1 to outline13. one of them is shown here.
+```{r plotdetails}
+sii_z_ex1_plotdetails
+```
+
+`surface` is used by `geom_sii_risksurface`, the other columns by `geom_sii_riskoutline`. It can best be read as follows. for each risk the line of the corresponding `level` is used, possibly overrule by the line with the correct `description` and a explicit `TRUE` or `FALSE` present. 
+
+
+
+
+
+
+

@@ -24,10 +24,7 @@ This documentation is in a rudimentary form for release 0.1.0. which is meant to
 ## Vignettes
 The following vignettes are available.  
  
-* _ggsolvencyii 
-* geom_sii_risksurface (placeholder)
-* geom_sii_riskoutline (placeholder)
-* geom_sii_riskconnection (placeholder)
+* ggsolvencyii 
 * plotdetails (placeholder)
 * showcase (this vignette)
 * coding_overview (placeholder)

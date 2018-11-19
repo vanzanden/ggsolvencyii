@@ -2,28 +2,24 @@
 # ggsolvencyii development
 
 
-## version 0.1.1      , 
+## version 0.1.1, November 2018 
 
-- backtesting on R versions 3.4.3 and 3.4.4
-  3.4.3: not working, despite update all packages 
+- function 'sii_debug' renamed to 'sii_debug_geom' in preparation of possible further solvencyii functions
 
-- adding appveyor badge to readme.Rmd 
+- testing:
+    - changing from informal testing to formal testing ('testthat') 
+    - improving error handling
+    - implementing code_coverage code (in travis) and badge to `README`
+    - implementing appveyor code and badge 
 
-- several typos,
+- documentation, 
+    - several typos corrected
+    - vignette `coding overview` is not a placeholder anymore
+    - removing vignettes `geom_sii_risksurface`, `geom_sii_riskoutline`, `geom_sii_riskconnection`
+    - removing internal functions from the pdf
 
-- further documentation, renaming vignette _ggsolvencyii to ggsolvencyii, vignettes plotdetails and coding overview
-
-- changing from informal testing to formal testing ('testthat') and adding codecoverage metrics
-
-- functionname from 'sii_debug' to 'sii_debug_geom' in preparation of possible further solvencyii functions
-
-- preparation for parameter 'relalpha' in combination with column 'relalpha' in 'plotdetails'-settings table (implemented in coming version 0.2.0)
-
-- preparation for parameter 'tocenter' for "piecharts segments" (implemented in coming version 0.2.0)
-
-- removing internal functions from documentation pdf
-
-
+- preparation for version 0.2.0
+    - preparatory lines for parameters `relalpha`  and `tocenter`)
 
 ## version 0.1.0, October 2018
 

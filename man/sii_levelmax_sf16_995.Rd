@@ -17,7 +17,7 @@ sii_levelmax_sf16_995
 }
 \description{
 maximum number of items in a level, 99 items for levels 1-3
-(SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lowerlevel risk
+(SCR, BSCR/OR/ADJ, Market/life/... risks) and 5 items for lower level risk
 (equity/longevity/...) in a standard formula structure.
 }
 \examples{

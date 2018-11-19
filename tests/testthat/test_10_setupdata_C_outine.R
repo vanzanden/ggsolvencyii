@@ -26,8 +26,8 @@ context("fn_setupdata_outline")
     ## simulation of the route through ggplot
     ## only required aesthetics, comparewithid is always present in data, if not filled as aesthetic it is the same as id
     testdata_ggplotformat <- dplyr::rename(testdata, x = time, y = ratio, id = id, description = description , value = value, comparewithid = comparewithid )
-    ## first test without connection
-    testdata_ggplotformat <- dplyr::mutate(testdata_ggplotformat, comparewithid = id)
+    ## first test with connection
+    ## testdata_ggplotformat <- dplyr::rename(testdata_ggplotformat, comparewithid = id)
     testdata_ggplotformat <- dplyr::mutate(testdata_ggplotformat, group = 1)
 
 

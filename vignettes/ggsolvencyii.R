@@ -7,7 +7,7 @@ library(ggsolvencyii)
 knitr::include_graphics('images/logo_engels_rvignettes.png')
 
 ## ----gh-installation, eval = FALSE---------------------------------------
-#  # install.packages("devtools")
+#  # install.packages("devtools", "dplyr" , "magrittr")
 #  devtools::install_github("vanzanden/ggsolvencyii")
 #  # or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows
 
