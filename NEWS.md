@@ -4,6 +4,15 @@
 
 ## version 0.1.1, November 2018 
 
+- correction of typos in 'description' in data and structure files of example 6 (Internal model) 
+
+
+- preparingtablesR, a tooling for preparation of files, adapted to changes going to devtools version 2.x (devtools::use_data() to usethis::use_data() 
+
+
+
+## version 0.1.1, November 2018 
+
 - function 'sii_debug' renamed to 'sii_debug_geom' in preparation of possible further solvencyii functions
 
 - testing:

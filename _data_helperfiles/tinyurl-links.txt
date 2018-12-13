@@ -6,6 +6,8 @@ tinyurl.com/ggsolvencyii-cran - 	https://cran.r-project.org/package=ggsolvencyii
 
 tinyurl.com/ggsolvencyii-cran-readme -	https://cran.r-project.org/web/packages/ggsolvencyii/readme/README.html
 
+
+
 tinyurl.com/ggsolvencyii-github - 	https://github.com/vanzanden/ggsolvencyii
 
 tinyurl.com/ggsolvencyii-001 - 		https://www.nn-group.com/nn-group/file?uuid=e3e89829-e7bd-495a-9fed-4bc54a9349eb&owner=c5df72fd-8a65-4f75-956d-5e37307aa50c&contentid=2311
