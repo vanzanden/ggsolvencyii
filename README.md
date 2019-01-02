@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggsolvencyii 0.1.1
+# ggsolvencyii 0.1.2
 
 <img src="vignettes/images/logo_engels_rvignettes.png" align="right" width="25%" />
 

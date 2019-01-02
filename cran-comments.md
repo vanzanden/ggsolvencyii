@@ -5,6 +5,19 @@ date: "November 19 2018"
 output: html_document
 ---
 
+### version 0.1.2, CRAN comments 
+r version: 3.5.1
+r studio version: 1.1.463
+devtools version: 2.0.1
+
+
+check_win_devel finished without issues
+
+=======
+
+
+
+
 ### version 0.1.1, CRAN comments 
 r version: 3.5.1
 r studio version: 1.1.463

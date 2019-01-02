@@ -30,7 +30,7 @@ The goal of ggsolvencyii is to provide 'ggplot2'-geom's to show the composition 
 
 You can install ggsolvencyii from Github:
 
-```{r gh-installation, eval = FALSE}
+```{r github-installation, eval = FALSE}
 # install.packages("devtools", "dplyr" , "magrittr")
 devtools::install_github("vanzanden/ggsolvencyii")
 # or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows
@@ -41,9 +41,9 @@ The following vignettes are available or will be available soon
 check https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes
 
 * ggsolvencyii (this vignette)
-* plotdetails (placeholder)
+* plotdetails 
 * showcase
-* coding_overview (placeholder)
+* coding_overview 
 
 ## example
 
@@ -76,7 +76,7 @@ ggplot2::ggplot() +
   geom_sii_risksurface(data = testdata[testdata$id == 1, ], 
         mapping = ggplot2::aes(x = time, 
                                y = ratio,
-                               ## x and y could for example be 
+                               ## x and y could for example also be 
                                ## longitude and latitude 
                                ## in combination with plotted map
                                value = value, 

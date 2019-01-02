@@ -151,7 +151,7 @@ fn_structure_expansion <- function(params) {
         ## counting number of items for each level
         t1 <- s_out %>%
                     dplyr::group_by(level) %>%
-                    dplyr::summarise(n = n())
+                    dplyr::summarise(n = dplyr::n())
 
         ## maximum of components in each level, a dataframe or integer
 

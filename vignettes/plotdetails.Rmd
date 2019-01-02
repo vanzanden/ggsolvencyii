@@ -14,13 +14,14 @@ knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="z_plotdetails-")
 library(ggplot2)
 library(ggsolvencyii)
 ```
+
 ```{r,logo, out.width='25%', fig.align='right', echo=FALSE, border = FALSE}
 knitr::include_graphics('images/logo_engels_rvignettes.png')
 ```
 
 ## interested ? ..... anyone ????
 
-This documentation is in a rudimentary form for release 0.1.1. which is meant to see how much interest (not the financial one) this package generates.
+This documentation is in a rudimentary form for release 0.1.2. which is meant to see how much interest (not the financial one) this package generates.
 
 ## Vignettes
 The following vignettes are available.  
@@ -28,7 +29,7 @@ The following vignettes are available.
 * ggsolvencyii 
 * plotdetails (this vignette)
 * showcase
-* coding_overview (placeholder)
+* coding_overview 
 
 On https://github.com/vanzanden/ggsolvencyii/tree/master/vignettes less rudimentary versions might be available between releases.
 

@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 md_document: markdown_strict
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Coding overview}
+  %\VignetteIndexEntry{Showcase}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 fontsize: 7pt  
@@ -21,7 +21,7 @@ knitr::include_graphics('images/logo_engels_rvignettes.png')
 
 ## Disclaimer
 
-This documentation is in a rudimentary form for release 0.1.1. which is meant to see how much interest (not the financial one) this package generates.
+This documentation is in a rudimentary form for release 0.1.2. which is meant to see how much interest (not the financial one) this package generates.
 
 ## Vignettes
 The following vignettes are available.  
