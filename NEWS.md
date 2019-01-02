@@ -2,13 +2,15 @@
 # ggsolvencyii development
 
 
-## version 0.1.1, November 2018 
+## version 0.1.2, January 2019 
 
 - correction of typos in 'description' in data and structure files of example 6 (Internal model) 
-
-
-- preparingtablesR, a tooling for preparation of files, adapted to changes going to devtools version 2.x (devtools::use_data() to usethis::use_data() 
-
+- correcting CRAN- link title OF vignettes
+- adapting as result of changes in packages on which ggsolvencyii depends:
+    - devtools version 2.x : code from devtools::use_data() to usethis::use_data() 
+    - dplyr version 0.8.0 (release planned feb 1,2019) : 
+    
+      "Functions like n(), row_number() ... that are typically used in dplyr verbs must now be imported when used in packages and scripts, otherwise the error Error in n() : could not find function "n" will appear."
 
 
 ## version 0.1.1, November 2018 

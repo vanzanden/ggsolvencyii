@@ -11,7 +11,7 @@ library(ggsolvencyii)
 ```
 
 
-# ggsolvencyii 0.1.1
+# ggsolvencyii 0.1.2
 <img src="vignettes/images/logo_engels_rvignettes.png" align="right" width="25%" />
 
 <P>

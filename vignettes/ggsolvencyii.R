@@ -6,7 +6,7 @@ library(ggsolvencyii)
 ## ----logo, out.width='25%', fig.align='right', echo=FALSE, border = FALSE----
 knitr::include_graphics('images/logo_engels_rvignettes.png')
 
-## ----gh-installation, eval = FALSE---------------------------------------
+## ----github-installation, eval = FALSE-----------------------------------
 #  # install.packages("devtools", "dplyr" , "magrittr")
 #  devtools::install_github("vanzanden/ggsolvencyii")
 #  # or from the binary in github.com/vanzanden/ggsolvencyii/binaries/windows
@@ -30,7 +30,7 @@ ggplot2::ggplot() +
   geom_sii_risksurface(data = testdata[testdata$id == 1, ], 
         mapping = ggplot2::aes(x = time, 
                                y = ratio,
-                               ## x and y could for example be 
+                               ## x and y could for example also be 
                                ## longitude and latitude 
                                ## in combination with plotted map
                                value = value, 
