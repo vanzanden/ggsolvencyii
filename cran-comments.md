@@ -6,25 +6,22 @@ output: html_document
 ---
 
 ### version 0.1.2, CRAN comments 
-<<<<<<< HEAD
+
 r version: 3.5.2
-=======
-r version: 3.5.1
->>>>>>> 387e97dacc179b106a3b5ecc06f0d9f4dfd1e7f8
 r studio version: 1.1.463
 devtools version: 2.0.1
 
+r-hub results
+0 errors √ | 0 warnings √ | 1 note x
 
-<<<<<<< HEAD
-check_win_devel finished only with issues in vignette creating
+checking examples ... NOTE
+  Examples with CPU or elapsed time > 5s
+                       user system elapsed
+  geom_sii_riskoutline 8.58   0.05    8.64
+  geom_sii_risksurface 5.54   0.02    5.56
+
+
 =======
-check_win_devel finished without issues
->>>>>>> 387e97dacc179b106a3b5ecc06f0d9f4dfd1e7f8
-
-=======
-
-
-
 
 ### version 0.1.1, CRAN comments 
 r version: 3.5.1
