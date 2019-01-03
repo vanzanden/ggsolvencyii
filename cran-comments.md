@@ -6,12 +6,20 @@ output: html_document
 ---
 
 ### version 0.1.2, CRAN comments 
+<<<<<<< HEAD
 r version: 3.5.2
+=======
+r version: 3.5.1
+>>>>>>> 387e97dacc179b106a3b5ecc06f0d9f4dfd1e7f8
 r studio version: 1.1.463
 devtools version: 2.0.1
 
 
+<<<<<<< HEAD
 check_win_devel finished only with issues in vignette creating
+=======
+check_win_devel finished without issues
+>>>>>>> 387e97dacc179b106a3b5ecc06f0d9f4dfd1e7f8
 
 =======
 
