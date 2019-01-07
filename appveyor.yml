@@ -17,6 +17,7 @@ cache:
 
 build_script:
   - Rscript -e install.packages('stringi',type='binary',repos='https://cran.rstudio.com')
+  - Rscript -e install.packages('tibble',type='binary',repos='https://cran.rstudio.com')
   - travis-tool.sh install_deps
 
 test_script:
