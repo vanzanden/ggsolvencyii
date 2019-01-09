@@ -1,6 +1,6 @@
 Package: ggsolvencyii
 Title: A 'ggplot2'-Plot of Composition of Solvency II SCR: SF and IM
-Version: 0.1.2
+Version: 0.1.2.1
 Date: 2019-01-02
 Authors@R: person("Marco", "van Zanden", email = "git@vanzanden.nl", role = c("aut", "cre"))
 Description: An implementation of 'ggplot2'-methods to present the composition of Solvency II Solvency Capital Requirement (SCR) as a series of concentric circle-parts. 
