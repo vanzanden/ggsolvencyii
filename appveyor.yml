@@ -19,6 +19,10 @@ environment:
   USE_RTOOLS: true
 
 build_script:
+<<<<<<< HEAD
+=======
+  - USE_RTOOLS: true
+>>>>>>> 315f9d6403cd4abef6acb0a98319c59e51a39865
   - Rscript -e install.packages('tibble',type='binary',repos='https://cran.rstudio.com')
   - Rscript -e install.packages('rlang',type='binary',repos='https://cran.rstudio.com')
   - travis-tool.sh install_deps
