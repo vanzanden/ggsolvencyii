@@ -15,10 +15,14 @@ cache:
 
 # Adapt as necessary starting from here
 
+
+
 build_script:
-  - Rscript -e install.packages('stringi',type='binary',repos='https://cran.rstudio.com')
+  - USE_RTOOLS: true
   - Rscript -e install.packages('tibble',type='binary',repos='https://cran.rstudio.com')
+  - Rscript -e install.packages('rlang',type='binary',repos='https://cran.rstudio.com')
   - travis-tool.sh install_deps
+
 
 test_script:
   - travis-tool.sh run_tests
