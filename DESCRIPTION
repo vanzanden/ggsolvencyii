@@ -1,7 +1,7 @@
 Package: ggsolvencyii
 Title: A 'ggplot2'-Plot of Composition of Solvency II SCR: SF and IM
-Version: 0.1.2.1
-Date: 2019-01-02
+Version: 0.2.0.1
+Date: 2019-04-17
 Authors@R: person("Marco", "van Zanden", email = "git@vanzanden.nl", role = c("aut", "cre"))
 Description: An implementation of 'ggplot2'-methods to present the composition of Solvency II Solvency Capital Requirement (SCR) as a series of concentric circle-parts. 
  Solvency II (Solvency 2) is European insurance legislation, coming in force by the delegated acts of October 10, 2014.
@@ -18,13 +18,12 @@ RoxygenNote: 6.1.1
 Imports: dplyr, 
          ggplot2,
          magrittr,
-         tidyr
-Suggests: 
-	  covr,
-	  ggmap,
-    knitr,
-    rmarkdown,
-    testthat
+         tidyr,
+         httr
+Suggests:   covr,
+            knitr,
+            rmarkdown,
+            testthat
 VignetteBuilder: knitr
 URL: https://github.com/vanzanden/ggsolvencyii
 BugReports: https://github.com/vanzanden/ggsolvencyii/issues

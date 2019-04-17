@@ -2,11 +2,13 @@
 title: "ggsolvencyii"
 author: "Marco van Zanden"
 date: "`r Sys.Date()`"
+md_document: markdown_strict
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{ggsolvencyii}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+fontsize: 7pt  
 ---
 <!-- md_document: markdown_strict -->
 <!-- README.md is generated from README.Rmd. Please edit that file -->

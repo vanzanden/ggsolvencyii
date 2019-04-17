@@ -20,8 +20,8 @@ environment:
 
 build_script:
   - USE_RTOOLS: true
-  - Rscript -e install.packages('tibble',type='binary',repos='https://cran.rstudio.com')
-  - Rscript -e install.packages('rlang',type='binary',repos='https://cran.rstudio.com')
+  #- Rscript -e install.packages('tibble',type='binary',repos='https://cran.rstudio.com')
+  #- Rscript -e install.packages('rlang',type='binary',repos='https://cran.rstudio.com')
   - travis-tool.sh install_deps
 
 

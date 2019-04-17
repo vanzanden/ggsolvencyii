@@ -1,6 +1,12 @@
 
 # ggsolvencyii development
 
+## version 0.1.3, 
+
+- implentation of usage statistics, when making a plot a call is made to website vanzanden.nl for a dummy textfile. So (anonymous) usage statistics can be made. A regular reminder is given to the user. call to vanzanden.nl and reminder can independently be switched on or off (default value for both is "on") by calling ............ and .............
+
+
+
 
 ## version 0.1.2, January 2019 
 

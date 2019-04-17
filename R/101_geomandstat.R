@@ -209,6 +209,7 @@ geom_sii_risksurface <- function(data = NULL,
                       ## ellipsis
                         ...
                       ) {
+        statistics(caller = "stat_geomsiiriskSURFACE.csv")
         ggplot2::layer(data = data,
                        stat = stat,
                        geom = GeomSiiRisksurface,
@@ -319,6 +320,7 @@ geom_sii_riskoutline <- function(data = NULL,
                   ## ellipsis
                     ...
                   ) {
+        statistics(caller = "stat_geomsiiriskOUTLINE.csv")
         ggplot2::layer( data = data,
                 stat = stat,
                 geom = GeomSiiRiskoutline,
@@ -390,6 +392,7 @@ geom_sii_riskconnection <- function(data = NULL,
                                   ## ellipsis
                                     ...
                                   ) {
+                        statistics(caller = "stat_geomsiiriskCONNECTION.csv")
                         ggplot2::layer(data = data,
                         stat = stat,
                         geom = GeomSiiRiskconnection,

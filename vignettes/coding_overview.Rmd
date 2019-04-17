@@ -10,6 +10,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 fontsize: 7pt  
 ---
+<!-- md_document: markdown_strict -->
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 ```{r,init,echo=FALSE,results=FALSE,warnings=FALSE,message=FALSE}
 knitr::opts_chunk$set(collapse=TRUE,comment="#>",fig.path="z_coding_overview-")
 library(ggplot2)
